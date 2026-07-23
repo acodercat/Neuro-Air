@@ -1,0 +1,48 @@
+{
+  "hb_1_29": {
+    "scenario": "hb_1_29",
+    "conversations": [
+      {
+        "id": "hb_1_29",
+        "turns": [
+          {
+            "query": "Compare steel industry emissions and air quality between April and May 2025 in Wu'an City.",
+            "actual_response": "2025\u5e744\u20145\u6708\u6b66\u5b89\u5e02\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u4e0e\u7a7a\u6c14\u8d28\u91cf\u5bf9\u6bd4\u5982\u4e0b\uff1a\n\n- \u94a2\u94c1\u884c\u4e1a\u5e9f\u6c14\u6392\u653e\u603b\u91cf\uff1a\n  - 4\u6708\uff1a76,533,186,560 \u7acb\u65b9\u7c73\n  - 5\u6708\uff1a69,286,649,856 \u7acb\u65b9\u7c73\n  - \u6392\u653e\u8f83\u9ad8\u6708\u4efd\uff1a4\u6708\n  - 5\u6708\u76f8\u5bf94\u6708\u53d8\u5316\u5e45\u5ea6\uff1a\u4e0b\u964d 9.47%\n\n- \u7a7a\u6c14\u8d28\u91cf\uff1a\n  - 4\u6708\u5e73\u5747 AQI\uff1a80.37\n  - 5\u6708\u5e73\u5747 AQI\uff1a71.96\n  - 5\u6708\u5e73\u5747 AQI \u8f834\u6708\u964d\u4f4e\u7ea6 8.41\uff0c\u7a7a\u6c14\u8d28\u91cf\u603b\u4f53\u6709\u6240\u6539\u5584\u3002\n\n\u7ed3\u8bba\uff1a  \n2025\u5e745\u6708\uff0c\u6b66\u5b89\u5e02\u94a2\u94c1\u884c\u4e1a\u5e9f\u6c14\u6392\u653e\u603b\u91cf\u8f834\u6708\u4e0b\u964d\u7ea69.47%\uff0c\u540c\u671f\u533a\u57df\u5e73\u5747 AQI \u4e5f\u753180.37\u964d\u81f371.96\u3002\u57fa\u4e8e\u5df2\u67e5\u8be2\u6570\u636e\uff0c5\u6708\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u964d\u4f4e\u4e0e\u533a\u57df\u7a7a\u6c14\u8d28\u91cf\u6539\u5584\u5728\u6708\u5ea6\u5c3a\u5ea6\u4e0a\u5448\u540c\u6b65\u53d8\u5316\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12114,
+              "completion_tokens": 1709,
+              "total_tokens": 13823
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5148\u6309\u6761\u4ef6\u7edf\u8ba1\u8bb0\u5f55\u91cf\uff0c\u518d\u6267\u884c\u6708\u5ea6\u805a\u5408\ncount_sql = text(\"\"\"\nWITH steel_companies AS (\n  SELECT id FROM polluting_company\n  WHERE district_id = 71 AND industry_type = 'STEEL'\n)\nSELECT 'steel_apr' AS item, COUNT(*)::bigint AS n\nFROM hourly_polluting_company_emission e JOIN steel_companies c ON e.company_id = c.id\nWHERE e.timestamp >= '2025-04-01' AND e.timestamp < '2025-05-01'\nUNION ALL\nSELECT 'steel_may', COUNT(*)::bigint\nFROM hourly_polluting_company_emission e JOIN steel_companies c ON e.company_id = c.id\nWHERE e.timestamp >= '2025-05-01' AND e.timestamp < '2025-06-01'\nUNION ALL\nSELECT 'aqi_apr', COUNT(*)::bigint\nFROM hourly_district_air_quality\nWHERE district_id = 71 AND timestamp >= '2025-04-01' AND timestamp < '2025-05-01'\nUNION ALL\nSELECT 'aqi_may', COUNT(*)::bigint\nFROM hourly_district_air_quality\nWHERE district_id = 71 AND timestamp >= '2025-05-01' AND timestamp < '2025-06-01'\n\"\"\")\ncounts = pd.read_sql(count_sql, engine)\n\nagg_sql = text(\"\"\"\nWITH steel_companies AS (\n  SELECT id FROM polluting_company\n  WHERE district_id = 71 AND industry_type = 'STEEL'\n),\nemission_monthly AS (\n  SELECT\n    CASE WHEN e.timestamp >= '2025-04-01' AND e.timestamp < '2025-05-01' THEN 'April'\n         WHEN e.timestamp >= '2025-05-01' AND e.timestamp < '2025-06-01' THEN 'May' END AS month,\n    SUM(e.exhaust_gas)::double precision AS total_exhaust_gas,\n    COUNT(*)::bigint AS emission_records\n  FROM hourly_polluting_company_emission e\n  JOIN steel_companies c ON e.company_id = c.id\n  WHERE e.timestamp >= '2025-04-01' AND e.timestamp < '2025-06-01'\n  GROUP BY 1\n),\naqi_monthly AS (\n  SELECT\n    CASE WHEN timestamp >= '2025-04-01' AND timestamp < '2025-05-01' THEN 'April'\n         WHEN timestamp >= '2025-05-01' AND timestamp < '2025-06-01' THEN 'May' END AS month,\n    AVG(aqi)::double precision AS mean_aqi,\n    COUNT(*)::bigint AS aqi_records\n  FROM hourly_district_air_quality\n  WHERE district_id = 71 AND timestamp >= '2025-04-01' AND timestamp < '2025-06-01'\n  GROUP BY 1\n)\nSELECT e.month, e.total_exhaust_gas, e.emission_records, a.mean_aqi, a.aqi_records\nFROM emission_monthly e\nFULL JOIN aqi_monthly a ON e.month = a.month\nORDER BY CASE COALESCE(e.month, a.month) WHEN 'April' THEN 1 WHEN 'May' THEN 2 END\n\"\"\")\nmonthly = pd.read_sql(agg_sql, engine)\n\napr = monthly.loc[monthly[\"month\"] == \"April\"].iloc[0]\nmay = monthly.loc[monthly[\"month\"] == \"May\"].iloc[0]\n\ntotal_steel_apr = float(apr[\"total_exhaust_gas\"])\ntotal_steel_may = float(may[\"total_exhaust_gas\"])\nhigher_emission_month = \"May\" if total_steel_may > total_steel_apr else \"April\"\nemission_change_pct = float((total_steel_may - total_steel_apr) / total_steel_apr * 100)\nmean_aqi_apr = float(apr[\"mean_aqi\"])\nmean_aqi_may = float(may[\"mean_aqi\"])\n\nprint(\"\u8bb0\u5f55\u91cf\u6838\u9a8c\uff1a\")\nprint(counts.to_string(index=False))\nprint(\"\\n\u6708\u5ea6\u6c47\u603b\uff1a\")\nprint(monthly.to_string(index=False))\nprint(\"\\n\u5df2\u8d4b\u503c\u53d8\u91cf\uff1a\")\nprint({\n    \"total_steel_apr\": total_steel_apr,\n    \"total_steel_may\": total_steel_may,\n    \"higher_emission_month\": higher_emission_month,\n    \"emission_change_pct\": emission_change_pct,\n    \"mean_aqi_apr\": mean_aqi_apr,\n    \"mean_aqi_may\": mean_aqi_may\n})"
+            ],
+            "runtime_variables": {
+              "total_steel_apr": 76533186560.0,
+              "total_steel_may": 69286649856.0,
+              "higher_emission_month": "April",
+              "emission_change_pct": -9.468489461521253,
+              "mean_aqi_apr": 80.36805555555556,
+              "mean_aqi_may": 71.9622641509434
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 12114,
+      "total_completion_tokens": 1709,
+      "total_tokens": 13823
+    }
+  }
+}

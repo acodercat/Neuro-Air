@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_23",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_23",
+    "requirements": "As part of your analysis, on 2025-06-10 compute and store: total_flue_gas_jingtang (Shougang Jingtang Steel), total_flue_gas_hanbao (Hangang Group Hanbao Steel) (float), higher_emitter_company_id (the company_id of the higher emitter, int), emission_ratio (higher/lower, float).",
+    "conversations": [
+      {
+        "id": "hb_1_23",
+        "turns": [
+          {
+            "query": "Analyze emission patterns between large-scale steel enterprises: Shougang Jingtang Steel vs Hangang Group Hanbao Steel on 2025-06-10.",
+            "validator": "validate_hb_1_23"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-23",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_23",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_23",
+    "requirements": "As part of your analysis, for company 2420 at 2025-06-10 21:00 compute and store: flue_gas_2100, nox_2100, so2_2100, pm_2100 (float) and stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_23",
+        "turns": [
+          {
+            "query": "Help me assess the pollution exposure to nearby residential communities from Tangshan Ruifeng Steel Group Co., Ltd. (company_id: 2420) on 2025-06-10 at 21:00.",
+            "validator": "validate_hb_7_23"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-23",
+      "verbatim": true
+    }
+  }
+]

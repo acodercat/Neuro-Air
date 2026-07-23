@@ -1,0 +1,50 @@
+{
+  "hb_1_12": {
+    "scenario": "hb_1_12",
+    "conversations": [
+      {
+        "id": "hb_1_12",
+        "turns": [
+          {
+            "query": "Identify the high emission periods of Shougang Jingtang Steel United Co., Ltd. during 2025-06-10 to 2025-06-12 and analyze the emission peak patterns.",
+            "actual_response": "\u6839\u636e\u5bf9\u9996\u94a2\u4eac\u5510\u94a2\u94c1\u8054\u5408\u6709\u9650\u8d23\u4efb\u516c\u53f82025\u5e746\u670810\u65e5\u81f36\u670812\u65e5\u671f\u95f4\u6392\u653e\u6570\u636e\u7684\u5206\u6790\uff0c\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u6392\u653e\u7edf\u8ba1\u6307\u6807\uff1a**\n- **\u603b\u70df\u6c14\u91cf**\uff1a2,577,145,700.0 \u7acb\u65b9\u7c73\n- **\u5e73\u5747\u5c0f\u65f6\u6392\u6c14\u91cf**\uff1a35,793,690.28 \u7acb\u65b9\u7c73/\u5c0f\u65f6\n- **\u5cf0\u503c\u6392\u6c14\u91cf**\uff1a37,882,100.0 \u7acb\u65b9\u7c73/\u5c0f\u65f6\n- **\u5cf0\u503c\u51fa\u73b0\u65f6\u95f4**\uff1a2025\u5e746\u670812\u65e5 01:00\uff08\u8ddd\u8d77\u59cb\u65f6\u95f449\u5c0f\u65f6\uff09\n- **\u6d3b\u8dc3\u6392\u653e\u5c0f\u65f6\u6570**\uff1a72\u5c0f\u65f6\uff08\u4e09\u5929\u5185\u6301\u7eed\u6392\u653e\uff09\n\n**\u6392\u653e\u5cf0\u503c\u6a21\u5f0f\u5206\u6790\uff1a**\n\n1. **\u6301\u7eed\u6392\u653e\u7279\u5f81**\uff1a\u8be5\u4f01\u4e1a\u572872\u5c0f\u65f6\u76d1\u6d4b\u671f\u5185\u59cb\u7ec8\u4fdd\u6301\u751f\u4ea7\u8fd0\u884c\u72b6\u6001\uff0c\u6240\u6709\u5c0f\u65f6\u5747\u6709\u6b63\u6392\u653e\u8bb0\u5f55\uff0c\u8868\u660e\u94a2\u94c1\u751f\u4ea7\u5177\u6709\u8fde\u7eed\u6027\u7279\u70b9\u3002\n\n2. **\u5cf0\u503c\u65f6\u6bb5\u7279\u5f81**\uff1a\u6392\u653e\u5cf0\u503c\u51fa\u73b0\u57286\u670812\u65e5\u51cc\u666801:00\uff0c\u6392\u6c14\u91cf\u8fbe\u523037,882,100\u7acb\u65b9\u7c73/\u5c0f\u65f6\uff0c\u8f83\u5e73\u5747\u503c\u9ad8\u51fa\u7ea65.8%\u3002\u51cc\u6668\u65f6\u6bb5\u51fa\u73b0\u5cf0\u503c\u53ef\u80fd\u4e0e\u591c\u95f4\u751f\u4ea7\u8d1f\u8377\u8c03\u6574\u6216\u7279\u5b9a\u5de5\u827a\u73af\u8282\u8fd0\u884c\u6709\u5173\u3002\n\n3. **\u6392\u653e\u6ce2\u52a8\u8303\u56f4**\uff1a\u4ece\u6570\u636e\u6837\u672c\u53ef\u89c1\uff0c\u6392\u6c14\u91cf\u572833,422,100\u81f337,882,100\u7acb\u65b9\u7c73/\u5c0f\u65f6\u4e4b\u95f4\u6ce2\u52a8\uff0c\u6ce2\u52a8\u5e45\u5ea6\u7ea6\u4e3a13.4%\uff0c\u663e\u793a\u751f\u4ea7\u8d1f\u8377\u5b58\u5728\u4e00\u5b9a\u8c03\u8282\u7a7a\u95f4\u3002\n\n4. **\u9ad8\u6392\u653e\u65f6\u6bb5\u8bc6\u522b**\uff1a\u5efa\u8bae\u91cd\u70b9\u5173\u6ce8\u6392\u6c14\u91cf\u8d85\u8fc737,000,000\u7acb\u65b9\u7c73/\u5c0f\u65f6\u7684\u65f6\u6bb5\uff0c\u8fd9\u4e9b\u65f6\u6bb5\u53ef\u80fd\u5bf9\u5e94\u9ad8\u8d1f\u8377\u751f\u4ea7\u6216\u7279\u5b9a\u5de5\u827a\u6392\u653e\u8282\u70b9\uff0c\u9700\u52a0\u5f3a\u76d1\u6d4b\u548c\u7ba1\u63a7\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 34447,
+              "completion_tokens": 1398,
+              "total_tokens": 35845
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u9996\u94a2\u4eac\u5510\u94a2\u94c1\u8054\u5408\u6709\u9650\u8d23\u4efb\u516c\u53f8\u7684\u516c\u53f8ID\nquery_company = text(\"\"\"SELECT id, name, industry_type FROM polluting_company WHERE name LIKE '%\u9996\u94a2\u4eac\u5510%' OR name LIKE '%Shougang Jingtang%'\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u9996\u94a2\u4eac\u5510\u94a2\u94c1\u8054\u5408\u6709\u9650\u8d23\u4efb\u516c\u53f8\u57282025-06-10\u52302025-06-12\u671f\u95f4\u7684\u5c0f\u65f6\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00:00 (\u5305\u542b) \u5230 2025-06-13 00:00:00 (\u4e0d\u5305\u542b)\nquery_emission = text(\"\"\"\nSELECT timestamp, exhaust_gas \nFROM hourly_polluting_company_emission \nWHERE company_id = 2444 \nAND timestamp >= '2025-06-10 00:00:00' \nAND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\n\"\"\")\ndf_emission = pd.read_sql(query_emission, engine)\nprint(f\"\u6570\u636e\u8bb0\u5f55\u6570: {len(df_emission)}\")\nprint(df_emission.head(10))\nprint(df_emission.tail(10))",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u6240\u9700\u7684\u7edf\u8ba1\u6307\u6807\ndf = df_emission\n\n# \u603b\u70df\u6c14\u91cf (total_flue_gas)\ntotal_flue_gas = float(df['exhaust_gas'].sum())\n\n# \u5e73\u5747\u6392\u6c14\u91cf (mean_exhaust)\nmean_exhaust = float(df['exhaust_gas'].mean())\n\n# \u5cf0\u503c\u6392\u6c14\u91cf (peak_exhaust)\npeak_exhaust = float(df['exhaust_gas'].max())\n\n# \u627e\u5230\u5cf0\u503c\u65f6\u95f4\npeak_row = df[df['exhaust_gas'] == peak_exhaust].iloc[0]\npeak_timestamp = pd.to_datetime(peak_row['timestamp'])\nstart_time = pd.to_datetime('2025-06-10 00:00:00')\n\n# \u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570 (\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u7684\u5c0f\u65f6\u6570)\npeak_offset_hours = int((peak_timestamp - start_time).total_seconds() / 3600)\n\n# \u6d3b\u8dc3\u5c0f\u65f6\u6570 (\u6392\u6c14\u91cf\u4e3a\u6b63\u7684\u5c0f\u65f6\u6570)\nactive_hours = int((df['exhaust_gas'] > 0).sum())\n\nprint(f\"\u603b\u70df\u6c14\u91cf: {total_flue_gas}\")\nprint(f\"\u5e73\u5747\u6392\u6c14\u91cf: {mean_exhaust}\")\nprint(f\"\u5cf0\u503c\u6392\u6c14\u91cf: {peak_exhaust}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4: {peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_offset_hours}\")\nprint(f\"\u6d3b\u8dc3\u5c0f\u65f6\u6570: {active_hours}\")\n\n# \u5c06\u7ed3\u679c\u8d4b\u503c\u7ed9\u53d8\u91cf\ntotal_flue_gas = total_flue_gas\nmean_exhaust = mean_exhaust\npeak_exhaust = peak_exhaust\npeak_offset_hours = peak_offset_hours\nactive_hours = active_hours",
+              "# \u5c06\u8ba1\u7b97\u7ed3\u679c\u8d4b\u503c\u7ed9\u8981\u6c42\u7684\u53d8\u91cf\ntotal_flue_gas = 2577145700.0\nmean_exhaust = 35793690.277777776\npeak_exhaust = 37882100.0\npeak_offset_hours = 49\nactive_hours = 72\n\nprint(f\"\u6700\u7ec8\u7ed3\u679c:\")\nprint(f\"total_flue_gas: {total_flue_gas}\")\nprint(f\"mean_exhaust: {mean_exhaust}\")\nprint(f\"peak_exhaust: {peak_exhaust}\")\nprint(f\"peak_offset_hours: {peak_offset_hours}\")\nprint(f\"active_hours: {active_hours}\")"
+            ],
+            "runtime_variables": {
+              "total_flue_gas": 2577145700.0,
+              "mean_exhaust": 35793690.277777776,
+              "peak_exhaust": 37882100.0,
+              "peak_offset_hours": 49,
+              "active_hours": 72
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 5,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 34447,
+      "total_completion_tokens": 1398,
+      "total_tokens": 35845
+    }
+  }
+}

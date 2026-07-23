@@ -1,0 +1,47 @@
+{
+  "hb_1_6": {
+    "scenario": "hb_1_6",
+    "conversations": [
+      {
+        "id": "hb_1_6",
+        "turns": [
+          {
+            "query": "Analyze the pollution patterns at air quality station: Ligong on 2025-06-01.",
+            "actual_response": "\u6839\u636e2025\u5e746\u67081\u65e5 Ligong \u7ad9\u70b9\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\uff0c\u4ee5\u4e0b\u662f\u5206\u6790\u7ed3\u679c\uff1a\n\n- \u5e73\u5747PM2.5\u6d53\u5ea6\uff1a32.21 \u03bcg/m\u00b3\n- \u6700\u9ad8PM2.5\u6d53\u5ea6\uff1a58.00 \u03bcg/m\u00b3\n- \u5e73\u5747AQI\uff1a46.92\n- PM2.5\u6d53\u5ea6\u8d85\u8fc775 \u03bcg/m\u00b3\u7684\u5c0f\u65f6\u6570\uff1a0\n- PM2.5\u6d53\u5ea6\u5cf0\u503c\u51fa\u73b0\u572822\u70b9",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11657,
+              "completion_tokens": 507,
+              "total_tokens": 12164
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2 Ligong \u7ad9\u70b9\u5728 2025-06-01 \u7684\u6240\u6709\u5c0f\u65f6\u6570\u636e\nquery = text(\"\"\"\nSELECT \n    hsaq.timestamp, \n    hsaq.pm2_5, \n    hsaq.aqi\nFROM \n    hourly_station_air_quality hsaq\nJOIN \n    air_quality_station aqs ON hsaq.station_id = aqs.id\nWHERE \n    aqs.name = '\u79bb\u5bab' AND \n    DATE(hsaq.timestamp) = '2025-06-01'\nORDER BY \n    hsaq.timestamp\n\"\"\")\n\ndf = pd.read_sql(query, engine)\n\n# \u8ba1\u7b97\u6240\u9700\u6307\u6807\nmean_pm25 = df['pm2_5'].mean()\nmax_pm25 = df['pm2_5'].max()\nmean_aqi = df['aqi'].mean()\nexceedance_hours = (df['pm2_5'] > 75).sum()\npeak_pm25_hour_of_day = df.loc[df['pm2_5'].idxmax()]['timestamp'].hour\n\n# \u6253\u5370\u7ed3\u679c\nprint(f\"Mean PM2.5: {mean_pm25:.2f}\")\nprint(f\"Max PM2.5: {max_pm25:.2f}\")\nprint(f\"Mean AQI: {mean_aqi:.2f}\")\nprint(f\"Exceedance Hours: {exceedance_hours}\")\nprint(f\"Peak PM2.5 Hour of Day: {peak_pm25_hour_of_day}\")\n\n# \u5b58\u50a8\u7ed3\u679c\nmean_pm25 = float(mean_pm25)\nmax_pm25 = float(max_pm25)\nmean_aqi = float(mean_aqi)\nexceedance_hours = int(exceedance_hours)\npeak_pm25_hour_of_day = int(peak_pm25_hour_of_day)"
+            ],
+            "runtime_variables": {
+              "mean_pm25": 32.208333333333336,
+              "max_pm25": 58.0,
+              "mean_aqi": 46.916666666666664,
+              "exceedance_hours": 0,
+              "peak_pm25_hour_of_day": 22
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11657,
+      "total_completion_tokens": 507,
+      "total_tokens": 12164
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_22",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_22",
+    "requirements": "As part of your analysis, for company 2569 over 2025-06-10 11:00-14:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_22",
+        "turns": [
+          {
+            "query": "Analyze how Hebei Jinxi Steel Group Co., Ltd. West Plant (company_id: 2569) emissions on 2025-06-10 between 11:00-14:00 affected nearby commercial districts.",
+            "validator": "validate_hb_7_22"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-22",
+      "verbatim": true
+    }
+  }
+]

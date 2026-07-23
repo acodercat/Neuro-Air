@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_11",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_3_11",
+    "requirements": "As part of your analysis, rank the stations of 石家庄市 (Shijiazhuang) by daily mean AQI on 2025-06-20. Compute and store: top5_station_ids (list of the 5 highest, int), most_polluted_station_id (int), most_polluted_mean_aqi (float).",
+    "conversations": [
+      {
+        "id": "hb_3_11",
+        "turns": [
+          {
+            "query": "Analyze the hourly pollution trends of the 5 most polluted stations in 石家庄市 on 2025-06-20 and identify cross-station pollution transport patterns.",
+            "validator": "validate_hb_3_11"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-11",
+      "verbatim": true
+    }
+  }
+]

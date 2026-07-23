@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_11",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_1_11",
+    "requirements": "As part of your analysis, on 2025-01-22 across ROADSIDE stations compute and store: mean_co_0800 (mean CO at 08:00), mean_co_1400 (mean CO at 14:00) (float), co_difference (0800 minus 1400, float), n_roadside_stations (int).",
+    "conversations": [
+      {
+        "id": "hk_1_11",
+        "turns": [
+          {
+            "query": "Compare CO levels at roadside stations during peak (08:00) vs. off-peak (14:00) hours on January 22, 2025.",
+            "validator": "validate_hk_1_11"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-11",
+      "verbatim": true
+    }
+  }
+]

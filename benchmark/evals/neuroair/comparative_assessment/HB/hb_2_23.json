@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_23",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_2_23",
+    "requirements": "As part of your analysis, on 2025-06-18 for Chang'an, Qiaoxi and Gaoyi (all Shijiazhuang districts) compute and store: mean_aqi_changan, mean_aqi_qiaoxi, mean_aqi_gaoyi (float), urban_to_rural_diff (mean of the two urban districts minus Gaoyi, float).",
+    "conversations": [
+      {
+        "id": "hb_2_23",
+        "turns": [
+          {
+            "query": "Assess pollution transmission from urban districts (Chang'an, Qiaoxi) to rural Gaoyi County on 2025-06-18",
+            "validator": "validate_hb_2_23"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-23",
+      "verbatim": true
+    }
+  }
+]

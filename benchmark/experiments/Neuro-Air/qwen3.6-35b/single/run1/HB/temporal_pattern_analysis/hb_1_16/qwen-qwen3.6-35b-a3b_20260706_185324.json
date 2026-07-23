@@ -1,0 +1,47 @@
+{
+  "hb_1_16": {
+    "scenario": "hb_1_16",
+    "conversations": [
+      {
+        "id": "hb_1_16",
+        "turns": [
+          {
+            "query": "Identify the peak SO2 emission hours of Shougang Qian'an Steel Company during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u57282025\u5e746\u670810\u65e5\u81f36\u670812\u65e5\u671f\u95f4\u7684SO2\u6392\u653e\u5206\u6790\u7ed3\u679c\u5982\u4e0b\uff1a\n\n- **\u5cf0\u503cSO2\u6392\u653e\u91cf (peak_so2)**: 1554.83 kg\n- **\u5cf0\u503c\u51fa\u73b0\u65f6\u95f4\u504f\u79fb (peak_so2_offset_hours)**: 6\u5c0f\u65f6\uff08\u53732025\u5e746\u670810\u65e5 06:00\uff09\n- **\u603bSO2\u6392\u653e\u91cf (total_so2)**: 9247.545 kg\n- **\u5e73\u5747SO2\u6392\u653e\u91cf (mean_so2)**: 128.44 kg/\u5c0f\u65f6",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18366,
+              "completion_tokens": 1454,
+              "total_tokens": 19820
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u627e\u5230\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u7684company_id\nquery_company = text(\"\"\"\nSELECT id, name, city_id, district_id\nFROM polluting_company\nWHERE name LIKE '%\u9996\u94a2%' AND name LIKE '%\u8fc1\u5b89%'\nLIMIT 10\n\"\"\")\ncompany_df = pd.read_sql(query_company, engine)\nprint(\"\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u4fe1\u606f\uff1a\")\nprint(company_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\ncompany_id = 2452\nstart_time = '2025-06-10 00:00:00'\nend_time = '2025-06-13 00:00:00'  # 2025-06-12\u5168\u5929\u5305\u62ec\uff0c\u52302025-06-13 00:00\u4e0d\u5305\u62ec\n\n# \u67e5\u8be2\u8be5\u516c\u53f8\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u7684SO2\u6392\u653e\u6570\u636e\nquery = text(\"\"\"\nSELECT timestamp, so2\nFROM hourly_polluting_company_emission\nWHERE company_id = :company_id\n  AND timestamp >= :start_time\n  AND timestamp < :end_time\nORDER BY timestamp\n\"\"\")\n\ndf = pd.read_sql(query, engine, params={'company_id': company_id, 'start_time': start_time, 'end_time': end_time})\nprint(f\"\u6570\u636e\u884c\u6570: {len(df)}\")\nprint(f\"\u65f6\u95f4\u8303\u56f4: {df['timestamp'].min()} \u5230 {df['timestamp'].max()}\")\nprint(f\"SO2\u7edf\u8ba1: \u6700\u5c0f={df['so2'].min()}, \u6700\u5927={df['so2'].max()}, \u5e73\u5747={df['so2'].mean()}, \u603b\u548c={df['so2'].sum()}\")\n\n# \u8ba1\u7b97\u6240\u9700\u6307\u6807\npeak_so2 = float(df['so2'].max())\npeak_idx = df['so2'].idxmax()\npeak_timestamp = df.loc[peak_idx, 'timestamp']\npeak_so2_offset_hours = int((peak_timestamp - pd.Timestamp(start_time)).total_seconds() / 3600)\ntotal_so2 = float(df['so2'].sum())\nmean_so2 = float(df['so2'].mean())\n\nprint(f\"\\n\u5cf0\u503cSO2: {peak_so2}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4: {peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_so2_offset_hours}\")\nprint(f\"\u603bSO2: {total_so2}\")\nprint(f\"\u5e73\u5747SO2: {mean_so2}\")\n\n# \u5b58\u50a8\u7ed3\u679c\npeak_so2 = peak_so2\npeak_so2_offset_hours = peak_so2_offset_hours\ntotal_so2 = total_so2\nmean_so2 = mean_so2"
+            ],
+            "runtime_variables": {
+              "peak_so2": 1554.83,
+              "peak_so2_offset_hours": 6,
+              "total_so2": 9247.545,
+              "mean_so2": 128.438125
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18366,
+      "total_completion_tokens": 1454,
+      "total_tokens": 19820
+    }
+  }
+}

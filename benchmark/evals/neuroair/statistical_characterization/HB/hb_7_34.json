@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_34",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_7_34",
+    "requirements": "As part of your analysis, for company 2444 over 2025-06-15 to 2025-06-17 compute and store: total_flue_gas, mean_flue_gas, peak_flue_gas, total_nox (float), active_hours (int).",
+    "conversations": [
+      {
+        "id": "hb_7_34",
+        "turns": [
+          {
+            "query": "Analyze how emissions from Shougang Jingtang Steel (company_id: 2444) during high production period 2025-06-15 to 2025-06-17 affect residential air quality, and develop personalized protection strategies for families with elderly members and children.",
+            "validator": "validate_hb_7_34"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-34",
+      "verbatim": true
+    }
+  }
+]

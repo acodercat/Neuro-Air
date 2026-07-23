@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_15",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_15",
+    "requirements": "As part of your analysis, for company 2467 over 2025-06-10 22:00 to 2025-06-11 02:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_15",
+        "turns": [
+          {
+            "query": "Analyze the downwind impact of Hebei Zongheng Group Fengnan Steel Co., Ltd. (company_id: 2467) during the high emission period on 2025-06-10 from 22:00 to 02:00.",
+            "validator": "validate_hb_7_15"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-15",
+      "verbatim": true
+    }
+  }
+]

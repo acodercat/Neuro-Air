@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_1",
+    "module": "evals.neuroair.data_retrieval.HK.hk_1_1",
+    "requirements": "As part of your analysis, over 2025-01-28 to 2025-02-02 compute and store the network-wide (all stations) values: net_mean_pm25, net_max_pm25, net_mean_aqhi, net_max_aqhi (float).",
+    "conversations": [
+      {
+        "id": "hk_1_1",
+        "turns": [
+          {
+            "query": "How does Hong Kong's air quality typically change during Chinese New Year (2025-01-28 to 2025-02-02) ? Is there improvement compared to normal times?",
+            "validator": "validate_hk_1_1"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-1",
+      "verbatim": true
+    }
+  }
+]

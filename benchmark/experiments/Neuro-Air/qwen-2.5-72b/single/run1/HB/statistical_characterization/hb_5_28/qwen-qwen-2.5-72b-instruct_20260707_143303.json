@@ -1,0 +1,51 @@
+{
+  "hb_5_28": {
+    "scenario": "hb_5_28",
+    "conversations": [
+      {
+        "id": "hb_5_28",
+        "turns": [
+          {
+            "query": "Compare emission characteristics between different industry types in Handan City (city_id: 4) during June 2025. Analyze total emissions (SO2, NOx, PM, CO) from STEEL, POWER, CEMENT, CERAMICS, GLASS, and COKING enterprises, calculate emission intensity per industry type, and identify which industries contribute most to regional pollution.",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u51fa\u4ee5\u4e0b\u7ed3\u8bba\uff1a\n\n- \u94a2\u94c1\u884c\u4e1a\uff08STEEL\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 126,502,760,000 \u7acb\u65b9\u7c73\u3002\n- \u7535\u529b\u884c\u4e1a\uff08POWER\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 7,756,410,000 \u7acb\u65b9\u7c73\u3002\n- \u6c34\u6ce5\u884c\u4e1a\uff08CEMENT\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 2,216,680,700 \u7acb\u65b9\u7c73\u3002\n- \u9676\u74f7\u884c\u4e1a\uff08CERAMICS\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 43,309,128 \u7acb\u65b9\u7c73\u3002\n- \u73bb\u7483\u884c\u4e1a\uff08GLASS\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 16,628,128 \u7acb\u65b9\u7c73\u3002\n- \u7126\u5316\u884c\u4e1a\uff08COKING\uff09\u7684\u603b\u70df\u6c14\u6392\u653e\u91cf\u4e3a 9,161,371,000 \u7acb\u65b9\u7c73\u3002\n\n\u4ece\u603b\u6392\u653e\u91cf\u6765\u770b\uff0c\u94a2\u94c1\u884c\u4e1a\u662f\u90af\u90f8\u5e022025\u5e746\u6708\u671f\u95f4\u6392\u653e\u91cf\u6700\u5927\u7684\u884c\u4e1a\uff0c\u5176\u603b\u6392\u653e\u91cf\u4e3a 58,502,400,000 \u5343\u514b\uff0c\u5360\u603b\u6392\u653e\u91cf\u7684\u7edd\u5927\u90e8\u5206\u3002\n\n\u56e0\u6b64\uff0c\u94a2\u94c1\u884c\u4e1a\u662f\u90af\u90f8\u5e022025\u5e746\u6708\u671f\u95f4\u5bf9\u533a\u57df\u6c61\u67d3\u8d21\u732e\u6700\u5927\u7684\u884c\u4e1a\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: total_exhaust_glass=np.float64(16628128.0), expected ~16527098.0"
+            ],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12606,
+              "completion_tokens": 958,
+              "total_tokens": 13564
+            },
+            "success": false,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# Query to get total emissions for each industry type in Handan City for June 2025\nquery = text(\"\"\"\nWITH industry_emissions AS (\n    SELECT\n        pc.industry_type,\n        SUM(dpe.exhaust_gas) AS total_exhaust_gas,\n        SUM(dpe.nox) AS total_nox,\n        SUM(dpe.so2) AS total_so2,\n        SUM(dpe.pm) AS total_pm,\n        SUM(dpe.co) AS total_co\n    FROM\n        daily_polluting_company_emission dpe\n    JOIN\n        polluting_company pc ON dpe.company_id = pc.id\n    WHERE\n        pc.city_id = 4 AND\n        dpe.date BETWEEN '2025-06-01' AND '2025-06-30'\n    GROUP BY\n        pc.industry_type\n)\nSELECT\n    industry_type,\n    total_exhaust_gas,\n    total_nox,\n    total_so2,\n    total_pm,\n    total_co,\n    (total_nox + total_so2 + total_pm + total_co) AS total_emissions\nFROM\n    industry_emissions\n\"\"\")\n\n# Execute the query and load the results into a DataFrame\nemissions_df = pd.read_sql(query, engine)\nprint(emissions_df)\n\n# Calculate total exhaust gas volume for each industry\ntotal_exhaust_steel = emissions_df.loc[emissions_df['industry_type'] == 'STEEL', 'total_exhaust_gas'].sum()\ntotal_exhaust_power = emissions_df.loc[emissions_df['industry_type'] == 'POWER', 'total_exhaust_gas'].sum()\ntotal_exhaust_cement = emissions_df.loc[emissions_df['industry_type'] == 'CEMENT', 'total_exhaust_gas'].sum()\ntotal_exhaust_ceramics = emissions_df.loc[emissions_df['industry_type'] == 'CERAMICS', 'total_exhaust_gas'].sum()\ntotal_exhaust_glass = emissions_df.loc[emissions_df['industry_type'] == 'GLASS', 'total_exhaust_gas'].sum()\ntotal_exhaust_coking = emissions_df.loc[emissions_df['industry_type'] == 'COKING', 'total_exhaust_gas'].sum()\n\n# Identify the top contributing industry\ntop_contributing_industry = emissions_df.loc[emissions_df['total_emissions'].idxmax(), 'industry_type'].upper()\n\n# Print the results\nprint(f\"Total exhaust gas volume for steel industry: {total_exhaust_steel} cubic meters\")\nprint(f\"Total exhaust gas volume for power industry: {total_exhaust_power} cubic meters\")\nprint(f\"Total exhaust gas volume for cement industry: {total_exhaust_cement} cubic meters\")\nprint(f\"Total exhaust gas volume for ceramics industry: {total_exhaust_ceramics} cubic meters\")\nprint(f\"Total exhaust gas volume for glass industry: {total_exhaust_glass} cubic meters\")\nprint(f\"Total exhaust gas volume for coking industry: {total_exhaust_coking} cubic meters\")\nprint(f\"Top contributing industry: {top_contributing_industry}\")"
+            ],
+            "runtime_variables": {
+              "total_exhaust_steel": 126502760000.0,
+              "total_exhaust_power": 7756410000.0,
+              "total_exhaust_cement": 2216680700.0,
+              "total_exhaust_ceramics": 43309128.0,
+              "total_exhaust_glass": 16628128.0,
+              "total_exhaust_coking": 9161371000.0,
+              "top_contributing_industry": "STEEL"
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 2,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 12606,
+      "total_completion_tokens": 958,
+      "total_tokens": 13564
+    }
+  }
+}

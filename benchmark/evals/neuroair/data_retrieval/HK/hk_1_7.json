@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_7",
+    "module": "evals.neuroair.data_retrieval.HK.hk_1_7",
+    "requirements": "As part of your analysis, for station 17 on 2025-06-15 compute and store: mean_aqhi, max_aqhi, mean_pm25, max_pm25 (float).",
+    "conversations": [
+      {
+        "id": "hk_1_7",
+        "turns": [
+          {
+            "query": "Analyze hourly AQHI patterns at Causeway Bay station (station_id: 17) on 2025-06-15, correlating with traffic congestion levels on nearby road segments during morning and evening rush hours.",
+            "validator": "validate_hk_1_7"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-7",
+      "verbatim": true
+    }
+  }
+]

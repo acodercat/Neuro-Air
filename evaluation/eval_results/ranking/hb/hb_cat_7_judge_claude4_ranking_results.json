@@ -1,0 +1,409 @@
+[
+    {
+        "ranking": {
+            "gemini": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gpt5": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 6 provides the most comprehensive and well-structured analysis with clear temporal divisions, detailed wind shift analysis, and logical pollution transmission explanations. Agent 3 offers excellent completeness with station details, systematic air quality patterns, and clear transmission mechanisms. Agent 1 delivers solid technical analysis with good correlation insights and pollution dynamics. Agent 5 provides rigorous statistical analysis but lacks clarity in presentation. Agent 2 offers good summary statistics but has some organizational issues. Agent 4 provides the least complete analysis, focusing mainly on source identification without comprehensive transmission analysis."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with detailed quantitative metrics, proper statistical analysis, and methodological transparency. Agent 3 offers excellent structure and clear conclusions with good technical depth. Agent 2 provides solid quantitative analysis with good organization. Agent 1 gives accurate conclusions but with less detailed methodology. Agent 6 offers clear but basic analysis. Agent 4 provides the least comprehensive analysis with minimal technical detail and some inconsistencies in distance measurements."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with precise calculations of transport time (~40-41 hours), distance (387.8 km), and wind direction deviations (133\u00b0-161\u00b0), clearly demonstrating why transport is physically impossible within the timeframe. Agent 6 correctly identifies the fundamental issue with the query (Fenglong Mountain is ~300km away) and appropriately redirects to the nearest station, providing a more realistic analysis. Agent 1 offers comprehensive data analysis with good organization but contains some inconsistencies in emission values and distance calculations. Agent 3 provides solid analysis with clear geographic setup but has less precise quantitative assessment. Agent 2 gives reasonable analysis but with some unclear emission aggregation methods and less rigorous transport assessment. Agent 4 provides the least comprehensive analysis with limited quantitative rigor and unclear methodology for determining industrial sources."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "qwen3": 2,
+            "claude4": 3,
+            "gemini": 4,
+            "deepseek": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 2 provides the most comprehensive and well-structured analysis with detailed quantitative data, clear temporal dynamics, specific emission sources with coordinates and emission rates, and actionable recommendations. Agent 1 offers solid analysis with good wind-pollution correlations but less quantitative detail. Agent 3 provides good temporal correlation analysis and identifies key sources but has some organizational issues. Agent 6 gives reasonable qualitative analysis but lacks quantitative rigor and has some implausible claims (900+ \u03bcg/m\u00b3 PM10). Agent 4 provides basic analysis but is too brief and lacks depth. Agent 5 contradicts other agents by claiming no cross-regional transport despite evidence, showing poor interpretation of the data and inconsistent conclusions."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with detailed methodology, statistical correlations, travel time calculations, and appropriate caveats about sample size limitations. Agent 3 offers clear evidence-based conclusions with specific quantitative comparisons during favorable vs unfavorable conditions. Agent 1 provides solid quantitative analysis with reasonable conclusions about limited direct impact. Agent 6 gives a clear, well-structured analysis but is somewhat simplistic in approach. Agent 2 reaches appropriate conclusions but has some internal inconsistencies in directional analysis. Agent 4 provides the least coherent analysis with confusing directional interpretations and lacks clear methodology for linking wind patterns to transport pathways."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "gpt5": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 3 provides the most comprehensive and scientifically rigorous analysis, correctly identifying multiple pollution source types (power plant, construction sites, transportation) with specific quantitative data and proper spatial analysis. Agent 5 offers excellent statistical rigor with correlation analysis and acknowledges data limitations transparently. Agent 2 provides good industrial source identification but incorrectly focuses on southeasterly winds instead of the requested northerly conditions. Agent 1 gives a basic but consistent analysis focusing on construction sources. Agent 4 provides limited analysis with some directional confusion. Agent 6 focuses on a single ozone event rather than the broader northerly wind analysis requested, missing the main scope of the query."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "kimi2": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with comprehensive meteorological interpretation, quantitative sector analysis, and clear distinction between transport mechanisms. Agent 3 offers strong technical detail with good spatial analysis and clear pollution pathways. Agent 1 provides comprehensive coverage but with some temporal inconsistencies. Agent 2 has good structure but contains contradictory wind direction analysis. Agent 6 offers clear conclusions but limited scope focusing only on upwind sources. Agent 4 provides incomplete analysis with missing data and limited insights about the actual pollution situation."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "qwen3": 2,
+            "gemini": 3,
+            "kimi2": 4,
+            "gpt5": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 3 provides the most comprehensive and scientifically rigorous analysis, combining detailed wind pattern analysis with pollution data, identifying specific industrial sources with distances and bearings, and explaining the transport mechanisms clearly. Agent 1 offers strong statistical analysis with correlation coefficients and clear temporal patterns. Agent 6 provides good integration of wind and air quality data with clear conclusions about transport directions. Agent 2 presents well-organized transport statistics but lacks integration with actual pollution levels. Agent 5 offers detailed wind alignment statistics but focuses primarily on meteorological patterns without sufficient pollution context. Agent 4 provides limited analysis with questionable conclusions about zero emissions and lacks depth in transport pattern identification."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "gpt5": 4,
+            "claude4": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 provides the most scientifically rigorous analysis with detailed correlation analysis (-0.89 between ozone and PM2.5, 0.83 between wind direction and PM2.5), clear temporal patterns, and physically plausible explanations of photochemical processes. Agent 6 offers comprehensive source identification and clear temporal analysis but lacks quantitative rigor. Agent 2 provides good structure and clear conclusions but with less analytical depth. Agent 5 delivers thorough statistical analysis but poor organization makes it difficult to follow. Agent 3 (Chinese response) covers key points but lacks the depth of quantitative analysis. Agent 4 provides basic analysis but misses important correlations and photochemical processes, making it the least comprehensive."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with detailed statistical correlations, comprehensive upwind source analysis, and clear methodology. It addresses all aspects with quantitative metrics and actionable recommendations. Agent 3 follows with good completeness and clear organization, identifying specific pollution sources and transport mechanisms. Agent 1 provides solid analysis with reasonable correlations and clear findings. Agent 6 offers good source identification but lacks statistical rigor. Agent 2 has decent organization but some inconsistencies in transport pathway descriptions. Agent 4 ranks lowest due to limited analysis scope, claiming 'no significant sources' within 10km which contradicts other agents' findings, and providing less comprehensive coverage of the pollution transport dynamics."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional technical rigor with quantitative analysis, specific emission data (PM \u2248 0.28 kg, NOx \u2248 33.98 kg), mathematical influence indices, and detailed methodology. Agent 3 provides strong analysis with clear pollution transport events and specific timing correlations. Agent 2 offers comprehensive wind field analysis with good technical detail. Agent 6 provides systematic hour-by-hour source identification with clear organization. Agent 1 gives basic analysis but lacks depth in source identification. Agent 4 ranks lowest due to contradictory findings (claiming no sources while others identify multiple facilities) and insufficient technical detail for pollution source tracing."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with quantitative correlations, statistical measures, and methodical evaluation of wind-pollution relationships. Agent 3 offers excellent temporal analysis with clear wind pattern documentation and source assessment. Agent 2 provides good structure and clear timeline analysis. Agent 6 identifies specific construction sources but lacks depth in wind analysis. Agent 1 has some logical inconsistencies about wind directions and source locations. Agent 4 provides the least comprehensive analysis with limited wind-pollution correlation discussion and no clear source identification methodology."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "claude4": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first with the most scientifically rigorous approach, using proper upwind/downwind sector analysis with statistical validation and clear physical interpretation of ozone titration effects. Agent 6 follows with a clear directional analysis showing measurable impacts, though less sophisticated statistically. Agent 2 provides comprehensive spatial analysis with good quantification of impacts at different distances. Agent 3 offers solid analysis but contains the concerning finding of negative correlations that may indicate methodological issues. Agent 1 ranks lower due to counterintuitive results (better air quality closer to source) that lack adequate explanation. Agent 4 ranks last due to incomplete analysis hampered by missing wind data and limited spatial assessment."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "qwen3": 2,
+            "claude4": 3,
+            "kimi2": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with proper wind sector classification, quantitative spatial analysis, and appropriate comparison with background conditions. It correctly identifies minimal residential impact due to distance and crosswind positioning. Agent 1 offers good consistency and comprehensive coverage but lacks the sophisticated meteorological analysis. Agent 3 provides solid technical analysis with proper wind direction assessment. Agent 2 has some inconsistencies in spatial data interpretation. Agent 4 gives a reasonable but less detailed analysis. Agent 6 contains significant errors in wind direction interpretation (claiming south wind transports north when stating 182.20\u00b0 direction) and makes unsupported conclusions about residential impact despite limited spatial evidence."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "kimi2": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and methodologically sound analysis with proper statistical sectoring, quantified downwind vs crosswind comparisons, and appropriate caveats about attribution. Agent 3 offers comprehensive coverage with detailed station-by-station analysis and clear pollution gradients. Agent 1 provides good temporal correlation analysis but has some inconsistencies in wind direction interpretation. Agent 2 gives solid analysis but contains geographical errors (stations south vs north of facility). Agent 6 correctly identifies monitoring gaps but provides limited quantitative analysis. Agent 4 has significant methodological flaws including incorrect wind direction analysis and incomplete impact assessment."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with detailed quantitative data, proper statistical analysis of baseline vs peak periods, sector-based wind alignment analysis, and distance effects. Agent 3 offers well-structured analysis with clear emission characteristics and meteorological interpretation. Agent 1 provides good overall assessment with reasonable dispersion patterns. Agent 6 gives clear conclusions but with some questionable claims about pollution tripling. Agent 2 presents counterintuitive findings that may indicate analytical errors. Agent 4 has the least comprehensive analysis with limited quantitative support and potential inconsistencies in station identification."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "gpt5": 2,
+            "gemini": 3,
+            "qwen3": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 3 ranks highest with comprehensive analysis, clear methodology, and consistent findings showing PM2.5 increases at the downwind station. Agent 5 provides rigorous statistical analysis with proper uncertainty acknowledgment and detailed wind transport modeling. Agent 6 offers clear, well-structured analysis with logical conclusions about downwind impacts. Agent 1 has good wind analysis but contains a critical error claiming stations were upwind when they were actually downwind. Agent 2 shows inconsistent temporal patterns and questionable pollution transport timing. Agent 4 provides basic correct analysis but lacks depth and completeness compared to higher-ranked responses."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and scientifically sound analysis with proper baseline comparisons, statistical analysis, and honest acknowledgment of data limitations. It correctly identifies that emissions were actually lower during the 'spike' period and provides detailed spatial analysis. Agent 2 offers solid technical analysis with good quantitative comparisons and clear organization. Agent 1 provides comprehensive coverage but has some inconsistencies in interpreting the data as a 'spike'. Agent 3 shows good spatial analysis but contains calculation errors and overstates impacts. Agent 4 provides reasonable analysis but lacks depth in baseline comparisons. Agent 6 has the weakest analysis with oversimplified conclusions and limited quantitative rigor."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with precise meteorological calculations, clear methodology for downwind sector identification (\u00b130\u00b0), and specific travel time estimates. Agent 3 offers comprehensive analysis with good technical detail and clear risk assessment. Agent 2 provides solid analysis with good data integration and clear impact zones. Agent 6 shows good observational skills using monitoring station data but has some inconsistencies in location identification. Agent 1 has internal contradictions about wind direction effects and facility locations. Agent 4 provides the least complete analysis with minimal technical detail and some directional confusion."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "claude4": 2,
+            "gpt5": 3,
+            "qwen3": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 2 provides the most comprehensive and scientifically rigorous analysis with detailed emission calculations, wind pattern analysis, and quantified pollution impacts (15-57% increases downwind). Agent 3 offers excellent detail on agricultural areas affected but has some inconsistencies in wind direction analysis. Agent 5 presents methodologically sound analysis with proper statistical approach but concludes minimal impact, which may underestimate effects. Agent 1 provides good basic analysis but lacks quantitative rigor and has some contradictory air quality interpretations. Agent 4 shows significant air quality increases but has limited agricultural area identification and less comprehensive analysis. Agent 6 concludes no agricultural areas were found, which appears to contradict other agents' findings and may indicate incomplete data retrieval."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "qwen3": 2,
+            "kimi2": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first for exceptional scientific rigor - it correctly identifies that wind speeds of 3.2 m/s don't qualify as 'low wind' conditions, provides comprehensive quantitative analysis with proper statistical comparisons, and acknowledges analytical limitations. Agent 1 follows with strong technical analysis and counterintuitive but well-explained findings about downwind vs upwind pollution patterns. Agent 2 provides solid quantitative assessment with clear spatial analysis. Agent 3 offers good technical content but has some inconsistencies in impact zone descriptions. Agent 6 provides useful impact assessment on sensitive areas but lacks air quality data validation and makes unsupported assumptions about pollution transport. Agent 4 ranks last due to incomplete analysis, missing wind data acknowledgment without proper investigation, and limited depth in pollution footprint assessment."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "gpt5": 2,
+            "gemini": 3,
+            "claude4": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 ranks highest due to exceptional consistency and plausibility - it correctly identifies no commercial districts within 5km and provides coherent wind analysis showing emissions transported away from populated areas. Agent 5 follows with comprehensive quantitative analysis including detailed emission calculations, spatial analysis of commercial areas, and statistical correlations, though with some complexity that may reduce clarity. Agent 6 provides good targeted analysis with clear cause-effect relationships and appropriate lag time considerations. Agent 3 offers solid comprehensive coverage but has some inconsistencies in commercial district identification. Agent 2 provides reasonable analysis but with less detail and some geographic uncertainties. Agent 4 ranks lowest due to limited depth, vague geographic analysis, and insufficient consideration of pollution transport mechanisms."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "gemini": 3,
+            "qwen3": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous and comprehensive analysis with precise meteorological data, systematic downwind analysis using proper dispersion modeling principles, and quantitative air quality comparisons. Agent 3 follows with good technical depth and clear risk identification. Agent 6 offers unique comparative analysis showing elevated CO levels downwind. Agent 1 provides solid basic analysis but lacks the precision of top performers. Agent 2 has good structure but some inconsistencies in distance measurements. Agent 4 ranks lowest due to missing critical wind data and less comprehensive analysis, though it acknowledges data limitations appropriately."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "claude4": 3,
+            "kimi2": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with proper upwind/downwind methodology, statistical analysis, and honest assessment of weak correlations. Agent 6 follows similar methodology but with less comprehensive analysis. Agent 3 offers good spatial-temporal analysis with reasonable conclusions. Agent 2 provides detailed findings but some claims lack strong statistical support. Agent 1 presents correlation analysis but with questionable interpretations of negative correlations. Agent 4 provides basic analysis but lacks depth and proper methodology for causal attribution."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with quantitative comparisons to city background levels, proper consideration of wind direction and meteorological factors, and clear evidence of downwind impacts. Agent 3 offers comprehensive analysis with historical baseline comparisons and good meteorological context. Agent 2 provides solid technical analysis with clear structure. Agent 1 gives reasonable analysis but lacks comparative context. Agent 6 has some inconsistencies in wind direction analysis and station positioning. Agent 4 provides the most basic analysis with limited depth and context."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with quantitative downwind vs upwind comparisons, proper statistical treatment of monitoring data, and physically consistent interpretations. Agent 6 offers clear directional analysis with specific station impacts but less quantitative rigor. Agent 3 provides comprehensive coverage with good organization but contains some inconsistencies in wind characterization. Agent 1 gives solid overall analysis but lacks the quantitative depth of top performers. Agent 2 has good structure but some unclear emission-to-ambient comparisons. Agent 4 ranks lowest due to inconsistent wind direction reporting and less systematic analysis of the dispersion patterns."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "gemini": 4,
+            "deepseek": 5,
+            "qwen3": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and scientifically rigorous analysis with detailed meteorological data, clear stagnation criteria (wind speed \u22642.0 m/s, calm fraction \u22650.5), quantitative local enhancement calculations, and actionable operational recommendations. Agent 2 offers excellent structure and completeness with good technical detail and practical recommendations. Agent 3 provides solid quantitative analysis with clear progression of stagnation effects. Agent 6 gives a focused analysis with good spatial correlation but limited scope. Agent 4 provides basic analysis but lacks meteorological context and depth. Agent 1 fails completely by providing no actual analysis or findings despite claiming completion."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "claude4": 3,
+            "kimi2": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and scientifically rigorous analysis with detailed meteorological data, systematic vulnerable population assessment, and proper downwind sector analysis. Agent 6 offers good spatial analysis with clear conclusions but less meteorological detail. Agent 3 provides solid overall assessment with reasonable risk conclusions. Agent 2 gives broad coverage but with some inconsistencies in facility counts and risk assessment. Agent 1 provides basic analysis but limited scope and oversimplified conclusions. Agent 4 fails to provide meaningful analysis due to data retrieval issues, offering only explanations for lack of results."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with proper statistical methodology (75th percentile threshold), comprehensive wind sector analysis, quantified emissions data from multiple sources, and appropriate caveats about limitations. Agent 3 offers good temporal correlation analysis and identifies specific emission sources with timing data. Agent 2 provides detailed analysis but uses an arbitrary 75 \u00b5g/m\u00b3 threshold and has some inconsistencies in wind direction interpretation. Agent 6 gives a reasonable local source hypothesis but lacks depth in emissions analysis. Agents 1 and 4 incorrectly conclude no analysis is possible due to misunderstanding the episode definition - they use an overly restrictive threshold that doesn't align with standard air quality assessment practices where episodes are typically defined relative to local conditions rather than absolute values."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "qwen3": 2,
+            "gemini": 3,
+            "claude4": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with detailed wind field calculations, proper geometric analysis, and systematic evaluation of transport conditions. Agent 1 offers clear, consistent analysis with correct wind direction interpretation. Agent 6 provides accurate but simpler analysis with correct conclusions. Agent 3 delivers thorough analysis but has some inconsistencies in wind direction interpretation. Agent 2 contains significant errors in wind direction analysis leading to incorrect conclusions about transport favorability. Agent 4 provides the least detailed analysis with vague conclusions and insufficient meteorological interpretation."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional consistency and plausibility - providing detailed quantitative analysis with proper lag correlations (2-hour transport time matching wind speed/distance calculations), comprehensive statistical validation, and methodologically sound approach. Agent 2 follows with good technical rigor, clear identification of dominant sources, and logical pollution evolution analysis. Agent 1 provides solid correlation analysis and reasonable interpretations. Agent 3 offers good completeness but has some inconsistencies in transport potential calculations. Agent 4 has reasonable spatial analysis but lacks statistical rigor and contains some questionable assumptions. Agent 6 ranks lowest due to significant implausibilities (claiming 18+ km sources as dominant contributors with 2 m/s winds, unrealistic emission values like 99,951 kg CO from single facility) and oversimplified transport assumptions that contradict basic atmospheric dispersion principles."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with comprehensive temporal correlation analysis, proper consideration of transport time scales (~40-50 hours for 246 km distance), and appropriate skepticism about direct impact given the large separation distance. Agent 2 offers excellent completeness with clear distance context (246 km) and proper interpretation of weak correlations. Agent 3 provides good correlation analysis but lacks critical distance assessment. Agent 1 presents reasonable correlations but insufficient spatial context. Agent 4 correctly identifies the distance issue but provides limited analysis. Agent 6 makes physically implausible claims about direct transport over 246 km in hours, contradicting basic atmospheric transport principles and showing poor understanding of pollution dispersion physics."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gpt5": 2,
+            "claude4": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 2 provides the most comprehensive and scientifically rigorous analysis with detailed correlation coefficients, distance calculations, wind pattern analysis, and clear conclusions about regional vs. direct transport effects. Agent 5 offers excellent methodological rigor with proper statistical considerations and acknowledges sample size limitations, though less accessible presentation. Agent 3 provides good quantitative analysis with time-lag considerations but has some organizational issues. Agent 6 gives a clear qualitative assessment with good geographical context but lacks quantitative correlation analysis. Agent 1 provides minimal detail despite claiming complete analysis. Agent 4 offers basic spatial analysis but contains some inconsistencies in distance measurements and lacks depth in correlation analysis."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first due to exceptional scientific rigor with quantitative analysis showing no measurable adverse effects during the study period, backed by robust statistical methods and honest uncertainty acknowledgment. Agent 2 follows with comprehensive risk assessment, specific residential area identification, and detailed multi-tiered protection strategies. Agent 1 provides solid correlation analysis and practical recommendations but with less statistical depth. Agent 3 offers good quantitative data but shows some inconsistencies in impact interpretation. Agent 6 provides reasonable qualitative analysis but lacks statistical rigor and shows potential contradictions between correlation findings and impact claims. Agent 4 ranks last due to incomplete analysis, limited data presentation, and insufficient depth in addressing the complex query requirements."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "claude4": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and scientifically rigorous analysis with detailed quantitative data, statistical correlations, and clear methodology. It addresses all pollution sources with specific measurements and provides well-reasoned exercise recommendations based on temporal patterns. Agent 2 follows closely with excellent organization, specific time windows, and actionable recommendations, though slightly less detailed in statistical analysis. Agent 1 provides good correlation analysis and clear temporal patterns but lacks some quantitative depth. Agent 6 offers solid analysis with good geographic context but makes questionable assumptions about steel plant impact distance. Agent 3 provides reasonable analysis but has some organizational issues and less clear temporal recommendations. Agent 4 gives the briefest response with limited detail and less comprehensive coverage of the multi-source pollution analysis requested."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "claude4": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first due to its rigorous methodology with proper background adjustment, statistical controls, and honest acknowledgment of analytical limitations - demonstrating high scientific integrity. Agent 6 follows with strong time-lagged correlation analysis and clear quantitative findings. Agent 2 provides comprehensive spatial analysis with good distance-decay relationships. Agent 3 offers detailed directional transport analysis but with some inconsistent correlations. Agent 1 presents basic analysis but lacks methodological rigor. Agent 4 ranks last due to limited scope, focusing mainly on PM levels without comprehensive transport analysis or proper source attribution methodology."
+    },
+    {
+        "ranking": {
+            "gemini": 1,
+            "gpt5": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "claude4": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 6 ranks first due to excellent consistency with clear before/after comparisons showing 24% NO2 increases during downwind periods, complete analysis addressing all query aspects, and well-organized presentation with actionable insights. Agent 5 follows with rigorous statistical methodology and comprehensive correlation analysis, though less accessible presentation. Agent 2 provides good spatial analysis with transfer coefficients but has some implausible inverse distance relationships. Agent 1 offers reasonable analysis but lacks quantitative rigor. Agent 3 shows concerning negative correlations that contradict expected pollution transport physics. Agent 4 ranks last due to incomplete analysis, inconsistent data presentation, and failure to establish clear source-receptor relationships."
+    }
+]

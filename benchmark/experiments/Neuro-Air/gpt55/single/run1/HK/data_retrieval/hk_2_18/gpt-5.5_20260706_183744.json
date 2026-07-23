@@ -1,0 +1,46 @@
+{
+  "hk_2_18": {
+    "scenario": "hk_2_18",
+    "conversations": [
+      {
+        "id": "hk_2_18",
+        "turns": [
+          {
+            "query": "Evaluate pollution threats to agricultural land in the North District (district_id: 3) based on air quality measurements from the North station (station_id: 2) on 2025-05-12.",
+            "actual_response": "On 2025-05-12, agricultural land in the North District showed a low-to-moderate air-pollution threat based on measurements from the North monitoring station.\n\nThe assessment is based on 24 valid hourly readings for both PM2.5 and AQHI. The mean PM2.5 concentration was 14.545833333333333 \u00b5g/m\u00b3, with a maximum hourly value of 22.7 \u00b5g/m\u00b3. The mean AQHI was 4.083333333333333, and the maximum AQHI was 6.0.\n\nAQHI conditions were classified as LOW for 9 hours and MODERATE for 15 hours. No HIGH, VERY HIGH, or SERIOUS AQHI periods were recorded during the day.\n\nThe North District contains 498 agricultural land areas, totaling 7,782,760.29 square metres. Based on the measured air quality for the day, pollution pressure on these agricultural areas was present but not severe, with the main condition being sustained moderate health-risk air quality rather than short-term extreme pollution.",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11136,
+              "completion_tokens": 1285,
+              "total_tokens": 12421
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart, end = \"2025-05-12 00:00:00\", \"2025-05-13 00:00:00\"\n\n# Air-quality aggregation for North station on the specified whole calendar day\nair_q = text(\"\"\"\nSELECT\n  COUNT(*) AS n_readings,\n  AVG(pm2_5)::float AS mean_pm2_5,\n  MAX(pm2_5)::float AS max_pm2_5,\n  AVG(aqhi)::float AS mean_aqhi,\n  MAX(aqhi)::float AS max_aqhi,\n  COUNT(pm2_5) AS n_pm2_5,\n  COUNT(aqhi) AS n_aqhi\nFROM hourly_station_air_quality\nWHERE station_id = 2\n  AND datetime >= :start\n  AND datetime < :end\n\"\"\")\nair_stats = pd.read_sql(air_q, engine, params={\"start\": start, \"end\": end}).iloc[0]\n\nmean_pm2_5 = float(air_stats[\"mean_pm2_5\"]) if pd.notna(air_stats[\"mean_pm2_5\"]) else None\nmax_pm2_5 = float(air_stats[\"max_pm2_5\"]) if pd.notna(air_stats[\"max_pm2_5\"]) else None\nmean_aqhi = float(air_stats[\"mean_aqhi\"]) if pd.notna(air_stats[\"mean_aqhi\"]) else None\nmax_aqhi = float(air_stats[\"max_aqhi\"]) if pd.notna(air_stats[\"max_aqhi\"]) else None\n\n# Risk-level distribution for the same period\nlevel_q = text(\"\"\"\nSELECT aqhi_level::text AS level, COUNT(*) AS hours\nFROM hourly_station_air_quality\nWHERE station_id = 2\n  AND datetime >= :start\n  AND datetime < :end\n  AND aqhi_level IS NOT NULL\nGROUP BY aqhi_level\nORDER BY MIN(aqhi)\n\"\"\")\nlevel_stats = pd.read_sql(level_q, engine, params={\"start\": start, \"end\": end})\n\n# Agricultural land summary for North District\nagri_q = text(\"\"\"\nSELECT COUNT(*) AS n_areas, COALESCE(SUM(area),0)::float AS total_area_sqm\nFROM eia_habitat\nWHERE district = 'North'\n  AND habitat_type = 'AGRICULTURAL_LAND'\n\"\"\")\nagri_stats = pd.read_sql(agri_q, engine).iloc[0]\n\nprint({\n    \"air_quality_readings\": int(air_stats[\"n_readings\"]),\n    \"pm2_5_valid_readings\": int(air_stats[\"n_pm2_5\"]),\n    \"aqhi_valid_readings\": int(air_stats[\"n_aqhi\"]),\n    \"mean_pm2_5\": mean_pm2_5,\n    \"max_pm2_5\": max_pm2_5,\n    \"mean_aqhi\": mean_aqhi,\n    \"max_aqhi\": max_aqhi\n})\nprint(\"AQHI level hours:\", level_stats.to_dict(\"records\"))\nprint({\n    \"north_agricultural_land_areas\": int(agri_stats[\"n_areas\"]),\n    \"north_agricultural_land_total_area_sqm\": float(agri_stats[\"total_area_sqm\"])\n})"
+            ],
+            "runtime_variables": {
+              "mean_pm2_5": 14.545833333333333,
+              "max_pm2_5": 22.7,
+              "mean_aqhi": 4.083333333333333,
+              "max_aqhi": 6.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11136,
+      "total_completion_tokens": 1285,
+      "total_tokens": 12421
+    }
+  }
+}

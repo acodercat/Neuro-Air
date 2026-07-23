@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_33",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_33",
+    "requirements": "As part of your analysis, define emission intensity as the total exhaust_gas over all polluting companies in the district (0 if none). For 2025-06-05 06:00-10:00 compute and store: total_exhaust_lianchi (Lianchi), total_exhaust_jingxiu (Jingxiu), total_exhaust_mancheng (Mancheng) (float), highest_intensity_district_id (the district_id of the highest-intensity district, int).",
+    "conversations": [
+      {
+        "id": "hb_1_33",
+        "turns": [
+          {
+            "query": "Analyze which districts in 保定市 (Lianchi, Jingxiu, or Mancheng) had the highest emission intensity on 2025-06-05 during morning hours (06:00-10:00).",
+            "validator": "validate_hb_1_33"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-33",
+      "verbatim": true
+    }
+  }
+]

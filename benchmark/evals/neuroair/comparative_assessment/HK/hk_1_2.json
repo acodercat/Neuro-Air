@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_2",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_1_2",
+    "requirements": "As part of your analysis, compute and store the network-wide (all stations) values: net_pm25_pre, net_aqhi_pre (2025-07-19), net_pm25_post, net_aqhi_post (2025-07-21) (float), pm25_clearance (pre minus post net PM2.5, float).",
+    "conversations": [
+      {
+        "id": "hk_1_2",
+        "turns": [
+          {
+            "query": "Analyze pre-typhoon versus post-typhoon air quality patterns from 2025-07-19 to 2025-07-21 period. Calculate pollution clearance effectiveness of tropical cyclone systems and determine optimal timing for outdoor activities following storm passages.",
+            "validator": "validate_hk_1_2"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-2",
+      "verbatim": true
+    }
+  }
+]

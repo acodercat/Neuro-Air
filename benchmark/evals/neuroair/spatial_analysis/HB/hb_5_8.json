@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_8",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_5_8",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2418 -> station 179 over the period (full month 2025-06-01 to 2025-06-30 (original text says 06-31, an invalid date)), compute and store: distance_km, bearing_deg (company->station), station_mean_pm25, station_max_pm25 (float), station_exceedance_hours (PM2.5>75, int), company_total_exhaust (float).",
+    "conversations": [
+      {
+        "id": "hb_5_8",
+        "turns": [
+          {
+            "query": "Help me evaluate long-term environmental investment risks for residential properties near Monitoring Station (station_id: 179) considering pollution projections from nearby Hebei Yanshan Steel Group (company_id: 2418) during 2025-06-01 to 2025-06-31.",
+            "validator": "validate_hb_5_8"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-8",
+      "verbatim": true
+    }
+  }
+]

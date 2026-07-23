@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_28",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_5_28",
+    "requirements": "As part of your analysis, define industry emission as total flue-gas volume over that industry's companies in Handan (city 4) for June 2025. Compute and store: total_exhaust_steel, total_exhaust_power, total_exhaust_cement, total_exhaust_ceramics, total_exhaust_glass, total_exhaust_coking (float) and top_contributing_industry (uppercase str).",
+    "conversations": [
+      {
+        "id": "hb_5_28",
+        "turns": [
+          {
+            "query": "Compare emission characteristics between different industry types in Handan City (city_id: 4) during June 2025. Analyze total emissions (SO2, NOx, PM, CO) from STEEL, POWER, CEMENT, CERAMICS, GLASS, and COKING enterprises, calculate emission intensity per industry type, and identify which industries contribute most to regional pollution.",
+            "validator": "validate_hb_5_28"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-28",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_5",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_1_5",
+    "requirements": "As part of your analysis, over 2025-06-15 compute and store: mean_pm25_tungchung, mean_aqhi_tungchung (station 6), mean_pm25_tapmun, mean_aqhi_tapmun (station 8) (float).",
+    "conversations": [
+      {
+        "id": "hk_1_5",
+        "turns": [
+          {
+            "query": "Compare air quality between Islands District monitoring at Tung Chung (station_id: 6) and Tap Mun (station_id: 8) versus urban Hong Kong Island stations on 2025-06-15",
+            "validator": "validate_hk_1_5"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-5",
+      "verbatim": true
+    }
+  }
+]

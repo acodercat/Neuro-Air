@@ -1,0 +1,48 @@
+{
+  "hb_1_31": {
+    "scenario": "hb_1_31",
+    "conversations": [
+      {
+        "id": "hb_1_31",
+        "turns": [
+          {
+            "query": "Compare the emission levels between Chang'an District and Jingxing Mining District in Shijiazhuang City on 2025-06-15 from 08:00-18:00.",
+            "actual_response": "\u5206\u6790\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**2025\u5e746\u670815\u65e508:00-18:00\u671f\u95f4\u6392\u653e\u5bf9\u6bd4\u5206\u6790**\n\n| \u533a\u53bf | \u603b\u6392\u6c14\u91cf(\u7acb\u65b9\u7c73) |\n|------|-----------------|\n| \u957f\u5b89\u533a | 2,731,032.5 |\n| \u4e95\u9649\u77ff\u533a | 51,003,868.0 |\n\n**\u5173\u952e\u53d1\u73b0\uff1a**\n- \u4e95\u9649\u77ff\u533a\uff08district_id=4\uff09\u7684\u6392\u653e\u91cf\u663e\u8457\u9ad8\u4e8e\u957f\u5b89\u533a\n- \u4e95\u9649\u77ff\u533a\u7684\u603b\u6392\u6c14\u91cf\u662f\u957f\u5b89\u533a\u768418.68\u500d\n- \u4e24\u533a\u6392\u653e\u91cf\u5dee\u5f02\u5de8\u5927\uff0c\u4e95\u9649\u77ff\u533a\u4f5c\u4e3a\u5de5\u4e1a\u77ff\u533a\uff0c\u5176\u6c61\u67d3\u4f01\u4e1a\u6392\u653e\u5f3a\u5ea6\u8fdc\u9ad8\u4e8e\u957f\u5b89\u533a\n\n**\u76d1\u7ba1\u5efa\u8bae\uff1a**\n1. \u4e95\u9649\u77ff\u533a\u5e94\u4f5c\u4e3a\u91cd\u70b9\u76d1\u7ba1\u533a\u57df\uff0c\u52a0\u5f3a\u5bf9\u8be5\u533a\u6c61\u67d3\u4f01\u4e1a\u7684\u6392\u653e\u76d1\u63a7\n2. \u5efa\u8bae\u5bf9\u4e95\u9649\u77ff\u533a\u7684\u9ad8\u6392\u653e\u4f01\u4e1a\u8fdb\u884c\u4e13\u9879\u6392\u67e5\u548c\u6574\u6cbb\n3. \u957f\u5b89\u533a\u6392\u653e\u76f8\u5bf9\u8f83\u4f4e\uff0c\u4f46\u4ecd\u9700\u4fdd\u6301\u5e38\u6001\u5316\u76d1\u7ba1",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 24666,
+              "completion_tokens": 855,
+              "total_tokens": 25521
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u83b7\u53d6\u957f\u5b89\u533a\u548c\u4e95\u9649\u77ff\u533a\u7684district_id\nquery_districts = text(\"\"\"SELECT id, name FROM district WHERE name IN ('\u957f\u5b89\u533a', '\u4e95\u9649\u77ff\u533a')\"\"\")\ndistricts_df = pd.read_sql(query_districts, engine)\nprint(\"\u533a\u53bf\u4fe1\u606f:\")\nprint(districts_df)",
+              "from sqlalchemy import text\n\n# \u8ba1\u7b97\u957f\u5b89\u533a\u548c\u4e95\u9649\u77ff\u533a\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u7684\u603b\u6392\u6c14\u91cf\nquery_emissions = text(\"\"\"SELECT pc.district_id, SUM(hpce.exhaust_gas) as total_exhaust FROM hourly_polluting_company_emission hpce JOIN polluting_company pc ON hpce.company_id = pc.id WHERE pc.district_id IN (1, 4) AND hpce.timestamp >= '2025-06-15 08:00:00' AND hpce.timestamp < '2025-06-15 18:00:00' GROUP BY pc.district_id\"\"\")\nemissions_df = pd.read_sql(query_emissions, engine)\nprint(\"\u5404\u533a\u603b\u6392\u6c14\u91cf:\")\nprint(emissions_df)",
+              "# \u5b58\u50a8\u7ed3\u679c\u5230\u6307\u5b9a\u53d8\u91cf\ntotal_exhaust_changan = 2731032.5\ntotal_exhaust_jingxing = 51003868.0\nhigher_emission_district_id = 4\nemission_ratio = round(51003868.0 / 2731032.5, 2)\n\nprint(f\"\u957f\u5b89\u533a\u603b\u6392\u6c14\u91cf: {total_exhaust_changan} \u7acb\u65b9\u7c73\")\nprint(f\"\u4e95\u9649\u77ff\u533a\u603b\u6392\u6c14\u91cf: {total_exhaust_jingxing} \u7acb\u65b9\u7c73\")\nprint(f\"\u6392\u653e\u91cf\u66f4\u9ad8\u7684\u533a\u53bfID: {higher_emission_district_id}\")\nprint(f\"\u6392\u653e\u6bd4\u7387 (\u9ad8/\u4f4e): {emission_ratio}\")"
+            ],
+            "runtime_variables": {
+              "total_exhaust_changan": 2731032.5,
+              "total_exhaust_jingxing": 51003868.0,
+              "higher_emission_district_id": 4,
+              "emission_ratio": 18.68
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 24666,
+      "total_completion_tokens": 855,
+      "total_tokens": 25521
+    }
+  }
+}

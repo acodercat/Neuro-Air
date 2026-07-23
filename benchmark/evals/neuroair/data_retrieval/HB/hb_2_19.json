@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_19",
+    "module": "evals.neuroair.data_retrieval.HB.hb_2_19",
+    "requirements": "As part of your analysis, for Luancheng District on 2025-03-30 compute and store the district-level AQI profile: mean_aqi, max_aqi (float), exceedance_hours (AQI>100, int), peak_aqi_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_2_19",
+        "turns": [
+          {
+            "query": "Help me investigate the root causes of air quality deterioration in Luancheng District on 2025-03-30, examining industrial clusters, weather patterns, and meteorological factors.",
+            "validator": "validate_hb_2_19"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-19",
+      "verbatim": true
+    }
+  }
+]

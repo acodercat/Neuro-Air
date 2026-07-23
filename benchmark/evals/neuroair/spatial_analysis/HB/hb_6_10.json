@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_6_10",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_6_10",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2444 -> station 276 over the period (2025-06-15 to 2025-06-20), compute and store: distance_km, bearing_deg (company->station), station_mean_pm25, station_max_pm25 (float), station_exceedance_hours (PM2.5>75, int), company_total_exhaust (float).",
+    "conversations": [
+      {
+        "id": "hb_6_10",
+        "turns": [
+          {
+            "query": "Help me analyze how emissions from Shougang Jingtang Steel (company_id: 2444) affect air quality at my residential area near Ligong station (station_id: 276) during 2025-06-15 to 2025-06-20, and recommend personal protection strategies",
+            "validator": "validate_hb_6_10"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-6-10",
+      "verbatim": true
+    }
+  }
+]

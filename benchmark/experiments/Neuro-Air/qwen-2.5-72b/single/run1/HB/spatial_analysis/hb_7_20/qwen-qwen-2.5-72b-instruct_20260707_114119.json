@@ -1,0 +1,48 @@
+{
+  "hb_7_20": {
+    "scenario": "hb_7_20",
+    "conversations": [
+      {
+        "id": "hb_7_20",
+        "turns": [
+          {
+            "query": "Help me assess how Hebei Yanshan Steel Group Co., Ltd. (company_id: 2418) emissions affected surrounding agricultural areas on 2025-06-10 during afternoon hours (13:00-17:00).",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c\u6211\u4eec\u5df2\u7ecf\u83b7\u53d6\u4e86\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e5\u4e0b\u534813:00\u523017:00\u671f\u95f4\u7684\u6392\u653e\u6570\u636e\uff0c\u4ee5\u53ca\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u519c\u4e1a\u533a\u6570\u636e\u548c\u8fd9\u4e9b\u519c\u4e1a\u533a\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\u3002\n\n### \u5206\u6790\u7ed3\u679c\n\n1. **\u6392\u653e\u6570\u636e**\uff1a\n   - **\u603b\u70df\u6c14\u91cf**: 103,997,200.0 \u7acb\u65b9\u7c73\n   - **\u5cf0\u503c\u70df\u6c14\u91cf**: 26,282,400.0 \u7acb\u65b9\u7c73\n   - **\u603bNOx\u6392\u653e\u91cf**: 772.444 \u5343\u514b\n\n2. **\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf**: 9 \u4e2a\n\n3. **\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u519c\u4e1a\u533a**\uff1a\n   - **\u8fc1\u5b89\u5e02\u5e7f\u539f\u5976\u725b\u517b\u6b96\u79d1\u6280\u6709\u9650\u516c\u53f8**\n   - **\u4e50\u4e2b\u751f\u6001\u6587\u5316\u4ea7\u4e1a\u56ed**\n\n4. **\u519c\u4e1a\u533a\u57282025-06-10 13:00-17:00\u671f\u95f4\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e**\uff1a\n   - **\u8fc1\u5b89\u5e02\u8fc1\u5b89\u9547**\uff1a\n     - AQI: 59-62\n     - PM2.5: 26-39 \u03bcg/m\u00b3\n     - PM10: 67-74 \u03bcg/m\u00b3\n     - SO2: 6-16 \u03bcg/m\u00b3\n     - NO2: 26-33 \u03bcg/m\u00b3\n     - CO: 0.8-1.7 mg/m\u00b3\n   - **\u8fc1\u5b89\u7535\u5927**\uff1a\n     - AQI: 31-36\n     - PM2.5: 5-11 \u03bcg/m\u00b3\n     - PM10: 15-29 \u03bcg/m\u00b3\n     - SO2: 4-8 \u03bcg/m\u00b3\n     - NO2: 1-5 \u03bcg/m\u00b3\n     - CO: 0.1 mg/m\u00b3\n   - **\u8fc1\u5b89\u6ee6\u6cb3\u7ba1\u59d4\u4f1a**\uff1a\n     - AQI: 36\n     - PM2.5: 11 \u03bcg/m\u00b3\n     - PM10: 29 \u03bcg/m\u00b3\n     - SO2: 8 \u03bcg/m\u00b3\n     - NO2: 1 \u03bcg/m\u00b3\n     - CO: 0.1 mg/m\u00b3\n   - **\u8fc1\u5b89\u5e02\u8d75\u5e97\u5b50\u9547**\uff1a\n     - AQI: 53-63\n     - PM2.5: 26-33 \u03bcg/m\u00b3\n     - PM10: 56-76 \u03bcg/m\u00b3\n     - SO2: 1-6 \u03bcg/m\u00b3\n     - NO2: 23-39 \u03bcg/m\u00b3\n     - CO: 1.0-1.8 mg/m\u00b3\n   - **\u8fc1\u5b89\u5e02\u91ce\u9e21\u5768\u9547**\uff1a\n     - AQI: 50-65\n     - PM2.5: 26-45 \u03bcg/m\u00b3\n     - PM10: 50-79 \u03bcg/m\u00b3\n     - SO2: 4-12 \u03bcg/m\u00b3\n     - NO2: 21-35 \u03bcg/m\u00b3\n     - CO: 0.8-1.3 mg/m\u00b3\n   - **\u8fc1\u5b89\u5e02\u6728\u5382\u53e3\u9547**\uff1a\n     - AQI: 34-40\n     - PM2.5: 18-23 \u03bcg/m\u00b3\n     - PM10: 31-40 \u03bcg/m\u00b3\n     - SO2: 1-2 \u03bcg/m\u00b3\n     - NO2: 14-18 \u03bcg/m\u00b3\n     - CO: 0.6-0.8 mg/m\u00b3\n\n### \u7ed3\u8bba\n\n\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e5\u4e0b\u534813:00\u523017:00\u671f\u95f4\u7684\u6392\u653e\u91cf\u8f83\u5927\uff0c\u7279\u522b\u662f\u70df\u6c14\u91cf\u548cNOx\u6392\u653e\u91cf\u3002\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u67099\u4e2a\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\uff0c\u8fd9\u4e9b\u7ad9\u70b9\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\u663e\u793a\uff0cPM2.5\u3001PM10\u3001NO2\u7b49\u6c61\u67d3\u7269\u6d53\u5ea6\u5728\u8be5\u65f6\u95f4\u6bb5\u5185\u6709\u6240\u6ce2\u52a8\u3002\u7279\u522b\u662f\u8fc1\u5b89\u5e02\u8fc1\u5b89\u9547\u3001\u8fc1\u5b89\u5e02\u8d75\u5e97\u5b50\u9547\u548c\u8fc1\u5b89\u5e02\u91ce\u9e21\u5768\u9547\u7684AQI\u548c\u6c61\u67d3\u7269\u6d53\u5ea6\u8f83\u9ad8\uff0c\u53ef\u80fd\u53d7\u5230\u516c\u53f8\u6392\u653e\u7684\u5f71\u54cd\u3002\u5efa\u8bae\u8fdb\u4e00\u6b65\u76d1\u6d4b\u8fd9\u4e9b\u5730\u533a\u7684\u7a7a\u6c14\u8d28\u91cf\uff0c\u5e76\u91c7\u53d6\u5fc5\u8981\u7684\u63aa\u65bd\u51cf\u5c11\u6c61\u67d3\u7269\u6392\u653e\uff0c\u4fdd\u62a4\u5468\u8fb9\u519c\u4e1a\u533a\u7684\u73af\u5883\u8d28\u91cf\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 26936,
+              "completion_tokens": 2117,
+              "total_tokens": 29053
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u516c\u53f8\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u5185\u7684\u6392\u653e\u6570\u636e\nquery_emission = text(\"\"\"\nSELECT timestamp, exhaust_gas, nox\nFROM hourly_polluting_company_emission\nWHERE company_id = 2418\nAND timestamp >= '2025-06-10 13:00:00'\nAND timestamp < '2025-06-10 17:00:00'\nORDER BY timestamp\n\"\"\")\n\nemission_data = pd.read_sql(query_emission, engine)\nprint(f\"\u516c\u53f8\u57282025-06-10 13:00-17:00\u671f\u95f4\u7684\u6392\u653e\u6570\u636e\uff1a\")\nprint(emission_data)",
+              "# \u8ba1\u7b97\u603b\u70df\u6c14\u91cf\u3001\u5cf0\u503c\u70df\u6c14\u91cf\u548c\u603bNOx\u6392\u653e\u91cf\ntotal_flue_gas = emission_data['exhaust_gas'].sum()\npeak_flue_gas = emission_data['exhaust_gas'].max()\ntotal_nox = emission_data['nox'].sum()\n\nprint(f\"\u603b\u70df\u6c14\u91cf: {total_flue_gas} \u7acb\u65b9\u7c73\")\nprint(f\"\u5cf0\u503c\u70df\u6c14\u91cf: {peak_flue_gas} \u7acb\u65b9\u7c73\")\nprint(f\"\u603bNOx\u6392\u653e\u91cf: {total_nox} \u5343\u514b\")\n\n# \u8ba1\u7b97\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf\nquery_stations = text(\"\"\"\nSELECT COUNT(*)\nFROM air_quality_station aqs\nWHERE ST_DWithin(aqs.coordinate, (SELECT coordinate FROM polluting_company WHERE id = 2418), 10000)\n\"\"\")\n\nstations_within_10km = pd.read_sql(query_stations, engine).iloc[0, 0]\n\nprint(f\"\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf: {stations_within_10km}\")",
+              "# \u83b7\u53d6\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u519c\u4e1a\u533a\u6570\u636e\nquery_agricultural_areas = text(\"\"\"\nSELECT osm.name, osm.geometry\nFROM osm_feature osm\nJOIN polluting_company pc ON ST_DWithin(osm.geometry, pc.coordinate, 10000)\nWHERE pc.id = 2418 AND osm.main_type = 'AGRICULTURAL'\n\"\"\")\n\nagricultural_areas = pd.read_sql(query_agricultural_areas, engine)\n\n# \u83b7\u53d6\u8fd9\u4e9b\u519c\u4e1a\u533a\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\nquery_agricultural_areas_aqi = text(\"\"\"\nSELECT hsaq.timestamp, hsaq.aqi, hsaq.pm2_5, hsaq.pm10, hsaq.so2, hsaq.no2, hsaq.co, aqs.name as station_name\nFROM hourly_station_air_quality hsaq\nJOIN air_quality_station aqs ON hsaq.station_id = aqs.id\nWHERE ST_DWithin(aqs.coordinate, (SELECT coordinate FROM polluting_company WHERE id = 2418), 10000)\nAND hsaq.timestamp >= '2025-06-10 13:00:00'\nAND hsaq.timestamp < '2025-06-10 17:00:00'\n\"\"\")\n\nagricultural_areas_aqi = pd.read_sql(query_agricultural_areas_aqi, engine)\n\nprint(f\"\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u519c\u4e1a\u533a\u6570\u636e\uff1a\")\nprint(agricultural_areas)\n\nprint(f\"\\n\u516c\u53f8\u5468\u8fb910\u516c\u91cc\u5185\u7684\u519c\u4e1a\u533a\u57282025-06-10 13:00-17:00\u671f\u95f4\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\uff1a\")\nprint(agricultural_areas_aqi)"
+            ],
+            "runtime_variables": {
+              "total_flue_gas": 103997200.0,
+              "peak_flue_gas": 26282400.0,
+              "total_nox": 772.444,
+              "stations_within_10km": "np.int64(9)"
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 26936,
+      "total_completion_tokens": 2117,
+      "total_tokens": 29053
+    }
+  }
+}

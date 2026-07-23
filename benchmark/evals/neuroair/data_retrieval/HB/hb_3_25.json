@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_25",
+    "module": "evals.neuroair.data_retrieval.HB.hb_3_25",
+    "requirements": "As part of your analysis, for Jingxing County (district_id 9) on 2025-06-30 compute and store the district-level AQI profile: mean_aqi, max_aqi (float), exceedance_hours (AQI>100, int), peak_aqi_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_3_25",
+        "turns": [
+          {
+            "query": "Examine the pollution causes affecting Jingxing County (district_id: 9) on 2025-06-30, analyzing the impact of topographical factors and emission source distribution.",
+            "validator": "validate_hb_3_25"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-25",
+      "verbatim": true
+    }
+  }
+]

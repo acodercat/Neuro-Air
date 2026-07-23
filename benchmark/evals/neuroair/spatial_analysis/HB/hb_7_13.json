@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_13",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_13",
+    "requirements": "As part of your analysis, for company 2444 over 2025-06-06 14:00-18:00 compute and store: total_flue_gas, peak_flue_gas (float), stations_within_10km (int), nearby_mean_pm25 (mean PM2.5 across stations within 10km over the window, float).",
+    "conversations": [
+      {
+        "id": "hb_7_13",
+        "turns": [
+          {
+            "query": "Analyze the impact of Shougang Jingtang Steel United Co., Ltd. (company_id: 2444) emissions on surrounding air quality on 2025-06-06 between 14:00-18:00.",
+            "validator": "validate_hb_7_13"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-13",
+      "verbatim": true
+    }
+  }
+]

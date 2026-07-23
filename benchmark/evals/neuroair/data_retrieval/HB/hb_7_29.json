@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_29",
+    "module": "evals.neuroair.data_retrieval.HB.hb_7_29",
+    "requirements": "As part of your analysis, for station 272 on 2025-07-05 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_7_29",
+        "turns": [
+          {
+            "query": "Analyze pollution source attribution for high PM2.5 episodes at Railway station (station_id: 272) during 2025-07-05, considering upstream wind patterns and nearby emission sources.",
+            "validator": "validate_hb_7_29"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-29",
+      "verbatim": true
+    }
+  }
+]

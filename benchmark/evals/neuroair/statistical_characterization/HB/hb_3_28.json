@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_28",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_3_28",
+    "requirements": "As part of your analysis, over 2025-07-01 to 2025-07-15 compute and store: total_flue_gas_jiujiang (Qian'an Jiujiang Wire Rod), total_flue_gas_shougang (Shougang Qian'an Steel), combined_total_flue_gas (float), district_mean_aqi, district_max_aqi (Qian'an District, float).",
+    "conversations": [
+      {
+        "id": "hb_3_28",
+        "turns": [
+          {
+            "query": "Evaluate the cumulative impact of two major steel enterprises in Qian'an: Qian'an Jiujiang Wire Rod and Shougang Qian'an Steel on Qian'an District air quality during 2025-07-01 to 2025-07-15.",
+            "validator": "validate_hb_3_28"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-28",
+      "verbatim": true
+    }
+  }
+]

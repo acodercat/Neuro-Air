@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_34",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_2_34",
+    "requirements": "As part of your analysis, compute and store: education_count_within_2km (OSM education features within 2km of Congtai Park station, int), station_mean_aqi, station_max_pm25 (Congtai Park station on 2025-06-15, float).",
+    "conversations": [
+      {
+        "id": "hb_2_34",
+        "turns": [
+          {
+            "query": "Analyze air quality around EDUCATION facilities (schools) within 2km of Congtai Park monitoring station in Handan during 2025-06-15. Map all schools using OSM education features, correlate with pollution levels.",
+            "validator": "validate_hb_2_34"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-34",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_25",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_25",
+    "requirements": "As part of your analysis, for company 2467 at 2025-06-10 18:00 compute and store: flue_gas_1800, nox_1800, so2_1800, pm_1800 (float) and stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_25",
+        "turns": [
+          {
+            "query": "Analyze the impact of Hebei Zongheng Group Fengnan Steel Co., Ltd. (company_id: 2467) emissions on nearby air quality monitoring stations on 2025-06-10 at 18:00.",
+            "validator": "validate_hb_7_25"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-25",
+      "verbatim": true
+    }
+  }
+]

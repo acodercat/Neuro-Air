@@ -1,0 +1,52 @@
+{
+  "hb_6_12": {
+    "scenario": "hb_6_12",
+    "conversations": [
+      {
+        "id": "hb_6_12",
+        "turns": [
+          {
+            "query": "Analyze long-term pollution exposure risks from Hebei Donghai Special Steel (company_id: 2446) for residents living near Datingquan station (station_id: 139) over the period 2025-07-01 to 2025-07-05, and assess residential property value implications.",
+            "actual_response": "\u6839\u636e\u4ee5\u4e0a\u5206\u6790\uff0c\u6211\u4eec\u5f97\u5230\u4e86\u4ee5\u4e0b\u7ed3\u679c\uff1a\n\n- **\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb**: 446.28 km\n- **\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u65b9\u4f4d\u89d2**: 232.66 \u5ea6\n- **\u7ad9\u70b9PM2.5\u5e73\u5747\u503c**: 15.55 \u03bcg/m\u00b3\n- **\u7ad9\u70b9PM2.5\u6700\u5927\u503c**: 39.00 \u03bcg/m\u00b3\n- **\u7ad9\u70b9PM2.5\u8d85\u8fc775 \u03bcg/m\u00b3\u7684\u5c0f\u65f6\u6570**: 0 \u5c0f\u65f6\n- **\u516c\u53f8\u603b\u6392\u653e\u91cf**: 2503187000.00 \u7acb\u65b9\u7c73\n\n### \u5206\u6790\u7ed3\u679c\n\n1. **\u8ddd\u79bb\u548c\u65b9\u4f4d\u89d2**:\n   - \u6cb3\u5317\u4e1c\u6d77\u7279\u94a2\uff08company_id: 2446\uff09\u5230\u5927\u540c\u6cc9\u7ad9\uff08station_id: 139\uff09\u7684\u76f4\u7ebf\u8ddd\u79bb\u4e3a446.28\u516c\u91cc\uff0c\u65b9\u4f4d\u89d2\u4e3a232.66\u5ea6\u3002\u8fd9\u610f\u5473\u7740\u516c\u53f8\u5728\u7ad9\u70b9\u7684\u897f\u5357\u65b9\u5411\u3002\n\n2. **PM2.5\u6570\u636e**:\n   - \u57282025-07-01\u52302025-07-05\u671f\u95f4\uff0c\u5927\u540c\u6cc9\u7ad9\u7684PM2.5\u5e73\u5747\u503c\u4e3a15.55 \u03bcg/m\u00b3\uff0c\u6700\u5927\u503c\u4e3a39.00 \u03bcg/m\u00b3\u3002\u5728\u8fd9\u6bb5\u65f6\u95f4\u5185\uff0c\u6ca1\u6709\u5c0f\u65f6\u7684PM2.5\u503c\u8d85\u8fc775 \u03bcg/m\u00b3\u3002\n\n3. **\u516c\u53f8\u6392\u653e\u91cf**:\n   - \u5728\u540c\u4e00\u65f6\u95f4\u6bb5\u5185\uff0c\u6cb3\u5317\u4e1c\u6d77\u7279\u94a2\u7684\u603b\u6392\u653e\u91cf\u4e3a2503187000.00\u7acb\u65b9\u7c73\u3002\n\n### \u4f4f\u5b85\u7269\u4e1a\u4ef7\u503c\u5f71\u54cd\u8bc4\u4f30\n\n- **\u6c61\u67d3\u66b4\u9732\u98ce\u9669**:\n  - \u5c3d\u7ba1\u6cb3\u5317\u4e1c\u6d77\u7279\u94a2\u7684\u6392\u653e\u91cf\u8f83\u5927\uff0c\u4f46\u5927\u540c\u6cc9\u7ad9\u7684PM2.5\u503c\u57282025-07-01\u52302025-07-05\u671f\u95f4\u5747\u672a\u8d85\u8fc775 \u03bcg/m\u00b3\uff0c\u4e14\u5e73\u5747\u503c\u548c\u6700\u5927\u503c\u5747\u5728\u5b89\u5168\u8303\u56f4\u5185\u3002\u8fd9\u8868\u660e\u5728\u8be5\u65f6\u95f4\u6bb5\u5185\uff0c\u5c45\u6c11\u7684\u957f\u671f\u6c61\u67d3\u66b4\u9732\u98ce\u9669\u8f83\u4f4e\u3002\n  \n- **\u4f4f\u5b85\u7269\u4e1a\u4ef7\u503c**:\n  - \u7531\u4e8ePM2.5\u503c\u5728\u5b89\u5168\u8303\u56f4\u5185\uff0c\u4e14\u6ca1\u6709\u8d85\u8fc775 \u03bcg/m\u00b3\u7684\u8bb0\u5f55\uff0c\u5c45\u6c11\u7684\u5065\u5eb7\u98ce\u9669\u8f83\u4f4e\uff0c\u8fd9\u53ef\u80fd\u5bf9\u4f4f\u5b85\u7269\u4e1a\u4ef7\u503c\u7684\u5f71\u54cd\u8f83\u5c0f\u3002\u7136\u800c\uff0c\u957f\u671f\u7684\u6c61\u67d3\u66b4\u9732\u98ce\u9669\u4ecd\u9700\u8fdb\u4e00\u6b65\u76d1\u6d4b\u548c\u8bc4\u4f30\uff0c\u7279\u522b\u662f\u5728\u98ce\u5411\u548c\u6c14\u8c61\u6761\u4ef6\u53d8\u5316\u65f6\u3002\n\n\u7efc\u4e0a\u6240\u8ff0\uff0c\u6cb3\u5317\u4e1c\u6d77\u7279\u94a2\u57282025-07-01\u52302025-07-05\u671f\u95f4\u5bf9\u5927\u540c\u6cc9\u7ad9\u9644\u8fd1\u5c45\u6c11\u7684\u957f\u671f\u6c61\u67d3\u66b4\u9732\u98ce\u9669\u8f83\u4f4e\uff0c\u5bf9\u4f4f\u5b85\u7269\u4e1a\u4ef7\u503c\u7684\u5f71\u54cd\u4e5f\u8f83\u5c0f\u3002\u5efa\u8bae\u7ee7\u7eed\u76d1\u6d4bPM2.5\u503c\u548c\u516c\u53f8\u7684\u6392\u653e\u60c5\u51b5\uff0c\u4ee5\u786e\u4fdd\u5c45\u6c11\u7684\u5065\u5eb7\u548c\u73af\u5883\u8d28\u91cf\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 6,
+              "prompt_tokens": 47259,
+              "completion_tokens": 2402,
+              "total_tokens": 49661
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\nfrom math import radians, sin, cos, sqrt, atan2\n\n# \u8ba1\u7b97\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb\u548c\u65b9\u4f4d\u89d2\ndef calculate_distance_and_bearing(lat1, lon1, lat2, lon2):\n    R = 6371.0  # \u5730\u7403\u534a\u5f84\uff0c\u5355\u4f4d\uff1a\u516c\u91cc\n    lat1_rad = radians(lat1)\n    lon1_rad = radians(lon1)\n    lat2_rad = radians(lat2)\n    lon2_rad = radians(lon2)\n    \n    dlon = lon2_rad - lon1_rad\n    dlat = lat2_rad - lat1_rad\n    \n    a = sin(dlat / 2)**2 + cos(lat1_rad) * cos(lat2_rad) * sin(dlon / 2)**2\n    c = 2 * atan2(sqrt(a), sqrt(1 - a))\n    distance = R * c\n    \n    y = sin(dlon) * cos(lat2_rad)\n    x = cos(lat1_rad) * sin(lat2_rad) - sin(lat1_rad) * cos(lat2_rad) * cos(dlon)\n    bearing = atan2(y, x) * 180 / radians(1)\n    \n    return distance, bearing\n\n# \u83b7\u53d6\u516c\u53f8\u548c\u7ad9\u70b9\u7684\u5750\u6807\nquery_company = text(\"SELECT coordinate FROM polluting_company WHERE id = 2446\")\ncompany_coord = pd.read_sql(query_company, engine).iloc[0, 0]\n\nquery_station = text(\"SELECT coordinate FROM air_quality_station WHERE id = 139\")\nstation_coord = pd.read_sql(query_station, engine).iloc[0, 0]\n\n# \u89e3\u6790\u5750\u6807\ncompany_lat, company_lon = company_coord['coordinates'][::-1]\nstation_lat, station_lon = station_coord['coordinates'][::-1]\n\n# \u8ba1\u7b97\u8ddd\u79bb\u548c\u65b9\u4f4d\u89d2\ndistance_km, bearing_deg = calculate_distance_and_bearing(company_lat, company_lon, station_lat, station_lon)\n\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb: {distance_km:.2f} km\")\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u65b9\u4f4d\u89d2: {bearing_deg:.2f} \u5ea6\")\n\n# \u5b58\u50a8\u7ed3\u679c\ndistance_km = distance_km\nbearing_deg = bearing_deg",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u4f7f\u7528PostGIS\u51fd\u6570\u8ba1\u7b97\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb\u548c\u65b9\u4f4d\u89d2\nquery_distance_bearing = text(\"\"\"\nSELECT \n    ST_Distance(ST_Transform(c.coordinate, 4326), ST_Transform(s.coordinate, 4326)) / 1000 AS distance_km,\n    degrees(ST_Azimuth(ST_Transform(c.coordinate, 4326), ST_Transform(s.coordinate, 4326))) AS bearing_deg\nFROM polluting_company c\nJOIN air_quality_station s ON c.id = 2446 AND s.id = 139\n\"\"\")\n\nresult = pd.read_sql(query_distance_bearing, engine)\n\n# \u63d0\u53d6\u7ed3\u679c\ndistance_km = result.iloc[0]['distance_km']\nbearing_deg = result.iloc[0]['bearing_deg']\n\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb: {distance_km:.2f} km\")\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u65b9\u4f4d\u89d2: {bearing_deg:.2f} \u5ea6\")\n\n# \u5b58\u50a8\u7ed3\u679c\ndistance_km = distance_km\nbearing_deg = bearing_deg",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u4f7f\u7528PostGIS\u51fd\u6570\u8ba1\u7b97\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb\u548c\u65b9\u4f4d\u89d2\nquery_distance_bearing = text(\"\"\"\nSELECT \n    ST_Distance(c.coordinate, s.coordinate) / 1000 AS distance_km,\n    degrees(ST_Azimuth(c.coordinate, s.coordinate)) AS bearing_deg\nFROM polluting_company c\nJOIN air_quality_station s ON c.id = 2446 AND s.id = 139\n\"\"\")\n\nresult = pd.read_sql(query_distance_bearing, engine)\n\n# \u63d0\u53d6\u7ed3\u679c\ndistance_km = result.iloc[0]['distance_km']\nbearing_deg = result.iloc[0]['bearing_deg']\n\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u76f4\u7ebf\u8ddd\u79bb: {distance_km:.2f} km\")\nprint(f\"\u516c\u53f8\u5230\u7ad9\u70b9\u7684\u65b9\u4f4d\u89d2: {bearing_deg:.2f} \u5ea6\")\n\n# \u5b58\u50a8\u7ed3\u679c\ndistance_km = distance_km\nbearing_deg = bearing_deg",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u7ad9\u70b9\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u5185\u7684PM2.5\u6570\u636e\nquery_station_pm25 = text(\"\"\"\nSELECT \n    AVG(pm2_5) AS mean_pm25,\n    MAX(pm2_5) AS max_pm25,\n    SUM(CASE WHEN pm2_5 > 75 THEN 1 ELSE 0 END) AS exceedance_hours\nFROM hourly_station_air_quality\nWHERE station_id = 139 AND timestamp >= '2025-07-01 00:00:00' AND timestamp < '2025-07-06 00:00:00'\n\"\"\")\n\nresult = pd.read_sql(query_station_pm25, engine)\n\n# \u63d0\u53d6\u7ed3\u679c\nstation_mean_pm25 = result.iloc[0]['mean_pm25']\nstation_max_pm25 = result.iloc[0]['max_pm25']\nstation_exceedance_hours = result.iloc[0]['exceedance_hours']\n\nprint(f\"\u7ad9\u70b9PM2.5\u5e73\u5747\u503c: {station_mean_pm25:.2f} \u03bcg/m\u00b3\")\nprint(f\"\u7ad9\u70b9PM2.5\u6700\u5927\u503c: {station_max_pm25:.2f} \u03bcg/m\u00b3\")\nprint(f\"\u7ad9\u70b9PM2.5\u8d85\u8fc775 \u03bcg/m\u00b3\u7684\u5c0f\u65f6\u6570: {station_exceedance_hours} \u5c0f\u65f6\")\n\n# \u5b58\u50a8\u7ed3\u679c\nstation_mean_pm25 = station_mean_pm25\nstation_max_pm25 = station_max_pm25\nstation_exceedance_hours = station_exceedance_hours",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u516c\u53f8\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u5185\u7684\u603b\u6392\u653e\u91cf\nquery_company_emission = text(\"\"\"\nSELECT \n    SUM(exhaust_gas) AS total_exhaust\nFROM hourly_polluting_company_emission\nWHERE company_id = 2446 AND timestamp >= '2025-07-01 00:00:00' AND timestamp < '2025-07-06 00:00:00'\n\"\"\")\n\nresult = pd.read_sql(query_company_emission, engine)\n\n# \u63d0\u53d6\u7ed3\u679c\ncompany_total_exhaust = result.iloc[0]['total_exhaust']\n\nprint(f\"\u516c\u53f8\u603b\u6392\u653e\u91cf: {company_total_exhaust:.2f} \u7acb\u65b9\u7c73\")\n\n# \u5b58\u50a8\u7ed3\u679c\ncompany_total_exhaust = company_total_exhaust"
+            ],
+            "runtime_variables": {
+              "distance_km": 446.28430579210004,
+              "bearing_deg": 232.66088051332747,
+              "station_mean_pm25": 15.547619047619047,
+              "station_max_pm25": 39.0,
+              "station_exceedance_hours": 0.0,
+              "company_total_exhaust": 2503187000.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 6,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 47259,
+      "total_completion_tokens": 2402,
+      "total_tokens": 49661
+    }
+  }
+}

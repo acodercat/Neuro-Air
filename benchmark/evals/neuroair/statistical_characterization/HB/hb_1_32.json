@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_32",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_1_32",
+    "requirements": "As part of your analysis, for Congtai District on 2025-06-10 compute and store: total_district_flue_gas (float), company_count (int), top_emitter_company_id (int), top_emitter_total (float).",
+    "conversations": [
+      {
+        "id": "hb_1_32",
+        "turns": [
+          {
+            "query": "Help me compare the industrial emission patterns in Congtai District on 2025-06-10.",
+            "validator": "validate_hb_1_32"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-32",
+      "verbatim": true
+    }
+  }
+]

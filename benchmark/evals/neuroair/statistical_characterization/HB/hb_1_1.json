@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_1",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_1_1",
+    "requirements": "As part of your analysis, for enterprises in 邯郸市 (Handan) on 2025-06-08 compute and store: total_city_flue_gas (float), active_company_count (int), top_emitter_company_id (int), top_emitter_total (float).",
+    "conversations": [
+      {
+        "id": "hb_1_1",
+        "turns": [
+          {
+            "query": "Help me analyze the emission patterns of enterprises in 邯郸市 on 2025-06-08.",
+            "validator": "validate_hb_1_1"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-1",
+      "verbatim": true
+    }
+  }
+]

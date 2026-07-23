@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_10",
+    "module": "evals.neuroair.temporal_pattern_analysis.HB.hb_1_10",
+    "requirements": "As part of your analysis, for Jinan Steel Group Co., Ltd. (registered name: 冀南钢铁集团有限公司) over 2025-06-10 to 2025-06-11 compute and store: total_flue_gas, mean_flue_gas, peak_flue_gas (float), cv_flue_gas (population std / mean of hourly flue-gas, float).",
+    "conversations": [
+      {
+        "id": "hb_1_10",
+        "turns": [
+          {
+            "query": "Analyze hourly emission variations of Jinan Steel Group Co., Ltd. during 2025-06-10 to 2025-06-11.",
+            "validator": "validate_hb_1_10"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "temporal_pattern_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-10",
+      "verbatim": true
+    }
+  }
+]

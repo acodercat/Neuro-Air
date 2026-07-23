@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_6_12",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_6_12",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2446 -> station 139 over the period (2025-07-01 to 2025-07-05), compute and store: distance_km, bearing_deg (company->station), station_mean_pm25, station_max_pm25 (float), station_exceedance_hours (PM2.5>75, int), company_total_exhaust (float).",
+    "conversations": [
+      {
+        "id": "hb_6_12",
+        "turns": [
+          {
+            "query": "Analyze long-term pollution exposure risks from Hebei Donghai Special Steel (company_id: 2446) for residents living near Datingquan station (station_id: 139) over the period 2025-07-01 to 2025-07-05, and assess residential property value implications.",
+            "validator": "validate_hb_6_12"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-6-12",
+      "verbatim": true
+    }
+  }
+]

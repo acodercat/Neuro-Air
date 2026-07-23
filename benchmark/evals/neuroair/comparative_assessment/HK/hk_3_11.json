@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_3_11",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_3_11",
+    "requirements": "As part of your analysis, on 2025-06-10 across ROADSIDE stations compute and store: mean_no2_am (07:00-09:00), mean_no2_lunch (12:00-14:00), mean_no2_pm (18:00-20:00) (float) and highest_no2_window ('AM','LUNCH' or 'PM', str).",
+    "conversations": [
+      {
+        "id": "hk_3_11",
+        "turns": [
+          {
+            "query": "Compare NO2 levels during morning rush (7-9 AM), lunch time (12-2 PM), and evening rush (6-8 PM) at roadside monitoring stations on 2025-06-10.",
+            "validator": "validate_hk_3_11"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-3-11",
+      "verbatim": true
+    }
+  }
+]

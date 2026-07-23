@@ -1,0 +1,54 @@
+{
+  "hb_1_16": {
+    "scenario": "hb_1_16",
+    "conversations": [
+      {
+        "id": "hb_1_16",
+        "turns": [
+          {
+            "query": "Identify the peak SO2 emission hours of Shougang Qian'an Steel Company during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u5206\u6790\u5b8c\u6210\u3002\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\uff08\u9996\u94a2\u80a1\u4efd\u516c\u53f8\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\uff0ccompany_id=2452\uff09\u57282025\u5e746\u670810\u65e5\u81f36\u670812\u65e5\u671f\u95f4\u7684SO2\u6392\u653e\u6570\u636e\u5982\u4e0b\uff1a\n\n- **\u5cf0\u503cSO2\u6392\u653e\u91cf**: 1554.83 kg/h\n- **\u5cf0\u503c\u51fa\u73b0\u65f6\u95f4**: 2025\u5e746\u670810\u65e506:00\n- **\u5cf0\u503c\u8ddd\u8d77\u59cb\u65f6\u95f4\u504f\u79fb**: 6\u5c0f\u65f6\uff08\u4ece2025-06-10 00:00\u8d77\u7b97\uff09\n- **\u603bSO2\u6392\u653e\u91cf**: 9247.545 kg\n- **\u5e73\u5747SO2\u6392\u653e\u91cf**: 128.44 kg/h\n\n\u6570\u636e\u663e\u793a\uff0c\u8be5\u4f01\u4e1a\u57286\u670810\u65e5\u65e9\u4e0a6\u70b9\u51fa\u73b0\u4e86\u4e00\u4e2a\u663e\u8457\u7684SO2\u6392\u653e\u5cf0\u503c\uff081554.83 kg/h\uff09\uff0c\u8fdc\u9ad8\u4e8e\u5176\u4ed6\u65f6\u6bb5\u7684\u6392\u653e\u6c34\u5e73\uff08\u5927\u90e8\u5206\u65f6\u6bb5\u572875-85 kg/h\u4e4b\u95f4\uff09\u3002\u8fd9\u4e2a\u5cf0\u503c\u53ef\u80fd\u662f\u7531\u4e8e\u751f\u4ea7\u8fc7\u7a0b\u4e2d\u7684\u7279\u5b9a\u5de5\u51b5\u6216\u8bbe\u5907\u8fd0\u884c\u72b6\u6001\u5bfc\u81f4\u7684\uff0c\u5efa\u8bae\u73af\u4fdd\u90e8\u95e8\u5173\u6ce8\u8be5\u65f6\u6bb5\u7684\u6392\u653e\u63a7\u5236\u60c5\u51b5\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 13,
+              "prompt_tokens": 92646,
+              "completion_tokens": 7897,
+              "total_tokens": 100543
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u7684\u4f01\u4e1aID\nquery_company = text(\"\"\"SELECT id, name, district_id, city_id FROM polluting_company WHERE name LIKE '%\u9996\u94a2%' AND name LIKE '%\u8fc1\u5b89%'\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(\"\u67e5\u627e\u5230\u7684\u4f01\u4e1a\uff1a\")\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u786e\u8ba4\u4f01\u4e1aID\u4e3a2452\uff08\u9996\u94a2\u80a1\u4efd\u516c\u53f8\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\uff09\ncompany_id = 2452\nprint(f\"RESOLVED: \u9996\u94a2\u80a1\u4efd\u516c\u53f8\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8 = {company_id}\")\n\n# \u83b7\u53d62025-06-10\u52302025-06-12\u671f\u95f4\u7684hourly SO2\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a\u4ece2025-06-10 00:00:00\u52302025-06-13 00:00:00\uff08\u4e0d\u5305\u542b\uff09\nquery_emission = text(f\"\"\"\nSELECT timestamp, so2 \nFROM hourly_polluting_company_emission \nWHERE company_id = {company_id} \nAND timestamp >= '2025-06-10 00:00:00' \nAND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\n\"\"\")\ndf_so2 = pd.read_sql(query_emission, engine)\nprint(f\"SO2\u6392\u653e\u6570\u636e\u884c\u6570\uff1a{len(df_so2)}\")\nprint(df_so2.head(10))\nprint(df_so2.tail(10))",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u7edf\u8ba1\u6307\u6807\npeak_so2_val = float(df_so2['so2'].max())\npeak_hour_timestamp = df_so2.loc[df_so2['so2'].idxmax(), 'timestamp']\n\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u65f6\u523b\u7684\u5c0f\u65f6\u6570\nbase_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_so2_offset_hours_val = int((peak_hour_timestamp - base_time).total_seconds() / 3600)\n\ntotal_so2_val = float(df_so2['so2'].sum())\nmean_so2_val = float(df_so2['so2'].mean())\n\nprint(f\"\u5cf0\u503cSO2: {peak_so2_val}\")\nprint(f\"\u5cf0\u503c\u65f6\u523b: {peak_hour_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_so2_offset_hours_val}\")\nprint(f\"\u603bSO2\u6392\u653e\u91cf: {total_so2_val}\")\nprint(f\"\u5e73\u5747SO2: {mean_so2_val}\")\n\n# \u5c06\u7ed3\u679c\u5b58\u50a8\u5230\u6307\u5b9a\u53d8\u91cf\npeak_so2 = peak_so2_val\npeak_so2_offset_hours = peak_so2_offset_hours_val\ntotal_so2 = total_so2_val\nmean_so2 = mean_so2_val\n\nprint(f\"\\n\u53d8\u91cf\u5df2\u8d4b\u503c:\")\nprint(f\"peak_so2 = {peak_so2}\")\nprint(f\"peak_so2_offset_hours = {peak_so2_offset_hours}\")\nprint(f\"total_so2 = {total_so2}\")\nprint(f\"mean_so2 = {mean_so2}\")",
+              "import pandas as pd\n\n# \u68c0\u67e5\u5df2\u5b58\u5728\u7684\u53d8\u91cf\u503c\nprint(f\"company_id: {company_id}\")\nprint(f\"df_so2 \u6570\u636e\u9884\u89c8:\")\nprint(df_so2.head())\nprint(f\"\\ndf_so2 \u6570\u636e\u91cf: {len(df_so2)}\")\nprint(f\"\\ndf_so2 \u7edf\u8ba1\u4fe1\u606f:\")\nprint(df_so2['so2'].describe())",
+              "# \u57fa\u4e8e df_so2 \u8ba1\u7b97\u6240\u9700\u7684\u7edf\u8ba1\u91cf\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00 \u5230 2025-06-12 23:00\uff08\u517172\u5c0f\u65f6\uff09\n\n# \u8ba1\u7b97\u603b\u548c\ntotal_so2_val = df_so2['so2'].sum()\n\n# \u8ba1\u7b97\u5e73\u5747\u503c\nmean_so2_val = df_so2['so2'].mean()\n\n# \u8ba1\u7b97\u5cf0\u503c\npeak_so2_val = df_so2['so2'].max()\n\n# \u627e\u5230\u5cf0\u503c\u5bf9\u5e94\u7684\u65f6\u95f4\npeak_hour_timestamp = df_so2.loc[df_so2['so2'].idxmax(), 'timestamp']\n\n# \u8ba1\u7b97\u4ece 2025-06-10 00:00 \u5230\u5cf0\u503c\u65f6\u523b\u7684\u5c0f\u65f6\u504f\u79fb\u91cf\nbase_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_so2_offset_hours_val = int((peak_hour_timestamp - base_time).total_seconds() / 3600)\n\n# \u8f93\u51fa\u7ed3\u679c\nprint(f\"total_so2: {total_so2_val}\")\nprint(f\"mean_so2: {mean_so2_val}\")\nprint(f\"peak_so2: {peak_so2_val}\")\nprint(f\"peak_hour_timestamp: {peak_hour_timestamp}\")\nprint(f\"peak_so2_offset_hours: {peak_so2_offset_hours_val}\")",
+              "# \u590d\u7528\u4e0a\u6e38\u4ee3\u7406\u5df2\u8ba1\u7b97\u7684\u4e2d\u95f4\u53d8\u91cf\npeak_so2 = float(peak_so2_val)\npeak_so2_offset_hours = int(peak_so2_offset_hours_val)\ntotal_so2 = float(total_so2_val)\nmean_so2 = float(mean_so2_val)\n\n# \u6253\u5370\u786e\u8ba4\u8f93\u51fa\u53d8\u91cf\u5df2\u6b63\u786e\u8d4b\u503c\nprint(f\"peak_so2: {peak_so2}\")\nprint(f\"peak_so2_offset_hours: {peak_so2_offset_hours}\")\nprint(f\"total_so2: {total_so2}\")\nprint(f\"mean_so2: {mean_so2}\")",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u9996\u94a2\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u7684\u516c\u53f8ID\nquery_company = text(\"\"\"SELECT id, name, city_id, district_id, industry_type FROM polluting_company WHERE name LIKE '%\u9996\u94a2%' AND name LIKE '%\u8fc1\u5b89%'\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u9996\u94a2\u80a1\u4efd\u516c\u53f8\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\uff08id=2452\uff09\u57282025-06-10\u52302025-06-12\u671f\u95f4\u7684SO2\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00:00 \u5230 2025-06-13 00:00:00\uff08\u4e0d\u5305\u542b\uff09\nquery_so2 = text(\"\"\"SELECT timestamp, so2 FROM hourly_polluting_company_emission \nWHERE company_id = 2452 \nAND timestamp >= '2025-06-10 00:00:00' \nAND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\"\"\")\ndf_so2 = pd.read_sql(query_so2, engine)\nprint(f\"\u6570\u636e\u884c\u6570\uff1a{len(df_so2)}\")\nprint(df_so2.head(10))\nprint(df_so2.tail(10))",
+              "import pandas as pd\n\n# \u8ba1\u7b97\u5cf0\u503cSO2\npeak_so2_val = df_so2['so2'].max()\nprint(f\"\u5cf0\u503cSO2: {peak_so2_val}\")\n\n# \u627e\u5230\u5cf0\u503c\u65f6\u523b\npeak_row = df_so2[df_so2['so2'] == peak_so2_val]\npeak_hour_timestamp = peak_row['timestamp'].iloc[0]\nprint(f\"\u5cf0\u503c\u65f6\u523b: {peak_hour_timestamp}\")\n\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u65f6\u523b\u7684\u5c0f\u65f6\u6570\nbase_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_so2_offset_hours_val = int((peak_hour_timestamp - base_time).total_seconds() / 3600)\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_so2_offset_hours_val}\")\n\n# \u8ba1\u7b97\u603bSO2\ntotal_so2_val = df_so2['so2'].sum()\nprint(f\"\u603bSO2: {total_so2_val}\")\n\n# \u8ba1\u7b97\u5e73\u5747SO2\nmean_so2_val = df_so2['so2'].mean()\nprint(f\"\u5e73\u5747SO2: {mean_so2_val}\")\n\n# \u8d4b\u503c\u7ed9\u8981\u6c42\u7684\u53d8\u91cf\npeak_so2 = float(peak_so2_val)\npeak_so2_offset_hours = int(peak_so2_offset_hours_val)\ntotal_so2 = float(total_so2_val)\nmean_so2 = float(mean_so2_val)\n\nprint(f\"\\n\u6700\u7ec8\u7ed3\u679c:\")\nprint(f\"peak_so2: {peak_so2}\")\nprint(f\"peak_so2_offset_hours: {peak_so2_offset_hours}\")\nprint(f\"total_so2: {total_so2}\")\nprint(f\"mean_so2: {mean_so2}\")"
+            ],
+            "runtime_variables": {
+              "peak_so2": 1554.83,
+              "peak_so2_offset_hours": 6,
+              "total_so2": 9247.545,
+              "mean_so2": 128.438125
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 13,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 92646,
+      "total_completion_tokens": 7897,
+      "total_tokens": 100543
+    }
+  }
+}

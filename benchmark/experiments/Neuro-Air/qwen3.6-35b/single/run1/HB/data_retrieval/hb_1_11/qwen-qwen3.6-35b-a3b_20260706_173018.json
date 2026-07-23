@@ -1,0 +1,49 @@
+{
+  "hb_1_11": {
+    "scenario": "hb_1_11",
+    "conversations": [
+      {
+        "id": "hb_1_11",
+        "turns": [
+          {
+            "query": "Help me analyze the air quality patterns in \u5510\u5c71\u5e02 on 2025-06-02",
+            "actual_response": "\u6839\u636e\u5bf9\u5510\u5c71\u5e022025-06-02\u5c0f\u65f6\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\u7684\u5206\u6790\uff0c\u5f97\u51fa\u4ee5\u4e0b\u7ed3\u679c\uff1a\n\n**\u6838\u5fc3\u7edf\u8ba1\u6307\u6807\uff1a**\n- \u5e73\u5747AQI\uff1a59.92\n- \u6700\u5927AQI\uff1a92.0\n- \u6700\u5927PM2.5\uff1a68.00 \u03bcg/m\u00b3\n- AQI\u5cf0\u503c\u5c0f\u65f6\uff1a\u51cc\u66686\u70b9\n\n**\u65e5\u53d8\u5316\u7279\u5f81\uff1a**\n- \u51cc\u66680-6\u70b9\uff1aAQI\u4ece65\u4e0a\u5347\u81f392\uff0cPM2.5\u6d53\u5ea6\u4ece47.0\u5347\u81f368.0\uff0c\u4e3a\u4e3b\u8981\u6c61\u67d3\u7269\n- \u4e0a\u53487-11\u70b9\uff1aAQI\u4ece85\u964d\u81f362\uff0c\u6c61\u67d3\u7269\u6269\u6563\u6761\u4ef6\u6539\u5584\n- \u4e0b\u534812-18\u70b9\uff1aAQI\u964d\u81f342-52\uff0cO3\u6210\u4e3a\u4e3b\u8981\u6c61\u67d3\u7269\n- \u591c\u95f419-23\u70b9\uff1aAQI\u7ef4\u6301\u572824-32\uff0c\u7a7a\u6c14\u8d28\u91cf\u6700\u4f73\n\n**\u6c61\u67d3\u7269\u6f14\u53d8\u89c4\u5f8b\uff1a**\n- \u51cc\u6668\u81f3\u4e0a\u5348\uff1aPM2.5\u4e3b\u5bfc\n- \u4e2d\u5348\u81f3\u4e0b\u5348\uff1aO3\u4e3b\u5bfc\n- \u4e0b\u5348\u65f6\u6bb5\uff1aPM10\u4e5f\u6210\u4e3a\u4e3b\u8981\u6c61\u67d3\u7269\u4e4b\u4e00\n\n**\u76d1\u7ba1\u5efa\u8bae\uff1a**\n1. \u9488\u5bf9\u51cc\u6668PM2.5\u6d53\u5ea6\u8f83\u9ad8\uff0c\u5efa\u8bae\u52a0\u5f3a\u591c\u95f4\u6392\u653e\u76d1\u7ba1\n2. \u4e0b\u5348O3\u6d53\u5ea6\u5347\u9ad8\uff0c\u5efa\u8bae\u5bf9VOCs\u6392\u653e\u6e90\u8fdb\u884c\u91cd\u70b9\u7ba1\u63a7\n3. \u6574\u4f53\u7a7a\u6c14\u8d28\u91cf\u826f\u597d\uff0c\u9700\u6301\u7eed\u5173\u6ce8PM2.5\u548cO3\u7684\u534f\u540c\u63a7\u5236",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 34677,
+              "completion_tokens": 2710,
+              "total_tokens": 37387
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u5510\u5c71\u5e022025-06-02\u7684\u5c0f\u65f6\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\nquery = text(\"\"\"\nSELECT \n    EXTRACT(HOUR FROM timestamp) as hour_of_day,\n    aqi,\n    pm2_5,\n    pm10,\n    so2,\n    no2,\n    o3,\n    o3_8h,\n    co,\n    primary_pollutants,\n    composite_index\nFROM hourly_city_air_quality\nWHERE city_id = 2 \n    AND timestamp >= '2025-06-02 00:00:00' \n    AND timestamp < '2025-06-03 00:00:00'\nORDER BY hour_of_day\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(f\"\u6570\u636e\u884c\u6570: {len(df)}\")\nprint(f\"\\n\u57fa\u672c\u7edf\u8ba1\u4fe1\u606f:\")\nprint(f\"\u5e73\u5747AQI: {df['aqi'].mean():.2f}\")\nprint(f\"\u6700\u5927AQI: {df['aqi'].max()}\")\nprint(f\"\u6700\u5927PM2.5: {df['pm2_5'].max():.2f}\")\nprint(f\"AQI\u5cf0\u503c\u5c0f\u65f6: {int(df.loc[df['aqi'].idxmax(), 'hour_of_day'])}\")\n\nprint(f\"\\n\u5404\u5c0f\u65f6\u7a7a\u6c14\u8d28\u91cf\u6570\u636e:\")\nprint(df[['hour_of_day', 'aqi', 'pm2_5', 'primary_pollutants']].to_string(index=False))",
+              "# \u5b58\u50a8\u7ed3\u679c\u5230\u6307\u5b9a\u53d8\u91cf\nmean_aqi = float(df['aqi'].mean())\nmax_aqi = float(df['aqi'].max())\nmax_pm25 = float(df['pm2_5'].max())\npeak_aqi_hour_of_day = int(df.loc[df['aqi'].idxmax(), 'hour_of_day'])\n\nprint(f\"mean_aqi: {mean_aqi}\")\nprint(f\"max_aqi: {max_aqi}\")\nprint(f\"max_pm25: {max_pm25}\")\nprint(f\"peak_aqi_hour_of_day: {peak_aqi_hour_of_day}\")",
+              "# \u786e\u8ba4\u53d8\u91cf\u5df2\u6b63\u786e\u5b58\u50a8\nprint(f\"mean_aqi: {mean_aqi}\")\nprint(f\"max_aqi: {max_aqi}\")\nprint(f\"max_pm25: {max_pm25}\")\nprint(f\"peak_aqi_hour_of_day: {peak_aqi_hour_of_day}\")",
+              "# \u6700\u7ec8\u786e\u8ba4\u53d8\u91cf\u5b58\u50a8\nprint(f\"mean_aqi: {mean_aqi}\")\nprint(f\"max_aqi: {max_aqi}\")\nprint(f\"max_pm25: {max_pm25}\")\nprint(f\"peak_aqi_hour_of_day: {peak_aqi_hour_of_day}\")"
+            ],
+            "runtime_variables": {
+              "mean_aqi": 59.916666666666664,
+              "max_aqi": 92.0,
+              "max_pm25": 68.0,
+              "peak_aqi_hour_of_day": 6
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 5,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 34677,
+      "total_completion_tokens": 2710,
+      "total_tokens": 37387
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_18",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_18",
+    "requirements": "As part of your analysis, for company 2630 over 2025-06-10 20:00-23:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_18",
+        "turns": [
+          {
+            "query": "Help me evaluate the environmental impact of Hebei Angang Steel Group Co., Ltd. (company_id: 2630) during the emission spike on 2025-06-10 between 20:00-23:00.",
+            "validator": "validate_hb_7_18"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-18",
+      "verbatim": true
+    }
+  }
+]

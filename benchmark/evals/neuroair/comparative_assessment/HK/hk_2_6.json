@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_2_6",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_2_6",
+    "requirements": "As part of your analysis, on 2025-01-20 across ROADSIDE stations compute and store: mean_no2_am (06:00-09:00), mean_no2_pm (18:00-21:00) (float), no2_difference (PM minus AM, float), higher_no2_period ('AM' or 'PM', str).",
+    "conversations": [
+      {
+        "id": "hk_2_6",
+        "turns": [
+          {
+            "query": "Compare NO2 levels between 6:00-9:00 AM and 6:00-9:00 PM on January 20, 2025, across all roadside stations",
+            "validator": "validate_hk_2_6"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-2-6",
+      "verbatim": true
+    }
+  }
+]

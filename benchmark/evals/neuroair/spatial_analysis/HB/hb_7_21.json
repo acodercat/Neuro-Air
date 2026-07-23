@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_21",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_21",
+    "requirements": "As part of your analysis, for company 2564 at 2025-06-10 19:00 compute and store: flue_gas_1900, nox_1900, so2_1900, pm_1900 (float) and stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_21",
+        "turns": [
+          {
+            "query": "Help me evaluate the pollution footprint of Tianjin Iron Works Co., Ltd. (company_id: 2564) on 2025-06-10 at 19:00 under low wind speed conditions.",
+            "validator": "validate_hb_7_21"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-21",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_11",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_5_11",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2419 -> station 98 over the period (the full day 2025-06-10), compute and store: distance_km, bearing_deg (company->station), station_mean_pm25, station_max_pm25 (float), station_exceedance_hours (PM2.5>75, int), company_total_exhaust (float).",
+    "conversations": [
+      {
+        "id": "hb_5_11",
+        "turns": [
+          {
+            "query": "Analyze pollution transport from Tangshan Donghua Steel Group (company_id: 2419) to my residential area at Congtai Park station (station_id: 98) on 2025-06-10, and recommend indoor air purification strategies.",
+            "validator": "validate_hb_5_11"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-11",
+      "verbatim": true
+    }
+  }
+]

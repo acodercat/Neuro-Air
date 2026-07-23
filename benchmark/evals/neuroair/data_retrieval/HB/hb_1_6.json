@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_6",
+    "module": "evals.neuroair.data_retrieval.HB.hb_1_6",
+    "requirements": "As part of your analysis, for Ligong station (离宫) on 2025-06-01 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_1_6",
+        "turns": [
+          {
+            "query": "Analyze the pollution patterns at air quality station: Ligong on 2025-06-01.",
+            "validator": "validate_hb_1_6"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-6",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "hb_7_14": {
+    "scenario": "hb_7_14",
+    "conversations": [
+      {
+        "id": "hb_7_14",
+        "turns": [
+          {
+            "query": "Help me evaluate how Jingye Metallurgical Technology Co., Ltd. (company_id: 2417) emissions affected nearby residential areas on 2025-06-10 at 08:00.",
+            "actual_response": "\u6839\u636e\u4ee5\u4e0a\u5206\u6790\uff0c\u6211\u4eec\u5df2\u7ecf\u83b7\u53d6\u4e86\u656c\u4e1a\u51b6\u91d1\u79d1\u6280\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e58\u70b9\u7684\u6392\u653e\u6570\u636e\uff0c\u5e76\u4e14\u786e\u5b9a\u4e86\u8be5\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf\u548c\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\u3002\u4ee5\u4e0b\u662f\u6700\u7ec8\u7ed3\u679c\uff1a\n\n- \u70df\u6c14\u6392\u653e\u91cf\uff08flue_gas_0800\uff09\uff1a33368500.0 \u7acb\u65b9\u7c73\n- \u6c2e\u6c27\u5316\u7269\u6392\u653e\u91cf\uff08nox_0800\uff09\uff1a194.616 \u5343\u514b\n- \u4e8c\u6c27\u5316\u786b\u6392\u653e\u91cf\uff08so2_0800\uff09\uff1a55.691 \u5343\u514b\n- \u9897\u7c92\u7269\u6392\u653e\u91cf\uff08pm_0800\uff09\uff1a38.803 \u5343\u514b\n- \u5468\u56f410\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf\uff08stations_within_10km\uff09\uff1a4 \u4e2a\n- \u5468\u56f410\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\uff1a0 \u4eba\n\n\u7efc\u4e0a\u6240\u8ff0\uff0c\u656c\u4e1a\u51b6\u91d1\u79d1\u6280\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e58\u70b9\u7684\u6392\u653e\u5bf9\u5468\u56f4\u5c45\u6c11\u533a\u7684\u5f71\u54cd\u8f83\u5c0f\uff0c\u56e0\u4e3a\u5468\u56f410\u516c\u91cc\u5185\u6ca1\u6709\u5c45\u6c11\u533a\u3002\u7136\u800c\uff0c\u8be5\u516c\u53f8\u5468\u56f4\u67094\u4e2a\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\uff0c\u8fd9\u4e9b\u7ad9\u70b9\u53ef\u4ee5\u76d1\u6d4b\u6392\u653e\u5bf9\u7a7a\u6c14\u8d28\u91cf\u7684\u5f71\u54cd\u3002\u5efa\u8bae\u7ee7\u7eed\u5173\u6ce8\u8fd9\u4e9b\u7ad9\u70b9\u7684\u6570\u636e\uff0c\u4ee5\u8bc4\u4f30\u957f\u671f\u6392\u653e\u5bf9\u73af\u5883\u7684\u5f71\u54cd\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 31911,
+              "completion_tokens": 1408,
+              "total_tokens": 33319
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u516c\u53f8\u6392\u653e\u6570\u636e\nquery_emission = text(\"\"\"\nSELECT exhaust_gas, nox, so2, pm\nFROM hourly_polluting_company_emission\nWHERE company_id = 2417 AND timestamp = '2025-06-10 08:00:00'\n\"\"\")\n\nemission_data = pd.read_sql(query_emission, engine)\nprint(f\"\u516c\u53f8\u6392\u653e\u6570\u636e\uff1a\")\nprint(emission_data)\n\n# \u5c06\u6392\u653e\u6570\u636e\u8d4b\u503c\u7ed9\u53d8\u91cf\nif not emission_data.empty:\n    flue_gas_0800 = emission_data['exhaust_gas'].iloc[0]\n    nox_0800 = emission_data['nox'].iloc[0]\n    so2_0800 = emission_data['so2'].iloc[0]\n    pm_0800 = emission_data['pm'].iloc[0]\nelse:\n    flue_gas_0800 = None\n    nox_0800 = None\n    so2_0800 = None\n    pm_0800 = None",
+              "# \u83b7\u53d6\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u636e\nquery_stations = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate\nFROM air_quality_station aqs\nJOIN polluting_company pc ON ST_DWithin(aqs.coordinate, pc.coordinate, 10000)\nWHERE pc.id = 2417\n\"\"\")\n\nstations_data = pd.read_sql(query_stations, engine)\nprint(f\"\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u6570\u91cf\uff1a {len(stations_data)}\")\n\n# \u5c06\u7ad9\u70b9\u6570\u91cf\u8d4b\u503c\u7ed9\u53d8\u91cf\nstations_within_10km = len(stations_data)",
+              "# \u8ba1\u7b97\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\nfrom math import radians, sin, cos, sqrt, asin\n\ndef haversine(lat1, lon1, lat2, lon2):\n    R = 6371  # \u5730\u7403\u534a\u5f84\uff0c\u5355\u4f4d\u4e3a\u516c\u91cc\n    dLat = radians(lat2 - lat1)\n    dLon = radians(lon2 - lon1)\n    lat1 = radians(lat1)\n    lat2 = radians(lat2)\n    a = sin(dLat/2)**2 + cos(lat1) * cos(lat2) * sin(dLon/2)**2\n    c = 2 * asin(sqrt(a))\n    return R * c\n\n# \u83b7\u53d6\u516c\u53f8\u7684\u7ecf\u7eac\u5ea6\nquery_company_location = text(\"\"\"\nSELECT coordinate\nFROM polluting_company\nWHERE id = 2417\n\"\"\")\n\ncompany_location = pd.read_sql(query_company_location, engine)\ncompany_lat, company_lon = company_location['coordinate'].iloc[0].coords[0]\n\n# \u8ba1\u7b9710\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\npop_within_10km = pop_df[\n    pop_df.apply(lambda row: haversine(company_lat, company_lon, row['latitude'], row['longitude']) <= 10, axis=1)\n]['population'].sum()\n\nprint(f\"\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\uff1a {pop_within_10km}\")",
+              "# \u83b7\u53d6\u516c\u53f8\u7684\u7ecf\u7eac\u5ea6\nquery_company_location = text(\"\"\"\nSELECT ST_AsText(coordinate) as coordinate_text\nFROM polluting_company\nWHERE id = 2417\n\"\"\")\n\ncompany_location = pd.read_sql(query_company_location, engine)\ncoordinate_text = company_location['coordinate_text'].iloc[0]\n\n# \u89e3\u6790\u7ecf\u7eac\u5ea6\ncompany_lat, company_lon = map(float, coordinate_text.replace('POINT(', '').replace(')', '').split())\n\n# \u8ba1\u7b9710\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\npop_within_10km = pop_df[\n    pop_df.apply(lambda row: haversine(company_lat, company_lon, row['latitude'], row['longitude']) <= 10, axis=1)\n]['population'].sum()\n\nprint(f\"\u516c\u53f8\u5468\u56f410\u516c\u91cc\u5185\u7684\u5c45\u6c11\u533a\u4eba\u53e3\u6570\u91cf\uff1a {pop_within_10km}\")"
+            ],
+            "runtime_variables": {
+              "flue_gas_0800": 33368500.0,
+              "nox_0800": 194.616,
+              "so2_0800": 55.691,
+              "pm_0800": 38.803,
+              "stations_within_10km": 4
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 5,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 31911,
+      "total_completion_tokens": 1408,
+      "total_tokens": 33319
+    }
+  }
+}

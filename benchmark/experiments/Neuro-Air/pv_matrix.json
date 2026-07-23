@@ -1,0 +1,2029 @@
+{
+ "models": [
+  "deepseek-v4-flash",
+  "gpt55",
+  "qwen3.6-35b",
+  "qwen-2.5-72b",
+  "qwen3.5-397b"
+ ],
+ "per_model": {
+  "deepseek-v4-flash": {
+   "n": 90,
+   "single_pass": 78,
+   "multi_pass": 84,
+   "wins": 6,
+   "losses": 0
+  },
+  "gpt55": {
+   "n": 90,
+   "single_pass": 83,
+   "multi_pass": 88,
+   "wins": 6,
+   "losses": 1
+  },
+  "qwen3.6-35b": {
+   "n": 90,
+   "single_pass": 80,
+   "multi_pass": 86,
+   "wins": 6,
+   "losses": 0
+  },
+  "qwen-2.5-72b": {
+   "n": 90,
+   "single_pass": 46,
+   "multi_pass": 55,
+   "wins": 15,
+   "losses": 6
+  },
+  "qwen3.5-397b": {
+   "n": 90,
+   "single_pass": 82,
+   "multi_pass": 85,
+   "wins": 5,
+   "losses": 2
+  }
+ },
+ "matrix": {
+  "hb_1_1": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "P"
+   }
+  },
+  "hb_1_10": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_11": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_12": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_13": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_14": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_16": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_18": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_19": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_2": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_20": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_23": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_25": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_26": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_28": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_29": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_31": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_32": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_33": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_37": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_4": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "P"
+   }
+  },
+  "hb_1_41": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_5": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "P"
+   }
+  },
+  "hb_1_6": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_7": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_8": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_1_9": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "F"
+   }
+  },
+  "hb_2_1": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_11": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "F"
+   }
+  },
+  "hb_2_12": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_15": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_16": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_19": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_2": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "F"
+   }
+  },
+  "hb_2_21": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_2_23": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "P"
+   }
+  },
+  "hb_2_34": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "F"
+   }
+  },
+  "hb_3_10": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_11": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_14": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_18": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_20": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_21": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_23": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_25": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_3_28": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_5_10": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_5_11": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_5_27": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_5_28": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "F",
+    "multi": "P"
+   }
+  },
+  "hb_5_29": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_5_8": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_6_10": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_6_12": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_6_13": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_6_16": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "F"
+   }
+  },
+  "hb_7_13": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_14": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_15": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_16": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_17": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_18": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_2": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_20": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_21": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_22": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_23": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_24": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_25": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_26": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_27": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_29": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_30": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "F"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_32": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "F"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "F",
+    "multi": "F"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_34": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_35": {
+   "deepseek-v4-flash": {
+    "single": "F",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_36": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hb_7_5": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_1": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_10": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "F",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_11": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_13": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_2": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_5": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_6": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_7": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_1_9": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_2_18": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_2_6": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  },
+  "hk_3_11": {
+   "deepseek-v4-flash": {
+    "single": "P",
+    "multi": "P"
+   },
+   "gpt55": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.6-35b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen-2.5-72b": {
+    "single": "P",
+    "multi": "P"
+   },
+   "qwen3.5-397b": {
+    "single": "P",
+    "multi": "P"
+   }
+  }
+ },
+ "source": "stored turn.success, reconciled to frozen PV validator on GT-audit tasks; counts == Table 2"
+}

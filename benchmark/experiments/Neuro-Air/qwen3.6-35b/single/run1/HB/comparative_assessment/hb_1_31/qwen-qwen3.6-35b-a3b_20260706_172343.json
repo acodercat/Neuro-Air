@@ -1,0 +1,46 @@
+{
+  "hb_1_31": {
+    "scenario": "hb_1_31",
+    "conversations": [
+      {
+        "id": "hb_1_31",
+        "turns": [
+          {
+            "query": "Compare the emission levels between Chang'an District and Jingxing Mining District in Shijiazhuang City on 2025-06-15 from 08:00-18:00.",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c2025\u5e746\u670815\u65e508:00-18:00\u671f\u95f4\uff0c\u957f\u5b89\u533a\u4e0e\u4e95\u9649\u77ff\u533a\u7684\u6392\u653e\u5bf9\u6bd4\u5206\u6790\u5982\u4e0b\uff1a\n\n**\u6392\u653e\u603b\u91cf\u5bf9\u6bd4\uff1a**\n- \u957f\u5b89\u533a\u603b\u6392\u653e\uff1a2,731,032.5 \u7acb\u65b9\u7c73\n- \u4e95\u9649\u77ff\u533a\u603b\u6392\u653e\uff1a51,003,868.0 \u7acb\u65b9\u7c73\n\n**\u5206\u6790\u7ed3\u679c\uff1a**\n- \u8f83\u9ad8\u6392\u653e\u533a\uff1a\u4e95\u9649\u77ff\u533a\uff08district_id: 4\uff09\n- \u6392\u653e\u6bd4\u503c\uff1a18.68\uff08\u4e95\u9649\u77ff\u533a\u6392\u653e\u91cf\u4e3a\u957f\u5b89\u533a\u768418.68\u500d\uff09\n\n**\u7ed3\u8bba\uff1a**\n\u4e95\u9649\u77ff\u533a\u5728\u8be5\u65f6\u95f4\u6bb5\u5185\u7684\u603b\u6392\u653e\u91cf\u663e\u8457\u9ad8\u4e8e\u957f\u5b89\u533a\uff0c\u9ad8\u51fa\u7ea617.68\u500d\u3002\u8fd9\u53ef\u80fd\u4e0e\u4e95\u9649\u77ff\u533a\u4f5c\u4e3a\u77ff\u4e1a\u548c\u5de5\u4e1a\u96c6\u4e2d\u533a\u7684\u4ea7\u4e1a\u7279\u5f81\u6709\u5173\uff0c\u5176\u5de5\u4e1a\u4f01\u4e1a\u7684\u5e9f\u6c14\u6392\u653e\u603b\u91cf\u8fdc\u8d85\u4ee5\u57ce\u5e02\u529f\u80fd\u4e3a\u4e3b\u7684\u957f\u5b89\u533a\u3002\u5efa\u8bae\u73af\u4fdd\u90e8\u95e8\u91cd\u70b9\u5173\u6ce8\u4e95\u9649\u77ff\u533a\u5de5\u4e1a\u4f01\u4e1a\u7684\u6392\u653e\u7ba1\u63a7\uff0c\u52a0\u5f3a\u76d1\u6d4b\u9891\u7387\uff0c\u786e\u4fdd\u6392\u653e\u8fbe\u6807\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12471,
+              "completion_tokens": 1384,
+              "total_tokens": 13855
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u957f\u5b89\u533a\u548c\u4e95\u9649\u77ff\u533a\u7684district_id\nquery = text(\"\"\"\nSELECT d.id, d.name, c.name as city_name\nFROM district d\nJOIN city c ON d.city_id = c.id\nWHERE d.name IN ('\u957f\u5b89\u533a', '\u4e95\u9649\u77ff\u533a') AND c.name = '\u77f3\u5bb6\u5e84\u5e02'\n\"\"\")\ndistricts = pd.read_sql(query, engine)\nprint(\"\u76ee\u6807\u533a\u53bf\u4fe1\u606f\uff1a\")\nprint(districts)\n\n# \u83b7\u53d6district_id\nchangan_id = districts[districts['name'] == '\u957f\u5b89\u533a']['id'].values[0]\njingxing_id = districts[districts['name'] == '\u4e95\u9649\u77ff\u533a']['id'].values[0]\nprint(f\"\\n\u957f\u5b89\u533aID: {changan_id}, \u4e95\u9649\u77ff\u533aID: {jingxing_id}\")\n\n# \u8ba1\u7b97\u4e24\u4e2a\u533a\u57282025-06-15 08:00-18:00\u671f\u95f4\u7684\u603bexhaust_gas\n# \u6ce8\u610f\uff1a\u65f6\u95f4\u7a97\u53e3\u662fstart-inclusive, end-exclusive\uff0c\u5373\u5305\u62ec08:00\u4f46\u4e0d\u5305\u62ec18:00\nquery_emission = text(\"\"\"\nSELECT \n    pc.district_id,\n    SUM(hpce.exhaust_gas) as total_exhaust\nFROM hourly_polluting_company_emission hpce\nJOIN polluting_company pc ON hpce.company_id = pc.id\nWHERE hpce.timestamp >= '2025-06-15 08:00:00' \n  AND hpce.timestamp < '2025-06-15 18:00:00'\n  AND pc.district_id IN (:changan_id, :jingxing_id)\nGROUP BY pc.district_id\n\"\"\")\n\nemission_data = pd.read_sql(query_emission, engine, params={'changan_id': changan_id, 'jingxing_id': jingxing_id})\nprint(\"\\n\u4e24\u533a\u6392\u653e\u6570\u636e\uff1a\")\nprint(emission_data)\n\n# \u8ba1\u7b97\u7ed3\u679c\nchangan_exhaust = emission_data[emission_data['district_id'] == changan_id]['total_exhaust'].values[0] if len(emission_data[emission_data['district_id'] == changan_id]) > 0 else 0.0\njingxing_exhaust = emission_data[emission_data['district_id'] == jingxing_id]['total_exhaust'].values[0] if len(emission_data[emission_data['district_id'] == jingxing_id]) > 0 else 0.0\n\nprint(f\"\\n\u957f\u5b89\u533a\u603b\u6392\u653e: {changan_exhaust}\")\nprint(f\"\u4e95\u9649\u77ff\u533a\u603b\u6392\u653e: {jingxing_exhaust}\")\n\n# \u786e\u5b9a\u8f83\u9ad8\u6392\u653e\u7684\u533a\nif changan_exhaust >= jingxing_exhaust:\n    higher_district_id = changan_id\n    higher_exhaust = changan_exhaust\n    lower_exhaust = jingxing_exhaust\nelse:\n    higher_district_id = jingxing_id\n    higher_exhaust = jingxing_exhaust\n    lower_exhaust = changan_exhaust\n\nemission_ratio = round(higher_exhaust / lower_exhaust, 2) if lower_exhaust > 0 else float('inf')\n\nprint(f\"\u8f83\u9ad8\u6392\u653e\u533aID: {higher_district_id}\")\nprint(f\"\u6392\u653e\u6bd4\u503c: {emission_ratio}\")\n\n# \u5b58\u50a8\u7ed3\u679c\ntotal_exhaust_changan = float(changan_exhaust)\ntotal_exhaust_jingxing = float(jingxing_exhaust)\nhigher_emission_district_id = int(higher_district_id)\nemission_ratio = float(emission_ratio)"
+            ],
+            "runtime_variables": {
+              "total_exhaust_changan": 2731032.5,
+              "total_exhaust_jingxing": 51003868.0,
+              "higher_emission_district_id": 4,
+              "emission_ratio": 18.68
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 12471,
+      "total_completion_tokens": 1384,
+      "total_tokens": 13855
+    }
+  }
+}

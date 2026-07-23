@@ -1,0 +1,43 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+
+# Virtual environments
+.venv
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# --- SECRETS: never commit (this is a private, runnable copy) ---
+# Real DB connection strings and API keys live in these; keep the *.example templates instead.
+benchmark/config.py
+benchmark/models.toml
+framework/config.py
+framework/models.toml
+# evaluation/constants.py embeds real judge API keys inline (see constants.py.example)
+evaluation/constants.py
+
+# --- Manuscript & peer-review materials: not part of the public code release ---
+# The paper is under review and the reviewer correspondence is confidential;
+# keep both out of the code repository.
+manuscript/
+reviews/
+
+# --- Large datasets: not tracked (exceed GitHub's 100 MB file limit) ---
+# Population grids (WorldPop, CC BY 4.0) and OSM-derived POI (ODbL 1.0) are large
+# and are redistributed from their original sources. Obtain them separately; see
+# the "Data availability" section of the README.
+datasets/
+.backup/

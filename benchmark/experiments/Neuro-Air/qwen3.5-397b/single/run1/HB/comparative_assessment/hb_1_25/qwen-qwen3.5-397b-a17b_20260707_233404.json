@@ -1,0 +1,47 @@
+{
+  "hb_1_25": {
+    "scenario": "hb_1_25",
+    "conversations": [
+      {
+        "id": "hb_1_25",
+        "turns": [
+          {
+            "query": "Analyze emission variability and stability between Hebei Taihang Steel Group and Hegang Leting Steel on 2025-06-10.",
+            "actual_response": "\u5206\u6790\u5b8c\u6210\u3002\u6839\u636e2025-06-10\u7684\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u6570\u636e\uff1a\n\n- **\u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2** (company_id: 2447) \u7684\u53d8\u5f02\u7cfb\u6570\u4e3a **0.0317**\n- **\u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1** (company_id: 2412) \u7684\u53d8\u5f02\u7cfb\u6570\u4e3a **0.0908**\n\n\u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2\u7684\u6392\u653e\u6ce2\u52a8\u6027\u660e\u663e\u66f4\u4f4e\uff0c\u5176\u53d8\u5f02\u7cfb\u6570\u7ea6\u4e3a\u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1\u768435%\uff0c\u8868\u660e\u5176\u751f\u4ea7\u8fc7\u7a0b\u4e2d\u7684\u70df\u6c14\u6392\u653e\u66f4\u52a0\u7a33\u5b9a\u53ef\u63a7\u3002\n\n\u6700\u7ec8\u7ed3\u679c\uff1a\n- cv_taihang = 0.0317\n- cv_leting = 0.0908\n- more_stable_company_id = 2447",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 25474,
+              "completion_tokens": 892,
+              "total_tokens": 26366
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u4e24\u5bb6\u516c\u53f8\u7684 company_id\nquery = text(\"\"\"SELECT id, name, city_id, industry_type FROM polluting_company WHERE name LIKE '%\u592a\u884c%' OR name LIKE '%\u4e50\u4ead%'\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u4e24\u5bb6\u516c\u53f8\u57282025-06-10\u7684 hourly exhaust_gas \u6570\u636e\u5e76\u8ba1\u7b97\u7edf\u8ba1\u91cf\nquery = text(\"\"\"SELECT company_id, \n       AVG(exhaust_gas) as mean_exhaust, \n       STDDEV_POP(exhaust_gas) as std_exhaust,\n       COUNT(*) as data_points\nFROM hourly_polluting_company_emission \nWHERE company_id IN (2447, 2412) \n  AND DATE(timestamp) = '2025-06-10'\nGROUP BY company_id\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\n\n# \u4ece\u67e5\u8be2\u7ed3\u679c\u8ba1\u7b97\u53d8\u5f02\u7cfb\u6570\n# company_id 2412 (\u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1): mean=2.046358e+07, std=1.857900e+06\n# company_id 2447 (\u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2): mean=2.056047e+07, std=6.526139e+05\n\ncv_taihang = 6.526139e+05 / 2.056047e+07  # \u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2\ncv_leting = 1.857900e+06 / 2.046358e+07   # \u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1\n\nprint(f\"cv_taihang (\u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2): {cv_taihang}\")\nprint(f\"cv_leting (\u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1): {cv_leting}\")\n\n# \u786e\u5b9a\u54ea\u5bb6\u66f4\u7a33\u5b9a\uff08CV\u66f4\u4f4e\uff09\nif cv_taihang < cv_leting:\n    more_stable_company_id = 2447\n    print(f\"\u66f4\u7a33\u5b9a\u7684\u516c\u53f8: \u6cb3\u5317\u592a\u884c\u94a2\u94c1\u96c6\u56e2 (company_id: 2447)\")\nelse:\n    more_stable_company_id = 2412\n    print(f\"\u66f4\u7a33\u5b9a\u7684\u516c\u53f8: \u6cb3\u94a2\u4e50\u4ead\u94a2\u94c1 (company_id: 2412)\")\n\n# \u5b58\u50a8\u7ed3\u679c\ncv_taihang = cv_taihang\ncv_leting = cv_leting\nmore_stable_company_id = more_stable_company_id"
+            ],
+            "runtime_variables": {
+              "cv_taihang": 0.03174119560496429,
+              "cv_leting": 0.09079056548267703,
+              "more_stable_company_id": 2447
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 25474,
+      "total_completion_tokens": 892,
+      "total_tokens": 26366
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_10",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_5_10",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2467 -> station 60 over the period (2025-06-25 08:00 to 2025-06-26 08:00), compute and store: distance_km, bearing_deg (company->station), station_mean_pm25, station_max_pm25 (float), station_exceedance_hours (PM2.5>75, int), company_total_exhaust (float).",
+    "conversations": [
+      {
+        "id": "hb_5_10",
+        "turns": [
+          {
+            "query": "Help me assess how pollution from Hebei Zongheng Fengnan Steel (company_id: 2467) affects my living environment near Zhengtai Street Heating Station (station_id: 60) during 2025-06-25 08:00:00 to 2025-06-26 08:00:00, and develop daily outdoor activity plans.",
+            "validator": "validate_hb_5_10"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-10",
+      "verbatim": true
+    }
+  }
+]

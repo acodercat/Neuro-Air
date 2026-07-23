@@ -1,0 +1,49 @@
+{
+  "hb_1_5": {
+    "scenario": "hb_1_5",
+    "conversations": [
+      {
+        "id": "hb_1_5",
+        "turns": [
+          {
+            "query": "Help me analyze the emission patterns of enterprises in \u6ca7\u5dde\u5e02 on 2025-06-08.",
+            "actual_response": "\u6839\u636e\u5bf9\u6ca7\u5dde\u5e022025\u5e746\u67088\u65e5\u4f01\u4e1a\u6392\u653e\u6570\u636e\u7684\u5206\u6790\uff0c\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u6ca7\u5dde\u5e02\u4f01\u4e1a\u6392\u653e\u5206\u6790\u7ed3\u679c (2025-06-08)**\n\n| \u6307\u6807 | \u6570\u503c |\n|------|------|\n| \u5168\u5e02\u4f01\u4e1a\u603b\u70df\u6c14\u6392\u653e\u91cf | 1,296,570,000.00 \u7acb\u65b9\u7c73 |\n| \u6709\u6392\u653e\u8bb0\u5f55\u7684\u4f01\u4e1a\u6570\u91cf | 195 \u5bb6 |\n| \u6700\u5927\u6392\u653e\u4f01\u4e1aID | 2475 |\n| \u6700\u5927\u6392\u653e\u4f01\u4e1a\u6392\u653e\u91cf | 672,560,000.00 \u7acb\u65b9\u7c73 |\n| \u6700\u5927\u6392\u653e\u4f01\u4e1a\u5360\u6bd4 | 51.87% |\n\n**\u5173\u952e\u53d1\u73b0\uff1a**\n\n1. **\u6392\u653e\u96c6\u4e2d\u5ea6\u6781\u9ad8**\uff1a\u5355\u4e00\u4f01\u4e1a\uff08ID: 2475\uff09\u7684\u6392\u653e\u91cf\u5360\u5168\u5e02\u603b\u6392\u653e\u91cf\u768451.87%\uff0c\u8868\u660e\u6ca7\u5dde\u5e02\u4f01\u4e1a\u6392\u653e\u5448\u73b0\u9ad8\u5ea6\u96c6\u4e2d\u7279\u5f81\u3002\n\n2. **\u91cd\u70b9\u4f01\u4e1a\u76d1\u7ba1\u9700\u6c42**\uff1a\u8be5\u6700\u5927\u6392\u653e\u4f01\u4e1a\u7684\u65e5\u6392\u653e\u91cf\u8d85\u8fc76.7\u4ebf\u7acb\u65b9\u7c73\uff0c\u8fdc\u8d85\u5176\u4ed6\u4f01\u4e1a\u5e73\u5747\u6c34\u5e73\uff0c\u5e94\u4f5c\u4e3a\u91cd\u70b9\u76d1\u7ba1\u5bf9\u8c61\u3002\n\n3. **\u6392\u653e\u7ed3\u6784\u5206\u6790**\uff1a195\u5bb6\u6d3b\u8dc3\u4f01\u4e1a\u4e2d\uff0c\u9664\u6700\u5927\u6392\u653e\u4f01\u4e1a\u5916\uff0c\u5176\u4f59194\u5bb6\u4f01\u4e1a\u5408\u8ba1\u6392\u653e\u91cf\u7ea66.24\u4ebf\u7acb\u65b9\u7c73\uff0c\u5e73\u5747\u6bcf\u5bb6\u4f01\u4e1a\u65e5\u6392\u653e\u91cf\u7ea6321\u4e07\u7acb\u65b9\u7c73\u3002\n\n**\u76d1\u7ba1\u5efa\u8bae\uff1a**\n- \u5bf9\u4f01\u4e1aID 2475\u8fdb\u884c\u91cd\u70b9\u76d1\u6d4b\u548c\u6267\u6cd5\u68c0\u67e5\n- \u6838\u5b9e\u8be5\u4f01\u4e1a\u7684\u6392\u653e\u8bb8\u53ef\u548c\u5b9e\u9645\u6392\u653e\u60c5\u51b5\n- \u8bc4\u4f30\u8be5\u4f01\u4e1a\u7684\u6c61\u67d3\u6cbb\u7406\u8bbe\u65bd\u8fd0\u884c\u72b6\u51b5\n- \u5236\u5b9a\u9488\u5bf9\u6027\u7684\u51cf\u6392\u63aa\u65bd",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: active_company_count=195, expected 117"
+            ],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18290,
+              "completion_tokens": 897,
+              "total_tokens": 19187
+            },
+            "success": false,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u6ca7\u5dde\u5e02\u7684city_id\u662f9\n# \u9996\u5148\u83b7\u53d62025-06-08\u6ca7\u5dde\u5e02\u6240\u6709\u4f01\u4e1a\u7684\u6392\u653e\u603b\u91cf\u7edf\u8ba1\nquery = text(\"\"\"\nSELECT \n    SUM(dpace.exhaust_gas) as total_flue_gas,\n    COUNT(DISTINCT dpace.company_id) as active_count\nFROM daily_polluting_company_emission dpace\nJOIN polluting_company pc ON dpace.company_id = pc.id\nWHERE pc.city_id = 9 \nAND dpace.date = '2025-06-08'\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(\"\u6ca7\u5dde\u5e022025-06-08\u4f01\u4e1a\u6392\u653e\u603b\u4f53\u7edf\u8ba1:\")\nprint(df)\n\n# \u83b7\u53d6\u6392\u653e\u91cf\u6700\u9ad8\u7684\u4f01\u4e1a\u53ca\u5176\u6392\u653e\u91cf\nquery_top = text(\"\"\"\nSELECT \n    dpace.company_id,\n    SUM(dpace.exhaust_gas) as total_emission\nFROM daily_polluting_company_emission dpace\nJOIN polluting_company pc ON dpace.company_id = pc.id\nWHERE pc.city_id = 9 \nAND dpace.date = '2025-06-08'\nGROUP BY dpace.company_id\nORDER BY total_emission DESC\nLIMIT 1\n\"\"\")\n\ndf_top = pd.read_sql(query_top, engine)\nprint(\"\\n\u6392\u653e\u91cf\u6700\u9ad8\u7684\u4f01\u4e1a:\")\nprint(df_top)",
+              "# \u5c06\u67e5\u8be2\u7ed3\u679c\u8d4b\u503c\u7ed9\u8981\u6c42\u7684\u53d8\u91cf\ntotal_city_flue_gas = float(1.296570e+09)\nactive_company_count = int(195)\ntop_emitter_company_id = int(2475)\ntop_emitter_total = float(672560000.0)\n\nprint(f\"\u6ca7\u5dde\u5e022025-06-08\u4f01\u4e1a\u6392\u653e\u5206\u6790\u7ed3\u679c:\")\nprint(f\"\u603b\u70df\u6c14\u6392\u653e\u91cf: {total_city_flue_gas:,.2f} \u7acb\u65b9\u7c73\")\nprint(f\"\u6d3b\u8dc3\u4f01\u4e1a\u6570\u91cf: {active_company_count} \u5bb6\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1aID: {top_emitter_company_id}\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1a\u6392\u653e\u91cf: {top_emitter_total:,.2f} \u7acb\u65b9\u7c73\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1a\u5360\u6bd4: {(top_emitter_total/total_city_flue_gas)*100:.2f}%\")"
+            ],
+            "runtime_variables": {
+              "total_city_flue_gas": 1296570000.0,
+              "active_company_count": 195,
+              "top_emitter_company_id": 2475,
+              "top_emitter_total": 672560000.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 3,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 18290,
+      "total_completion_tokens": 897,
+      "total_tokens": 19187
+    }
+  }
+}

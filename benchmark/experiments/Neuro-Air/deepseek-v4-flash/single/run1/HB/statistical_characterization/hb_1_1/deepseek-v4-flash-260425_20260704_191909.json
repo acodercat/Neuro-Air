@@ -1,0 +1,49 @@
+{
+  "hb_1_1": {
+    "scenario": "hb_1_1",
+    "conversations": [
+      {
+        "id": "hb_1_1",
+        "turns": [
+          {
+            "query": "Help me analyze the emission patterns of enterprises in \u90af\u90f8\u5e02 on 2025-06-08.",
+            "actual_response": "\u6240\u6709\u6570\u636e\u5df2\u8ba1\u7b97\u5b8c\u6bd5\uff0c\u53d8\u91cf\u5df2\u8d4b\u503c\u3002\u4ee5\u4e0b\u662f\u5206\u6790\u7ed3\u679c\uff1a\n\n---\n\n## \u90af\u90f8\u5e022025\u5e746\u67088\u65e5\u4f01\u4e1a\u6392\u653e\u5206\u6790\u62a5\u544a\n\n### \u603b\u4f53\u6982\u51b5\n\n| \u6307\u6807 | \u6570\u503c |\n|------|------|\n| **\u603b\u5e9f\u6c14\u6392\u653e\u91cf** | **4,973,754,198.84 \u7acb\u65b9\u7c73** |\n| **\u6d3b\u8dc3\u4f01\u4e1a\u6570\u91cf** | **345 \u5bb6** |\n| **\u6700\u5927\u6392\u653e\u4f01\u4e1aID** | **2564** |\n| **\u6700\u5927\u6392\u653e\u4f01\u4e1a\u540d\u79f0** | **\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f8** |\n| **\u6700\u5927\u6392\u653e\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u91cf** | **558,819,970.00 \u7acb\u65b9\u7c73** |\n\n### \u884c\u4e1a\u6392\u653e\u7ed3\u6784\u5206\u6790\n\n\u90af\u90f8\u5e02\u6392\u653e\u4f01\u4e1a\u8986\u76d66\u5927\u884c\u4e1a\uff0c\u6392\u653e\u9ad8\u5ea6\u96c6\u4e2d\u4e8e**\u94a2\u94c1\u884c\u4e1a**\uff1a\n\n| \u884c\u4e1a | \u4f01\u4e1a\u6570 | \u5e9f\u6c14\u6392\u653e\u91cf(\u7acb\u65b9\u7c73) | \u5360\u6bd4 | NOx(kg) | SO\u2082(kg) | PM(kg) |\n|------|:------:|:------------------:|:----:|:--------:|:--------:|:------:|\n| **\u94a2\u94c1(STEEL)** | 25 | 4,200,991,000 | **84.5%** | 31,613 | 14,987 | 7,981 |\n| \u7126\u5316(COKING) | 12 | 307,157,200 | 6.2% | 5,112 | 3,121 | 425 |\n| \u7535\u529b(POWER) | 7 | 273,342,000 | 5.5% | 5,830 | 3,037 | 448 |\n| \u6c34\u6ce5(CEMENT) | 4 | 81,141,210 | 1.6% | 2,382 | 236 | 230 |\n| \u9676\u74f7(CERAMICS) | 1 | 1,590,360 | 0.03% | 152 | 40 | 13 |\n| \u73bb\u7483(GLASS) | 1 | 568,758 | 0.01% | 4 | 2 | 2 |\n\n**\u5173\u952e\u53d1\u73b0\uff1a**\n- **\u94a2\u94c1\u884c\u4e1a**\u4ee5\u4ec5\u5360\u4f01\u4e1a\u603b\u65707.2%\uff0825/345\uff09\u7684\u6570\u91cf\uff0c\u8d21\u732e\u4e86\u5168\u5e02**84.5%\u7684\u5e9f\u6c14\u6392\u653e\u91cf**\uff0c\u662f\u90af\u90f8\u5e02\u5927\u6c14\u6c61\u67d3\u6cbb\u7406\u7684\u6838\u5fc3\u5173\u6ce8\u9886\u57df\u3002\n- \u6392\u653e\u524d10\u7684\u4f01\u4e1a**\u5168\u90e8\u4e3a\u94a2\u94c1\u4f01\u4e1a**\uff0c\u5176\u4e2d\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f8\u4ee55.59\u4ebf\u7acb\u65b9\u7c73\u5e9f\u6c14\u6392\u653e\u4f4d\u5c45\u9996\u4f4d\uff0c\u5360\u5168\u5e02\u603b\u91cf\u768411.2%\u3002\n- \u7126\u5316\u548c\u7535\u529b\u884c\u4e1a\u5408\u8ba1\u8d21\u732e\u7ea611.7%\u7684\u6392\u653e\u91cf\uff0c\u662f\u6b21\u8981\u7ba1\u63a7\u91cd\u70b9\u3002\n\n### \u653f\u7b56\u5efa\u8bae\n\n1. **\u5f3a\u5316\u94a2\u94c1\u884c\u4e1a\u8d85\u4f4e\u6392\u653e\u6539\u9020**\uff1a\u524d10\u5927\u94a2\u94c1\u4f01\u4e1a\u6392\u653e\u96c6\u4e2d\u5ea6\u9ad8\uff0c\u5efa\u8bae\u5bf9\u5929\u6d25\u94c1\u5382\u3001\u6cb3\u5317\u592a\u884c\u94a2\u94c1\u3001\u666e\u9633\u94a2\u94c1\u7b49\u5934\u90e8\u4f01\u4e1a\u5b9e\u65bd\u9a7b\u5382\u76d1\u7ba1\uff0c\u786e\u4fdd\u8131\u786b\u8131\u785d\u9664\u5c18\u8bbe\u65bd\u7a33\u5b9a\u8fd0\u884c\u3002\n2. **\u63a8\u8fdb\u7126\u5316\u884c\u4e1a\u6df1\u5ea6\u6cbb\u7406**\uff1a\u7126\u5316\u884c\u4e1aNOx\u548cSO\u2082\u6392\u653e\u5f3a\u5ea6\u8f83\u9ad8\uff08\u5355\u4f4d\u4f01\u4e1a\u6392\u653e\u91cf\u4ec5\u6b21\u4e8e\u94a2\u94c1\uff09\uff0c\u5e94\u52a0\u5feb\u5e72\u7184\u7126\u6539\u9020\u548cVOCs\u7efc\u5408\u6cbb\u7406\u3002\n3. **\u5b9e\u65bd\u5dee\u5f02\u5316\u51cf\u6392\u63aa\u65bd**\uff1a\u6839\u636e\u4f01\u4e1a\u6392\u653e\u8d21\u732e\u5206\u7ea7\u7ba1\u63a7\uff0c\u5bf9\u6392\u653e\u91cf\u524d10\u7684\u4f01\u4e1a\u5236\u5b9a\"\u4e00\u4f01\u4e00\u7b56\"\u51cf\u6392\u65b9\u6848\uff0c\u5728\u91cd\u6c61\u67d3\u5929\u6c14\u5e94\u6025\u54cd\u5e94\u4e2d\u7cbe\u51c6\u65bd\u7b56\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: active_company_count=345, expected 189"
+            ],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 19662,
+              "completion_tokens": 1605,
+              "total_tokens": 21267
+            },
+            "success": false,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# 1. \u83b7\u53d6\u90af\u90f8\u5e02\u7684city_id\nquery_city = text(\"SELECT id, name FROM city WHERE name = '\u90af\u90f8\u5e02'\")\ncity_df = pd.read_sql(query_city, engine)\nprint(\"\u90af\u90f8\u5e02\u4fe1\u606f:\")\nprint(city_df)\n\n# 2. \u67e5\u8be2\u90af\u90f8\u5e022025-06-08\u6709\u6392\u653e\u6570\u636e\u7684\u4f01\u4e1a\u6570\u91cf\nhandan_id = city_df.iloc[0]['id']\nquery_count = text(f\"\"\"\nSELECT COUNT(DISTINCT company_id) as active_company_count\nFROM daily_polluting_company_emission dpce\nJOIN polluting_company pc ON dpce.company_id = pc.id\nWHERE pc.city_id = {handan_id}\nAND dpce.date = '2025-06-08'\n\"\"\")\ncount_df = pd.read_sql(query_count, engine)\nprint(f\"\\n2025-06-08\u6709\u6392\u653e\u6570\u636e\u7684\u4f01\u4e1a\u6570\u91cf:\")\nprint(count_df)\n\n# 3. \u67e5\u8be2\u5404\u4f01\u4e1a\u7684\u6392\u653e\u603b\u91cf\uff08exhaust_gas\uff09\uff0c\u627e\u51fa\u6392\u653e\u91cf\u6700\u5927\u7684\u4f01\u4e1a\nquery_emission = text(f\"\"\"\nSELECT pc.id as company_id, pc.name as company_name, pc.industry_type,\n       SUM(dpce.exhaust_gas) as total_exhaust_gas,\n       SUM(dpce.nox) as total_nox,\n       SUM(dpce.so2) as total_so2,\n       SUM(dpce.pm) as total_pm,\n       SUM(dpce.co) as total_co\nFROM daily_polluting_company_emission dpce\nJOIN polluting_company pc ON dpce.company_id = pc.id\nWHERE pc.city_id = {handan_id}\nAND dpce.date = '2025-06-08'\nGROUP BY pc.id, pc.name, pc.industry_type\nORDER BY total_exhaust_gas DESC\n\"\"\")\nemission_df = pd.read_sql(query_emission, engine)\nprint(f\"\\n2025-06-08\u90af\u90f8\u5e02\u5404\u4f01\u4e1a\u6392\u653e\u6570\u636e\uff08\u6309\u5e9f\u6c14\u6392\u653e\u91cf\u964d\u5e8f\uff09:\")\nprint(emission_df)",
+              "# \u8ba1\u7b97\u603b\u5e9f\u6c14\u6392\u653e\u91cf\ntotal_city_flue_gas = float(emission_df['total_exhaust_gas'].sum())\n\n# \u6d3b\u8dc3\u4f01\u4e1a\u6570\u91cf\nactive_company_count = int(count_df.iloc[0]['active_company_count'])\n\n# \u6392\u653e\u91cf\u6700\u5927\u7684\u4f01\u4e1a\ntop_emitter = emission_df.iloc[0]\ntop_emitter_company_id = int(top_emitter['company_id'])\ntop_emitter_total = float(top_emitter['total_exhaust_gas'])\n\nprint(f\"\u90af\u90f8\u5e022025-06-08\u4f01\u4e1a\u6392\u653e\u5206\u6790\u7ed3\u679c:\")\nprint(f\"\u603b\u5e9f\u6c14\u6392\u653e\u91cf (total_city_flue_gas): {total_city_flue_gas:.2f} \u7acb\u65b9\u7c73\")\nprint(f\"\u6d3b\u8dc3\u4f01\u4e1a\u6570\u91cf (active_company_count): {active_company_count}\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1aID (top_emitter_company_id): {top_emitter_company_id}\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1a\u540d\u79f0: {top_emitter['company_name']}\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1a\u884c\u4e1a\u7c7b\u578b: {top_emitter['industry_type']}\")\nprint(f\"\u6700\u5927\u6392\u653e\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u91cf (top_emitter_total): {top_emitter_total:.2f} \u7acb\u65b9\u7c73\")\n\n# \u884c\u4e1a\u5206\u5e03\u7edf\u8ba1\nindustry_stats = emission_df.groupby('industry_type').agg(\n    \u4f01\u4e1a\u6570\u91cf=('company_id', 'count'),\n    \u603b\u5e9f\u6c14\u6392\u653e\u91cf=('total_exhaust_gas', 'sum'),\n    \u603bNOx\u6392\u653e\u91cf=('total_nox', 'sum'),\n    \u603bSO2\u6392\u653e\u91cf=('total_so2', 'sum'),\n    \u603bPM\u6392\u653e\u91cf=('total_pm', 'sum')\n).sort_values('\u603b\u5e9f\u6c14\u6392\u653e\u91cf', ascending=False)\nprint(f\"\\n\u5404\u884c\u4e1a\u6392\u653e\u7edf\u8ba1:\")\nprint(industry_stats)\n\n# \u6392\u653e\u91cf\u524d10\u7684\u4f01\u4e1a\nprint(f\"\\n\u6392\u653e\u91cf\u524d10\u7684\u4f01\u4e1a:\")\nprint(emission_df[['company_name', 'industry_type', 'total_exhaust_gas', 'total_nox', 'total_so2', 'total_pm']].head(10))"
+            ],
+            "runtime_variables": {
+              "total_city_flue_gas": 4973754198.83887,
+              "active_company_count": 345,
+              "top_emitter_company_id": 2564,
+              "top_emitter_total": 558819970.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 3,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 19662,
+      "total_completion_tokens": 1605,
+      "total_tokens": 21267
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "hb_1_16": {
+    "scenario": "hb_1_16",
+    "conversations": [
+      {
+        "id": "hb_1_16",
+        "turns": [
+          {
+            "query": "Identify the peak SO2 emission hours of Shougang Qian'an Steel Company during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u9996\u94a2\u80a1\u4efd\u516c\u53f8\u8fc1\u5b89\u94a2\u94c1\u516c\u53f8\u5728 2025-06-10 \u81f3 2025-06-12 \u671f\u95f4\u7684 SO\u2082 \u5c0f\u65f6\u6392\u653e\u5cf0\u503c\u51fa\u73b0\u5728\uff1a\n\n- \u5cf0\u503c\u65f6\u6bb5\uff1a2025-06-10 06:00\n- \u8ddd 2025-06-10 00:00 \u7684\u5c0f\u65f6\u504f\u79fb\uff1a6 \u5c0f\u65f6\n- SO\u2082\u5cf0\u503c\u6392\u653e\u91cf\uff1a1554.83 kg\n- \u8be5\u65f6\u6bb5\u5185 SO\u2082\u6392\u653e\u603b\u91cf\uff1a9247.545 kg\n- \u8be5\u65f6\u6bb5\u5185 SO\u2082\u5c0f\u65f6\u5747\u503c\uff1a128.438 kg/h\n\n\u8be5\u65f6\u95f4\u7a97\u53e3\u5185\u5171\u8bc6\u522b\u5230 1 \u4e2a SO\u2082\u5cf0\u503c\u5c0f\u65f6\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18989,
+              "completion_tokens": 2205,
+              "total_tokens": 21194
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart_ts = \"2025-06-10 00:00:00\"\nend_ts = \"2025-06-13 00:00:00\"\n\n# 1) \u5b9a\u4f4d\u4f01\u4e1a\uff08\u6309\u540d\u79f0\u805a\u5408\u6838\u9a8c\uff0c\u907f\u514d\u8f93\u51fa\u539f\u59cb\u660e\u7ec6\uff09\ncompany_candidates = pd.read_sql(text(\"\"\"\nSELECT id, name, COUNT(*) AS records\nFROM polluting_company\nWHERE name ILIKE '%\u9996\u94a2%\u8fc1\u5b89%' OR name ILIKE '%Shougang%Qian%an%' OR name ILIKE '%Shougang Qian%'\nGROUP BY id, name\nORDER BY records DESC, id\nLIMIT 10\n\"\"\"), engine)\nprint(\"\u4f01\u4e1a\u5339\u914d\u6570\u91cf:\", len(company_candidates))\nprint(company_candidates.to_string(index=False))\n\nif len(company_candidates) == 0:\n    raise ValueError(\"\u672a\u627e\u5230\u5339\u914d\u201cShougang Qian'an Steel Company / \u9996\u94a2\u8fc1\u5b89\u201d\u7684\u4f01\u4e1a\u8bb0\u5f55\u3002\")\n\ncompany_id = int(company_candidates.iloc[0][\"id\"])\ncompany_name = str(company_candidates.iloc[0][\"name\"])\n\n# 2) \u5927\u8868\u5148\u7edf\u8ba1\u7a97\u53e3\u5185\u8bb0\u5f55\u6570\ncount_df = pd.read_sql(text(\"\"\"\nSELECT COUNT(*) AS n\nFROM hourly_polluting_company_emission\nWHERE company_id = :company_id\n  AND timestamp >= :start_ts\n  AND timestamp < :end_ts\n  AND so2 IS NOT NULL\n\"\"\"), engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts})\nn_records = int(count_df.loc[0, \"n\"])\nprint(\"SO2\u5c0f\u65f6\u8bb0\u5f55\u6570:\", n_records)\n\nif n_records == 0:\n    raise ValueError(\"\u6307\u5b9a\u4f01\u4e1a\u5728\u8be5\u65f6\u95f4\u7a97\u53e3\u5185\u65e0SO2\u5c0f\u65f6\u6392\u653e\u8bb0\u5f55\u3002\")\n\n# 3) \u7edf\u8ba1\u5cf0\u503c\u3001\u603b\u91cf\u3001\u5747\u503c\uff1b\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u53d6\u6700\u65e9\u5cf0\u503c\u5c0f\u65f6\nstats_df = pd.read_sql(text(\"\"\"\nWITH base AS (\n    SELECT timestamp, so2\n    FROM hourly_polluting_company_emission\n    WHERE company_id = :company_id\n      AND timestamp >= :start_ts\n      AND timestamp < :end_ts\n      AND so2 IS NOT NULL\n),\nstats AS (\n    SELECT MAX(so2) AS peak_so2, SUM(so2) AS total_so2, AVG(so2) AS mean_so2\n    FROM base\n),\npeaks AS (\n    SELECT b.timestamp, b.so2\n    FROM base b\n    JOIN stats s ON b.so2 = s.peak_so2\n)\nSELECT\n    s.peak_so2,\n    EXTRACT(EPOCH FROM (MIN(p.timestamp) - CAST(:start_ts AS timestamp))) / 3600 AS earliest_peak_offset_hours,\n    s.total_so2,\n    s.mean_so2,\n    COUNT(p.timestamp) AS peak_hour_count\nFROM stats s\nJOIN peaks p ON TRUE\nGROUP BY s.peak_so2, s.total_so2, s.mean_so2\n\"\"\"), engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts})\n\npeak_so2 = float(stats_df.loc[0, \"peak_so2\"])\npeak_so2_offset_hours = int(stats_df.loc[0, \"earliest_peak_offset_hours\"])\ntotal_so2 = float(stats_df.loc[0, \"total_so2\"])\nmean_so2 = float(stats_df.loc[0, \"mean_so2\"])\npeak_hour_count = int(stats_df.loc[0, \"peak_hour_count\"])\n\n# 4) \u8f93\u51fa\u5cf0\u503c\u5c0f\u65f6\u5217\u8868\uff08\u4ec5\u8f93\u51fa\u5173\u952e\u7ed3\u679c\uff09\npeak_hours_df = pd.read_sql(text(\"\"\"\nSELECT timestamp,\n       EXTRACT(EPOCH FROM (timestamp - CAST(:start_ts AS timestamp))) / 3600 AS offset_hours\nFROM hourly_polluting_company_emission\nWHERE company_id = :company_id\n  AND timestamp >= :start_ts\n  AND timestamp < :end_ts\n  AND so2 = :peak_so2\nORDER BY timestamp\nLIMIT 100\n\"\"\"), engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts, \"peak_so2\": peak_so2})\npeak_hours_df[\"offset_hours\"] = peak_hours_df[\"offset_hours\"].astype(int)\n\nprint(\"\u4f01\u4e1a:\", company_name)\nprint(\"\u5cf0\u503cSO2(kg):\", peak_so2)\nprint(\"\u5cf0\u503c\u5c0f\u65f6\u6570\u91cf:\", peak_hour_count)\nprint(\"\u6700\u65e9\u5cf0\u503c\u8ddd\u8d77\u59cb\u65f6\u523b\u5c0f\u65f6\u6570:\", peak_so2_offset_hours)\nprint(\"\u7a97\u53e3SO2\u603b\u91cf(kg):\", total_so2)\nprint(\"\u7a97\u53e3SO2\u5c0f\u65f6\u5747\u503c(kg/h):\", mean_so2)\nprint(\"\u5cf0\u503c\u5c0f\u65f6:\")\nprint(peak_hours_df.to_string(index=False))",
+              "# \u4fee\u6b63\u5cf0\u503c\u5c0f\u65f6\u8bc6\u522b\uff1a\u907f\u514d\u6d6e\u70b9\u7cbe\u786e\u5339\u914d\u5bfc\u81f4\u5cf0\u503c\u5c0f\u65f6\u672a\u8fd4\u56de\npeak_hours_df = pd.read_sql(text(\"\"\"\nWITH base AS (\n    SELECT timestamp, so2\n    FROM hourly_polluting_company_emission\n    WHERE company_id = :company_id\n      AND timestamp >= :start_ts\n      AND timestamp < :end_ts\n      AND so2 IS NOT NULL\n),\nstats AS (\n    SELECT MAX(so2) AS peak_so2, SUM(so2) AS total_so2, AVG(so2) AS mean_so2\n    FROM base\n)\nSELECT b.timestamp,\n       b.so2,\n       EXTRACT(EPOCH FROM (b.timestamp - CAST(:start_ts AS timestamp))) / 3600 AS offset_hours\nFROM base b, stats s\nWHERE ABS(b.so2 - s.peak_so2) < 0.001\nORDER BY b.timestamp\n\"\"\"), engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts})\n\npeak_hours_df[\"offset_hours\"] = peak_hours_df[\"offset_hours\"].astype(int)\npeak_so2 = float(stats_df.loc[0, \"peak_so2\"])\npeak_so2_offset_hours = int(peak_hours_df[\"offset_hours\"].min())\ntotal_so2 = float(stats_df.loc[0, \"total_so2\"])\nmean_so2 = float(stats_df.loc[0, \"mean_so2\"])\n\nprint(\"\u5cf0\u503cSO2(kg):\", peak_so2)\nprint(\"\u5cf0\u503c\u5c0f\u65f6\u6570\u91cf:\", len(peak_hours_df))\nprint(\"\u6700\u65e9\u5cf0\u503c\u8ddd\u8d77\u59cb\u65f6\u523b\u5c0f\u65f6\u6570:\", peak_so2_offset_hours)\nprint(\"\u7a97\u53e3SO2\u603b\u91cf(kg):\", total_so2)\nprint(\"\u7a97\u53e3SO2\u5c0f\u65f6\u5747\u503c(kg/h):\", mean_so2)\nprint(\"\u5cf0\u503c\u5c0f\u65f6:\")\nprint(peak_hours_df.to_string(index=False))"
+            ],
+            "runtime_variables": {
+              "peak_so2": 1554.83,
+              "peak_so2_offset_hours": 6,
+              "total_so2": 9247.545,
+              "mean_so2": 128.43812465667725
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18989,
+      "total_completion_tokens": 2205,
+      "total_tokens": 21194
+    }
+  }
+}

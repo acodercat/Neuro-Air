@@ -1,0 +1,141 @@
+from typing import List, Dict, Union
+from deepeval.models.llms import LiteLLMModel, LocalModel, AnthropicModel
+from pydantic import BaseModel
+
+class Metric(BaseModel):
+    name: str
+    criteria: str
+
+class EvalLiterals:
+    METRIC_LIBRARY: List[Metric] = [
+        Metric(
+            name="Methodological Soundness",
+            criteria="Evaluates the agent's analytical approach and planning. It assesses whether the agent correctly interprets the user's intent, identifies the necessary data sources, and sequences its actions in a logical order. It's about the quality of the 'plan'."
+        ),
+        Metric(
+            name="Technical Implementation Quality",
+            criteria="The technical quality of the agent's execution, focusing on the generated code (Python/SQL). It assesses whether code runs without errors on first attempt, with penalties for syntax errors, type mismatches, invalid enum values, or runtime exceptions even if subsequently corrected; Examine whether the logic correctly and efficiently implement the intended operations."
+        ),
+        Metric(
+            name="Data Integration and Synthesis",
+            criteria="Did the agent successfully combine information from multiple, disparate data sources to form a holistic answer? This criterion evaluates the ability to not just access, but to *fuse* data from different sources to answer a complex, multi-faceted question."
+        ),
+        Metric(
+            name="Response Alignment",
+            criteria="Evaluates whether the agent's response comprehensively addresses all aspects of the user's query. It measures the alignment between what was requested and what was delivered, and whether the final answer directly answers the question without missing key elements or including irrelevant information, and whether the response provides thorough insights with specific data points and statistical summaries rather than superficial observations."
+        ),
+        Metric(
+            name="Faithfulness",
+            criteria="Examines whether all conclusions are strictly based on actual query results with zero hallucination and logically justified by the evidence generated during the analysis, including the retrieved data, executed code, and intermediate findings."
+        )
+    ]
+
+    CATEGORY_LIBRARY: Dict[str, str] = {
+        "cat_1": "Category_1_Temporal_Pattern_Analysis",
+        "cat_2": "Category_2_Geospatial_Analysis",
+        "cat_3": "Category_3_Multi-variate_Environmental_Analysis",
+        "cat_4": "Category_4_Urban_Environmental_Planning",
+        "cat_5": "Category_5_Environmental_Decision_Support",
+        "cat_6": "Category_6_Personal_Environmental_Action_Planning",
+        "cat_7": "Category_7_Pollution_Transmission_Analysis",
+        "cat_8": "Category_8_Sub"
+    }
+
+    AGENT_CONTEXT_SUMMARY: str = """
+The agent is a tool-augmented agent specializing in Python programming with a Python environment and database(PostgreSQL), specializing in geospatial analysis and air pollution data analysis.
+It helps environmental officials answer environmental questions and analyze the provided air pollution database(PostgreSQL). 
+It has to leverage its coding capabilities to interact with tools through a Python runtime environment, allowing direct access to execution results and runtime state. 
+It is proficient in various complex analytical tasks such as pollution transport analysis, pollution source analysis, and pollution cause analysis.
+It is provided with database schema, a SQLAlchemy engine object in the Python runtime, and knowledge base, the agent can use them to answer the user's question.
+IMPORTANT INSTRUCTIONS TO THE AGENT: All responses must be based strictly on:
+- Data explicitly provided in the context
+- All analyses must be based EXCLUSIVELY on actually executed queries and their printed results. NEVER fabricate, predict, or assume data values.
+- Don't print() huge amounts of data, which may cause performance issues. For large results, print aggregated statistics or samples only.
+- Wait for ACTUAL execution results before ANY analysis
+- Based on the data queried, it has to generate the insightful and detailed analysis.
+- It can store the data in a variable and use it in the next response. It is always in the same context.
+- For complex analyses, adopt an iterative approach - start with exploratory queries, analyze intermediate results, and then refine the analysis with additional queries in subsequent responses.
+"""
+
+    USER_QUERY_PREFIX: str = "# User query: "
+    FINAL_RESPONSE_PREFIX: str = "## Final Response: "
+
+    CRITERIA_MAPPING: Dict[str, str] = {
+        "MS": "Methodological Soundness",
+        "TIQ": "Technical Implementation Quality",
+        "DIS": "Data Integration and Synthesis",
+        "RA": "Response Alignment",
+        "FAI": "Faithfulness",
+    }
+
+
+class EvalLLMConfig:
+    OPENAI_HK_API_KEY: str = "<YOUR_KEY_HERE>"
+    OPENAI_HK_API_BASE: str = "https://api.openai-hk.com/v1"
+    DASHSCOPE_API_KEY: str = "<YOUR_KEY_HERE>"
+    DASHSCOPE_API_BASE: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    MOONSHOT_API_KEY: str = "<YOUR_KEY_HERE>"
+    MOONSHOT_API_BASE: str = "https://api.moonshot.cn/v1"
+    ANTHROPIC_API_KEY: str = "<YOUR_KEY_HERE>"
+
+
+def get_judge_llm(judge_llm: str) -> Union[LocalModel, LiteLLMModel]:
+    # if judge_llm == "kimi2":
+    #     return LocalModel(
+    #         model="Moonshot-Kimi-K2-Instruct",
+    #         api_key=EvalLLMConfig.DASHSCOPE_API_KEY,
+    #         base_url=EvalLLMConfig.DASHSCOPE_API_BASE
+    #     )
+    # if judge_llm == "kimi2":
+    #     return LocalModel(
+    #         model="kimi-k2",
+    #         api_key="<YOUR_KEY_HERE>",
+    #         base_url="<YOUR_BASE_URL_HERE>"
+    #     )
+    if judge_llm == "kimi2":
+        return LocalModel(
+            model="kimi-k2-0711-preview",
+            api_key=EvalLLMConfig.MOONSHOT_API_KEY,
+            base_url=EvalLLMConfig.MOONSHOT_API_BASE
+        )
+    elif judge_llm == "gpt5":
+        return LiteLLMModel(
+            model="gpt-5",
+            api_key=EvalLLMConfig.OPENAI_HK_API_KEY,
+            api_base=EvalLLMConfig.OPENAI_HK_API_BASE
+        )
+    # elif judge_llm == "claude4":
+    #     return LocalModel(
+    #         model="claude-sonnet-4-20250514",
+    #         api_key=EvalLLMConfig.OPENAI_HK_API_KEY,
+    #         base_url=EvalLLMConfig.OPENAI_HK_API_BASE
+    #     )
+    elif judge_llm == "claude4":
+        return AnthropicModel(
+            _anthropic_api_key=EvalLLMConfig.ANTHROPIC_API_KEY,
+            model="claude-sonnet-4-20250514"
+        )
+    # elif judge_llm == "deepseek":
+    #     return LocalModel(
+    #         model="deepseek-chat",
+    #         api_key="<YOUR_KEY_HERE>",
+    #         base_url="https://api.deepseek.com/v1",
+    #     )
+    elif judge_llm == "deepseek":
+        return LocalModel(
+            model="deepseek-v3",
+            api_key=EvalLLMConfig.DASHSCOPE_API_KEY,
+            base_url=EvalLLMConfig.DASHSCOPE_API_BASE
+        )
+    elif judge_llm == "gemini":
+        return LocalModel(
+            model="gemini-2.5-pro",
+            api_key=EvalLLMConfig.OPENAI_HK_API_KEY,
+            base_url=EvalLLMConfig.OPENAI_HK_API_BASE,
+        )
+    elif judge_llm == "qwen3":
+        return LocalModel(
+            model="qwen3-235b-a22b-instruct-2507",
+            api_key=EvalLLMConfig.DASHSCOPE_API_KEY,
+            base_url=EvalLLMConfig.DASHSCOPE_API_BASE
+        )

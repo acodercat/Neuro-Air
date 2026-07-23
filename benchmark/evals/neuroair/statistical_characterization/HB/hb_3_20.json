@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_20",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_3_20",
+    "requirements": "As part of your analysis, rank all Hebei stations by AQI at 2025-06-11 09:00. Compute and store: top5_station_ids (list of the 5 highest, int), most_polluted_station_id (int), most_polluted_aqi (float).",
+    "conversations": [
+      {
+        "id": "hb_3_20",
+        "turns": [
+          {
+            "query": "Help me analyze the hourly variation trends of the 5 most severely polluted stations province-wide at 2025-06-11 09:00:00.",
+            "validator": "validate_hb_3_20"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-20",
+      "verbatim": true
+    }
+  }
+]

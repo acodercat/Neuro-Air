@@ -1,0 +1,46 @@
+{
+  "hb_2_15": {
+    "scenario": "hb_2_15",
+    "conversations": [
+      {
+        "id": "hb_2_15",
+        "turns": [
+          {
+            "query": "Help me compare air quality spatial patterns between Qiaoxi District and Xinhua District during 2025-08-01 to 2025-08-05, focusing on PM2.5 and NO2 concentration variations.",
+            "actual_response": "\u57fa\u4e8e 2025-08-01 00:00 \u81f3 2025-08-06 00:00 \u671f\u95f4\u53ef\u7528\u5c0f\u65f6\u6570\u636e\uff0c\u6865\u897f\u533a\u4e0e\u65b0\u534e\u533a\u7684 PM2.5 \u548c NO2 \u7a7a\u95f4\u5dee\u5f02\u5982\u4e0b\uff1a\n\n1. PM2.5 \u5e73\u5747\u6c34\u5e73\u63a5\u8fd1\uff0c\u4f46\u6865\u897f\u533a\u7565\u9ad8  \n- \u6865\u897f\u533a PM2.5 \u5e73\u5747\u6d53\u5ea6\uff1a32.09  \n- \u65b0\u534e\u533a PM2.5 \u5e73\u5747\u6d53\u5ea6\uff1a30.84  \n- \u6865\u897f\u533a\u6bd4\u65b0\u534e\u533a\u9ad8\u7ea6 1.25\uff0c\u6574\u4f53\u5dee\u5f02\u8f83\u5c0f\u3002\n\n2. PM2.5 \u6ce2\u52a8\u7279\u5f81\u5dee\u5f02\u660e\u663e  \n- \u6865\u897f\u533a PM2.5 \u6ce2\u52a8\u663e\u8457\u66f4\u5f3a\uff0c\u6807\u51c6\u5dee\u4e3a 42.91\uff0c\u6700\u9ad8\u503c\u8fbe\u5230 311.0\u3002  \n- \u65b0\u534e\u533a PM2.5 \u6807\u51c6\u5dee\u4e3a 12.23\uff0c\u8303\u56f4\u4e3a 9.0 \u81f3 53.0\uff0c\u53d8\u5316\u76f8\u5bf9\u5e73\u7a33\u3002  \n- \u8fd9\u8868\u660e\u6865\u897f\u533a\u5728\u8be5\u65f6\u6bb5\u5185\u5b58\u5728\u660e\u663e\u7684\u77ed\u65f6\u9ad8\u503c\u8fc7\u7a0b\uff0cPM2.5 \u7a7a\u95f4\u8868\u73b0\u66f4\u4e0d\u7a33\u5b9a\uff1b\u65b0\u534e\u533a\u5219\u5448\u73b0\u8f83\u5747\u5300\u3001\u8f83\u8fde\u7eed\u7684\u9897\u7c92\u7269\u6c61\u67d3\u6c34\u5e73\u3002\n\n3. NO2 \u5e73\u5747\u6c34\u5e73\u65b0\u534e\u533a\u660e\u663e\u9ad8\u4e8e\u6865\u897f\u533a  \n- \u6865\u897f\u533a NO2 \u5e73\u5747\u6d53\u5ea6\uff1a10.29  \n- \u65b0\u534e\u533a NO2 \u5e73\u5747\u6d53\u5ea6\uff1a13.58  \n- \u65b0\u534e\u533a\u6bd4\u6865\u897f\u533a\u9ad8\u7ea6 3.29\uff0c\u8bf4\u660e\u65b0\u534e\u533a\u5728\u6c2e\u6c27\u5316\u7269\u76f8\u5173\u6c61\u67d3\u65b9\u9762\u66f4\u7a81\u51fa\u3002\n\n4. NO2 \u6ce2\u52a8\u4e5f\u4ee5\u65b0\u534e\u533a\u66f4\u5f3a  \n- \u65b0\u534e\u533a NO2 \u6807\u51c6\u5dee\u4e3a 7.95\uff0c\u8303\u56f4\u4e3a 5.0 \u81f3 32.0\u3002  \n- \u6865\u897f\u533a NO2 \u6807\u51c6\u5dee\u4e3a 5.13\uff0c\u8303\u56f4\u4e3a 3.0 \u81f3 22.0\u3002  \n- \u65b0\u534e\u533a\u4e0d\u4ec5 NO2 \u5e73\u5747\u6c34\u5e73\u66f4\u9ad8\uff0c\u800c\u4e14\u9ad8\u503c\u5e45\u5ea6\u66f4\u5927\uff0c\u63d0\u793a\u5176\u53d7\u4ea4\u901a\u3001\u71c3\u70e7\u6216\u5c40\u5730\u6392\u653e\u5f71\u54cd\u7684\u53ef\u80fd\u6027\u66f4\u5f3a\u3002\n\n5. \u9010\u65e5\u53d8\u5316\u7279\u5f81  \n- 8\u67081\u65e5\uff1a\u6865\u897f\u533a PM2.5 \u660e\u663e\u9ad8\u4e8e\u65b0\u534e\u533a\uff0c\u800c NO2 \u660e\u663e\u4f4e\u4e8e\u65b0\u534e\u533a\u3002  \n- 8\u67082\u65e5\uff1a\u65b0\u534e\u533a PM2.5 \u9ad8\u4e8e\u6865\u897f\u533a\uff0cNO2 \u4e5f\u7565\u9ad8\u4e8e\u6865\u897f\u533a\u3002  \n- 8\u67083\u65e5\uff1a\u65b0\u534e\u533a PM2.5 \u9ad8\u4e8e\u6865\u897f\u533a\uff0cNO2 \u4e24\u533a\u63a5\u8fd1\u3002  \n- \u9010\u65e5\u5dee\u503c\u663e\u793a\uff0cPM2.5 \u7684\u533a\u9645\u5dee\u5f02\u65b9\u5411\u5b58\u5728\u53d8\u5316\uff0c\u800c NO2 \u603b\u4f53\u8868\u73b0\u4e3a\u65b0\u534e\u533a\u9ad8\u4e8e\u6865\u897f\u533a\u3002\n\n\u7efc\u5408\u5224\u65ad\uff1a  \n\u6865\u897f\u533a\u7684\u4e3b\u8981\u7279\u5f81\u662f PM2.5 \u77ed\u65f6\u9ad8\u503c\u548c\u5f3a\u6ce2\u52a8\uff0c\u9700\u91cd\u70b9\u5173\u6ce8\u9897\u7c92\u7269\u5f02\u5e38\u5347\u9ad8\u65f6\u6bb5\u53ca\u5176\u5c40\u5730\u6765\u6e90\uff1b\u65b0\u534e\u533a\u7684\u4e3b\u8981\u7279\u5f81\u662f NO2 \u5e73\u5747\u6c34\u5e73\u8f83\u9ad8\u4e14\u6ce2\u52a8\u8f83\u5f3a\uff0c\u9700\u91cd\u70b9\u5173\u6ce8\u6c2e\u6c27\u5316\u7269\u6392\u653e\u6e90\u53ca\u5176\u65f6\u6bb5\u6027\u53d8\u5316\u3002\u7531\u4e8e\u8be5\u65f6\u6bb5\u53ef\u7528\u5c0f\u65f6\u8bb0\u5f55\u4e0d\u5b8c\u6574\uff0c\u4e0a\u8ff0\u7ed3\u8bba\u4ec5\u4ee3\u8868\u5df2\u83b7\u53d6\u6570\u636e\u8986\u76d6\u8303\u56f4\u5185\u7684\u6c61\u67d3\u7a7a\u95f4\u7279\u5f81\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12260,
+              "completion_tokens": 2190,
+              "total_tokens": 14450
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart_ts = \"2025-08-01 00:00:00\"\nend_ts = \"2025-08-06 00:00:00\"\n\n# \u5148\u6309\u9650\u5b9a\u6761\u4ef6\u7edf\u8ba1\u5c0f\u65f6\u8bb0\u5f55\u91cf\uff0c\u518d\u8fdb\u884c\u805a\u5408\u5206\u6790\ncount_query = text(\"\"\"\nSELECT d.name AS district_name, COUNT(*) AS n\nFROM hourly_district_air_quality h\nJOIN district d ON h.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE c.name = '\u77f3\u5bb6\u5e84\u5e02'\n  AND d.name IN ('\u6865\u897f\u533a', '\u65b0\u534e\u533a')\n  AND h.timestamp >= :start_ts AND h.timestamp < :end_ts\nGROUP BY d.name\nORDER BY d.name\n\"\"\")\ncount_df = pd.read_sql(count_query, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\nprint(\"\u8bb0\u5f55\u91cf\u7edf\u8ba1\uff1a\")\nprint(count_df.to_string(index=False))\n\nagg_query = text(\"\"\"\nSELECT d.name AS district_name,\n       COUNT(*) AS n,\n       AVG(h.pm2_5)::float AS mean_pm25,\n       AVG(h.no2)::float AS mean_no2,\n       STDDEV_POP(h.pm2_5)::float AS sd_pm25,\n       STDDEV_POP(h.no2)::float AS sd_no2,\n       MIN(h.pm2_5)::float AS min_pm25,\n       MAX(h.pm2_5)::float AS max_pm25,\n       MIN(h.no2)::float AS min_no2,\n       MAX(h.no2)::float AS max_no2\nFROM hourly_district_air_quality h\nJOIN district d ON h.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE c.name = '\u77f3\u5bb6\u5e84\u5e02'\n  AND d.name IN ('\u6865\u897f\u533a', '\u65b0\u534e\u533a')\n  AND h.timestamp >= :start_ts AND h.timestamp < :end_ts\nGROUP BY d.name\nORDER BY d.name\n\"\"\")\nagg_df = pd.read_sql(agg_query, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\n\ndaily_query = text(\"\"\"\nSELECT d.name AS district_name,\n       DATE(h.timestamp) AS day,\n       AVG(h.pm2_5)::float AS mean_pm25,\n       AVG(h.no2)::float AS mean_no2\nFROM hourly_district_air_quality h\nJOIN district d ON h.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE c.name = '\u77f3\u5bb6\u5e84\u5e02'\n  AND d.name IN ('\u6865\u897f\u533a', '\u65b0\u534e\u533a')\n  AND h.timestamp >= :start_ts AND h.timestamp < :end_ts\nGROUP BY d.name, DATE(h.timestamp)\nORDER BY day, district_name\n\"\"\")\ndaily_df = pd.read_sql(daily_query, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\n\n# \u5b58\u50a8\u6307\u5b9a\u53d8\u91cf\nq = agg_df.set_index(\"district_name\")\nmean_pm25_qiaoxi = float(q.loc[\"\u6865\u897f\u533a\", \"mean_pm25\"])\nmean_no2_qiaoxi = float(q.loc[\"\u6865\u897f\u533a\", \"mean_no2\"])\nmean_pm25_xinhua = float(q.loc[\"\u65b0\u534e\u533a\", \"mean_pm25\"])\nmean_no2_xinhua = float(q.loc[\"\u65b0\u534e\u533a\", \"mean_no2\"])\n\n# \u5f62\u6210\u5bf9\u6bd4\u6458\u8981\nwide_daily = daily_df.pivot(index=\"day\", columns=\"district_name\", values=[\"mean_pm25\", \"mean_no2\"])\npm25_diff_daily = wide_daily[\"mean_pm25\"][\"\u6865\u897f\u533a\"] - wide_daily[\"mean_pm25\"][\"\u65b0\u534e\u533a\"]\nno2_diff_daily = wide_daily[\"mean_no2\"][\"\u6865\u897f\u533a\"] - wide_daily[\"mean_no2\"][\"\u65b0\u534e\u533a\"]\n\nprint(\"\\n\u4e94\u65e5\u6574\u4f53\u7edf\u8ba1\uff1a\")\nprint(agg_df.to_string(index=False))\nprint(\"\\n\u65e5\u5747\u503c\u5bf9\u6bd4\uff1a\")\nprint(daily_df.to_string(index=False))\nprint(\"\\n\u9010\u65e5\u5dee\u503c\u6458\u8981\uff08\u6865\u897f\u533a-\u65b0\u534e\u533a\uff09\uff1a\")\nprint(pd.DataFrame({\n    \"pm25_diff_mean\": [pm25_diff_daily.mean()],\n    \"pm25_diff_min\": [pm25_diff_daily.min()],\n    \"pm25_diff_max\": [pm25_diff_daily.max()],\n    \"no2_diff_mean\": [no2_diff_daily.mean()],\n    \"no2_diff_min\": [no2_diff_daily.min()],\n    \"no2_diff_max\": [no2_diff_daily.max()]\n}).to_string(index=False))\nprint(\"\\n\u5df2\u5b58\u50a8\u53d8\u91cf\uff1a\")\nprint({\n    \"mean_pm25_qiaoxi\": mean_pm25_qiaoxi,\n    \"mean_no2_qiaoxi\": mean_no2_qiaoxi,\n    \"mean_pm25_xinhua\": mean_pm25_xinhua,\n    \"mean_no2_xinhua\": mean_no2_xinhua\n})"
+            ],
+            "runtime_variables": {
+              "mean_pm25_qiaoxi": 32.08888888888889,
+              "mean_no2_qiaoxi": 10.28888888888889,
+              "mean_pm25_xinhua": 30.83582089552239,
+              "mean_no2_xinhua": 13.575757575757576
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 12260,
+      "total_completion_tokens": 2190,
+      "total_tokens": 14450
+    }
+  }
+}

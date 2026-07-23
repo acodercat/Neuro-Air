@@ -1,0 +1,48 @@
+{
+  "hb_1_1": {
+    "scenario": "hb_1_1",
+    "conversations": [
+      {
+        "id": "hb_1_1",
+        "turns": [
+          {
+            "query": "Help me analyze the emission patterns of enterprises in \u90af\u90f8\u5e02 on 2025-06-08.",
+            "actual_response": "",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: total_city_flue_gas not set"
+            ],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 14879,
+              "completion_tokens": 17609,
+              "total_tokens": 32488
+            },
+            "success": false,
+            "variables_not_set": true,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# 1. \u5148\u67e5\u8be2\u90af\u90f8\u5e02\u7684\u4f01\u4e1a\u5217\u8868\nquery_companies = text(\"\"\"\nSELECT pc.id, pc.name, pc.industry_type, pc.district_id\nFROM polluting_company pc\nWHERE pc.city_id = 4\n\"\"\")\ncompanies_df = pd.read_sql(query_companies, engine)\nprint(f\"\u90af\u90f8\u5e02\u4f01\u4e1a\u603b\u6570: {len(companies_df)}\")\nprint(f\"\u4f01\u4e1a\u7c7b\u578b\u5206\u5e03:\\n{companies_df['industry_type'].value_counts()}\")\nprint(f\"\\n\u4f01\u4e1a\u5217\u8868\u524d10\u6761:\")\nprint(companies_df.head(10))\n\n# 2. \u67e5\u8be22025-06-08\u90af\u90f8\u5e02\u4f01\u4e1a\u7684\u6392\u653e\u6570\u636e\uff08\u5c0f\u65f6\u7ea7\uff09\nquery_emission = text(\"\"\"\nSELECT hce.company_id, hce.timestamp, hce.exhaust_gas, hce.nox, hce.so2, hce.pm, hce.hc, hce.nmhc, hce.co, hce.hcl\nFROM hourly_polluting_company_emission hce\nWHERE hce.timestamp >= '2025-06-08 00:00:00' \n  AND hce.timestamp < '2025-06-09 00:00:00'\n\"\"\")\nemission_df = pd.read_sql(query_emission, engine)\nprint(f\"\\n2025-06-08\u6392\u653e\u6570\u636e\u603b\u8bb0\u5f55\u6570: {len(emission_df)}\")\nprint(f\"\u6709\u6392\u653e\u6570\u636e\u7684\u4f01\u4e1a\u6570\u91cf: {emission_df['company_id'].nunique()}\")\n\n# 3. \u8ba1\u7b97\u6bcf\u4e2a\u4f01\u4e1a\u7684\u603b\u6392\u653e\u91cf\ncompany_emission = emission_df.groupby('company_id').agg(\n    total_exhaust_gas=('exhaust_gas', 'sum'),\n    total_nox=('nox', 'sum'),\n    total_so2=('so2', 'sum'),\n    total_pm=('pm', 'sum'),\n    record_count=('timestamp', 'count')\n).reset_index()\n\nprint(f\"\\n\u4f01\u4e1a\u6392\u653e\u7edf\u8ba1\uff08\u6309\u70df\u6c14\u603b\u91cf\u6392\u5e8f\uff0c\u524d10\uff09:\")\nprint(company_emission.nlargest(10, 'total_exhaust_gas')[['company_id', 'total_exhaust_gas', 'total_nox', 'total_so2', 'total_pm', 'record_count']])\n\n# 4. \u8ba1\u7b97\u5168\u5e02\u603b\u70df\u6c14\u6392\u653e\u91cf\ntotal_flue_gas = emission_df['exhaust_gas'].sum()\nprint(f\"\\n\u90af\u90f8\u5e022025-06-08\u603b\u70df\u6c14\u6392\u653e\u91cf: {total_flue_gas:.2f} \u7acb\u65b9\u7c73\")\n\n# 5. \u627e\u51fa\u6700\u9ad8\u6392\u653e\u4f01\u4e1a\ntop_emitter = company_emission.loc[company_emission['total_exhaust_gas'].idxmax()]\nprint(f\"\\n\u6700\u9ad8\u6392\u653e\u4f01\u4e1aID: {int(top_emitter['company_id'])}\")\nprint(f\"\u6700\u9ad8\u6392\u653e\u4f01\u4e1a\u603b\u70df\u6c14\u91cf: {top_emitter['total_exhaust_gas']:.2f} \u7acb\u65b9\u7c73\")\n\n# 6. \u5206\u6790\u6392\u653e\u7684\u65f6\u95f4\u5206\u5e03\u6a21\u5f0f\nemission_df['hour'] = emission_df['timestamp'].dt.hour\nhourly_pattern = emission_df.groupby('hour').agg(\n    avg_exhaust_gas=('exhaust_gas', 'mean'),\n    total_exhaust_gas=('exhaust_gas', 'sum'),\n    record_count=('timestamp', 'count')\n).reset_index()\nprint(f\"\\n\u5c0f\u65f6\u6392\u653e\u6a21\u5f0f:\")\nprint(hourly_pattern)\n\n# 7. \u5206\u6790\u4e3b\u8981\u6c61\u67d3\u7269\u5206\u5e03\nprint(f\"\\n\u6c61\u67d3\u7269\u6392\u653e\u7edf\u8ba1:\")\npollutant_stats = emission_df[['nox', 'so2', 'pm', 'hc', 'nmhc', 'co', 'hcl']].describe()\nprint(pollutant_stats)\n\n# 8. \u5173\u8054\u4f01\u4e1a\u4fe1\u606f\uff0c\u627e\u51fa\u6700\u9ad8\u6392\u653e\u4f01\u4e1a\u7684\u8be6\u7ec6\u4fe1\u606f\ntop_emitter_info = companies_df[companies_df['id'] == int(top_emitter['company_id'])]\nprint(f\"\\n\u6700\u9ad8\u6392\u653e\u4f01\u4e1a\u8be6\u60c5:\")\nprint(top_emitter_info)\n\n# 9. \u6309\u4f01\u4e1a\u7c7b\u578b\u5206\u6790\u6392\u653e\ncompany_emission_with_type = company_emission.merge(companies_df[['id', 'industry_type']], left_on='company_id', right_on='id')\nindustry_emission = company_emission_with_type.groupby('industry_type').agg(\n    total_exhaust_gas=('total_exhaust_gas', 'sum'),\n    company_count=('company_id', 'count'),\n    avg_exhaust_gas=('total_exhaust_gas', 'mean')\n).reset_index()\nprint(f\"\\n\u6309\u4f01\u4e1a\u7c7b\u578b\u7edf\u8ba1:\")\nprint(industry_emission)"
+            ],
+            "runtime_variables": {
+              "total_city_flue_gas": null,
+              "active_company_count": null,
+              "top_emitter_company_id": null,
+              "top_emitter_total": null
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 2,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 14879,
+      "total_completion_tokens": 17609,
+      "total_tokens": 32488
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[project]
+name = "neuro-air-evaluation"
+version = "0.1.0"
+description = "Neuro-Air response-quality (LLM-judge) and objective process-metric evaluation"
+requires-python = ">=3.12"
+dependencies = [
+    "deepeval>=1.0.0",
+    "litellm>=1.40.0",
+    "pydantic>=2.0",
+    "pandas>=2.0",
+]

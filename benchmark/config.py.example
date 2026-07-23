@@ -1,0 +1,29 @@
+import os
+from pathlib import Path
+
+from pydantic import Field
+from pydantic_settings import BaseSettings
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+MODELS_TOML = PROJECT_ROOT / "models.toml"
+# Registry is overridable via the BENCHMARKS_JSON env var (e.g. to run the
+# separately-named Neuro-Air PV set). Defaults to the built-in benchmarks.json.
+BENCHMARKS_JSON = Path(os.environ.get("BENCHMARKS_JSON", PROJECT_ROOT / "benchmarks.json"))
+
+
+class Settings(BaseSettings):
+    """Application settings managed via environment variables."""
+
+    # Hong Kong database configuration
+    hk_database_url: str = "postgresql+psycopg://USER:PASSWORD@HOST:PORT/hkgai_air"
+
+    # Hebei province database configuration
+    hb_database_url: str = "postgresql+psycopg://USER:PASSWORD@HOST:PORT/hb_air"
+
+    google_places_api_key: str = Field(
+        default="<YOUR_GOOGLE_PLACES_API_KEY>",
+        description="Google Places API key for location search",
+    )
+
+
+settings = Settings()

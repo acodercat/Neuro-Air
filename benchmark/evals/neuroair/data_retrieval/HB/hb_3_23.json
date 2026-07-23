@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_23",
+    "module": "evals.neuroair.data_retrieval.HB.hb_3_23",
+    "requirements": "As part of your analysis, for Gaocheng District (district_id 6) on 2025-07-10 compute and store the district-level PM2.5 profile: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_3_23",
+        "turns": [
+          {
+            "query": "Investigate the root causes of elevated PM2.5 levels in Gaocheng District (district_id: 6) on 2025-07-10, considering local emission sources, meteorological conditions, and regional transport",
+            "validator": "validate_hb_3_23"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-23",
+      "verbatim": true
+    }
+  }
+]

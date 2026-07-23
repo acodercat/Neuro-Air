@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_16",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_2_16",
+    "requirements": "As part of your analysis, define spatial heterogeneity as the population std of per-station mean AQI across all stations in Yuhua District. Over 2025-06-25 12:00 to 2025-06-26 12:00 compute and store: n_stations (int), spatial_std_aqi, district_mean_aqi, max_station_mean_aqi (float).",
+    "conversations": [
+      {
+        "id": "hb_2_16",
+        "turns": [
+          {
+            "query": "Analyze air quality spatial heterogeneity within Yuhua District on 2025-06-25 12:00:00 to 2025-06-26 12:00:00, considering topographical features.",
+            "validator": "validate_hb_2_16"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-16",
+      "verbatim": true
+    }
+  }
+]

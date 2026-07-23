@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_2_18",
+    "module": "evals.neuroair.data_retrieval.HK.hk_2_18",
+    "requirements": "As part of your analysis, for station 2 over 2025-05-12 compute and store: mean_pm2_5, max_pm2_5 (float), mean_aqhi, max_aqhi (float).",
+    "conversations": [
+      {
+        "id": "hk_2_18",
+        "turns": [
+          {
+            "query": "Evaluate pollution threats to agricultural land in the North District (district_id: 3) based on air quality measurements from the North station (station_id: 2) on 2025-05-12.",
+            "validator": "validate_hk_2_18"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-2-18",
+      "verbatim": true
+    }
+  }
+]

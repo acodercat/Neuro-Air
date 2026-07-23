@@ -1,0 +1,47 @@
+{
+  "hb_1_13": {
+    "scenario": "hb_1_13",
+    "conversations": [
+      {
+        "id": "hb_1_13",
+        "turns": [
+          {
+            "query": "Help me analyze when Jingye Metallurgical Technology Co., Ltd. has the highest NOx emissions during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8\u57282025-06-10\u81f32025-06-12\u671f\u95f4\u7684NOx\u6392\u653e\u6570\u636e\u5206\u6790\u5982\u4e0b\uff1a\n\n- **\u5cf0\u503cNOx\u6392\u653e\u91cf**\uff1a253.669 kg\n- **\u5cf0\u503c\u51fa\u73b0\u65f6\u95f4**\uff1a2025-06-12 19:00:00\n- **\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570**\uff1a67\u5c0f\u65f6\uff08\u81ea2025-06-10 00:00\u8d77\u7b97\uff09\n- **\u603bNOx\u6392\u653e\u91cf**\uff1a13668.199 kg\n- **\u5e73\u5747NOx\u6392\u653e\u91cf**\uff1a189.836 kg\n\n**\u6392\u653e\u7279\u5f81\u5206\u6790**\uff1a\n\u8be5\u4f01\u4e1a\u5728\u4e09\u5929\u76d1\u6d4b\u671f\u5185NOx\u6392\u653e\u5448\u73b0\u660e\u663e\u7684\u6ce2\u52a8\u7279\u5f81\u3002\u6392\u653e\u603b\u91cf\u4e3a13668.199 kg\uff0c\u5e73\u5747\u5c0f\u65f6\u6392\u653e\u91cf\u4e3a189.836 kg\u3002\u6700\u9ad8\u6392\u653e\u5cf0\u503c\u51fa\u73b0\u5728\u76d1\u6d4b\u671f\u7684\u7b2c\u4e09\u5929\uff086\u670812\u65e5\uff09\u508d\u665a19\u65f6\uff0c\u6b64\u65f6NOx\u6d53\u5ea6\u8fbe\u5230253.669 kg\uff0c\u8f83\u5e73\u5747\u6c34\u5e73\u9ad8\u51fa\u7ea633.6%\u3002\u6392\u653e\u66f2\u7ebf\u6574\u4f53\u5448\u73b0\u65e5\u95f4\u8f83\u9ad8\u3001\u591c\u95f4\u9010\u6b65\u56de\u843d\u7684\u8d8b\u52bf\uff0c\u5cf0\u503c\u65f6\u6bb5\u53ef\u80fd\u4e0e\u751f\u4ea7\u8d1f\u8377\u8c03\u6574\u6216\u508d\u665a\u6c14\u8c61\u6269\u6563\u6761\u4ef6\u53d8\u5316\u6709\u5173\u3002\n\n**\u76d1\u7ba1\u5efa\u8bae**\uff1a\n\u5efa\u8bae\u73af\u4fdd\u90e8\u95e8\u9488\u5bf96\u670812\u65e518:00-20:00\u8fd9\u4e00\u9ad8\u6392\u653e\u65f6\u6bb5\u52a0\u5f3a\u5728\u7ebf\u76d1\u6d4b\u9891\u6b21\u4e0e\u73b0\u573a\u5de1\u67e5\uff0c\u6838\u67e5\u4f01\u4e1a\u662f\u5426\u5728\u8be5\u65f6\u6bb5\u5b58\u5728\u751f\u4ea7\u8d1f\u8377\u7a81\u589e\u6216\u6cbb\u6c61\u8bbe\u65bd\u8fd0\u884c\u5f02\u5e38\u7b49\u60c5\u51b5\u3002\u540c\u65f6\uff0c\u53ef\u7ed3\u5408\u5468\u8fb9\u7f51\u683c\u98ce\u573a\u6570\u636e\u8fdb\u4e00\u6b65\u8bc4\u4f30\u8be5\u5cf0\u503c\u65f6\u6bb5\u5bf9\u533a\u57df\u7a7a\u6c14\u8d28\u91cf\u7684\u5177\u4f53\u5f71\u54cd\uff0c\u4ee5\u4fbf\u7cbe\u51c6\u5236\u5b9a\u9519\u5cf0\u751f\u4ea7\u6216\u51cf\u6392\u7ba1\u63a7\u63aa\u65bd\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18929,
+              "completion_tokens": 3096,
+              "total_tokens": 22025
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u627e\u5230\u656c\u4e1a\u51b6\u91d1\u79d1\u6280\u6709\u9650\u516c\u53f8\u7684company_id\nquery_company = text(\"\"\"\nSELECT id, name, city_id, district_id, industry_type\nFROM polluting_company\nWHERE name LIKE '%\u656c\u4e1a\u51b6\u91d1%'\nLIMIT 10\n\"\"\")\ncompany_df = pd.read_sql(query_company, engine)\nprint(\"\u5339\u914d\u7684\u516c\u53f8:\")\nprint(company_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\ncompany_id = 2417\nstart_time = '2025-06-10 00:00:00'\nend_time = '2025-06-13 00:00:00'\n\n# \u67e5\u8be2\u8be5\u516c\u53f8\u5728\u6307\u5b9a\u65f6\u95f4\u6bb5\u7684NOx\u6392\u653e\u6570\u636e\nquery = text(f\"\"\"\nSELECT \n    timestamp,\n    nox\nFROM hourly_polluting_company_emission\nWHERE company_id = {company_id}\n  AND timestamp >= '{start_time}'\n  AND timestamp < '{end_time}'\nORDER BY timestamp\n\"\"\")\n\nemission_df = pd.read_sql(query, engine)\nprint(f\"\u6570\u636e\u884c\u6570: {len(emission_df)}\")\nprint(f\"\u65f6\u95f4\u8303\u56f4: {emission_df['timestamp'].min()} \u5230 {emission_df['timestamp'].max()}\")\nprint(\"\\n\u524d10\u6761\u6570\u636e:\")\nprint(emission_df.head(10))\nprint(\"\\n\u540e10\u6761\u6570\u636e:\")\nprint(emission_df.tail(10))\n\n# \u8ba1\u7b97\u7edf\u8ba1\u6307\u6807\npeak_nox = emission_df['nox'].max()\ntotal_nox = emission_df['nox'].sum()\nmean_nox = emission_df['nox'].mean()\n\n# \u627e\u5230\u5cf0\u503c\u65f6\u95f4\npeak_idx = emission_df['nox'].idxmax()\npeak_timestamp = emission_df.loc[peak_idx, 'timestamp']\n\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u65f6\u95f4\u7684\u6574\u5c0f\u65f6\u6570\nfrom datetime import datetime\nstart_dt = datetime.strptime(start_time, '%Y-%m-%d %H:%M:%S')\npeak_dt = datetime.strptime(str(peak_timestamp), '%Y-%m-%d %H:%M:%S')\npeak_nox_offset_hours = int((peak_dt - start_dt).total_seconds() / 3600)\n\nprint(f\"\\n=== \u7edf\u8ba1\u7ed3\u679c ===\")\nprint(f\"\u5cf0\u503cNOx: {peak_nox}\")\nprint(f\"\u603bNOx: {total_nox}\")\nprint(f\"\u5e73\u5747NOx: {mean_nox}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4: {peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_nox_offset_hours}\")\n\n# \u5b58\u50a8\u7ed3\u679c\npeak_nox = float(peak_nox)\ntotal_nox = float(total_nox)\nmean_nox = float(mean_nox)\npeak_nox_offset_hours = int(peak_nox_offset_hours)"
+            ],
+            "runtime_variables": {
+              "peak_nox": 253.669,
+              "peak_nox_offset_hours": 67,
+              "total_nox": 13668.199,
+              "mean_nox": 189.83609722222224
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18929,
+      "total_completion_tokens": 3096,
+      "total_tokens": 22025
+    }
+  }
+}

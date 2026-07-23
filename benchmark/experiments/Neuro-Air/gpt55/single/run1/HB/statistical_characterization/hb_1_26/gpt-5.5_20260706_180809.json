@@ -1,0 +1,46 @@
+{
+  "hb_1_26": {
+    "scenario": "hb_1_26",
+    "conversations": [
+      {
+        "id": "hb_1_26",
+        "turns": [
+          {
+            "query": "Identify the most consistent emission performer among specialized steel companies: Hebei Puyang Steel, Tangshan Ruifeng Steel, Tangshan Ganglu Steel on 2025-06-10.",
+            "actual_response": "2025\u5e746\u670810\u65e5\uff0c\u4e09\u5bb6\u4e13\u4e1a\u94a2\u94c1\u4f01\u4e1a\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u7a33\u5b9a\u6027\u5bf9\u6bd4\u5982\u4e0b\uff1a\n\n- \u6cb3\u5317\u666e\u9633\u94a2\u94c1\u6709\u9650\u516c\u53f8\uff1a\u53d8\u5f02\u7cfb\u6570 0.023695\n- \u5510\u5c71\u745e\u4e30\u94a2\u94c1\uff08\u96c6\u56e2\uff09\u6709\u9650\u516c\u53f8\uff1a\u53d8\u5f02\u7cfb\u6570 0.015253\n- \u5510\u5c71\u6e2f\u9646\u94a2\u94c1\u6709\u9650\u516c\u53f8\uff1a\u53d8\u5f02\u7cfb\u6570 0.040955\n\n\u53d8\u5f02\u7cfb\u6570\u8d8a\u4f4e\uff0c\u8bf4\u660e\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u6ce2\u52a8\u8d8a\u5c0f\u3001\u8fd0\u884c\u8d8a\u7a33\u5b9a\u3002\u56e0\u6b64\uff0c\u4e09\u5bb6\u4f01\u4e1a\u4e2d\u6392\u653e\u8868\u73b0\u6700\u7a33\u5b9a\u7684\u662f\uff1a\n\n\u5510\u5c71\u745e\u4e30\u94a2\u94c1\uff08\u96c6\u56e2\uff09\u6709\u9650\u516c\u53f8\uff0c\u4f01\u4e1aID\uff1a2420\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12168,
+              "completion_tokens": 1730,
+              "total_tokens": 13898
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# 1) \u5339\u914d\u4e09\u5bb6\u94a2\u94c1\u4f01\u4e1a\uff08\u4ec5\u8f93\u51fa\u805a\u5408\u540e\u7684\u5339\u914d\u6982\u51b5\uff09\ncompany_sql = text(\"\"\"\nWITH targets AS (\n  SELECT 'puyang' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u666e\u9633%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ruifeng' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u745e\u4e30%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ganglu' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u6e2f\u9646%' AND name LIKE '%\u94a2%'\n)\nSELECT label, COUNT(*) AS matched_companies,\n       STRING_AGG(id::text, ',' ORDER BY id) AS company_ids,\n       STRING_AGG(name, '\uff1b' ORDER BY id) AS company_names\nFROM targets\nGROUP BY label\nORDER BY label;\n\"\"\")\ncompany_match_summary = pd.read_sql(company_sql, engine)\nprint(\"\u4f01\u4e1a\u5339\u914d\u805a\u5408\u6982\u51b5\uff1a\")\nprint(company_match_summary)\n\n# 2) \u5927\u8868\u67e5\u8be2\u524d\u5148\u6309\u76ee\u6807\u4f01\u4e1a\u548c\u65e5\u671f\u7edf\u8ba1\u8bb0\u5f55\u91cf\ncount_sql = text(\"\"\"\nWITH targets AS (\n  SELECT 'puyang' AS label, id FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u666e\u9633%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ruifeng' AS label, id FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u745e\u4e30%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ganglu' AS label, id FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u6e2f\u9646%' AND name LIKE '%\u94a2%'\n)\nSELECT t.label, COUNT(*) AS hourly_records\nFROM targets t\nJOIN hourly_polluting_company_emission h ON h.company_id = t.id\nWHERE h.timestamp >= '2025-06-10 00:00:00' AND h.timestamp < '2025-06-11 00:00:00'\nGROUP BY t.label\nORDER BY t.label;\n\"\"\")\nrecord_count_summary = pd.read_sql(count_sql, engine)\nprint(\"\\n2025-06-10\u5c0f\u65f6\u8bb0\u5f55\u91cf\u805a\u5408\u6982\u51b5\uff1a\")\nprint(record_count_summary)\n\n# 3) \u8ba1\u7b97\u5404\u4f01\u4e1a2025-06-10\u5c0f\u65f6\u70df\u6c14\u91cf\u53d8\u5f02\u7cfb\u6570\uff08\u603b\u4f53\u6807\u51c6\u5dee/\u5747\u503c\uff09\ncv_sql = text(\"\"\"\nWITH targets AS (\n  SELECT 'puyang' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u666e\u9633%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ruifeng' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u745e\u4e30%' AND name LIKE '%\u94a2%'\n  UNION ALL\n  SELECT 'ganglu' AS label, id, name FROM polluting_company\n  WHERE industry_type='STEEL' AND name LIKE '%\u6e2f\u9646%' AND name LIKE '%\u94a2%'\n),\nstats AS (\n  SELECT t.label, t.id AS company_id, t.name AS company_name,\n         COUNT(h.exhaust_gas) AS n,\n         AVG(h.exhaust_gas) AS mean_exhaust_gas,\n         STDDEV_POP(h.exhaust_gas) AS pop_std_exhaust_gas,\n         STDDEV_POP(h.exhaust_gas) / NULLIF(AVG(h.exhaust_gas), 0) AS cv\n  FROM targets t\n  JOIN hourly_polluting_company_emission h ON h.company_id = t.id\n  WHERE h.timestamp >= '2025-06-10 00:00:00' AND h.timestamp < '2025-06-11 00:00:00'\n  GROUP BY t.label, t.id, t.name\n)\nSELECT label, company_id, company_name, n,\n       mean_exhaust_gas, pop_std_exhaust_gas, cv\nFROM stats\nORDER BY label, company_id;\n\"\"\")\ncv_results = pd.read_sql(cv_sql, engine)\nprint(\"\\n\u53d8\u5f02\u7cfb\u6570\u8ba1\u7b97\u7ed3\u679c\uff1a\")\nprint(cv_results)\n\n# 4) \u5b58\u50a8\u8981\u6c42\u53d8\u91cf\ncv_puyang = float(cv_results.loc[cv_results[\"label\"]==\"puyang\", \"cv\"].iloc[0])\ncv_ruifeng = float(cv_results.loc[cv_results[\"label\"]==\"ruifeng\", \"cv\"].iloc[0])\ncv_ganglu = float(cv_results.loc[cv_results[\"label\"]==\"ganglu\", \"cv\"].iloc[0])\nmost_consistent_company_id = int(cv_results.loc[cv_results[\"cv\"].idxmin(), \"company_id\"])\n\nprint(\"\\n\u6700\u7ec8\u53d8\u91cf\uff1a\")\nprint({\n    \"cv_puyang\": cv_puyang,\n    \"cv_ruifeng\": cv_ruifeng,\n    \"cv_ganglu\": cv_ganglu,\n    \"most_consistent_company_id\": most_consistent_company_id\n})"
+            ],
+            "runtime_variables": {
+              "cv_puyang": 0.02369500001996681,
+              "cv_ruifeng": 0.015253148531309485,
+              "cv_ganglu": 0.040954995143548764,
+              "most_consistent_company_id": 2420
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 12168,
+      "total_completion_tokens": 1730,
+      "total_tokens": 13898
+    }
+  }
+}

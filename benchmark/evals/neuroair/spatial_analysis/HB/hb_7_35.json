@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_35",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_35",
+    "requirements": "As part of your analysis, for the source-receptor pair company 2495 -> station 98 over 2025-06-05 06:00 to 2025-06-06 18:00 compute and store: distance_km, bearing_deg, station_mean_pm25, station_max_pm25 (float), company_total_flue_gas (float).",
+    "conversations": [
+      {
+        "id": "hb_7_35",
+        "turns": [
+          {
+            "query": "Help me investigate the multi-source pollution impact on Congtai Park station (station_id: 98) during 2025-06-05 06:00:00 to 2025-06-06 18:00:00, considering emissions from nearby Hebei Puyang Steel (company_id: 2495), construction activities, and traffic patterns, then recommend optimal exercise schedules for joggers.",
+            "validator": "validate_hb_7_35"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-35",
+      "verbatim": true
+    }
+  }
+]

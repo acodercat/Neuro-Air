@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_25",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_25",
+    "requirements": "As part of your analysis, on 2025-06-10 compute the coefficient of variation (population std / mean) of hourly flue-gas and store: cv_taihang (Hebei Taihang Steel Group), cv_leting (Hegang Leting Steel) (float), more_stable_company_id (the company_id of the lower-CV company, int).",
+    "conversations": [
+      {
+        "id": "hb_1_25",
+        "turns": [
+          {
+            "query": "Analyze emission variability and stability between Hebei Taihang Steel Group and Hegang Leting Steel on 2025-06-10.",
+            "validator": "validate_hb_1_25"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-25",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_32",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_32",
+    "requirements": "As part of your analysis, for company 2419 -> station 179 over the 24h ending 2025-07-02 15:00 compute and store: distance_km, bearing_deg, station_mean_pm25, station_max_pm25, company_total_flue_gas (float).",
+    "conversations": [
+      {
+        "id": "hb_7_32",
+        "turns": [
+          {
+            "query": "Help me analyze the hourly pollution trend at the 24-hour period ending 2025-07-02 15:00 for Monitoring Station (station_id: 179), correlating with emissions from Tangshan Donghua Steel Enterprise Group (company_id: 2419).",
+            "validator": "validate_hb_7_32"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-32",
+      "verbatim": true
+    }
+  }
+]

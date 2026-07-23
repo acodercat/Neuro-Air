@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_15",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_2_15",
+    "requirements": "As part of your analysis, over 2025-08-01 to 2025-08-05 for Qiaoxi District and Xinhua District (both are districts of Shijiazhuang City, the only city containing both) compute and store: mean_pm25_qiaoxi, mean_no2_qiaoxi, mean_pm25_xinhua, mean_no2_xinhua (float).",
+    "conversations": [
+      {
+        "id": "hb_2_15",
+        "turns": [
+          {
+            "query": "Help me compare air quality spatial patterns between Qiaoxi District and Xinhua District during 2025-08-01 to 2025-08-05, focusing on PM2.5 and NO2 concentration variations.",
+            "validator": "validate_hb_2_15"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-15",
+      "verbatim": true
+    }
+  }
+]

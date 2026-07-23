@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_9",
+    "module": "evals.neuroair.data_retrieval.HB.hb_1_9",
+    "requirements": "As part of your analysis, for Construction Building station on 2025-06-02 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int).",
+    "conversations": [
+      {
+        "id": "hb_1_9",
+        "turns": [
+          {
+            "query": "Analyze the pollution situation at air quality station: Construction Building on 2025-06-02.",
+            "validator": "validate_hb_1_9"
+          }
+        ]
+      }
+    ],
+    "difficulty": "easy",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-9",
+      "verbatim": true
+    }
+  }
+]

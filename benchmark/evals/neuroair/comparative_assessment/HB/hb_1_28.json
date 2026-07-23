@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_28",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_28",
+    "requirements": "As part of your analysis, on 2025-06-26 for Zanhuang County and Zhao County compute and store: mean_pm25_zanhuang, mean_aqi_zanhuang, mean_pm25_zhao, mean_aqi_zhao (float).",
+    "conversations": [
+      {
+        "id": "hb_1_28",
+        "turns": [
+          {
+            "query": "Evaluate environmental quality differences between mountainous Zanhuang County and plain area Zhao County on 2025-06-26.",
+            "validator": "validate_hb_1_28"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-28",
+      "verbatim": true
+    }
+  }
+]

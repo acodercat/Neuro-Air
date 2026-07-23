@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_37",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_37",
+    "requirements": "As part of your analysis, compute and store: max_pm25_s87, max_pm25_s284, max_pm25_s1 (peak PM2.5 per station, float), mean_aqi_s87, mean_aqi_s284, mean_aqi_s1 (float), and strongest_impact_station_id (int).",
+    "conversations": [
+      {
+        "id": "hb_1_37",
+        "turns": [
+          {
+            "query": "Analyze air quality changes during Spring Festival fireworks period 2025-01-28 18:00:00 to 2025-01-29 06:00:00 across three different geographical areas. Compare PM2.5, PM10, and AQI trends between coastal Wenmingli station (station_id: 87), mountainous Pingquan Forestry and Grassland Bureau station (station_id: 284), and urban downtown Southwest Higher Education station (station_id: 1). Assess which area experiences the strongest fireworks pollution impact.",
+            "validator": "validate_hb_1_37"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-37",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_29",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_5_29",
+    "requirements": "As part of your analysis, for Tangshan (city 2) over 2025-06-01 to 2025-06-05 compute and store: total_steel_flue_gas, total_power_flue_gas (float), steel_company_count, power_company_count (int).",
+    "conversations": [
+      {
+        "id": "hb_5_29",
+        "turns": [
+          {
+            "query": "Analyze the emission patterns and air quality impacts of STEEL versus POWER industries in Tangshan City (city_id: 2) from 2025-06-01 to 2025-06-05. Compare daily emission profiles, assess which industry type has greater influence on nearby monitoring stations, and determine optimal emission control priorities.",
+            "validator": "validate_hb_5_29"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-29",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_27",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_27",
+    "requirements": "As part of your analysis, for company 2611 over 2025-06-10 18:00-22:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_27",
+        "turns": [
+          {
+            "query": "Help me assess the pollution stagnation effects during the atmospheric stability event on 2025-06-10 from 18:00-22:00 for Hangang Group Hanbao Steel Co., Ltd. (company_id: 2611).",
+            "validator": "validate_hb_7_27"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-27",
+      "verbatim": true
+    }
+  }
+]

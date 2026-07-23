@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_5_27",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_5_27",
+    "requirements": "As part of your analysis, over 2025-06-22 to 2025-06-28 compute and store: company_total_exhaust (company 2452, float), district_mean_aqi, district_max_aqi (Qian'an district_id 41, float).",
+    "conversations": [
+      {
+        "id": "hb_5_27",
+        "turns": [
+          {
+            "query": "Analyze how production schedule variations at Shougang Qian'an Steel (company_id: 2452) correlate with hourly air quality fluctuations in Qian'an City (district_id: 41) during 2025-06-22 to 2025-06-28. Identify optimal production timing to minimize district-level pollution peaks.",
+            "validator": "validate_hb_5_27"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-5-27",
+      "verbatim": true
+    }
+  }
+]

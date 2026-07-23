@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_8",
+    "module": "evals.neuroair.data_retrieval.HB.hb_1_8",
+    "requirements": "As part of your analysis, for East Sewage Treatment Plant station over 2025-06-10 to 2025-06-12 compute and store: mean_o3, max_o3 (float), o3_exceedance_hours (O3>160, int).",
+    "conversations": [
+      {
+        "id": "hb_1_8",
+        "turns": [
+          {
+            "query": "Analyze ozone formation patterns at air quality station: East Sewage Treatment Plant during 2025-06-10 to 2025-06-12.",
+            "validator": "validate_hb_1_8"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-8",
+      "verbatim": true
+    }
+  }
+]

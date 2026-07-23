@@ -1,0 +1,48 @@
+{
+  "hb_3_18": {
+    "scenario": "hb_3_18",
+    "conversations": [
+      {
+        "id": "hb_3_18",
+        "turns": [
+          {
+            "query": "Analyze the combined impact of industrial emissions and meteorological conditions on PM10 levels at Zhengding Street Thermal Station (station_id: 60) during 2025-06-08 08:00:00 to 2025-06-08 18:00:00.",
+            "actual_response": "\u57fa\u4e8e\u67e5\u8be2\u6570\u636e\uff0c\u7ad9\u70b960\uff08\u6b63\u6cf0\u5927\u8857\u70ed\u529b\u7ad9\uff09\u57282025\u5e746\u67088\u65e508:00-18:00\u671f\u95f4\u7684\u5206\u6790\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u6838\u5fc3\u6307\u6807**\n- PM10\u5747\u503c\uff1a42.5 \u03bcg/m\u00b3\n- PM10\u5cf0\u503c\uff1a71.0 \u03bcg/m\u00b3\n- AQI\u5747\u503c\uff1a55.7\n- PM10\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570\uff1a0\u5c0f\u65f6\uff08\u5cf0\u503c\u51fa\u73b0\u572808:00\uff09\n\n**\u5de5\u4e1a\u6392\u653e\u4e0e\u6c14\u8c61\u6761\u4ef6\u8026\u5408\u5206\u6790**\n1. **\u6c61\u67d3\u6f14\u53d8\u7279\u5f81**\uff1aPM10\u6d53\u5ea6\u572808:00\u8fbe\u5230\u5cf0\u503c\uff0871.0 \u03bcg/m\u00b3\uff09\uff0c\u968f\u540e\u5448\u6301\u7eed\u4e0b\u964d\u8d8b\u52bf\uff0c\u81f317:00\u964d\u81f321.0 \u03bcg/m\u00b3\u300208:00\u65f6\u6bb5PM10\u4e3a\u552f\u4e00\u4e3b\u8981\u6c61\u67d3\u7269\uff0c\u5348\u540e\u8f6c\u4e3aO3\u4e3b\u5bfc\uff0c\u7b26\u5408\u5178\u578b\u9759\u7a33\u5929\u6c14\u4e0b\u7684\u6c61\u67d3\u6f14\u53d8\u89c4\u5f8b\u3002\n2. **\u6c14\u8c61\u6269\u6563\u6761\u4ef6**\uff1a\u8be5\u65f6\u6bb5\u98ce\u5411\u7a33\u5b9a\u4e3a\u897f\u5357\u98ce\uff08214\u00b0-224\u00b0\uff09\uff0c\u98ce\u901f\u5904\u4e8e1.3-3.9 m/s\u7684\u4f4e\u901f\u533a\u95f4\uff0c\u98ce\u529b\u7b49\u7ea71-3\u7ea7\u3002\u65e9\u6668\u4f4e\u98ce\u901f\u4e0e\u5f31\u6e4d\u6d41\u5bfc\u81f4\u5c40\u5730\u6392\u653e\u7269\u96be\u4ee5\u6269\u6563\uff0c\u5f62\u6210\u6d53\u5ea6\u7d2f\u79ef\uff1b\u5348\u540e\u98ce\u901f\u5c0f\u5e45\u56de\u5347\uff0c\u5927\u6c14\u6269\u6563\u6761\u4ef6\u6539\u5584\uff0c\u4fc3\u4f7fPM10\u6d53\u5ea6\u5feb\u901f\u56de\u843d\u3002\n3. **\u6392\u653e-\u6c14\u8c61\u534f\u540c\u6548\u5e94**\uff1a\u70ed\u529b\u7ad9\u53ca\u5468\u8fb9\u5de5\u4e1a\u6e90\u6392\u653e\u4e0e\u65e9\u6668\u4e0d\u5229\u6269\u6563\u6761\u4ef6\u53e0\u52a0\uff0c\u76f4\u63a5\u5bfc\u81f408:00 PM10\u5cf0\u503c\u3002\u897f\u5357\u98ce\u5411\u53ef\u80fd\u5c06\u533a\u57df\u80cc\u666f\u6c61\u67d3\u6216\u4e0a\u6e38\u4f20\u8f93\u6c61\u67d3\u7269\u5e26\u5165\u8be5\u7ad9\u70b9\uff0c\u8fdb\u4e00\u6b65\u63a8\u9ad8\u521d\u59cb\u6d53\u5ea6\u3002\n4. **\u76d1\u7ba1\u5efa\u8bae**\uff1a\u9488\u5bf9\u65e9\u6668\u4f4e\u98ce\u901f\u65f6\u6bb5\uff0c\u5efa\u8bae\u5b9e\u65bd\u70ed\u529b\u7ad9\u53ca\u5468\u8fb9\u5de5\u4e1a\u6e90PM10\u6392\u653e\u5f3a\u5316\u7ba1\u63a7\uff0c\u4f18\u5316\u9519\u5cf0\u751f\u4ea7\u4e0e\u9519\u5cf0\u6392\u653e\u673a\u5236\uff1b\u5efa\u7acb\u9759\u7a33\u5929\u6c14\u9884\u8b66\u54cd\u5e94\u4f53\u7cfb\uff0c\u91cd\u70b9\u76d1\u63a7PM10\u4e0eO3\u7684\u534f\u540c\u63a7\u5236\uff1b\u5b8c\u5584\u897f\u5357\u98ce\u5411\u4f20\u8f93\u8def\u5f84\u4e0a\u7684\u8de8\u533a\u57df\u8054\u9632\u8054\u63a7\u7b56\u7565\uff0c\u964d\u4f4e\u80cc\u666f\u6d53\u5ea6\u53e0\u52a0\u5f71\u54cd\u3002\n\n**\u5df2\u5b58\u50a8\u53d8\u91cf**\n- `mean_pm10`: 42.5\n- `max_pm10`: 71.0\n- `mean_aqi`: 55.7\n- `peak_pm10_offset_hours`: 0",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 34881,
+              "completion_tokens": 4644,
+              "total_tokens": 39525
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# 1. \u67e5\u8be2\u7ad9\u70b960\u7684\u57fa\u672c\u4fe1\u606f\nquery_station = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.id = 60\n\"\"\")\nstation_info = pd.read_sql(query_station, engine)\nprint(\"\u7ad9\u70b9\u4fe1\u606f:\")\nprint(station_info)\n\n# 2. \u83b7\u53d6\u7ad9\u70b960\u57282025-06-08 08:00-18:00\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\nquery_air_quality = text(\"\"\"\nSELECT hsaq.timestamp, hsaq.aqi, hsaq.pm10, hsaq.pm2_5, hsaq.so2, hsaq.no2, hsaq.o3, hsaq.co, hsaq.primary_pollutants\nFROM hourly_station_air_quality hsaq\nWHERE hsaq.station_id = 60 \nAND hsaq.timestamp >= '2025-06-08 08:00:00' \nAND hsaq.timestamp < '2025-06-08 18:00:00'\nORDER BY hsaq.timestamp\n\"\"\")\naq_data = pd.read_sql(query_air_quality, engine)\nprint(\"\\n\u7a7a\u6c14\u8d28\u91cf\u6570\u636e:\")\nprint(aq_data)\n\n# 3. \u8ba1\u7b97\u6240\u9700\u6307\u6807\nif not aq_data.empty:\n    mean_pm10 = float(aq_data['pm10'].mean())\n    max_pm10 = float(aq_data['pm10'].max())\n    mean_aqi = float(aq_data['aqi'].mean())\n    \n    # \u627e\u5230PM10\u5cf0\u503c\u7684\u65f6\u95f4\u504f\u79fb\uff08\u4ece08:00\u5f00\u59cb\u7684\u5c0f\u65f6\u6570\uff09\n    peak_idx = aq_data['pm10'].idxmax()\n    peak_time = aq_data.loc[peak_idx, 'timestamp']\n    peak_hour = peak_time.hour - 8  # \u4ece08:00\u5f00\u59cb\u7684\u6574\u5c0f\u65f6\u6570\n    peak_pm10_offset_hours = int(peak_hour)\n    \n    print(f\"\\n=== \u8ba1\u7b97\u7ed3\u679c ===\")\n    print(f\"mean_pm10: {mean_pm10}\")\n    print(f\"max_pm10: {max_pm10}\")\n    print(f\"mean_aqi: {mean_aqi}\")\n    print(f\"peak_pm10_offset_hours: {peak_pm10_offset_hours}\")\nelse:\n    print(\"\\n\u672a\u627e\u5230\u6570\u636e\")",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u4e30\u5357\u533a\u7684district_id\nquery_district = text(\"\"\"\nSELECT d.id, d.name, c.name as city_name\nFROM district d\nJOIN city c ON d.city_id = c.id\nWHERE d.name = '\u4e30\u5357\u533a'\n\"\"\")\ndistrict_info = pd.read_sql(query_district, engine)\nprint(\"\u4e30\u5357\u533a\u4fe1\u606f:\")\nprint(district_info)\n\ndistrict_id = district_info.iloc[0]['id'] if not district_info.empty else None\n\n# \u83b7\u53d6\u8be5\u65f6\u6bb5\u7684\u98ce\u573a\u6570\u636e\uff08\u7528\u4e8e\u5206\u6790\u6c61\u67d3\u4f20\u8f93\uff09\nquery_wind = text(\"\"\"\nSELECT hgw.timestamp, hgw.wind_speed, hgw.wind_direction, hgw.wind_degree, hgw.wind_scale\nFROM hourly_grid_wind hgw\nWHERE hgw.timestamp >= '2025-06-08 08:00:00' \nAND hgw.timestamp < '2025-06-08 18:00:00'\nORDER BY hgw.timestamp\n\"\"\")\nwind_data = pd.read_sql(query_wind, engine)\nprint(\"\\n\u98ce\u573a\u6570\u636e:\")\nprint(wind_data)\n\n# \u83b7\u53d6\u4e30\u5357\u533a\u8be5\u65f6\u6bb5\u7684\u7a7a\u6c14\u8d28\u91cf\u6570\u636e\uff08\u533a\u57df\u80cc\u666f\uff09\nquery_district_aq = text(\"\"\"\nSELECT hdaq.timestamp, hdaq.aqi, hdaq.pm10, hdaq.pm2_5, hdaq.so2, hdaq.no2, hdaq.o3, hdaq.co\nFROM hourly_district_air_quality hdaq\nWHERE hdaq.district_id = :district_id\nAND hdaq.timestamp >= '2025-06-08 08:00:00' \nAND hdaq.timestamp < '2025-06-08 18:00:00'\nORDER BY hdaq.timestamp\n\"\"\")\ndistrict_aq_data = pd.read_sql(query_district_aq, engine, params={'district_id': district_id})\nprint(\"\\n\u4e30\u5357\u533a\u7a7a\u6c14\u8d28\u91cf\u6570\u636e:\")\nprint(district_aq_data)\n\n# \u83b7\u53d6\u8be5\u533a\u57df\u5468\u8fb9\u7684\u6c61\u67d3\u4f01\u4e1a\nquery_companies = text(\"\"\"\nSELECT pc.id, pc.name, pc.industry_type, pc.coordinate, ST_Distance(aqs.coordinate, pc.coordinate) as distance_m\nFROM polluting_company pc\nJOIN air_quality_station aqs ON aqs.id = 60\nWHERE ST_DWithin(pc.coordinate, aqs.coordinate, 10000)\nORDER BY distance_m\nLIMIT 10\n\"\"\")\ncompanies = pd.read_sql(query_companies, engine)\nprint(\"\\n\u5468\u8fb9\u6c61\u67d3\u4f01\u4e1a:\")\nprint(companies)\n\n# \u83b7\u53d6\u8fd9\u4e9b\u4f01\u4e1a\u7684\u6392\u653e\u6570\u636e\nif not companies.empty:\n    company_ids = companies['id'].tolist()\n    query_emissions = text(\"\"\"\n    SELECT hpe.timestamp, hpe.company_id, pc.name as company_name, hpe.pm, hpe.nox, hpe.so2, hpe.co, hpe.exhaust_gas\n    FROM hourly_polluting_company_emission hpe\n    JOIN polluting_company pc ON hpe.company_id = pc.id\n    WHERE hpe.company_id IN :company_ids\n    AND hpe.timestamp >= '2025-06-08 08:00:00' \n    AND hpe.timestamp < '2025-06-08 18:00:00'\n    ORDER BY hpe.timestamp, hpe.company_id\n    \"\"\")\n    emissions = pd.read_sql(query_emissions, engine, params={'company_ids': tuple(company_ids)})\n    print(\"\\n\u4f01\u4e1a\u6392\u653e\u6570\u636e:\")\n    print(emissions)",
+              "# \u5b58\u50a8\u8ba1\u7b97\u7ed3\u679c\nmean_pm10 = 42.5\nmax_pm10 = 71.0\nmean_aqi = 55.7\npeak_pm10_offset_hours = 0\n\n# \u9a8c\u8bc1\u53d8\u91cf\u5b58\u50a8\nprint(f\"mean_pm10: {mean_pm10}\")\nprint(f\"max_pm10: {max_pm10}\")\nprint(f\"mean_aqi: {mean_aqi}\")\nprint(f\"peak_pm10_offset_hours: {peak_pm10_offset_hours}\")"
+            ],
+            "runtime_variables": {
+              "mean_pm10": 42.5,
+              "max_pm10": 71.0,
+              "mean_aqi": 55.7,
+              "peak_pm10_offset_hours": 0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 34881,
+      "total_completion_tokens": 4644,
+      "total_tokens": 39525
+    }
+  }
+}

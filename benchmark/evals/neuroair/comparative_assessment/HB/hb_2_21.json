@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_21",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_2_21",
+    "requirements": "As part of your analysis, on 2025-06-20 for Zhengding County and Xingtang County compute and store: mean_pm25_zhengding, mean_no2_zhengding, mean_pm25_xingtang, mean_no2_xingtang (float).",
+    "conversations": [
+      {
+        "id": "hb_2_21",
+        "turns": [
+          {
+            "query": "Compare spatial pollution patterns between Zhengding County and Xingtang County on 2025-06-20, analyzing inter-district pollution transport mechanisms.",
+            "validator": "validate_hb_2_21"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-21",
+      "verbatim": true
+    }
+  }
+]

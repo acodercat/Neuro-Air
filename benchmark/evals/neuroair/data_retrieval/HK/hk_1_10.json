@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_10",
+    "module": "evals.neuroair.data_retrieval.HK.hk_1_10",
+    "requirements": "As part of your analysis, for station 17 over 2025-08-02 compute and store: mean_pm2_5, max_pm2_5 (float), mean_aqhi, max_aqhi (float).",
+    "conversations": [
+      {
+        "id": "hk_1_10",
+        "turns": [
+          {
+            "query": "Analyze rush hour pollution dynamics at Causeway Bay station (station_id: 17) on 2025-08-02, correlating 6-10 AM and 5-9 PM AQHI patterns with traffic congestion indices on Central-Wan Chai highway segments.",
+            "validator": "validate_hk_1_10"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-10",
+      "verbatim": true
+    }
+  }
+]

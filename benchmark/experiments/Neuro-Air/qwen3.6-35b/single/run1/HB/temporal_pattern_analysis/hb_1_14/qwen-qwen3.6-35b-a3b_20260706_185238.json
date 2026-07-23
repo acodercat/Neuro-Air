@@ -1,0 +1,49 @@
+{
+  "hb_1_14": {
+    "scenario": "hb_1_14",
+    "conversations": [
+      {
+        "id": "hb_1_14",
+        "turns": [
+          {
+            "query": "Identify abnormal emission spikes of Hebei Zongheng Group Fengnan Steel Co., Ltd. during 2025-06-10 to 2025-06-12 and determine potential causes.",
+            "actual_response": "\u6839\u636e\u5bf9\u6cb3\u5317\u7eb5\u6a2a\u96c6\u56e2\u4e30\u5357\u94a2\u94c1\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e5\u81f36\u670812\u65e5\u671f\u95f4\u6392\u653e\u6570\u636e\u7684\u5206\u6790\uff0c\u5f97\u51fa\u4ee5\u4e0b\u7ed3\u679c\uff1a\n\n**\u5f02\u5e38\u6392\u653e\u5cf0\u503c\u5206\u6790\uff1a**\n\n1. **\u5cf0\u503c\u6392\u653e\u6570\u636e**\uff1a\n   - \u5cf0\u503c\u6392\u653e\u91cf\uff1a30,422,600 \u7acb\u65b9\u7c73\uff082025-06-11 06:00:00\uff09\n   - \u5e73\u5747\u6392\u653e\u91cf\uff1a28,523,663.89 \u7acb\u65b9\u7c73\n   - \u6807\u51c6\u5dee\uff1a1,344,693.58 \u7acb\u65b9\u7c73\n   - \u5cf0\u503c\u504f\u79fb\u65f6\u95f4\uff1a\u4ece2025-06-10 00:00\u8d7730\u5c0f\u65f6\n\n2. **\u5cf0\u503c\u65f6\u6bb5\u7279\u5f81**\uff1a\n   - \u5cf0\u503c\u65f6\u523b\uff0806:00\uff09nox\u6392\u653e\u91cf\u4e3a246.378 kg\uff0c\u663e\u8457\u9ad8\u4e8e\u524d\u540e\u65f6\u6bb5\uff08162-166 kg\uff09\n   - \u5cf0\u503c\u540enox\u6392\u653e\u6301\u7eed\u4e0a\u5347\uff0c07:00-09:00\u8fbe\u5230270-305 kg\u8303\u56f4\n   - \u5176\u4ed6\u6c61\u67d3\u7269\uff08so2\u3001pm\u3001co\uff09\u5728\u5cf0\u503c\u65f6\u6bb5\u53d8\u5316\u76f8\u5bf9\u5e73\u7f13\n\n3. **\u6f5c\u5728\u539f\u56e0\u5206\u6790**\uff1a\n   - \u5cf0\u503c\u51fa\u73b0\u5728\u51cc\u66686\u70b9\uff0c\u53ef\u80fd\u4e0e\u751f\u4ea7\u73ed\u6b21\u5207\u6362\u6216\u8bbe\u5907\u542f\u52a8\u6709\u5173\n   - nox\u6392\u653e\u7684\u663e\u8457\u589e\u52a0\u8868\u660e\u71c3\u70e7\u8fc7\u7a0b\u53ef\u80fd\u5b58\u5728\u5f02\u5e38\uff0c\u5982\u71c3\u6599\u4e0d\u5b8c\u5168\u71c3\u70e7\u6216\u6e29\u5ea6\u63a7\u5236\u4e0d\u5f53\n   - \u5efa\u8bae\u68c0\u67e5\u8be5\u65f6\u6bb5\u7684\u8bbe\u5907\u8fd0\u884c\u72b6\u6001\u3001\u71c3\u6599\u4f9b\u5e94\u60c5\u51b5\u53ca\u73af\u4fdd\u8bbe\u65bd\u8fd0\u884c\u6548\u7387\n\n**\u5df2\u5b58\u50a8\u53d8\u91cf\uff1a**\n- peak_flue_gas: 30422600.0\n- mean_flue_gas: 28523663.888888888\n- std_flue_gas: 1344693.583260757\n- peak_flue_gas_offset_hours: 30",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 36990,
+              "completion_tokens": 2378,
+              "total_tokens": 39368
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u7b2c\u4e00\u6b65\uff1a\u67e5\u627e\u6cb3\u5317\u7eb5\u6a2a\u96c6\u56e2\u4e30\u5357\u94a2\u94c1\u6709\u9650\u516c\u53f8\u7684company_id\nquery = text(\"\"\"\nSELECT id, name, industry_type, city_id, district_id\nFROM polluting_company\nWHERE name LIKE '%\u7eb5\u6a2a%' AND name LIKE '%\u4e30\u5357%' AND name LIKE '%\u94a2\u94c1%'\n\"\"\")\ndf_company = pd.read_sql(query, engine)\nprint(\"\u516c\u53f8\u67e5\u8be2\u7ed3\u679c\uff1a\")\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u7b2c\u4e8c\u6b65\uff1a\u67e5\u8be2\u8be5\u516c\u53f8\u57282025-06-10\u52302025-06-12\u671f\u95f4\u7684\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00 \u5230 2025-06-13 00:00\uff08\u4e0d\u5305\u542b\uff09\nquery = text(\"\"\"\nSELECT timestamp, exhaust_gas, nox, so2, pm, co, hcl\nFROM hourly_polluting_company_emission\nWHERE company_id = 2467\nAND timestamp >= '2025-06-10 00:00:00'\nAND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\n\"\"\")\ndf_emission = pd.read_sql(query, engine)\nprint(f\"\u6570\u636e\u884c\u6570\uff1a{len(df_emission)}\")\nprint(f\"\u65f6\u95f4\u8303\u56f4\uff1a{df_emission['timestamp'].min()} \u5230 {df_emission['timestamp'].max()}\")\nprint(\"\\n\u6392\u653e\u6570\u636e\u7edf\u8ba1\uff1a\")\nprint(df_emission.describe())\nprint(\"\\n\u524d10\u6761\u6570\u636e\uff1a\")\nprint(df_emission.head(10))",
+              "import pandas as pd\nimport numpy as np\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u7edf\u8ba1\u91cf\npeak_flue_gas = df_emission['exhaust_gas'].max()\nmean_flue_gas = df_emission['exhaust_gas'].mean()\nstd_flue_gas = df_emission['exhaust_gas'].std(ddof=0)  # \u603b\u4f53\u6807\u51c6\u5dee\n\n# \u627e\u5230\u5cf0\u503c\u65f6\u95f4\npeak_timestamp = df_emission.loc[df_emission['exhaust_gas'].idxmax(), 'timestamp']\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u7684\u5c0f\u65f6\u6570\nstart_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_offset_hours = int((peak_timestamp - start_time).total_seconds() / 3600)\n\nprint(f\"\u5cf0\u503c\u6392\u653e\uff1a{peak_flue_gas}\")\nprint(f\"\u5747\u503c\u6392\u653e\uff1a{mean_flue_gas}\")\nprint(f\"\u6807\u51c6\u5dee\uff1a{std_flue_gas}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4\uff1a{peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570\uff1a{peak_offset_hours}\")\n\n# \u67e5\u770b\u5cf0\u503c\u9644\u8fd1\u7684\u6570\u636e\npeak_row = df_emission.loc[df_emission['timestamp'] == peak_timestamp]\nprint(f\"\\n\u5cf0\u503c\u65f6\u523b\u8be6\u7ec6\u6570\u636e\uff1a\")\nprint(peak_row)\n\n# \u67e5\u770b\u524d\u540e\u54043\u5c0f\u65f6\u7684\u6570\u636e\u4ee5\u5206\u6790\u8d8b\u52bf\nwindow_start = peak_timestamp - pd.Timedelta(hours=3)\nwindow_end = peak_timestamp + pd.Timedelta(hours=3)\nwindow_data = df_emission[(df_emission['timestamp'] >= window_start) & (df_emission['timestamp'] <= window_end)]\nprint(f\"\\n\u5cf0\u503c\u524d\u540e3\u5c0f\u65f6\u6570\u636e\uff1a\")\nprint(window_data)",
+              "# \u5b58\u50a8\u7ed3\u679c\u5230\u6307\u5b9a\u53d8\u91cf\npeak_flue_gas = 30422600.0\nmean_flue_gas = 28523663.888888888\nstd_flue_gas = 1344693.583260757\npeak_flue_gas_offset_hours = 30\n\nprint(\"\u7ed3\u679c\u5df2\u5b58\u50a8\uff1a\")\nprint(f\"peak_flue_gas: {peak_flue_gas}\")\nprint(f\"mean_flue_gas: {mean_flue_gas}\")\nprint(f\"std_flue_gas: {std_flue_gas}\")\nprint(f\"peak_flue_gas_offset_hours: {peak_flue_gas_offset_hours}\")"
+            ],
+            "runtime_variables": {
+              "peak_flue_gas": 30422600.0,
+              "peak_flue_gas_offset_hours": 30,
+              "mean_flue_gas": 28523663.888888888,
+              "std_flue_gas": 1344693.583260757
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 5,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 36990,
+      "total_completion_tokens": 2378,
+      "total_tokens": 39368
+    }
+  }
+}

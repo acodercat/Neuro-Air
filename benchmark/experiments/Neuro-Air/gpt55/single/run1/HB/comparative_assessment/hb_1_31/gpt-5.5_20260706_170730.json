@@ -1,0 +1,46 @@
+{
+  "hb_1_31": {
+    "scenario": "hb_1_31",
+    "conversations": [
+      {
+        "id": "hb_1_31",
+        "turns": [
+          {
+            "query": "Compare the emission levels between Chang'an District and Jingxing Mining District in Shijiazhuang City on 2025-06-15 from 08:00-18:00.",
+            "actual_response": "2025\u5e746\u670815\u65e508:00\u81f318:00\u671f\u95f4\uff0c\u6309\u533a\u5185\u6240\u6709\u6d89\u6c14\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u603b\u91cf\u7edf\u8ba1\uff1a\n\n- \u957f\u5b89\u533a\u6392\u653e\u603b\u91cf\uff1a2,731,032.75 \u7acb\u65b9\u7c73\n- \u4e95\u9649\u77ff\u533a\u6392\u653e\u603b\u91cf\uff1a51,003,868.00 \u7acb\u65b9\u7c73\n- \u6392\u653e\u91cf\u8f83\u9ad8\u7684\u533a\u53bf\uff1a\u4e95\u9649\u77ff\u533a\n- \u6392\u653e\u91cf\u8f83\u9ad8\u533a\u53bf\u7f16\u53f7\uff1a4\n- \u4e95\u9649\u77ff\u533a\u4e0e\u957f\u5b89\u533a\u6392\u653e\u603b\u91cf\u6bd4\u503c\uff1a18.68\n\n\u7ed3\u8bba\uff1a\u4e95\u9649\u77ff\u533a\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u603b\u91cf\u663e\u8457\u9ad8\u4e8e\u957f\u5b89\u533a\uff0c\u7ea6\u4e3a\u957f\u5b89\u533a\u768418.68\u500d\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11548,
+              "completion_tokens": 1348,
+              "total_tokens": 12896
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart_ts = \"2025-06-15 08:00:00\"\nend_ts = \"2025-06-15 18:00:00\"\n\nquery = text(\"\"\"\nWITH target_districts AS (\n    SELECT id AS district_id, name AS district_name\n    FROM district\n    WHERE city_id = 1 AND name IN ('\u957f\u5b89\u533a', '\u4e95\u9649\u77ff\u533a')\n),\ndistrict_company_rows AS (\n    SELECT\n        td.district_id,\n        td.district_name,\n        COUNT(DISTINCT pc.id) AS company_count,\n        COUNT(h.id) AS hourly_record_count,\n        COALESCE(SUM(h.exhaust_gas), 0)::double precision AS total_exhaust\n    FROM target_districts td\n    LEFT JOIN polluting_company pc ON pc.district_id = td.district_id\n    LEFT JOIN hourly_polluting_company_emission h\n        ON h.company_id = pc.id\n       AND h.timestamp >= :start_ts\n       AND h.timestamp < :end_ts\n    GROUP BY td.district_id, td.district_name\n)\nSELECT district_id, district_name, company_count, hourly_record_count, total_exhaust\nFROM district_company_rows\nORDER BY district_id\n\"\"\")\n\ndf = pd.read_sql(query, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\n\nif set(df[\"district_name\"]) != {\"\u957f\u5b89\u533a\", \"\u4e95\u9649\u77ff\u533a\"}:\n    raise ValueError(\"\u672a\u80fd\u540c\u65f6\u5b9a\u4f4d\u957f\u5b89\u533a\u548c\u4e95\u9649\u77ff\u533a\u3002\")\n\nrow_changan = df.loc[df[\"district_name\"] == \"\u957f\u5b89\u533a\"].iloc[0]\nrow_jingxing = df.loc[df[\"district_name\"] == \"\u4e95\u9649\u77ff\u533a\"].iloc[0]\n\ntotal_exhaust_changan = float(row_changan[\"total_exhaust\"])\ntotal_exhaust_jingxing = float(row_jingxing[\"total_exhaust\"])\n\nif total_exhaust_changan >= total_exhaust_jingxing:\n    higher_emission_district_id = int(row_changan[\"district_id\"])\n    higher, lower = total_exhaust_changan, total_exhaust_jingxing\nelse:\n    higher_emission_district_id = int(row_jingxing[\"district_id\"])\n    higher, lower = total_exhaust_jingxing, total_exhaust_changan\n\nemission_ratio = float(round(higher / lower, 2)) if lower != 0 else float(\"inf\")\n\nprint(\"\u7edf\u8ba1\u65f6\u6bb5\uff1a2025-06-15 08:00\uff08\u542b\uff09\u81f318:00\uff08\u4e0d\u542b\uff09\")\nprint(df.to_string(index=False))\nprint(f\"total_exhaust_changan={total_exhaust_changan}\")\nprint(f\"total_exhaust_jingxing={total_exhaust_jingxing}\")\nprint(f\"higher_emission_district_id={higher_emission_district_id}\")\nprint(f\"emission_ratio={emission_ratio}\")"
+            ],
+            "runtime_variables": {
+              "total_exhaust_changan": 2731032.75,
+              "total_exhaust_jingxing": 51003868.0,
+              "higher_emission_district_id": 4,
+              "emission_ratio": 18.68
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11548,
+      "total_completion_tokens": 1348,
+      "total_tokens": 12896
+    }
+  }
+}

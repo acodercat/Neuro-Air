@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_18",
+    "module": "evals.neuroair.data_retrieval.HB.hb_3_18",
+    "requirements": "As part of your analysis, for station 60 over 2025-06-08 08:00-18:00 compute and store: mean_pm10, max_pm10, mean_aqi (float), peak_pm10_offset_hours (whole hours from 08:00 to the PM10 peak, int).",
+    "conversations": [
+      {
+        "id": "hb_3_18",
+        "turns": [
+          {
+            "query": "Analyze the combined impact of industrial emissions and meteorological conditions on PM10 levels at Zhengding Street Thermal Station (station_id: 60) during 2025-06-08 08:00:00 to 2025-06-08 18:00:00.",
+            "validator": "validate_hb_3_18"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-18",
+      "verbatim": true
+    }
+  }
+]

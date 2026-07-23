@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_16",
+    "module": "evals.neuroair.temporal_pattern_analysis.HB.hb_1_16",
+    "requirements": "As part of your analysis, for Shougang Qian'an Steel Company over 2025-06-10 to 2025-06-12 compute and store: peak_so2 (float), peak_so2_offset_hours (whole hours from 2025-06-10 00:00 to the peak SO2 hour, int), total_so2, mean_so2 (float).",
+    "conversations": [
+      {
+        "id": "hb_1_16",
+        "turns": [
+          {
+            "query": "Identify the peak SO2 emission hours of Shougang Qian'an Steel Company during 2025-06-10 to 2025-06-12.",
+            "validator": "validate_hb_1_16"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "temporal_pattern_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-16",
+      "verbatim": true
+    }
+  }
+]

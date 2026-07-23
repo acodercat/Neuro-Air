@@ -1,0 +1,31 @@
+# AirBench model registry.
+# Copy to models.toml and fill in your API keys. All endpoints must be
+# OpenAI-compatible (talked to via the openai SDK in core/llm/client.py).
+#
+# Required per section:
+#   api_model   — model identifier passed to the API
+#   api_key     — provider credential
+#
+# Optional:
+#   base_url    — custom endpoint (defaults to api.openai.com)
+#   max_tokens  — output cap (default: 4096)
+#   timeout     — HTTP read timeout in seconds (default: 120)
+#   temperature — sampling temperature (default: 0.3)
+#
+# Section header is the registry key (--model <name>) and also drives
+# foundation-lab inference for score_responses' judge-pool exclusion
+# (e.g. claude-* → anthropic, deepseek-* → deepseek).
+
+[claude-sonnet-4-6]
+api_model = "claude-sonnet-4-6"
+api_key = "sk-your-key-here"
+base_url = "http://your-litellm-proxy:4000"
+max_tokens = 65536
+timeout = 900.0
+
+[deepseek-v4-flash]
+api_model = "deepseek-v4-flash"
+api_key = "sk-your-dashscope-key"
+base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+max_tokens = 65536
+timeout = 600.0

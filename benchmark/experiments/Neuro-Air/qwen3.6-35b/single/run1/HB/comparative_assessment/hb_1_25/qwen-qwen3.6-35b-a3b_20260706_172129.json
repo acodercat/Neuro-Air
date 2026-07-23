@@ -1,0 +1,50 @@
+{
+  "hb_1_25": {
+    "scenario": "hb_1_25",
+    "conversations": [
+      {
+        "id": "hb_1_25",
+        "turns": [
+          {
+            "query": "Analyze emission variability and stability between Hebei Taihang Steel Group and Hegang Leting Steel on 2025-06-10.",
+            "actual_response": "",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: cv_taihang not set"
+            ],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 31499,
+              "completion_tokens": 17285,
+              "total_tokens": 48784
+            },
+            "success": false,
+            "variables_not_set": true,
+            "error": null,
+            "code_snippets": [
+              "from sqlalchemy import text\nimport pandas as pd\n\n# \u9996\u5148\u627e\u5230\u4e24\u5bb6\u516c\u53f8\u7684ID\nquery = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE name LIKE '%\u592a\u884c%' OR name LIKE '%Leting%' OR name LIKE '%\u83b1\u7279%'\n\"\"\")\ncompanies = pd.read_sql(query, engine)\nprint(\"\u627e\u5230\u7684\u516c\u53f8:\")\nprint(companies)",
+              "# \u641c\u7d22\u66f4\u591a\u53ef\u80fd\u7684\u516c\u53f8\u540d\u79f0\u53d8\u4f53\nquery = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE name LIKE '%\u9e64\u5c97%' OR name LIKE '%\u83b1\u7279%' OR name LIKE '%Leting%' OR name LIKE '%Leting%'\n\"\"\")\ncompanies = pd.read_sql(query, engine)\nprint(\"\u627e\u5230\u7684\u516c\u53f8:\")\nprint(companies)",
+              "# \u641c\u7d22\u66f4\u591a\u53ef\u80fd\u7684\u516c\u53f8\u540d\u79f0\u53d8\u4f53\nquery = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE name LIKE '%\u9e64\u5c97%' OR name LIKE '%\u83b1\u7279%' OR name LIKE '%Leting%'\n\"\"\")\ncompanies = pd.read_sql(query, engine)\nprint(\"\u627e\u5230\u7684\u516c\u53f8:\")\nprint(companies)\n\n# \u540c\u65f6\u641c\u7d22\u6240\u6709\u94a2\u94c1\u884c\u4e1a\u7684\u516c\u53f8\uff0c\u770b\u770b\u662f\u5426\u6709\u5339\u914d\nquery2 = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE industry_type = 'STEEL'\nLIMIT 20\n\"\"\")\nsteel_companies = pd.read_sql(query2, engine)\nprint(\"\\n\u94a2\u94c1\u884c\u4e1a\u516c\u53f8:\")\nprint(steel_companies)",
+              "# \u641c\u7d22\u6240\u6709\u516c\u53f8\u540d\u79f0\uff0c\u770b\u770b\u662f\u5426\u6709\"\u83b1\u7279\"\u6216\"Leting\"\u76f8\u5173\u7684\u516c\u53f8\nquery = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE name LIKE '%\u83b1\u7279%' OR name LIKE '%\u83b1\u7279%' OR name LIKE '%Leting%' OR name LIKE '%\u83b1\u7279%' OR name LIKE '%\u83b1\u7279%'\n\"\"\")\ncompanies = pd.read_sql(query, engine)\nprint(\"\u627e\u5230\u7684\u516c\u53f8:\")\nprint(companies)\n\n# \u641c\u7d22\u6240\u6709\u516c\u53f8\uff0c\u770b\u770b\u662f\u5426\u6709\"\u9e64\u5c97\"\u76f8\u5173\u7684\nquery2 = text(\"\"\"\nSELECT id, name, industry_type \nFROM polluting_company \nWHERE name LIKE '%\u9e64\u5c97%'\n\"\"\")\ncompanies2 = pd.read_sql(query2, engine)\nprint(\"\\n\u9e64\u5c97\u76f8\u5173\u516c\u53f8:\")\nprint(companies2)"
+            ],
+            "runtime_variables": {
+              "cv_taihang": null,
+              "cv_leting": null,
+              "more_stable_company_id": null
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 5,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 31499,
+      "total_completion_tokens": 17285,
+      "total_tokens": 48784
+    }
+  }
+}

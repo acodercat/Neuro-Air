@@ -1,0 +1,49 @@
+{
+  "hb_1_2": {
+    "scenario": "hb_1_2",
+    "conversations": [
+      {
+        "id": "hb_1_2",
+        "turns": [
+          {
+            "query": "Analyze NOx emissions between Jingye Metallurgical Technology Co., Ltd. and Hebei Yanshan Steel Group Co., Ltd. on 2025-06-08.",
+            "actual_response": "\u6839\u636e2025-06-08\u7684\u5c0f\u65f6\u6392\u653e\u6570\u636e\u5206\u6790\uff0c\u4e24\u5bb6\u94a2\u94c1\u4f01\u4e1a\u7684NOx\u6392\u653e\u60c5\u51b5\u5982\u4e0b\uff1a\n\n**\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8 (company_id: 2417)**\n- \u603bNOx\u6392\u653e\u91cf\uff1a4360.6416 kg\n- \u5e73\u5747\u5c0f\u65f6NOx\u6392\u653e\u91cf\uff1a181.69 kg\n\n**\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8 (company_id: 2418)**\n- \u603bNOx\u6392\u653e\u91cf\uff1a3182.7378 kg\n- \u5e73\u5747\u5c0f\u65f6NOx\u6392\u653e\u91cf\uff1a132.61 kg\n\n**\u5bf9\u6bd4\u5206\u6790\uff1a**\n\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8\u7684NOx\u6392\u653e\u91cf\u663e\u8457\u9ad8\u4e8e\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u3002\u656c\u4e1a\u516c\u53f8\u7684\u603bNOx\u6392\u653e\u91cf\u6bd4\u71d5\u5c71\u516c\u53f8\u9ad8\u51fa\u7ea637%\uff084360.64 kg vs 3182.74 kg\uff09\uff0c\u5e73\u5747\u5c0f\u65f6\u6392\u653e\u91cf\u9ad8\u51fa\u7ea637%\uff08181.69 kg vs 132.61 kg\uff09\u3002\n\n**NOx\u6392\u653e\u91cf\u8f83\u9ad8\u7684\u516c\u53f8\u4e3a\uff1a\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8 (company_id: 2417)**",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 25837,
+              "completion_tokens": 2068,
+              "total_tokens": 27905
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "from sqlalchemy import text\nimport pandas as pd\n\n# \u9996\u5148\u67e5\u627e\u4e24\u5bb6\u516c\u53f8\u7684company_id\nquery = text(\"\"\"\nSELECT id, name, industry_type, city_id, district_id\nFROM polluting_company\nWHERE name LIKE '%\u656c\u4e1a%' OR name LIKE '%\u71d5\u5c71%'\nLIMIT 20\n\"\"\")\ncompanies = pd.read_sql(query, engine)\nprint(\"\u5339\u914d\u7684\u516c\u53f8\u5217\u8868\uff1a\")\nprint(companies[['id', 'name', 'industry_type']])",
+              "from sqlalchemy import text\nimport pandas as pd\n\n# \u67e5\u8be2\u4e24\u5bb6\u516c\u53f8\u57282025-06-08\u7684\u5c0f\u65f6NOx\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-08 00:00:00 \u5230 2025-06-09 00:00:00 (\u4e0d\u5305\u62ec\u7ed3\u675f\u65f6\u95f4)\n\nquery = text(\"\"\"\nSELECT \n    company_id,\n    SUM(nox) as total_nox,\n    AVG(nox) as mean_nox,\n    COUNT(*) as hourly_count\nFROM hourly_polluting_company_emission\nWHERE company_id IN (2417, 2418)\n  AND timestamp >= '2025-06-08 00:00:00'\n  AND timestamp < '2025-06-09 00:00:00'\nGROUP BY company_id\nORDER BY company_id\n\"\"\")\n\nresult = pd.read_sql(query, engine)\nprint(\"\u4e24\u5bb6\u516c\u53f82025-06-08\u7684NOx\u6392\u653e\u7edf\u8ba1\uff1a\")\nprint(result)\n\n# \u63d0\u53d6\u5177\u4f53\u6570\u503c\ntotal_nox_jingye = float(result[result['company_id'] == 2417]['total_nox'].values[0])\nmean_nox_jingye = float(result[result['company_id'] == 2417]['mean_nox'].values[0])\ntotal_nox_yanshan = float(result[result['company_id'] == 2418]['total_nox'].values[0])\nmean_nox_yanshan = float(result[result['company_id'] == 2418]['mean_nox'].values[0])\n\n# \u786e\u5b9aNOx\u6392\u653e\u91cf\u8f83\u9ad8\u7684\u516c\u53f8\nif total_nox_jingye >= total_nox_yanshan:\n    higher_nox_company_id = 2417\nelse:\n    higher_nox_company_id = 2418\n\nprint(f\"\\n\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8 (2417):\")\nprint(f\"  \u603bNOx\u6392\u653e\u91cf: {total_nox_jingye} kg\")\nprint(f\"  \u5e73\u5747\u5c0f\u65f6NOx\u6392\u653e\u91cf: {mean_nox_jingye} kg\")\n\nprint(f\"\\n\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8 (2418):\")\nprint(f\"  \u603bNOx\u6392\u653e\u91cf: {total_nox_yanshan} kg\")\nprint(f\"  \u5e73\u5747\u5c0f\u65f6NOx\u6392\u653e\u91cf: {mean_nox_yanshan} kg\")\n\nprint(f\"\\nNOx\u6392\u653e\u91cf\u8f83\u9ad8\u7684\u516c\u53f8ID: {higher_nox_company_id}\")",
+              "total_nox_jingye = 4360.6416\nmean_nox_jingye = 181.69341659545898\ntotal_nox_yanshan = 3182.7378\nmean_nox_yanshan = 132.61408487955728\nhigher_nox_company_id = 2417"
+            ],
+            "runtime_variables": {
+              "total_nox_jingye": 4360.6416,
+              "mean_nox_jingye": 181.69341659545898,
+              "total_nox_yanshan": 3182.7378,
+              "mean_nox_yanshan": 132.61408487955728,
+              "higher_nox_company_id": 2417
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 25837,
+      "total_completion_tokens": 2068,
+      "total_tokens": 27905
+    }
+  }
+}

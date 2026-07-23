@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_14",
+    "module": "evals.neuroair.temporal_pattern_analysis.HB.hb_1_14",
+    "requirements": "As part of your analysis, for Hebei Zongheng Group Fengnan Steel Co., Ltd. over 2025-06-10 to 2025-06-12 compute and store: peak_flue_gas, mean_flue_gas, std_flue_gas (float), peak_flue_gas_offset_hours (whole hours from 2025-06-10 00:00 to the spike, int).",
+    "conversations": [
+      {
+        "id": "hb_1_14",
+        "turns": [
+          {
+            "query": "Identify abnormal emission spikes of Hebei Zongheng Group Fengnan Steel Co., Ltd. during 2025-06-10 to 2025-06-12 and determine potential causes.",
+            "validator": "validate_hb_1_14"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "temporal_pattern_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-14",
+      "verbatim": true
+    }
+  }
+]

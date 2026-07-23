@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_9",
+    "module": "evals.neuroair.temporal_pattern_analysis.HK.hk_1_9",
+    "requirements": "As part of your analysis, on 2025-06-10 compute and store: station_peak_hours (a dict mapping each station_id to the hour-of-day 0-23 of its PM2.5 peak), most_polluted_station_id (int), n_stations (int).",
+    "conversations": [
+      {
+        "id": "hk_1_9",
+        "turns": [
+          {
+            "query": "Identify PM2.5 concentration peak timing across all 18 monitoring stations on 2025-06-10, calculate station-specific peak hours, determine spatial clustering of peak times, and correlate with traffic congestion data from nearby road segments to establish traffic-pollution relationships.",
+            "validator": "validate_hk_1_9"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "temporal_pattern_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-9",
+      "verbatim": true
+    }
+  }
+]

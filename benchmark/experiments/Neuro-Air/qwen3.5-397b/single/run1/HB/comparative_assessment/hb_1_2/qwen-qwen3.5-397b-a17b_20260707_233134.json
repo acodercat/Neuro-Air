@@ -1,0 +1,50 @@
+{
+  "hb_1_2": {
+    "scenario": "hb_1_2",
+    "conversations": [
+      {
+        "id": "hb_1_2",
+        "turns": [
+          {
+            "query": "Analyze NOx emissions between Jingye Metallurgical Technology Co., Ltd. and Hebei Yanshan Steel Group Co., Ltd. on 2025-06-08.",
+            "actual_response": "\u6839\u636e2025\u5e746\u67088\u65e5\u7684\u76d1\u6d4b\u6570\u636e\u5206\u6790\uff1a\n\n**NOx\u6392\u653e\u5bf9\u6bd4\u7ed3\u679c\uff1a**\n\n1. **\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8**\uff08Jingye Metallurgical Technology\uff09\uff1a\n   - NOx\u6392\u653e\u603b\u91cf\uff1a4360.64 kg\n   - \u5c0f\u65f6\u5e73\u5747NOx\u6392\u653e\uff1a181.69 kg/h\n\n2. **\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8**\uff08Hebei Yanshan Steel Group\uff09\uff1a\n   - NOx\u6392\u653e\u603b\u91cf\uff1a3182.74 kg\n   - \u5c0f\u65f6\u5e73\u5747NOx\u6392\u653e\uff1a132.61 kg/h\n\n**\u5206\u6790\u7ed3\u8bba\uff1a**\n\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8\u7684NOx\u6392\u653e\u91cf\u663e\u8457\u9ad8\u4e8e\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u3002\u5176\u65e5\u6392\u653e\u603b\u91cf\u9ad8\u51fa\u7ea637%\uff08\u591a\u6392\u653e1177.90 kg\uff09\uff0c\u5c0f\u65f6\u5e73\u5747\u6392\u653e\u7387\u9ad8\u51fa\u7ea637%\uff08\u591a49.08 kg/h\uff09\u3002\u4e24\u5bb6\u516c\u53f8\u540c\u5c5e\u94a2\u94c1\u884c\u4e1a\uff0c\u4f46\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u7684NOx\u6392\u653e\u5f3a\u5ea6\u660e\u663e\u66f4\u9ad8\uff0c\u5efa\u8bae\u5bf9\u8be5\u4f01\u4e1a\u8fdb\u884c\u66f4\u4e25\u683c\u7684\u6392\u653e\u76d1\u7ba1\u548c\u51cf\u6392\u63aa\u65bd\u8bc4\u4f30\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 35399,
+              "completion_tokens": 1045,
+              "total_tokens": 36444
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u4e24\u5bb6\u516c\u53f8\u7684company_id\nquery = text(\"\"\"SELECT id, name, industry_type FROM polluting_company WHERE name LIKE '%\u656c\u4e1a%' OR name LIKE '%\u71d5\u5c71%'\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u4e24\u5bb6\u516c\u53f8\u57282025-06-08\u7684NOx\u6392\u653e\u6570\u636e\nquery = text(\"\"\"\nSELECT \n    company_id,\n    SUM(nox) as total_nox,\n    AVG(nox) as mean_nox\nFROM hourly_polluting_company_emission\nWHERE date = '2025-06-08'\nAND company_id IN (2417, 2418)\nGROUP BY company_id\n\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u4e24\u5bb6\u516c\u53f8\u57282025-06-08\u7684NOx\u6392\u653e\u6570\u636e\uff08\u4f7f\u7528timestamp\u5217\uff09\nquery = text(\"\"\"\nSELECT \n    company_id,\n    SUM(nox) as total_nox,\n    AVG(nox) as mean_nox\nFROM hourly_polluting_company_emission\nWHERE timestamp >= '2025-06-08 00:00:00' \nAND timestamp < '2025-06-09 00:00:00'\nAND company_id IN (2417, 2418)\nGROUP BY company_id\n\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "# \u8d4b\u503c\u7ed9\u8981\u6c42\u7684\u53d8\u91cf\ntotal_nox_jingye = 4360.6416\nmean_nox_jingye = 181.693417\ntotal_nox_yanshan = 3182.7378\nmean_nox_yanshan = 132.614085\nhigher_nox_company_id = 2417\n\nprint(f\"total_nox_jingye: {total_nox_jingye}\")\nprint(f\"mean_nox_jingye: {mean_nox_jingye}\")\nprint(f\"total_nox_yanshan: {total_nox_yanshan}\")\nprint(f\"mean_nox_yanshan: {mean_nox_yanshan}\")\nprint(f\"higher_nox_company_id: {higher_nox_company_id}\")"
+            ],
+            "runtime_variables": {
+              "total_nox_jingye": 4360.6416,
+              "mean_nox_jingye": 181.693417,
+              "total_nox_yanshan": 3182.7378,
+              "mean_nox_yanshan": 132.614085,
+              "higher_nox_company_id": 2417
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 5,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 35399,
+      "total_completion_tokens": 1045,
+      "total_tokens": 36444
+    }
+  }
+}

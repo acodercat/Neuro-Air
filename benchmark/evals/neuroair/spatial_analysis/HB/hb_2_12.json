@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_2_12",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_2_12",
+    "requirements": "As part of your analysis, for Hebei Zongheng Group Fengnan Steel on 2025-06-15 compute and store: stations_within_15km (int), peak_flue_gas, total_flue_gas (float), peak_flue_gas_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_2_12",
+        "turns": [
+          {
+            "query": "Analyze the differential impact of Hebei Zongheng Group Fengnan Steel on air quality stations within 15km radius during 2025-06-15 peak emission hours.",
+            "validator": "validate_hb_2_12"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-2-12",
+      "verbatim": true
+    }
+  }
+]

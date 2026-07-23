@@ -1,0 +1,47 @@
+{
+  "hb_1_10": {
+    "scenario": "hb_1_10",
+    "conversations": [
+      {
+        "id": "hb_1_10",
+        "turns": [
+          {
+            "query": "Analyze hourly emission variations of Jinan Steel Group Co., Ltd. during 2025-06-10 to 2025-06-11.",
+            "actual_response": "\u5180\u5357\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u57282025\u5e746\u670810\u65e5\u81f36\u670811\u65e5\u671f\u95f4\u7684\u70df\u6c14\u6392\u653e\u6570\u636e\u5206\u6790\u5982\u4e0b\uff1a\n\n- **\u603b\u70df\u6c14\u6392\u653e\u91cf (total_flue_gas)**: 968,438,460.0 \u7acb\u65b9\u7c73\n- **\u5e73\u5747\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u91cf (mean_flue_gas)**: 20,175,802.08 \u7acb\u65b9\u7c73\n- **\u5cf0\u503c\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u91cf (peak_flue_gas)**: 21,203,000.0 \u7acb\u65b9\u7c73\n- **\u53d8\u5f02\u7cfb\u6570 (cv_flue_gas)**: 0.0314\n\n\u5206\u6790\u8868\u660e\uff0c\u4f01\u4e1a\u572848\u5c0f\u65f6\u89c2\u6d4b\u671f\u5185\u70df\u6c14\u6392\u653e\u603b\u91cf\u7ea6\u4e3a9.68\u4ebf\u7acb\u65b9\u7c73\uff0c\u5e73\u5747\u6bcf\u5c0f\u65f6\u6392\u653e\u7ea62017.58\u4e07\u7acb\u65b9\u7c73\uff0c\u6700\u9ad8\u5355\u5c0f\u65f6\u6392\u653e\u8fbe2120.3\u4e07\u7acb\u65b9\u7c73\u3002\u53d8\u5f02\u7cfb\u6570\u4ec5\u4e3a0.0314\uff0c\u8868\u660e\u8be5\u65f6\u6bb5\u5185\u4f01\u4e1a\u70df\u6c14\u6392\u653e\u6c34\u5e73\u9ad8\u5ea6\u7a33\u5b9a\uff0c\u751f\u4ea7\u8d1f\u8377\u6ce2\u52a8\u6781\u5c0f\uff0c\u6574\u4f53\u8fd0\u884c\u5e73\u7a33\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18547,
+              "completion_tokens": 2877,
+              "total_tokens": 21424
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u5180\u5357\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u7684company_id\nquery_company = text(\"\"\"\nSELECT id, name, industry_type, city_id, district_id\nFROM polluting_company\nWHERE name LIKE '%\u5180\u5357\u94a2\u94c1%'\nLIMIT 10\n\"\"\")\ncompany_df = pd.read_sql(query_company, engine)\nprint(\"\u516c\u53f8\u641c\u7d22\u7ed3\u679c\uff1a\")\nprint(company_df)\n\n# \u5982\u679c\u6ca1\u627e\u5230\uff0c\u5c1d\u8bd5\u5176\u4ed6\u5173\u952e\u8bcd\nif company_df.empty:\n    query_company2 = text(\"\"\"\n    SELECT id, name, industry_type, city_id, district_id\n    FROM polluting_company\n    WHERE name LIKE '%\u6d4e\u5357\u94a2\u94c1%' OR name LIKE '%Jinan%'\n    LIMIT 10\n    \"\"\")\n    company_df = pd.read_sql(query_company2, engine)\n    print(\"\\n\u5907\u7528\u641c\u7d22\uff1a\")\n    print(company_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\ncompany_id = 2581\n\n# \u67e5\u8be2\u5180\u5357\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8\u57282025-06-10\u52302025-06-11\u671f\u95f4\u7684\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u7a97\u53e3\uff1a2025-06-10 00:00:00 \u5230 2025-06-12 00:00:00 (\u4e0d\u5305\u542b)\nquery = text(\"\"\"\nSELECT \n    SUM(exhaust_gas) as total_flue_gas,\n    AVG(exhaust_gas) as mean_flue_gas,\n    MAX(exhaust_gas) as peak_flue_gas,\n    STDDEV_POP(exhaust_gas) as stddev_pop_flue_gas,\n    COUNT(*) as hourly_count\nFROM hourly_polluting_company_emission\nWHERE company_id = :company_id\n  AND timestamp >= '2025-06-10 00:00:00'\n  AND timestamp < '2025-06-12 00:00:00'\n\"\"\")\n\nresult_df = pd.read_sql(query, engine, params={'company_id': company_id})\nprint(\"\u5180\u5357\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8 2025-06-10 \u81f3 2025-06-11 \u70df\u6c14\u6392\u653e\u7edf\u8ba1\uff1a\")\nprint(result_df)\n\n# \u8ba1\u7b97\u53d8\u5f02\u7cfb\u6570 (CV = \u603b\u4f53\u6807\u51c6\u5dee / \u5747\u503c)\nif result_df['mean_flue_gas'].values[0] > 0:\n    cv_flue_gas = result_df['stddev_pop_flue_gas'].values[0] / result_df['mean_flue_gas'].values[0]\nelse:\n    cv_flue_gas = 0.0\n\nprint(f\"\\n\u53d8\u5f02\u7cfb\u6570 (CV): {cv_flue_gas}\")\n\n# \u5b58\u50a8\u7ed3\u679c\u5230\u53d8\u91cf\ntotal_flue_gas = float(result_df['total_flue_gas'].values[0])\nmean_flue_gas = float(result_df['mean_flue_gas'].values[0])\npeak_flue_gas = float(result_df['peak_flue_gas'].values[0])\ncv_flue_gas = float(cv_flue_gas)\n\nprint(f\"\\n\u5b58\u50a8\u7ed3\u679c\uff1a\")\nprint(f\"total_flue_gas: {total_flue_gas}\")\nprint(f\"mean_flue_gas: {mean_flue_gas}\")\nprint(f\"peak_flue_gas: {peak_flue_gas}\")\nprint(f\"cv_flue_gas: {cv_flue_gas}\")"
+            ],
+            "runtime_variables": {
+              "total_flue_gas": 968438460.0,
+              "mean_flue_gas": 20175802.083333332,
+              "peak_flue_gas": 21203000.0,
+              "cv_flue_gas": 0.031387019102981785
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18547,
+      "total_completion_tokens": 2877,
+      "total_tokens": 21424
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_6_16",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_6_16",
+    "requirements": "As part of your analysis, for company 2444 over the weekend 2025-06-19 to 2025-06-21 compute and store: recreational_count_within_5km (OSM leisure/public features within 5km, int), total_flue_gas, peak_flue_gas (float), active_hours (int).",
+    "conversations": [
+      {
+        "id": "hb_6_16",
+        "turns": [
+          {
+            "query": "Assess how emissions from Shougang Jingtang Steel (company_id: 2444) affect public recreational spaces (OSM main_type: LEISURE, PUBLIC) during weekend periods 2025-06-19 to 2025-06-21. Analyze OSM park and recreational facility data to recommend safe outdoor activity timing for families",
+            "validator": "validate_hb_6_16"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-6-16",
+      "verbatim": true
+    }
+  }
+]

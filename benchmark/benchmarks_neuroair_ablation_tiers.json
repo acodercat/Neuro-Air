@@ -1,0 +1,812 @@
+{
+  "hb_1_2": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_23": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_25": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 3,
+    "score": 1,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_28": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_31": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_33": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_37": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 7,
+    "score": 2,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_2_11": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_2_15": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_2_21": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_2_23": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "comparative_assessment"
+  },
+  "hb_1_11": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_1_6": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_1_7": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_1_8": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 3,
+    "score": 1,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_1_9": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_2_1": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_2_19": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_2_2": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": false,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_2_12": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_2_16": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_2_34": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 3,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_5_10": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_5_11": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_5_8": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_6_10": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_6_12": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_6_16": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_13": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 4,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_14": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_15": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_16": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_17": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_18": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_20": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_21": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_22": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_23": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_24": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_25": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 5,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_26": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_27": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": true,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_30": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 4,
+    "score": 5,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_32": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 5,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_35": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 5,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_7_5": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": true,
+    "nvar": 5,
+    "score": 6,
+    "domain": "HB",
+    "category": "spatial_analysis"
+  },
+  "hb_1_1": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_19": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_26": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_32": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_4": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_41": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 6,
+    "score": 2,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_5": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 4,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_3_10": {
+    "tier": "hard",
+    "ntab": 4,
+    "spatial": false,
+    "nvar": 4,
+    "score": 4,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_3_11": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 3,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_3_20": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 3,
+    "score": 1,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_3_28": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 5,
+    "score": 4,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_5_27": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 3,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_5_28": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 7,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_5_29": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_7_34": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_7_36": {
+    "tier": "hard",
+    "ntab": 3,
+    "spatial": false,
+    "nvar": 3,
+    "score": 3,
+    "domain": "HB",
+    "category": "statistical_characterization"
+  },
+  "hb_1_10": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_12": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_13": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_14": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_16": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_18": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_20": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_1_29": {
+    "tier": "hard",
+    "ntab": 5,
+    "spatial": false,
+    "nvar": 6,
+    "score": 6,
+    "domain": "HB",
+    "category": "temporal_pattern_analysis"
+  },
+  "hk_1_11": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_1_13": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_1_2": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_1_5": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_1_6": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_2_6": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_3_11": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HK",
+    "category": "comparative_assessment"
+  },
+  "hk_1_1": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "data_retrieval"
+  },
+  "hk_1_10": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "data_retrieval"
+  },
+  "hk_1_7": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "data_retrieval"
+  },
+  "hk_2_18": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HK",
+    "category": "data_retrieval"
+  },
+  "hk_1_9": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 3,
+    "score": 1,
+    "domain": "HK",
+    "category": "temporal_pattern_analysis"
+  },
+  "hb_3_14": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_3_18": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_3_21": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_3_23": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 5,
+    "score": 3,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_3_25": {
+    "tier": "medium",
+    "ntab": 2,
+    "spatial": false,
+    "nvar": 4,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_6_13": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 4,
+    "score": 1,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_7_2": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  },
+  "hb_7_29": {
+    "tier": "simple",
+    "ntab": 1,
+    "spatial": false,
+    "nvar": 5,
+    "score": 2,
+    "domain": "HB",
+    "category": "data_retrieval"
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_26",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_1_26",
+    "requirements": "As part of your analysis, for 2025-06-10 compute the coefficient of variation (population std / mean) of hourly flue-gas for each company and store: cv_puyang (Hebei Puyang Steel), cv_ruifeng (Tangshan Ruifeng Steel), cv_ganglu (Tangshan Ganglu Steel) (float) and most_consistent_company_id (the company_id of the lowest-CV company, int).",
+    "conversations": [
+      {
+        "id": "hb_1_26",
+        "turns": [
+          {
+            "query": "Identify the most consistent emission performer among specialized steel companies: Hebei Puyang Steel, Tangshan Ruifeng Steel, Tangshan Ganglu Steel on 2025-06-10.",
+            "validator": "validate_hb_1_26"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-26",
+      "verbatim": true
+    }
+  }
+]

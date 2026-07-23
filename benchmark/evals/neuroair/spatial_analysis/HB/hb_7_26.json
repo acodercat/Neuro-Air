@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_26",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_26",
+    "requirements": "As part of your analysis, for company 2420 over 2025-04-10 08:00-12:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_26",
+        "turns": [
+          {
+            "query": "Analyze how strong wind conditions on 2025-04-10 between 08:00-12:00 affected the pollution dispersion from Tangshan Ruifeng Steel Group Co., Ltd. (company_id: 2420).",
+            "validator": "validate_hb_7_26"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-26",
+      "verbatim": true
+    }
+  }
+]

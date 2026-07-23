@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_21",
+    "module": "evals.neuroair.data_retrieval.HB.hb_3_21",
+    "requirements": "As part of your analysis, for station 48 on 2025-04-09 compute and store: pm10_at_2300, daily_max_pm10, mean_pm10 (float), peak_pm10_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_3_21",
+        "turns": [
+          {
+            "query": "Identify likely emission sources responsible for the PM10 spike at Luquan No.1 Middle School (station_id: 48) on 2025-04-09 23:00, considering wind patterns and nearby industrial activities.",
+            "validator": "validate_hb_3_21"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-21",
+      "verbatim": true
+    }
+  }
+]

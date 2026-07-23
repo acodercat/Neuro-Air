@@ -1,0 +1,47 @@
+{
+  "hb_1_28": {
+    "scenario": "hb_1_28",
+    "conversations": [
+      {
+        "id": "hb_1_28",
+        "turns": [
+          {
+            "query": "Evaluate environmental quality differences between mountainous Zanhuang County and plain area Zhao County on 2025-06-26.",
+            "actual_response": "2025\u5e746\u670826\u65e5\uff0c\u8d5e\u7687\u53bf\u4e0e\u8d75\u53bf\u7684\u73af\u5883\u8d28\u91cf\u5bf9\u6bd4\u5206\u6790\u5982\u4e0b\uff1a\n\n**1. \u7a7a\u6c14\u8d28\u91cf\u6307\u6570 (AQI) \u5bf9\u6bd4**\n- **\u8d5e\u7687\u53bf**\uff1a\u65e5\u5747AQI\u4e3a **55.92**\n- **\u8d75\u53bf**\uff1a\u65e5\u5747AQI\u4e3a **50.75**\n- **\u5dee\u5f02**\uff1a\u8d5e\u7687\u53bf\u7684\u5e73\u5747AQI\u6bd4\u8d75\u53bf\u9ad8\u51fa\u7ea6 **5.17** \u4e2a\u70b9\u3002\n\n**2. \u7ec6\u9897\u7c92\u7269 (PM2.5) \u6d53\u5ea6\u5bf9\u6bd4**\n- **\u8d5e\u7687\u53bf**\uff1a\u65e5\u5747PM2.5\u6d53\u5ea6\u4e3a **25.75 \u03bcg/m\u00b3**\n- **\u8d75\u53bf**\uff1a\u65e5\u5747PM2.5\u6d53\u5ea6\u4e3a **24.38 \u03bcg/m\u00b3**\n- **\u5dee\u5f02**\uff1a\u8d5e\u7687\u53bf\u7684PM2.5\u6d53\u5ea6\u6bd4\u8d75\u53bf\u9ad8\u51fa\u7ea6 **1.37 \u03bcg/m\u00b3**\u3002\n\n**3. \u7efc\u5408\u5206\u6790**\n\u5c3d\u7ba1\u8d5e\u7687\u53bf\u5730\u5904\u5c71\u533a\uff0c\u8d75\u53bf\u5730\u5904\u5e73\u539f\uff0c\u4f46\u57282025\u5e746\u670826\u65e5\u8fd9\u4e00\u5929\uff0c**\u8d75\u53bf\u7684\u7a7a\u6c14\u8d28\u91cf\u7565\u4f18\u4e8e\u8d5e\u7687\u53bf**\u3002\u8d75\u53bf\u5728AQI\u548cPM2.5\u4e24\u4e2a\u6838\u5fc3\u6307\u6807\u4e0a\u5747\u4f4e\u4e8e\u8d5e\u7687\u53bf\uff0c\u8868\u660e\u8be5\u65e5\u5e73\u539f\u533a\u57df\u7684\u6c14\u8c61\u6269\u6563\u6761\u4ef6\u6216\u6c61\u67d3\u6e90\u6392\u653e\u63a7\u5236\u6548\u679c\u76f8\u5bf9\u66f4\u4f73\u3002\u4e24\u53bf\u7a7a\u6c14\u8d28\u91cf\u6574\u4f53\u5747\u5904\u4e8e\u201c\u826f\u201d\u7684\u7b49\u7ea7\u533a\u95f4\uff0c\u4f46\u8d5e\u7687\u53bf\u53d7\u5730\u5f62\u6216\u5c40\u5730\u56e0\u7d20\u5f71\u54cd\uff0c\u6c61\u67d3\u7269\u7d2f\u79ef\u7a0b\u5ea6\u7565\u9ad8\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18179,
+              "completion_tokens": 1572,
+              "total_tokens": 19751
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u627e\u5230\u8d5e\u7687\u53bf\u548c\u8d75\u53bf\u7684district_id\nquery_district = text(\"\"\"\nSELECT id, name, city_id \nFROM district \nWHERE name IN ('\u8d5e\u7687\u53bf', '\u8d75\u53bf')\n\"\"\")\ndistricts = pd.read_sql(query_district, engine)\nprint(\"\u76ee\u6807\u533a\u53bf\u4fe1\u606f\uff1a\")\nprint(districts)\n\n# \u83b7\u53d6\u4e24\u4e2a\u53bf\u7684district_id\nzanhuang_id = districts[districts['name'] == '\u8d5e\u7687\u53bf']['id'].values[0]\nzhao_id = districts[districts['name'] == '\u8d75\u53bf']['id'].values[0]\nprint(f\"\\n\u8d5e\u7687\u53bf district_id: {zanhuang_id}\")\nprint(f\"\u8d75\u53bf district_id: {zhao_id}\")",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u8d5e\u7687\u53bf\u548c\u8d75\u53bf\u57282025-06-26\u7684PM2.5\u548cAQI\u5747\u503c\nquery = text(\"\"\"\nSELECT \n    d.id as district_id,\n    d.name as district_name,\n    AVG(hdaq.pm2_5) as mean_pm25,\n    AVG(hdaq.aqi) as mean_aqi\nFROM hourly_district_air_quality hdaq\nJOIN district d ON hdaq.district_id = d.id\nWHERE d.id IN (15, 19)\n  AND hdaq.timestamp >= '2025-06-26 00:00:00'\n  AND hdaq.timestamp < '2025-06-27 00:00:00'\nGROUP BY d.id, d.name\n\"\"\")\nresult = pd.read_sql(query, engine)\nprint(\"\u4e24\u53bf\u7a7a\u6c14\u8d28\u91cf\u5747\u503c\u7edf\u8ba1\uff1a\")\nprint(result)\n\n# \u5b58\u50a8\u7ed3\u679c\u5230\u53d8\u91cf\nmean_pm25_zanhuang = float(result[result['district_id'] == 15]['mean_pm25'].values[0])\nmean_aqi_zanhuang = float(result[result['district_id'] == 15]['mean_aqi'].values[0])\nmean_pm25_zhao = float(result[result['district_id'] == 19]['mean_pm25'].values[0])\nmean_aqi_zhao = float(result[result['district_id'] == 19]['mean_aqi'].values[0])\n\nprint(f\"\\n\u8d5e\u7687\u53bf - PM2.5\u5747\u503c: {mean_pm25_zanhuang}, AQI\u5747\u503c: {mean_aqi_zanhuang}\")\nprint(f\"\u8d75\u53bf - PM2.5\u5747\u503c: {mean_pm25_zhao}, AQI\u5747\u503c: {mean_aqi_zhao}\")"
+            ],
+            "runtime_variables": {
+              "mean_pm25_zanhuang": 25.75,
+              "mean_aqi_zanhuang": 55.916666666666664,
+              "mean_pm25_zhao": 24.375,
+              "mean_aqi_zhao": 50.75
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18179,
+      "total_completion_tokens": 1572,
+      "total_tokens": 19751
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_5",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_5",
+    "requirements": "As part of your analysis, for company 2417 -> station 4 on 2025-06-06 compute and store: distance_km, bearing_deg, station_mean_pm25, station_max_pm25, company_total_flue_gas (float).",
+    "conversations": [
+      {
+        "id": "hb_7_5",
+        "turns": [
+          {
+            "query": "Analyze the transport pathway of emissions from Jingye Metallurgical Technology (company_id: 2417) to air quality station: Urban Workers' Hospital (station_id: 4) on 2025-06-06.",
+            "validator": "validate_hb_7_5"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-5",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "hb_1_28": {
+    "scenario": "hb_1_28",
+    "conversations": [
+      {
+        "id": "hb_1_28",
+        "turns": [
+          {
+            "query": "Evaluate environmental quality differences between mountainous Zanhuang County and plain area Zhao County on 2025-06-26.",
+            "actual_response": "\u6839\u636e2025\u5e746\u670826\u65e5\u7684\u76d1\u6d4b\u6570\u636e\u5206\u6790\uff0c\u8d5e\u7687\u53bf\u4e0e\u8d75\u53bf\u7684\u73af\u5883\u8d28\u91cf\u5bf9\u6bd4\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u76d1\u6d4b\u6570\u636e\u6c47\u603b\uff1a**\n\n| \u53bf\u533a | \u5e73\u5747PM2.5 (\u03bcg/m\u00b3) | \u5e73\u5747AQI |\n|------|------------------|---------|\n| \u8d5e\u7687\u53bf\uff08\u5c71\u533a\uff09 | 25.75 | 55.92 |\n| \u8d75\u53bf\uff08\u5e73\u539f\uff09 | 24.38 | 50.75 |\n\n**\u73af\u5883\u8d28\u91cf\u5dee\u5f02\u5206\u6790\uff1a**\n\n1. **PM2.5\u6d53\u5ea6\u5bf9\u6bd4**\uff1a\u8d5e\u7687\u53bf\u5e73\u5747PM2.5\u6d53\u5ea6\u4e3a25.75 \u03bcg/m\u00b3\uff0c\u8d75\u53bf\u4e3a24.38 \u03bcg/m\u00b3\uff0c\u8d5e\u7687\u53bf\u6bd4\u8d75\u53bf\u9ad8\u7ea65.6%\u3002\n\n2. **AQI\u6307\u6570\u5bf9\u6bd4**\uff1a\u8d5e\u7687\u53bf\u5e73\u5747AQI\u4e3a55.92\uff0c\u8d75\u53bf\u4e3a50.75\uff0c\u8d5e\u7687\u53bf\u6bd4\u8d75\u53bf\u9ad8\u7ea610.2%\u3002\n\n3. **\u7a7a\u6c14\u8d28\u91cf\u7b49\u7ea7**\uff1a\u4e24\u53bf\u5f53\u65e5AQI\u5747\u5904\u4e8e50-100\u533a\u95f4\uff0c\u5c5e\u4e8e\"\u826f\"\u7b49\u7ea7\uff0c\u4f46\u8d75\u53bf\u7a7a\u6c14\u8d28\u91cf\u7565\u4f18\u4e8e\u8d5e\u7687\u53bf\u3002\n\n**\u5206\u6790\u7ed3\u8bba\uff1a**\n\n\u4e0e\u901a\u5e38\u9884\u671f\u7684\"\u5c71\u533a\u7a7a\u6c14\u8d28\u91cf\u4f18\u4e8e\u5e73\u539f\"\u60c5\u51b5\u76f8\u53cd\uff0c\u5f53\u65e5\u8d5e\u7687\u53bf\uff08\u5c71\u533a\uff09\u7684PM2.5\u548cAQI\u5747\u7565\u9ad8\u4e8e\u8d75\u53bf\uff08\u5e73\u539f\uff09\u3002\u8fd9\u4e00\u73b0\u8c61\u53ef\u80fd\u4e0e\u4ee5\u4e0b\u56e0\u7d20\u6709\u5173\uff1a\n\n- \u5c71\u533a\u5730\u5f62\u53ef\u80fd\u5bfc\u81f4\u6c61\u67d3\u7269\u6269\u6563\u6761\u4ef6\u8f83\u5dee\uff0c\u6613\u5f62\u6210\u5c40\u5730\u7d2f\u79ef\n- \u5f53\u65e5\u6c14\u8c61\u6761\u4ef6\uff08\u5982\u98ce\u901f\u3001\u98ce\u5411\u3001\u9006\u6e29\u5c42\u7b49\uff09\u53ef\u80fd\u4e0d\u5229\u4e8e\u5c71\u533a\u6c61\u67d3\u7269\u6269\u6563\n- \u4e24\u53bf\u5468\u8fb9\u6c61\u67d3\u6e90\u5206\u5e03\u53ca\u4f20\u8f93\u8def\u5f84\u53ef\u80fd\u5b58\u5728\u5dee\u5f02\n\n\u5efa\u8bae\u7ed3\u5408\u5f53\u65e5\u6c14\u8c61\u6570\u636e\uff08\u98ce\u901f\u3001\u98ce\u5411\u3001\u6e7f\u5ea6\u7b49\uff09\u53ca\u6c61\u67d3\u6e90\u5206\u5e03\u60c5\u51b5\u8fdb\u884c\u8fdb\u4e00\u6b65\u5206\u6790\uff0c\u4ee5\u660e\u786e\u9020\u6210\u8be5\u5dee\u5f02\u7684\u5177\u4f53\u539f\u56e0\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 18117,
+              "completion_tokens": 1177,
+              "total_tokens": 19294
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u83b7\u53d6\u8d5e\u7687\u53bf\u548c\u8d75\u53bf\u7684district_id\nquery_districts = text(\"\"\"SELECT id, name FROM district WHERE name IN ('\u8d5e\u7687\u53bf', '\u8d75\u53bf')\"\"\")\ndistricts_df = pd.read_sql(query_districts, engine)\nprint(districts_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u8d5e\u7687\u53bf\u548c\u8d75\u53bf\u57282025-06-26\u7684\u5e73\u5747PM2.5\u548c\u5e73\u5747AQI\nquery_stats = text(\"\"\"\nSELECT \n    d.name as district_name,\n    AVG(hdaq.pm2_5) as mean_pm25,\n    AVG(hdaq.aqi) as mean_aqi\nFROM hourly_district_air_quality hdaq\nJOIN district d ON hdaq.district_id = d.id\nWHERE hdaq.district_id IN (15, 19)\n  AND hdaq.timestamp >= '2025-06-26 00:00:00'\n  AND hdaq.timestamp < '2025-06-27 00:00:00'\nGROUP BY d.name\n\"\"\")\nstats_df = pd.read_sql(query_stats, engine)\nprint(stats_df)\n\n# \u5c06\u7ed3\u679c\u5b58\u50a8\u5230\u6307\u5b9a\u53d8\u91cf\nzanhuang_row = stats_df[stats_df['district_name'] == '\u8d5e\u7687\u53bf'].iloc[0]\nzhao_row = stats_df[stats_df['district_name'] == '\u8d75\u53bf'].iloc[0]\n\nmean_pm25_zanhuang = float(zanhuang_row['mean_pm25'])\nmean_aqi_zanhuang = float(zanhuang_row['mean_aqi'])\nmean_pm25_zhao = float(zhao_row['mean_pm25'])\nmean_aqi_zhao = float(zhao_row['mean_aqi'])\n\nprint(f\"\\n\u8d5e\u7687\u53bf - \u5e73\u5747PM2.5: {mean_pm25_zanhuang}, \u5e73\u5747AQI: {mean_aqi_zanhuang}\")\nprint(f\"\u8d75\u53bf - \u5e73\u5747PM2.5: {mean_pm25_zhao}, \u5e73\u5747AQI: {mean_aqi_zhao}\")"
+            ],
+            "runtime_variables": {
+              "mean_pm25_zanhuang": 25.75,
+              "mean_aqi_zanhuang": 55.916666666666664,
+              "mean_pm25_zhao": 24.375,
+              "mean_aqi_zhao": 50.75
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 18117,
+      "total_completion_tokens": 1177,
+      "total_tokens": 19294
+    }
+  }
+}

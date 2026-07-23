@@ -1,0 +1,46 @@
+{
+  "hb_1_28": {
+    "scenario": "hb_1_28",
+    "conversations": [
+      {
+        "id": "hb_1_28",
+        "turns": [
+          {
+            "query": "Evaluate environmental quality differences between mountainous Zanhuang County and plain area Zhao County on 2025-06-26.",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c2025\u5e746\u670826\u65e5\u8d5e\u7687\u53bf\u548c\u5e73\u539f\u53bf\u8d75\u53bf\u7684\u73af\u5883\u8d28\u91cf\u6307\u6807\u5982\u4e0b\uff1a\n\n- \u8d5e\u7687\u53bf\u7684PM2.5\u5e73\u5747\u503c (`mean_pm25_zanhuang`): 25.75\n- \u8d5e\u7687\u53bf\u7684AQI\u5e73\u5747\u503c (`mean_aqi_zanhuang`): 55.92\n- \u8d75\u53bf\u7684PM2.5\u5e73\u5747\u503c (`mean_pm25_zhao`): 24.38\n- \u8d75\u53bf\u7684AQI\u5e73\u5747\u503c (`mean_aqi_zhao`): 50.75\n\n\u4ece\u8fd9\u4e9b\u6570\u636e\u53ef\u4ee5\u770b\u51fa\uff0c\u8d5e\u7687\u53bf\u7684PM2.5\u548cAQI\u5e73\u5747\u503c\u7565\u9ad8\u4e8e\u8d75\u53bf\uff0c\u8fd9\u53ef\u80fd\u4e0e\u8d5e\u7687\u53bf\u7684\u5730\u5f62\u548c\u73af\u5883\u56e0\u7d20\u6709\u5173\u3002\u5c71\u5730\u5730\u533a\u7684\u7a7a\u6c14\u8d28\u91cf\u53ef\u80fd\u53d7\u5230\u5730\u5f62\u548c\u6c14\u8c61\u6761\u4ef6\u7684\u5f71\u54cd\uff0c\u5bfc\u81f4PM2.5\u548cAQI\u503c\u7565\u9ad8\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11813,
+              "completion_tokens": 803,
+              "total_tokens": 12616
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u8d5e\u7687\u53bf\u548c\u5e73\u539f\u53bf\u8d75\u53bf\u57282025\u5e746\u670826\u65e5\u7684PM2.5\u548cAQI\u6570\u636e\nquery = text(\"\"\"\nWITH zanhuang_data AS (\n    SELECT AVG(pm2_5) AS mean_pm25, AVG(aqi) AS mean_aqi\n    FROM hourly_district_air_quality\n    WHERE district_id IN (SELECT id FROM district WHERE name = '\u8d5e\u7687\u53bf')\n    AND timestamp >= '2025-06-26 00:00:00' AND timestamp < '2025-06-27 00:00:00'\n),\nzhao_data AS (\n    SELECT AVG(pm2_5) AS mean_pm25, AVG(aqi) AS mean_aqi\n    FROM hourly_district_air_quality\n    WHERE district_id IN (SELECT id FROM district WHERE name = '\u8d75\u53bf')\n    AND timestamp >= '2025-06-26 00:00:00' AND timestamp < '2025-06-27 00:00:00'\n)\nSELECT zanhuang_data.mean_pm25 AS mean_pm25_zanhuang, zanhuang_data.mean_aqi AS mean_aqi_zanhuang,\n       zhao_data.mean_pm25 AS mean_pm25_zhao, zhao_data.mean_aqi AS mean_aqi_zhao\nFROM zanhuang_data, zhao_data\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df)\n\n# \u5c06\u7ed3\u679c\u5b58\u50a8\u5230\u53d8\u91cf\u4e2d\nmean_pm25_zanhuang = df['mean_pm25_zanhuang'].iloc[0]\nmean_aqi_zanhuang = df['mean_aqi_zanhuang'].iloc[0]\nmean_pm25_zhao = df['mean_pm25_zhao'].iloc[0]\nmean_aqi_zhao = df['mean_aqi_zhao'].iloc[0]"
+            ],
+            "runtime_variables": {
+              "mean_pm25_zanhuang": 25.75,
+              "mean_aqi_zanhuang": 55.916666666666664,
+              "mean_pm25_zhao": 24.375,
+              "mean_aqi_zhao": 50.75
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11813,
+      "total_completion_tokens": 803,
+      "total_tokens": 12616
+    }
+  }
+}

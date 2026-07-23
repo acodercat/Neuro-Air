@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_7",
+    "module": "evals.neuroair.data_retrieval.HB.hb_1_7",
+    "requirements": "As part of your analysis, for Beibengfang station (北泵房) on 2025-06-02 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_1_7",
+        "turns": [
+          {
+            "query": "Help me analyze the pollution situation at air quality station: Beibengfang on 2025-06-02.",
+            "validator": "validate_hb_1_7"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-7",
+      "verbatim": true
+    }
+  }
+]

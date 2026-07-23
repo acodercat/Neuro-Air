@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_11",
+    "module": "evals.neuroair.data_retrieval.HB.hb_1_11",
+    "requirements": "As part of your analysis, for 唐山市 (Tangshan) city-level air quality on 2025-06-02 compute and store: mean_aqi, max_aqi, max_pm25 (float), peak_aqi_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_1_11",
+        "turns": [
+          {
+            "query": "Help me analyze the air quality patterns in 唐山市 on 2025-06-02",
+            "validator": "validate_hb_1_11"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-11",
+      "verbatim": true
+    }
+  }
+]

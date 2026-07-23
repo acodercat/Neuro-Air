@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_2",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_2",
+    "requirements": "As part of your analysis, on 2025-06-08 compute and store: total_nox_jingye, mean_nox_jingye (Jingye Metallurgical Technology), total_nox_yanshan, mean_nox_yanshan (Hebei Yanshan Steel Group) (float), higher_nox_company_id (the company_id of the higher-NOx company, int).",
+    "conversations": [
+      {
+        "id": "hb_1_2",
+        "turns": [
+          {
+            "query": "Analyze NOx emissions between Jingye Metallurgical Technology Co., Ltd. and Hebei Yanshan Steel Group Co., Ltd. on 2025-06-08.",
+            "validator": "validate_hb_1_2"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-2",
+      "verbatim": true
+    }
+  }
+]

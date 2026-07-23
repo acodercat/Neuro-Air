@@ -1,0 +1,46 @@
+{
+  "hk_1_11": {
+    "scenario": "hk_1_11",
+    "conversations": [
+      {
+        "id": "hk_1_11",
+        "turns": [
+          {
+            "query": "Compare CO levels at roadside stations during peak (08:00) vs. off-peak (14:00) hours on January 22, 2025.",
+            "actual_response": "On January 22, 2025, across 3 roadside stations with complete CO readings at both times:\n\n- Mean CO at 08:00: 593.7 \u00b5g/m\u00b3\n- Mean CO at 14:00: 639.7 \u00b5g/m\u00b3\n- Difference: -46.0 \u00b5g/m\u00b3\n\nCO was higher at 14:00 than at 08:00 by 46.0 \u00b5g/m\u00b3 on average.",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11012,
+              "completion_tokens": 1272,
+              "total_tokens": 12284
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nt0800 = \"2025-01-22 08:00:00\"\nt1400 = \"2025-01-22 14:00:00\"\n\ncount_query = text(\"\"\"\nSELECT COUNT(*) AS matching_readings\nFROM hourly_station_air_quality h\nJOIN air_quality_station s ON h.station_id = s.id\nWHERE s.station_type = 'ROADSIDE'\n  AND h.datetime IN (:t0800, :t1400)\n  AND h.co IS NOT NULL\n\"\"\")\nmatching_readings = int(pd.read_sql(count_query, engine, params={\"t0800\": t0800, \"t1400\": t1400})[\"matching_readings\"].iloc[0])\n\nagg_query = text(\"\"\"\nWITH per_station AS (\n  SELECT\n    h.station_id,\n    MAX(CASE WHEN h.datetime = :t0800 THEN h.co END) AS co_0800,\n    MAX(CASE WHEN h.datetime = :t1400 THEN h.co END) AS co_1400\n  FROM hourly_station_air_quality h\n  JOIN air_quality_station s ON h.station_id = s.id\n  WHERE s.station_type = 'ROADSIDE'\n    AND h.datetime IN (:t0800, :t1400)\n    AND h.co IS NOT NULL\n  GROUP BY h.station_id\n),\npaired AS (\n  SELECT co_0800, co_1400\n  FROM per_station\n  WHERE co_0800 IS NOT NULL AND co_1400 IS NOT NULL\n)\nSELECT\n  AVG(co_0800)::float AS mean_co_0800,\n  AVG(co_1400)::float AS mean_co_1400,\n  (AVG(co_0800) - AVG(co_1400))::float AS co_difference,\n  COUNT(*)::int AS n_roadside_stations\nFROM paired\n\"\"\")\nres = pd.read_sql(agg_query, engine, params={\"t0800\": t0800, \"t1400\": t1400}).iloc[0]\n\nmean_co_0800 = float(res[\"mean_co_0800\"]) if pd.notna(res[\"mean_co_0800\"]) else float(\"nan\")\nmean_co_1400 = float(res[\"mean_co_1400\"]) if pd.notna(res[\"mean_co_1400\"]) else float(\"nan\")\nco_difference = float(res[\"co_difference\"]) if pd.notna(res[\"co_difference\"]) else float(\"nan\")\nn_roadside_stations = int(res[\"n_roadside_stations\"])\n\nprint({\n    \"matching_non_null_readings_checked\": matching_readings,\n    \"n_roadside_stations_included\": n_roadside_stations,\n    \"mean_co_0800\": mean_co_0800,\n    \"mean_co_1400\": mean_co_1400,\n    \"co_difference_0800_minus_1400\": co_difference\n})"
+            ],
+            "runtime_variables": {
+              "mean_co_0800": 593.7,
+              "mean_co_1400": 639.6999999999999,
+              "co_difference": -45.999999999999886,
+              "n_roadside_stations": 3
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11012,
+      "total_completion_tokens": 1272,
+      "total_tokens": 12284
+    }
+  }
+}

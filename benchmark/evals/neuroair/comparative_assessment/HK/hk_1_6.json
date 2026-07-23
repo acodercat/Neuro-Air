@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_6",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_1_6",
+    "requirements": "As part of your analysis, over 2025-06-01 to 2025-06-06 compute and store: mean_pm25_central, mean_aqhi_central (station 16), mean_pm25_tuenmun, mean_aqhi_tuenmun (station 5) (float).",
+    "conversations": [
+      {
+        "id": "hk_1_6",
+        "turns": [
+          {
+            "query": "Conduct comprehensive temporal pollution transport analysis between Central (station_id: 16) and Tuen Mun (station_id: 5) from 2025-06-01 to 2025-06-06.",
+            "validator": "validate_hk_1_6"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-6",
+      "verbatim": true
+    }
+  }
+]

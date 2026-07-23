@@ -1,0 +1,49 @@
+{
+  "hb_1_18": {
+    "scenario": "hb_1_18",
+    "conversations": [
+      {
+        "id": "hb_1_18",
+        "turns": [
+          {
+            "query": "Analyze the emission surge periods of Tianjin Iron Works Co., Ltd. and analyze their frequency patterns during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u6839\u636e\u5206\u6790\u7ed3\u679c\uff0c\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f8\u57282025-06-10\u81f32025-06-12\u671f\u95f4\u7684\u6392\u653e\u6fc0\u589e\u60c5\u51b5\u5982\u4e0b\uff1a\n\n## \u7edf\u8ba1\u7ed3\u679c\n\n- **\u5cf0\u503c\u70df\u6c14\u91cf (peak_flue_gas)**: 25,007,000.0 \u7acb\u65b9\u7c73\n- **\u5e73\u5747\u70df\u6c14\u91cf (mean_flue_gas)**: 22,787,505.56 \u7acb\u65b9\u7c73\n- **\u6807\u51c6\u5dee (std_flue_gas)**: 1,154,656.56 \u7acb\u65b9\u7c73\n- **\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570 (peak_flue_gas_offset_hours)**: 32 \u5c0f\u65f6\uff08\u5cf0\u503c\u51fa\u73b0\u57282025-06-11 08:00:00\uff09\n- **\u6fc0\u589e\u5c0f\u65f6\u6570 (surge_hours)**: 12 \u5c0f\u65f6\uff08\u70df\u6c14\u91cf\u8d85\u8fc7\u5747\u503c+1\u6807\u51c6\u5dee\u9608\u503c 23,942,162.11 \u7acb\u65b9\u7c73\uff09\n\n## \u6fc0\u589e\u671f\u9891\u7387\u6a21\u5f0f\u5206\u6790\n\n**\u65f6\u95f4\u5206\u5e03\u7279\u5f81\uff1a**\n- \u6fc0\u589e\u671f\u4e3b\u8981\u96c6\u4e2d\u57282025-06-10\u548c2025-06-11\u4e24\u5929\uff0c2025-06-12\u65e0\u6fc0\u589e\u8bb0\u5f55\n- 2025-06-10\uff1a5\u4e2a\u6fc0\u589e\u5c0f\u65f6\uff0814:00-18:00\u8fde\u7eed\u65f6\u6bb5\uff09\n- 2025-06-11\uff1a7\u4e2a\u6fc0\u589e\u5c0f\u65f6\uff0801:00\u300105:00\u300108:00-11:00\u300117:00\uff09\n\n**\u5c0f\u65f6\u5206\u5e03\u6a21\u5f0f\uff1a**\n- 17:00 \u51fa\u73b0\u9891\u7387\u6700\u9ad8\uff082\u6b21\uff0c\u5206\u522b\u5728\u4e24\u5929\uff09\n- \u5cf0\u503c\u51fa\u73b0\u572808:00\uff0825,007,000\u7acb\u65b9\u7c73\uff09\uff0c\u4e3a\u6574\u4e2a\u89c2\u6d4b\u671f\u6700\u9ad8\u503c\n- \u6fc0\u589e\u65f6\u6bb5\u591a\u96c6\u4e2d\u5728\u767d\u5929\uff0808:00-18:00\uff09\uff0c\u591c\u95f4\uff0801:00\u300105:00\uff09\u4e5f\u6709\u96f6\u661f\u51fa\u73b0\n\n**\u8fde\u7eed\u65f6\u6bb5\u5206\u6790\uff1a**\n- \u6fc0\u589e\u671f\u5448\u73b0\u5206\u6563\u5206\u5e03\u7279\u5f81\uff0c\u672a\u5f62\u6210\u5355\u4e00\u8fde\u7eed\u957f\u65f6\u6bb5\n- 2025-06-10 14:00-18:00 \u5f62\u6210\u8fde\u7eed5\u5c0f\u65f6\u6fc0\u589e\u671f\n- 2025-06-11 08:00-11:00 \u5f62\u6210\u8fde\u7eed4\u5c0f\u65f6\u6fc0\u589e\u671f\n\n\u6240\u6709\u7ed3\u679c\u5df2\u5b58\u50a8\u81f3\u5bf9\u5e94\u53d8\u91cf\u4e2d\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 27866,
+              "completion_tokens": 3006,
+              "total_tokens": 30872
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u5929\u6d25\u94a2\u94c1\u6709\u9650\u516c\u53f8\u7684\u516c\u53f8ID\nquery_company = text(\"\"\"\nSELECT id, name, industry_type, city_id, district_id\nFROM polluting_company\nWHERE name LIKE '%\u5929\u6d25\u94a2\u94c1%' OR name LIKE '%Tianjin Iron Works%' OR name LIKE '%\u5929\u6d25\u94c1%'\nLIMIT 10\n\"\"\")\ncompany_df = pd.read_sql(query_company, engine)\nprint(\"\u516c\u53f8\u641c\u7d22\u7ed3\u679c\uff1a\")\nprint(company_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f8\u57282025-06-10\u52302025-06-12\u671f\u95f4\u7684\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u7a97\u53e3\uff1a2025-06-10 00:00 \u5230 2025-06-13 00:00\uff08\u4e0d\u5305\u62ec\uff09\nquery = text(\"\"\"\nSELECT timestamp, exhaust_gas\nFROM hourly_polluting_company_emission\nWHERE company_id = 2564\n  AND timestamp >= '2025-06-10 00:00:00'\n  AND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\n\"\"\")\n\nemission_df = pd.read_sql(query, engine)\nprint(f\"\u6570\u636e\u884c\u6570: {len(emission_df)}\")\nprint(f\"\u65f6\u95f4\u8303\u56f4: {emission_df['timestamp'].min()} \u5230 {emission_df['timestamp'].max()}\")\nprint(\"\\n\u524d10\u6761\u6570\u636e\uff1a\")\nprint(emission_df.head(10))\n\n# \u8ba1\u7b97\u7edf\u8ba1\u91cf\npeak_flue_gas = float(emission_df['exhaust_gas'].max())\nmean_flue_gas = float(emission_df['exhaust_gas'].mean())\nstd_flue_gas = float(emission_df['exhaust_gas'].std(ddof=0))  # \u603b\u4f53\u6807\u51c6\u5dee\n\n# \u627e\u5230\u5cf0\u503c\u65f6\u95f4\npeak_idx = emission_df['exhaust_gas'].idxmax()\npeak_timestamp = emission_df.loc[peak_idx, 'timestamp']\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u65f6\u95f4\u7684\u5c0f\u65f6\u6570\nstart_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_flue_gas_offset_hours = int((peak_timestamp - start_time).total_seconds() / 3600)\n\n# \u8ba1\u7b97\u8d85\u8fc7 mean + 1 std \u7684\u5c0f\u65f6\u6570\nsurge_threshold = mean_flue_gas + std_flue_gas\nsurge_hours = int((emission_df['exhaust_gas'] > surge_threshold).sum())\n\nprint(f\"\\n=== \u7edf\u8ba1\u7ed3\u679c ===\")\nprint(f\"\u5cf0\u503c\u70df\u6c14\u91cf (peak_flue_gas): {peak_flue_gas}\")\nprint(f\"\u5e73\u5747\u503c (mean_flue_gas): {mean_flue_gas}\")\nprint(f\"\u6807\u51c6\u5dee (std_flue_gas): {std_flue_gas}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4: {peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570 (peak_flue_gas_offset_hours): {peak_flue_gas_offset_hours}\")\nprint(f\" surge\u9608\u503c (mean + 1 std): {surge_threshold}\")\nprint(f\" surge\u5c0f\u65f6\u6570 (surge_hours): {surge_hours}\")\n\n# \u5b58\u50a8\u7ed3\u679c\npeak_flue_gas = peak_flue_gas\nmean_flue_gas = mean_flue_gas\nstd_flue_gas = std_flue_gas\npeak_flue_gas_offset_hours = peak_flue_gas_offset_hours\nsurge_hours = surge_hours",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2\u8d85\u8fc7 surge \u9608\u503c\u7684\u5c0f\u65f6\u6570\u636e\uff0c\u5206\u6790\u6fc0\u589e\u671f\u7684\u9891\u7387\u6a21\u5f0f\nquery = text(\"\"\"\nSELECT timestamp, exhaust_gas\nFROM hourly_polluting_company_emission\nWHERE company_id = 2564\n  AND timestamp >= '2025-06-10 00:00:00'\n  AND timestamp < '2025-06-13 00:00:00'\n  AND exhaust_gas > 23942162.11487055\nORDER BY timestamp\n\"\"\")\n\nsurge_df = pd.read_sql(query, engine)\nprint(\"=== \u6fc0\u589e\u671f\u6570\u636e (exhaust_gas > mean + 1 std) ===\")\nprint(surge_df)\n\n# \u5206\u6790\u6fc0\u589e\u671f\u7684\u65f6\u95f4\u5206\u5e03\u6a21\u5f0f\nsurge_df['date'] = surge_df['timestamp'].dt.date\nsurge_df['hour'] = surge_df['timestamp'].dt.hour\nsurge_df['day_of_period'] = surge_df['timestamp'].dt.day - 9  # 2025-06-10 \u4e3a\u7b2c1\u5929\n\nprint(\"\\n=== \u6fc0\u589e\u671f\u6309\u65e5\u671f\u5206\u5e03 ===\")\nprint(surge_df.groupby('date').agg(\n    surge_count=('exhaust_gas', 'count'),\n    avg_exhaust_gas=('exhaust_gas', 'mean'),\n    max_exhaust_gas=('exhaust_gas', 'max')\n))\n\nprint(\"\\n=== \u6fc0\u589e\u671f\u6309\u5c0f\u65f6\u5206\u5e03 ===\")\nprint(surge_df.groupby('hour').agg(\n    surge_count=('exhaust_gas', 'count'),\n    avg_exhaust_gas=('exhaust_gas', 'mean')\n))\n\n# \u68c0\u67e5\u6fc0\u589e\u671f\u662f\u5426\u8fde\u7eed\nsurge_df['is_surge'] = surge_df['exhaust_gas'] > 23942162.11487055\nsurge_df['group'] = (surge_df['is_surge'] != surge_df['is_surge'].shift(1)).cumsum()\nsurge_groups = surge_df[surge_df['is_surge']].groupby('group').agg(\n    start_time=('timestamp', 'min'),\n    end_time=('timestamp', 'max'),\n    duration_hours=('timestamp', 'count'),\n    avg_exhaust_gas=('exhaust_gas', 'mean'),\n    max_exhaust_gas=('exhaust_gas', 'max')\n)\nprint(\"\\n=== \u6fc0\u589e\u671f\u8fde\u7eed\u65f6\u6bb5\u5206\u6790 ===\")\nprint(surge_groups)"
+            ],
+            "runtime_variables": {
+              "peak_flue_gas": 25007000.0,
+              "peak_flue_gas_offset_hours": 32,
+              "mean_flue_gas": 22787505.555555556,
+              "std_flue_gas": 1154656.559314992,
+              "surge_hours": 12
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 27866,
+      "total_completion_tokens": 3006,
+      "total_tokens": 30872
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "hb_2_1": {
+    "scenario": "hb_2_1",
+    "conversations": [
+      {
+        "id": "hb_2_1",
+        "turns": [
+          {
+            "query": "Analyze 24-hour pollution evolution patterns in Shenze County on 2025-06-24, identifying temporal hotspots and their spatial distribution.",
+            "actual_response": "\u67e5\u8be2\u7ed3\u679c\u663e\u793a\u6570\u636e\u5e93\u4e2d\u6ca1\u6709\u540d\u4e3a \"Shenze County\" \u7684\u533a\u53bf\u3002\u4e3a\u4e86\u786e\u4fdd\u51c6\u786e\u6027\uff0c\u6211\u4eec\u9700\u8981\u786e\u8ba4 Shenze County \u662f\u5426\u5b58\u5728\u4e8e\u6570\u636e\u5e93\u4e2d\uff0c\u6216\u8005\u662f\u5426\u5b58\u5728\u540d\u79f0\u4e0a\u7684\u5dee\u5f02\u3002\n\n\u8bf7\u63d0\u4f9b Shenze County \u7684\u6b63\u786e\u540d\u79f0\u6216\u786e\u8ba4\u8be5\u533a\u53bf\u662f\u5426\u786e\u5b9e\u5b58\u5728\u4e8e\u6570\u636e\u5e93\u4e2d\u3002\u5982\u679c\u786e\u8ba4\u8be5\u533a\u53bf\u540d\u79f0\u6b63\u786e\uff0c\u6211\u4eec\u5c06\u518d\u6b21\u5c1d\u8bd5\u67e5\u8be2\u5176AQI\u6570\u636e\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: mean_aqi not set"
+            ],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 24281,
+              "completion_tokens": 747,
+              "total_tokens": 25028
+            },
+            "success": false,
+            "variables_not_set": true,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2 Shenze County \u57282025\u5e746\u670824\u65e5\u7684\u6bcf\u5c0f\u65f6AQI\u6570\u636e\nquery = text(\"\"\"\nSELECT \n    hdaq.timestamp, \n    hdaq.aqi, \n    d.name AS district_name\nFROM \n    hourly_district_air_quality hdaq\nJOIN \n    district d ON hdaq.district_id = d.id\nWHERE \n    d.name = 'Shenze County' AND \n    hdaq.timestamp >= '2025-06-24 00:00:00' AND \n    hdaq.timestamp < '2025-06-25 00:00:00'\nORDER BY \n    hdaq.timestamp\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df.head())",
+              "# \u67e5\u8be2 Shenze County \u7684\u533a\u53bfID\nquery_district_id = text(\"\"\"\nSELECT id, name FROM district WHERE name = 'Shenze County'\n\"\"\")\n\ndistrict_df = pd.read_sql(query_district_id, engine)\nprint(district_df)\n\n# \u5982\u679c\u627e\u5230\u533a\u53bfID\uff0c\u518d\u6b21\u67e5\u8be2\u6bcf\u5c0f\u65f6AQI\u6570\u636e\nif not district_df.empty:\n    district_id = district_df.iloc[0]['id']\n    query_aqi = text(\"\"\"\n    SELECT \n        hdaq.timestamp, \n        hdaq.aqi, \n        d.name AS district_name\n    FROM \n        hourly_district_air_quality hdaq\n    JOIN \n        district d ON hdaq.district_id = d.id\n    WHERE \n        hdaq.district_id = :district_id AND \n        hdaq.timestamp >= '2025-06-24 00:00:00' AND \n        hdaq.timestamp < '2025-06-25 00:00:00'\n    ORDER BY \n        hdaq.timestamp\n    \"\"\")\n    df = pd.read_sql(query_aqi, engine, params={\"district_id\": district_id})\n    print(df.head())",
+              "# \u67e5\u8be2\u6240\u6709\u533a\u53bf\u7684\u540d\u79f0\nquery_all_districts = text(\"\"\"\nSELECT id, name FROM district\n\"\"\")\n\nall_districts_df = pd.read_sql(query_all_districts, engine)\nprint(all_districts_df)"
+            ],
+            "runtime_variables": {
+              "mean_aqi": null,
+              "max_aqi": null,
+              "exceedance_hours": null,
+              "peak_aqi_hour_of_day": null
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 4,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 24281,
+      "total_completion_tokens": 747,
+      "total_tokens": 25028
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "hb_1_19": {
+    "scenario": "hb_1_19",
+    "conversations": [
+      {
+        "id": "hb_1_19",
+        "turns": [
+          {
+            "query": "Analyze when Hebei Jinxi Steel Group Co., Ltd. West Plant shows coordinated high emissions across multiple pollutants during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u6839\u636e\u5bf9\u6cb3\u5317\u6d25\u897f\u94a2\u94c1\u96c6\u56e2\u897f\u5382\u533a2025\u5e746\u670810\u65e5\u81f36\u670812\u65e5\u6392\u653e\u6570\u636e\u7684\u5206\u6790\uff0c\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u591a\u6c61\u67d3\u7269\u534f\u540c\u9ad8\u6392\u653e\u5206\u6790\uff1a**\n\u5728\u76d1\u6d4b\u768472\u5c0f\u65f6\u5185\uff0c\u5171\u8bc6\u522b\u51fa3\u4e2a\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\uff08\u5b9a\u4e49\u4e3a\u81f3\u5c113\u79cd\u6c61\u67d3\u7269\u540c\u65f6\u8d85\u8fc7\u517675%\u5206\u4f4d\u6570\u9608\u503c\uff09\u3002\u8fd9\u4e9b\u65f6\u6bb5\u5206\u522b\u4e3a\uff1a\n1. 6\u670810\u65e517:00\uff1aNOx (133.92 kg)\u3001SO2 (79.77 kg)\u3001PM (39.52 kg) \u540c\u65f6\u5904\u4e8e\u9ad8\u4f4d\u3002\n2. 6\u670811\u65e513:00\uff1aNOx (134.16 kg)\u3001SO2 (76.44 kg)\u3001CO (12134.90 kg) \u540c\u65f6\u5904\u4e8e\u9ad8\u4f4d\u3002\n3. 6\u670812\u65e514:00\uff1aNOx (136.04 kg)\u3001SO2 (72.64 kg)\u3001PM (38.77 kg) \u540c\u65f6\u5904\u4e8e\u9ad8\u4f4d\u3002\n\n\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\u7684NOx\u5747\u503c\u7ea6\u4e3a134.71 kg\uff0cSO2\u5747\u503c\u7ea6\u4e3a76.28 kg\uff0c\u663e\u793a\u51fa\u8fd9\u4e9b\u65f6\u6bb5\u5185\u71c3\u70e7\u6216\u751f\u4ea7\u5de5\u827a\u53ef\u80fd\u5b58\u5728\u6ce2\u52a8\uff0c\u5bfc\u81f4\u591a\u79cd\u6c61\u67d3\u7269\u540c\u6b65\u5347\u9ad8\u3002\n\n**\u7edf\u8ba1\u6c47\u603b\u6570\u636e\uff1a**\n- **NOx\u6392\u653e\u603b\u91cf**: 8989.33 kg\n- **SO2\u6392\u653e\u603b\u91cf**: 4496.97 kg\n- **PM\u6392\u653e\u603b\u91cf**: 2720.09 kg\n- **\u70df\u6c14\u91cf\u5cf0\u503c**: 23,383,600.00 \u7acb\u65b9\u7c73",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 28114,
+              "completion_tokens": 1757,
+              "total_tokens": 29871
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5148\u67e5\u627e\u6cb3\u5317\u6d25\u897f\u94a2\u94c1\u96c6\u56e2\u897f\u533a\u7684\u516c\u53f8\u4fe1\u606f\nquery = text(\"\"\"SELECT id, name, industry_type FROM polluting_company WHERE name LIKE '%\u6d25\u897f%' AND name LIKE '%\u897f%' LIMIT 10\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u6cb3\u5317\u6d25\u897f\u94a2\u94c1\u96c6\u56e2\u897f\u533a\u57282025-06-10\u52302025-06-12\u671f\u95f4\u7684\u9010\u5c0f\u65f6\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00:00 \u5230 2025-06-13 00:00:00 (\u4e0d\u5305\u542b\u7ed3\u675f\u65f6\u95f4)\nquery = text(\"\"\"SELECT timestamp, exhaust_gas, nox, so2, pm, co FROM hourly_polluting_company_emission WHERE company_id = 2569 AND timestamp >= '2025-06-10 00:00:00' AND timestamp < '2025-06-13 00:00:00' ORDER BY timestamp\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(f\"\u6570\u636e\u884c\u6570: {len(df)}\")\nprint(f\"\\n\u6570\u636e\u6982\u89c8:\")\nprint(df.describe())\nprint(f\"\\n\u524d10\u6761\u6570\u636e:\")\nprint(df.head(10))",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u91cd\u65b0\u83b7\u53d6\u5b8c\u6574\u6570\u636e\u7528\u4e8e\u5206\u6790\nquery = text(\"\"\"SELECT timestamp, exhaust_gas, nox, so2, pm, co FROM hourly_polluting_company_emission WHERE company_id = 2569 AND timestamp >= '2025-06-10 00:00:00' AND timestamp < '2025-06-13 00:00:00' ORDER BY timestamp\"\"\")\ndf = pd.read_sql(query, engine)\n\n# \u8ba1\u7b97\u5404\u6c61\u67d3\u7269\u7684\u5206\u4f4d\u6570\uff0c\u5b9a\u4e49\u9ad8\u6392\u653e\u9608\u503c\uff08\u4e0a\u56db\u5206\u4f4d\u6570Q3\uff09\nnox_q3 = df['nox'].quantile(0.75)\nso2_q3 = df['so2'].quantile(0.75)\npm_q3 = df['pm'].quantile(0.75)\nco_q3 = df['co'].quantile(0.75)\n\nprint(f\"\u6c61\u67d3\u7269\u9ad8\u6392\u653e\u9608\u503c(Q3):\")\nprint(f\"NOx: {nox_q3:.2f}, SO2: {so2_q3:.2f}, PM: {pm_q3:.2f}, CO: {co_q3:.2f}\")\n\n# \u8bc6\u522b\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\uff1a\u81f3\u5c113\u79cd\u6c61\u67d3\u7269\u540c\u65f6\u8d85\u8fc7Q3\ndf['nox_high'] = df['nox'] > nox_q3\ndf['so2_high'] = df['so2'] > so2_q3\ndf['pm_high'] = df['pm'] > pm_q3\ndf['co_high'] = df['co'] > co_q3\ndf['high_pollutant_count'] = df['nox_high'].astype(int) + df['so2_high'].astype(int) + df['pm_high'].astype(int) + df['co_high'].astype(int)\n\n# \u627e\u51fa\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\uff08\u81f3\u5c113\u79cd\u6c61\u67d3\u7269\u540c\u65f6\u9ad8\u6392\u653e\uff09\ncoordinated_high = df[df['high_pollutant_count'] >= 3].copy()\nprint(f\"\\n\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\u6570\u91cf\uff08\u22653\u79cd\u6c61\u67d3\u7269\u540c\u65f6\u9ad8\u6392\u653e\uff09: {len(coordinated_high)}\")\n\nif len(coordinated_high) > 0:\n    print(f\"\\n\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\u8be6\u60c5:\")\n    print(coordinated_high[['timestamp', 'nox', 'so2', 'pm', 'co', 'high_pollutant_count']].to_string())\n    \n    # \u5206\u6790\u8fd9\u4e9b\u65f6\u6bb5\u7684\u7279\u5f81\n    print(f\"\\n\u534f\u540c\u9ad8\u6392\u653e\u65f6\u6bb5\u7edf\u8ba1:\")\n    print(f\"NOx\u5747\u503c: {coordinated_high['nox'].mean():.2f}, \u6700\u5927\u503c: {coordinated_high['nox'].max():.2f}\")\n    print(f\"SO2\u5747\u503c: {coordinated_high['so2'].mean():.2f}, \u6700\u5927\u503c: {coordinated_high['so2'].max():.2f}\")\n    print(f\"PM\u5747\u503c: {coordinated_high['pm'].mean():.2f}, \u6700\u5927\u503c: {coordinated_high['pm'].max():.2f}\")\n    print(f\"CO\u5747\u503c: {coordinated_high['co'].mean():.2f}, \u6700\u5927\u503c: {coordinated_high['co'].max():.2f}\")\n    print(f\"\u70df\u6c14\u91cf\u5747\u503c: {coordinated_high['exhaust_gas'].mean():.0f}, \u6700\u5927\u503c: {coordinated_high['exhaust_gas'].max():.0f}\")\n\n# \u8ba1\u7b97\u4efb\u52a1\u8981\u6c42\u7684\u603b\u91cf\u548c\u5cf0\u503c\ntotal_nox_val = float(df['nox'].sum())\ntotal_so2_val = float(df['so2'].sum())\ntotal_pm_val = float(df['pm'].sum())\npeak_flue_gas_val = float(df['exhaust_gas'].max())\n\nprint(f\"\\n\\n\u4efb\u52a1\u8981\u6c42\u8ba1\u7b97\u7ed3\u679c:\")\nprint(f\"total_nox: {total_nox_val}\")\nprint(f\"total_so2: {total_so2_val}\")\nprint(f\"total_pm: {total_pm_val}\")\nprint(f\"peak_flue_gas: {peak_flue_gas_val}\")\n\n# \u5b58\u50a8\u7ed3\u679c\u5230\u53d8\u91cf\ntotal_nox = total_nox_val\ntotal_so2 = total_so2_val\ntotal_pm = total_pm_val\npeak_flue_gas = peak_flue_gas_val"
+            ],
+            "runtime_variables": {
+              "total_nox": 8989.333000000002,
+              "total_so2": 4496.965,
+              "total_pm": 2720.094,
+              "peak_flue_gas": 23383600.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 28114,
+      "total_completion_tokens": 1757,
+      "total_tokens": 29871
+    }
+  }
+}

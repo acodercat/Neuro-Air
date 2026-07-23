@@ -1,0 +1,48 @@
+{
+  "hb_2_21": {
+    "scenario": "hb_2_21",
+    "conversations": [
+      {
+        "id": "hb_2_21",
+        "turns": [
+          {
+            "query": "Compare spatial pollution patterns between Zhengding County and Xingtang County on 2025-06-20, analyzing inter-district pollution transport mechanisms.",
+            "actual_response": "\u6839\u636e\u4e4b\u524d\u7684\u5206\u6790\uff0c2025\u5e746\u670820\u65e5\u6b63\u5b9a\u53bf\u548c\u884c\u5510\u53bf\u4e4b\u95f4\u7684\u6c61\u67d3\u7269\u4f20\u8f93\u673a\u5236\u4e3b\u8981\u53d7\u98ce\u5411\u548c\u98ce\u901f\u7684\u5f71\u54cd\u3002\u884c\u5510\u53bf\u7684\u6c61\u67d3\u7269\u6d53\u5ea6\u7565\u9ad8\u4e8e\u6b63\u5b9a\u53bf\uff0c\u8fd9\u53ef\u80fd\u662f\u56e0\u4e3a\u884c\u5510\u53bf\u7684\u4e1c\u98ce\u548c\u4e1c\u5357\u98ce\u5c06\u6c61\u67d3\u7269\u4f20\u8f93\u5230\u6b63\u5b9a\u53bf\u3002\u540c\u65f6\uff0c\u6b63\u5b9a\u53bf\u7684\u5317\u98ce\u548c\u897f\u5317\u98ce\u4e5f\u53ef\u80fd\u5c06\u6c61\u67d3\u7269\u4f20\u8f93\u5230\u884c\u5510\u53bf\u3002\u56e0\u6b64\uff0c\u5efa\u8bae\u73af\u4fdd\u90e8\u95e8\u5173\u6ce8\u8fd9\u4e24\u4e2a\u53bf\u4e4b\u95f4\u7684\u98ce\u5411\u53d8\u5316\uff0c\u52a0\u5f3a\u76d1\u6d4b\u548c\u9884\u8b66\uff0c\u4ee5\u6709\u6548\u63a7\u5236\u6c61\u67d3\u7269\u7684\u4f20\u8f93\u3002\n\n### \u5b58\u50a8\u7ed3\u679c\n\n- \u6b63\u5b9a\u53bf\uff1a\n  - PM2.5\u5e73\u5747\u503c\uff1a32.38 \u03bcg/m\u00b3\n  - NO2\u5e73\u5747\u503c\uff1a13.04 \u03bcg/m\u00b3\n\n- \u884c\u5510\u53bf\uff1a\n  - PM2.5\u5e73\u5747\u503c\uff1a33.92 \u03bcg/m\u00b3\n  - NO2\u5e73\u5747\u503c\uff1a16.08 \u03bcg/m\u00b3\n\n\u8fd9\u4e9b\u7ed3\u679c\u5df2\u7ecf\u5b58\u50a8\u5728\u53d8\u91cf\u4e2d\uff1a\n\n- `mean_pm25_zhengding = 32.375000`\n- `mean_no2_zhengding = 13.041667`\n- `mean_pm25_xingtang = 33.916667`\n- `mean_no2_xingtang = 16.083333`\n\n\u5206\u6790\u5b8c\u6210\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 29457,
+              "completion_tokens": 1697,
+              "total_tokens": 31154
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u6b63\u5b9a\u53bf\u548c\u884c\u5510\u53bf2025-06-20\u7684PM2.5\u548cNO2\u7684\u5c0f\u65f6\u5e73\u5747\u503c\nquery = text(\"\"\"\nWITH county_data AS (\n    SELECT \n        d.name AS district_name,\n        hsaq.timestamp,\n        AVG(hsaq.pm2_5) AS pm2_5,\n        AVG(hsaq.no2) AS no2\n    FROM hourly_district_air_quality hsaq\n    JOIN district d ON hsaq.district_id = d.id\n    WHERE d.name IN ('\u6b63\u5b9a\u53bf', '\u884c\u5510\u53bf') AND hsaq.timestamp >= '2025-06-20 00:00:00' AND hsaq.timestamp < '2025-06-21 00:00:00'\n    GROUP BY d.name, hsaq.timestamp\n)\nSELECT \n    district_name,\n    AVG(pm2_5) AS mean_pm25,\n    AVG(no2) AS mean_no2\nFROM county_data\nGROUP BY district_name\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "# \u83b7\u53d62025-06-20\u6b63\u5b9a\u53bf\u548c\u884c\u5510\u53bf\u7684\u98ce\u901f\u548c\u98ce\u5411\u6570\u636e\nquery_wind = text(\"\"\"\nSELECT \n    d.name AS district_name,\n    hw.timestamp,\n    hw.wind_speed,\n    hw.wind_direction,\n    hw.wind_degree\nFROM hourly_district_weather hw\nJOIN district d ON hw.district_id = d.id\nWHERE d.name IN ('\u6b63\u5b9a\u53bf', '\u884c\u5510\u53bf') AND hw.timestamp >= '2025-06-20 00:00:00' AND hw.timestamp < '2025-06-21 00:00:00'\nORDER BY d.name, hw.timestamp\n\"\"\")\n\nwind_df = pd.read_sql(query_wind, engine)\nprint(wind_df)",
+              "# \u5b58\u50a8\u7ed3\u679c\nmean_pm25_zhengding = 32.375000\nmean_no2_zhengding = 13.041667\nmean_pm25_xingtang = 33.916667\nmean_no2_xingtang = 16.083333"
+            ],
+            "runtime_variables": {
+              "mean_pm25_zhengding": 32.375,
+              "mean_no2_zhengding": 13.041667,
+              "mean_pm25_xingtang": 33.916667,
+              "mean_no2_xingtang": 16.083333
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 29457,
+      "total_completion_tokens": 1697,
+      "total_tokens": 31154
+    }
+  }
+}

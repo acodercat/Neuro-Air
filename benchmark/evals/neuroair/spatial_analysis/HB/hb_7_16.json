@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_16",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_16",
+    "requirements": "As part of your analysis, for company 2426 over 2025-06-10 06:00-10:00 (inclusive) compute and store: total_flue_gas, peak_flue_gas, total_nox (float), stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_16",
+        "turns": [
+          {
+            "query": "Help me assess the pollution dispersion from Qian'an Jiujiang Wire Rod Co., Ltd. (company_id: 2426) on 2025-06-10 during the morning production peak (06:00-10:00).",
+            "validator": "validate_hb_7_16"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-16",
+      "verbatim": true
+    }
+  }
+]

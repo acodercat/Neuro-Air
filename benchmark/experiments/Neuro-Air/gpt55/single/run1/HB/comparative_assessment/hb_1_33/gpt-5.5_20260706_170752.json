@@ -1,0 +1,46 @@
+{
+  "hb_1_33": {
+    "scenario": "hb_1_33",
+    "conversations": [
+      {
+        "id": "hb_1_33",
+        "turns": [
+          {
+            "query": "Analyze which districts in \u4fdd\u5b9a\u5e02 (Lianchi, Jingxiu, or Mancheng) had the highest emission intensity on 2025-06-05 during morning hours (06:00-10:00).",
+            "actual_response": "2025-06-05 06:00\u201310:00\uff0c\u4fdd\u5b9a\u5e02\u4e09\u4e2a\u533a\u4e2d\u6392\u653e\u5f3a\u5ea6\u6700\u9ad8\u7684\u662f\u6ee1\u57ce\u533a\uff0cdistrict_id \u4e3a 93\u3002\n\n\u5404\u533a\u6392\u653e\u5f3a\u5ea6\u5982\u4e0b\uff1a\n\n- \u6ee1\u57ce\u533a\uff1a9,224,648.0 \u7acb\u65b9\u7c73\n- \u7ade\u79c0\u533a\uff1a7,161,182.5 \u7acb\u65b9\u7c73\n- \u83b2\u6c60\u533a\uff1a0.0 \u7acb\u65b9\u7c73\n\n\u7ed3\u8bba\uff1a\u6ee1\u57ce\u533a\u5728\u8be5\u65f6\u6bb5\u7684\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u603b\u91cf\u6700\u9ad8\uff0c\u9ad8\u4e8e\u7ade\u79c0\u533a\uff1b\u83b2\u6c60\u533a\u8be5\u65f6\u6bb5\u672a\u7edf\u8ba1\u5230\u4f01\u4e1a\u5e9f\u6c14\u6392\u653e\u91cf\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 11698,
+              "completion_tokens": 1042,
+              "total_tokens": 12740
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart_ts = '2025-06-05 06:00:00'\nend_ts = '2025-06-05 10:00:00'\n\n# \u5148\u786e\u8ba4\u76ee\u6807\u533a\u53bf\u4e0e\u65f6\u6bb5\u5185\u4f01\u4e1a\u6392\u653e\u8bb0\u5f55\u89c4\u6a21\uff0c\u518d\u505a\u805a\u5408\u8ba1\u7b97\ncount_q = text(\"\"\"\nSELECT COUNT(*) AS n\nFROM hourly_polluting_company_emission h\nJOIN polluting_company p ON h.company_id = p.id\nJOIN district d ON p.district_id = d.id\nJOIN city c ON p.city_id = c.id\nWHERE c.name = '\u4fdd\u5b9a\u5e02'\n  AND d.name IN ('\u83b2\u6c60\u533a','\u7ade\u79c0\u533a','\u6ee1\u57ce\u533a')\n  AND h.timestamp >= :start_ts AND h.timestamp < :end_ts\n\"\"\")\nrecord_count = int(pd.read_sql(count_q, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts}).loc[0, \"n\"])\n\nsum_q = text(\"\"\"\nWITH target AS (\n  SELECT d.id AS district_id, d.name AS district_name\n  FROM district d\n  JOIN city c ON d.city_id = c.id\n  WHERE c.name = '\u4fdd\u5b9a\u5e02'\n    AND d.name IN ('\u83b2\u6c60\u533a','\u7ade\u79c0\u533a','\u6ee1\u57ce\u533a')\n)\nSELECT\n  t.district_id,\n  t.district_name,\n  COALESCE(SUM(h.exhaust_gas), 0)::float AS total_exhaust\nFROM target t\nLEFT JOIN polluting_company p ON p.district_id = t.district_id\nLEFT JOIN hourly_polluting_company_emission h\n  ON h.company_id = p.id\n AND h.timestamp >= :start_ts AND h.timestamp < :end_ts\nGROUP BY t.district_id, t.district_name\nORDER BY total_exhaust DESC, t.district_id\n\"\"\")\ndistrict_intensity = pd.read_sql(sum_q, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\n\nname_map = {'\u83b2\u6c60\u533a': 'total_exhaust_lianchi', '\u7ade\u79c0\u533a': 'total_exhaust_jingxiu', '\u6ee1\u57ce\u533a': 'total_exhaust_mancheng'}\nvals = {v: 0.0 for v in name_map.values()}\nfor _, r in district_intensity.iterrows():\n    vals[name_map[r[\"district_name\"]]] = float(r[\"total_exhaust\"])\n\ntotal_exhaust_lianchi = vals[\"total_exhaust_lianchi\"]\ntotal_exhaust_jingxiu = vals[\"total_exhaust_jingxiu\"]\ntotal_exhaust_mancheng = vals[\"total_exhaust_mancheng\"]\nhighest_intensity_district_id = int(district_intensity.iloc[0][\"district_id\"]) if len(district_intensity) else 0\n\nprint(f\"\u7eb3\u5165\u805a\u5408\u7684\u5c0f\u65f6\u4f01\u4e1a\u6392\u653e\u8bb0\u5f55\u6570\uff1a{record_count}\")\nprint(\"2025-06-05 06:00-10:00 \u5404\u533a\u6392\u653e\u5f3a\u5ea6\u6c47\u603b\uff1a\")\nprint(district_intensity.to_string(index=False))\nprint(f\"\u53d8\u91cf\u5df2\u8d4b\u503c\uff1atotal_exhaust_lianchi={total_exhaust_lianchi}, total_exhaust_jingxiu={total_exhaust_jingxiu}, total_exhaust_mancheng={total_exhaust_mancheng}, highest_intensity_district_id={highest_intensity_district_id}\")"
+            ],
+            "runtime_variables": {
+              "total_exhaust_lianchi": 0.0,
+              "total_exhaust_jingxiu": 7161182.5,
+              "total_exhaust_mancheng": 9224648.0,
+              "highest_intensity_district_id": 93
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 11698,
+      "total_completion_tokens": 1042,
+      "total_tokens": 12740
+    }
+  }
+}

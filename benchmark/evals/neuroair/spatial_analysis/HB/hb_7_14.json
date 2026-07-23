@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_14",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_14",
+    "requirements": "As part of your analysis, for company 2417 at 2025-06-10 08:00 compute and store: flue_gas_0800, nox_0800, so2_0800, pm_0800 (float) and stations_within_10km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_14",
+        "turns": [
+          {
+            "query": "Help me evaluate how Jingye Metallurgical Technology Co., Ltd. (company_id: 2417) emissions affected nearby residential areas on 2025-06-10 at 08:00.",
+            "validator": "validate_hb_7_14"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-14",
+      "verbatim": true
+    }
+  }
+]

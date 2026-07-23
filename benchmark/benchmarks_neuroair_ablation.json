@@ -1,0 +1,112 @@
+{
+  "HB": {
+    "comparative_assessment": {
+      "hb_1_2": "evals/neuroair/comparative_assessment/HB/hb_1_2.json",
+      "hb_1_23": "evals/neuroair/comparative_assessment/HB/hb_1_23.json",
+      "hb_1_25": "evals/neuroair/comparative_assessment/HB/hb_1_25.json",
+      "hb_1_28": "evals/neuroair/comparative_assessment/HB/hb_1_28.json",
+      "hb_1_31": "evals/neuroair/comparative_assessment/HB/hb_1_31.json",
+      "hb_1_33": "evals/neuroair/comparative_assessment/HB/hb_1_33.json",
+      "hb_1_37": "evals/neuroair/comparative_assessment/HB/hb_1_37.json",
+      "hb_2_11": "evals/neuroair/comparative_assessment/HB/hb_2_11.json",
+      "hb_2_15": "evals/neuroair/comparative_assessment/HB/hb_2_15.json",
+      "hb_2_21": "evals/neuroair/comparative_assessment/HB/hb_2_21.json",
+      "hb_2_23": "evals/neuroair/comparative_assessment/HB/hb_2_23.json"
+    },
+    "data_retrieval": {
+      "hb_1_11": "evals/neuroair/data_retrieval/HB/hb_1_11.json",
+      "hb_1_6": "evals/neuroair/data_retrieval/HB/hb_1_6.json",
+      "hb_1_7": "evals/neuroair/data_retrieval/HB/hb_1_7.json",
+      "hb_1_8": "evals/neuroair/data_retrieval/HB/hb_1_8.json",
+      "hb_1_9": "evals/neuroair/data_retrieval/HB/hb_1_9.json",
+      "hb_2_1": "evals/neuroair/data_retrieval/HB/hb_2_1.json",
+      "hb_2_19": "evals/neuroair/data_retrieval/HB/hb_2_19.json",
+      "hb_2_2": "evals/neuroair/data_retrieval/HB/hb_2_2.json",
+      "hb_3_14": "evals/neuroair/data_retrieval/HB/hb_3_14.json",
+      "hb_3_18": "evals/neuroair/data_retrieval/HB/hb_3_18.json",
+      "hb_3_21": "evals/neuroair/data_retrieval/HB/hb_3_21.json",
+      "hb_3_23": "evals/neuroair/data_retrieval/HB/hb_3_23.json",
+      "hb_3_25": "evals/neuroair/data_retrieval/HB/hb_3_25.json",
+      "hb_6_13": "evals/neuroair/data_retrieval/HB/hb_6_13.json",
+      "hb_7_2": "evals/neuroair/data_retrieval/HB/hb_7_2.json",
+      "hb_7_29": "evals/neuroair/data_retrieval/HB/hb_7_29.json"
+    },
+    "spatial_analysis": {
+      "hb_2_12": "evals/neuroair/spatial_analysis/HB/hb_2_12.json",
+      "hb_2_16": "evals/neuroair/spatial_analysis/HB/hb_2_16.json",
+      "hb_2_34": "evals/neuroair/spatial_analysis/HB/hb_2_34.json",
+      "hb_5_10": "evals/neuroair/spatial_analysis/HB/hb_5_10.json",
+      "hb_5_11": "evals/neuroair/spatial_analysis/HB/hb_5_11.json",
+      "hb_5_8": "evals/neuroair/spatial_analysis/HB/hb_5_8.json",
+      "hb_6_10": "evals/neuroair/spatial_analysis/HB/hb_6_10.json",
+      "hb_6_12": "evals/neuroair/spatial_analysis/HB/hb_6_12.json",
+      "hb_6_16": "evals/neuroair/spatial_analysis/HB/hb_6_16.json",
+      "hb_7_13": "evals/neuroair/spatial_analysis/HB/hb_7_13.json",
+      "hb_7_14": "evals/neuroair/spatial_analysis/HB/hb_7_14.json",
+      "hb_7_15": "evals/neuroair/spatial_analysis/HB/hb_7_15.json",
+      "hb_7_16": "evals/neuroair/spatial_analysis/HB/hb_7_16.json",
+      "hb_7_17": "evals/neuroair/spatial_analysis/HB/hb_7_17.json",
+      "hb_7_18": "evals/neuroair/spatial_analysis/HB/hb_7_18.json",
+      "hb_7_20": "evals/neuroair/spatial_analysis/HB/hb_7_20.json",
+      "hb_7_21": "evals/neuroair/spatial_analysis/HB/hb_7_21.json",
+      "hb_7_22": "evals/neuroair/spatial_analysis/HB/hb_7_22.json",
+      "hb_7_23": "evals/neuroair/spatial_analysis/HB/hb_7_23.json",
+      "hb_7_24": "evals/neuroair/spatial_analysis/HB/hb_7_24.json",
+      "hb_7_25": "evals/neuroair/spatial_analysis/HB/hb_7_25.json",
+      "hb_7_26": "evals/neuroair/spatial_analysis/HB/hb_7_26.json",
+      "hb_7_27": "evals/neuroair/spatial_analysis/HB/hb_7_27.json",
+      "hb_7_30": "evals/neuroair/spatial_analysis/HB/hb_7_30.json",
+      "hb_7_32": "evals/neuroair/spatial_analysis/HB/hb_7_32.json",
+      "hb_7_35": "evals/neuroair/spatial_analysis/HB/hb_7_35.json",
+      "hb_7_5": "evals/neuroair/spatial_analysis/HB/hb_7_5.json"
+    },
+    "statistical_characterization": {
+      "hb_1_1": "evals/neuroair/statistical_characterization/HB/hb_1_1.json",
+      "hb_1_19": "evals/neuroair/statistical_characterization/HB/hb_1_19.json",
+      "hb_1_26": "evals/neuroair/statistical_characterization/HB/hb_1_26.json",
+      "hb_1_32": "evals/neuroair/statistical_characterization/HB/hb_1_32.json",
+      "hb_1_4": "evals/neuroair/statistical_characterization/HB/hb_1_4.json",
+      "hb_1_41": "evals/neuroair/statistical_characterization/HB/hb_1_41.json",
+      "hb_1_5": "evals/neuroair/statistical_characterization/HB/hb_1_5.json",
+      "hb_3_10": "evals/neuroair/statistical_characterization/HB/hb_3_10.json",
+      "hb_3_11": "evals/neuroair/statistical_characterization/HB/hb_3_11.json",
+      "hb_3_20": "evals/neuroair/statistical_characterization/HB/hb_3_20.json",
+      "hb_3_28": "evals/neuroair/statistical_characterization/HB/hb_3_28.json",
+      "hb_5_27": "evals/neuroair/statistical_characterization/HB/hb_5_27.json",
+      "hb_5_28": "evals/neuroair/statistical_characterization/HB/hb_5_28.json",
+      "hb_5_29": "evals/neuroair/statistical_characterization/HB/hb_5_29.json",
+      "hb_7_34": "evals/neuroair/statistical_characterization/HB/hb_7_34.json",
+      "hb_7_36": "evals/neuroair/statistical_characterization/HB/hb_7_36.json"
+    },
+    "temporal_pattern_analysis": {
+      "hb_1_10": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_10.json",
+      "hb_1_12": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_12.json",
+      "hb_1_13": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_13.json",
+      "hb_1_14": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_14.json",
+      "hb_1_16": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_16.json",
+      "hb_1_18": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_18.json",
+      "hb_1_20": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_20.json",
+      "hb_1_29": "evals/neuroair/temporal_pattern_analysis/HB/hb_1_29.json"
+    }
+  },
+  "HK": {
+    "comparative_assessment": {
+      "hk_1_11": "evals/neuroair/comparative_assessment/HK/hk_1_11.json",
+      "hk_1_13": "evals/neuroair/comparative_assessment/HK/hk_1_13.json",
+      "hk_1_2": "evals/neuroair/comparative_assessment/HK/hk_1_2.json",
+      "hk_1_5": "evals/neuroair/comparative_assessment/HK/hk_1_5.json",
+      "hk_1_6": "evals/neuroair/comparative_assessment/HK/hk_1_6.json",
+      "hk_2_6": "evals/neuroair/comparative_assessment/HK/hk_2_6.json",
+      "hk_3_11": "evals/neuroair/comparative_assessment/HK/hk_3_11.json"
+    },
+    "data_retrieval": {
+      "hk_1_1": "evals/neuroair/data_retrieval/HK/hk_1_1.json",
+      "hk_1_10": "evals/neuroair/data_retrieval/HK/hk_1_10.json",
+      "hk_1_7": "evals/neuroair/data_retrieval/HK/hk_1_7.json",
+      "hk_2_18": "evals/neuroair/data_retrieval/HK/hk_2_18.json"
+    },
+    "temporal_pattern_analysis": {
+      "hk_1_9": "evals/neuroair/temporal_pattern_analysis/HK/hk_1_9.json"
+    }
+  }
+}

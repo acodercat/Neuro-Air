@@ -1,0 +1,475 @@
+[
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gpt5": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 2 provides the most comprehensive and well-structured analysis with detailed industry breakdowns, spatial distribution patterns, and specific quantitative insights (e.g., steel industry contributing 83.7% NOx, 81.5% SO2, 91.9% PM). Agent 5 offers excellent quantitative rigor with clear statistical analysis and pollutant composition breakdown, though slightly less organized presentation. Agent 3 provides solid comprehensive coverage with good industry and geographic analysis. Agent 1 gives accurate but more limited analysis focusing mainly on PM emissions. Agent 6 offers clear but basic analysis with less quantitative detail. Agent 4 provides the least comprehensive response with minimal quantitative insights and appears incomplete with its abrupt 'No.' opening."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "claude4": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first due to exceptional consistency (noting the 0.01 kg rounding difference between daily and hourly totals), comprehensive completeness (covering data quality, temporal patterns, and peak timing), and excellent organization with clear sections. Agent 6 follows closely with strong temporal analysis and clear presentation. Agent 2 provides good contextual insights with additional pollutant data. Agent 3 offers solid analysis with appropriate conclusions. Agent 1 provides accurate basics but lacks depth in temporal analysis. Agent 4 ranks last due to incomplete analysis (mentions NaN standard deviation inappropriately) and minimal insights despite having the core data correct."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and quantitatively rigorous analysis with complete data coverage (72 hourly records), detailed daily totals with percentage changes, specific peak values with timestamps, and actionable recommendations. Agent 2 offers excellent organization with clear sections and good statistical analysis including coefficients of variation and pollutant ratios. Agent 3 provides solid analysis with good statistical metrics but less detailed than the top two. Agent 1 gives reasonable analysis but with some inconsistencies in the data presentation and less comprehensive coverage. Agent 6 provides basic pattern identification but lacks quantitative depth and specific values. Agent 4 offers the least comprehensive analysis with minimal quantitative details and appears incomplete, ending with questions rather than conclusions."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and methodologically rigorous analysis with detailed quantitative breakdowns by industry, clear data coverage metrics, and consistent mathematical relationships. Agent 2 offers excellent organization and completeness with good geographic analysis. Agent 1 provides solid industry-focused analysis with temporal patterns. Agent 3 gives good categorization but has some inconsistencies in company counts. Agent 6 offers clear insights but lacks depth in quantitative analysis. Agent 4 provides the least complete response with minimal analysis and ends abruptly with questions rather than conclusions."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "gemini": 3,
+            "qwen3": 4,
+            "claude4": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional consistency with precise quantitative data (338,611.88 kg total pollutant mass, 93.20% from single enterprise), comprehensive coverage including spatial distribution and actionable management recommendations, and clear systematic organization. Agent 2 follows with strong geographic analysis highlighting Huanghua City's dominance and good industry breakdown. Agent 6 provides solid overall analysis with clear sector identification. Agent 1 offers reasonable industry analysis but with some inconsistencies in emission factors. Agent 3 focuses heavily on temporal patterns but lacks depth in other areas. Agent 4 ranks lowest due to inconsistent data presentation, unclear temporal analysis methodology, and less comprehensive coverage of the emission patterns requested."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and scientifically rigorous analysis, incorporating meteorological data, regional comparisons, source attribution, and actionable recommendations. Agent 2 offers excellent diurnal pattern analysis with clear three-phase structure and correlation analysis. Agent 3 provides solid temporal analysis with good organization. Agent 6 includes valuable meteorological context but lacks depth in source analysis. Agent 1 gives basic statistical summary but limited interpretation. Agent 4 provides the most superficial analysis with minimal insights and explicitly states no further analysis is needed."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gpt5": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 2 ranks first with the most comprehensive analysis including weather correlations, regional comparisons, and detailed diurnal patterns with strong scientific rigor. Agent 5 provides excellent statistical analysis with city-level comparisons and weather relationships. Agent 3 offers good bilingual analysis with clear pollution characterization. Agent 1 gives solid basic analysis but lacks depth in correlations and comparisons. Agent 6 provides adequate analysis with district comparisons but less comprehensive than top performers. Agent 4 ranks last due to basic presentation, incomplete analysis of patterns, and lack of contextual insights despite covering the essential data points."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gpt5": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 2 ranks first with the most comprehensive and well-structured analysis, providing detailed temporal patterns, meteorological correlations, and clear formation mechanisms with specific quantitative findings. Agent 5 follows closely with excellent technical depth, introducing valuable Ox diagnostics and wind sector analysis, though slightly less accessible. Agent 1 provides solid analysis with good correlations but less detailed temporal breakdown. Agent 3 offers clear daily progression analysis but lacks some quantitative depth. Agent 6 gives a concise, accurate summary focusing on key photochemical relationships but is less comprehensive. Agent 4 ranks last due to a critical error (claiming peak O3 at 23:00 instead of 17:00) and less detailed analysis, despite covering basic patterns correctly."
+    },
+    {
+        "ranking": {
+            "gemini": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "deepseek": 4,
+            "kimi2": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 6 ranks first due to exceptional completeness - it uniquely identifies specific pollution sources (nearby construction site 689m away), provides detailed temporal analysis with meteorological context, and offers plausible explanations for observed patterns. Agent 3 ranks second with comprehensive WHO standard comparisons and health impact assessment, though lacks source identification. Agent 1 provides solid technical analysis with meteorological correlations but less contextual insight. Agent 4 offers good diurnal pattern analysis but is more descriptive than analytical. Agent 2 has some inconsistencies (claiming 'good' air quality while noting concerning levels) and less depth. Agent 5 ranks last despite being technically accurate because it's overly brief, lacks interpretation, and reads more like a data summary than an environmental analysis."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "deepseek": 4,
+            "gemini": 5,
+            "qwen3": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and scientifically rigorous analysis with detailed statistical breakdowns, correlation analysis, and emission intensity calculations. Agent 2 offers excellent temporal pattern analysis and environmental impact assessment with clear operational insights. Agent 3 provides good day-to-day comparisons and stability analysis with specific threshold exceedances. Agent 4 gives solid operational insights with clear emission patterns but less quantitative depth. Agent 6 provides basic statistical summary but lacks temporal analysis and deeper insights. Agent 1 offers only superficial observations without meaningful analysis of variations or patterns, failing to fully address the analytical requirements of the query."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "gpt5": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 provides the most comprehensive and scientifically rigorous analysis with detailed diurnal patterns, meteorological correlations, and quantitative data throughout. Agent 2 offers excellent structure and clear explanations with good meteorological context. Agent 3 delivers solid analysis with clear temporal patterns and appropriate scientific interpretation. Agent 5 provides extensive data but lacks clear narrative flow and actionable insights. Agent 6 attempts comprehensive analysis but contains some questionable claims about spatial patterns and emission correlations that aren't well-supported. Agent 4 provides the least complete response, appearing more like preliminary findings than a full analysis, lacking the depth and completeness expected for air quality pattern analysis."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and consistent analysis with clear methodology (90th percentile threshold), precise quantitative results, and comprehensive statistical analysis including correlations and temporal patterns. Agent 3 offers excellent detail with multi-pollutant event identification and clear temporal patterns. Agent 2 provides good structure with sustained emission periods and operational insights. Agent 1 gives reasonable analysis but with some inconsistencies in peak timing claims. Agent 6 offers basic findings but lacks depth and systematic approach. Agent 4 is fundamentally flawed, incorrectly concluding no significant emission peaks occurred when other agents clearly identified multiple high emission periods with specific quantitative evidence."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "deepseek": 4,
+            "gemini": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 3 provides the most comprehensive and well-structured analysis with detailed daily patterns, hourly emission patterns, statistical measures (averages, standard deviations), and clear conclusions. Agent 2 offers good analysis with consistent findings and clear organization but less statistical depth. Agent 1 provides accurate results with good pattern identification but less comprehensive analysis. Agent 4 gives correct findings but is more concise with less detail. Agent 6 provides only the basic answer without analysis. Agent 5 ranks last due to its extremely minimal response that lacks proper context and analysis, despite having the correct peak value."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "qwen3": 2,
+            "claude4": 3,
+            "kimi2": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with clear methodology (95th percentile thresholds), systematic evaluation of meteorological factors, downwind/upwind ambient air analysis, and emission-intensity diagnostics. The response demonstrates strong scientific rigor with correlation analysis and actionable recommendations. Agent 1 follows with good consistency in identifying specific spikes with timestamps and reasonable meteorological interpretation. Agent 3 provides thorough spike identification (11 spikes) with good temporal pattern analysis. Agent 2 offers solid quantitative analysis with percentage increases but has some inconsistencies in spike counts. Agent 6 provides basic spike identification but lacks depth in analysis and meteorological consideration. Agent 4 focuses only on NOx, missing the multi-pollutant nature of the problem, making it incomplete despite reasonable operational insights."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "kimi2": 2,
+            "gemini": 3,
+            "qwen3": 4,
+            "gpt5": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 3 provides the most comprehensive and scientifically rigorous analysis with clear quantitative thresholds (75th percentile), detailed temporal patterns, and strong correlation analysis between PM emissions and production intensity. Agent 2 offers excellent organization with clear peak identification and production schedule insights, though slightly less quantitative rigor. Agent 6 delivers solid technical analysis with good correlation findings but less detailed temporal breakdown. Agent 1 provides reasonable analysis but with some inconsistencies in correlation values and less structured presentation. Agent 5 offers detailed statistics but acknowledges the critical limitation of missing production schedule data, making correlation analysis incomplete. Agent 4 provides minimal analysis with concerning data quality issues (0.00 emission rates) and lacks depth in addressing the correlation requirements."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "kimi2": 2,
+            "gemini": 3,
+            "deepseek": 4,
+            "qwen3": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 3 ranks highest with comprehensive analysis including peak identification, hourly patterns, baseline comparisons, and operational insights. Agent 2 provides clear peak identification with good context. Agent 6 offers solid peak identification with additional notable hours. Agent 4 presents consistent data but with some formatting issues. Agent 1 gives basic but accurate peak identification. Agent 5 ranks lowest with minimal information and unclear terminology ('number of peak hours at this value')."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "kimi2": 2,
+            "gpt5": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 provides the most consistent and accurate answer (25,435,300 cubic meters on 2025-06-10 at 04:00), which is confirmed by Agents 2 and 5. Agent 2 adds valuable context about the top 4 peaks occurring on the same morning. Agent 5 is concise but accurate with a helpful note about nighttime definitions. Agent 3 provides good analysis but has the same core findings. Agent 6 has a critical error, claiming the maximum occurred on 2025-06-11 (25,239,900 cubic meters) instead of 2025-06-10, making it inconsistent with the majority. Agent 4 shows the most significant inconsistencies, mentioning June 13 (outside the query range) and different emission values, suggesting data interpretation errors."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "gemini": 3,
+            "qwen3": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most scientifically rigorous analysis with clear surge definitions (95th percentile), consistent methodology, and comprehensive frequency patterns including episode characteristics and temporal distributions. Agent 3 offers solid analysis with good pollutant-specific patterns and operational insights. Agent 6 provides interesting meteorological correlations but has some data quality issues. Agent 1 shows good analysis but uses a lower threshold (75th percentile) leading to very high surge frequencies that may not represent true surges. Agent 2 contradicts itself by claiming 'no traditional surge periods' while identifying 8 elevated periods, showing methodological inconsistency. Agent 4 provides no actual analysis, only acknowledging the absence of surges with their chosen threshold, failing to address the core request."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "kimi2": 2,
+            "gemini": 3,
+            "claude4": 4,
+            "gpt5": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 provides the most comprehensive and consistent analysis, identifying 3 specific coordinated high emission events with detailed pollutant values and correlation analysis. Agent 2 offers similar quality with good temporal pattern analysis and emission intensity calculations. Agent 6 provides clear methodology with 90th percentile thresholds and identifies 5 coordinated events, though with less detail. Agent 3 claims 7 events but includes questionable pollutants like 'exhaust gas' and shows some inconsistencies. Agent 5 uses appropriate methodology but provides minimal interpretation. Agent 4 fails completely by using an inappropriate 1.5x threshold and incorrectly concluding no coordinated emissions occurred, contradicting the clear evidence presented by other agents."
+    },
+    {
+        "ranking": {
+            "gemini": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gpt5": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 6 ranks first due to exceptional completeness and consistency - it provides specific identification of emission events (2025-06-11 04:00-06:00), validates findings with downstream air quality monitoring data, and demonstrates clear cause-effect relationships. Agent 3 ranks second with comprehensive analysis covering 80% correlation and detailed breakdown by day, though lacks external validation. Agent 1 provides solid technical analysis with plausible findings but less quantitative rigor. Agent 5 offers precise statistical analysis but contradicts other agents with only 5.6% correlation, raising consistency concerns. Agent 2 has internal inconsistencies (negative wind speeds, conflicting correlation percentages). Agent 4 ranks last due to incomplete analysis, vague conclusions, and failure to identify specific high-emission periods as requested."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and methodologically sound analysis with clear statistical thresholds, quantified anomalies, and specific timestamps. Agent 3 offers good statistical analysis with clear patterns and reasonable interpretations. Agent 2 provides structured findings with identified production patterns, though less rigorous than top agents. Agent 1 gives basic statistical analysis but lacks the depth of higher-ranked responses. Agent 6 shows fundamental methodological flaws by defining nighttime as 'outside production hours' when steel plants typically operate continuously. Agent 4 provides the least useful response by concluding no anomalies exist without proper statistical analysis, contradicting evidence found by other agents."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gpt5": 2,
+            "gemini": 3,
+            "claude4": 4,
+            "deepseek": 5,
+            "qwen3": 6
+        },
+        "reason": "Agent 2 ranks highest due to excellent consistency in data presentation, complete fulfillment of the query with detailed breakdowns of all pollutants, clear organization with key observations, and actionable insights about emission patterns. Agent 5 follows closely with precise data presentation and comprehensive summary statistics. Agent 6 provides unique value through environmental impact analysis but has slight rounding inconsistencies. Agent 3 offers good analysis but is incomplete (only shows top 5). Agent 4 provides accurate data but lacks detailed pollutant breakdowns. Agent 1 ranks lowest due to major inconsistencies - reporting implausibly high emission values (29+ million kg/m\u00b3) that appear to confuse mass and volume units, making the response scientifically unreliable despite attempting to address the query."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "deepseek": 4,
+            "qwen3": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and methodologically rigorous analysis with detailed statistical measures (medians, IQRs, coefficients of variation), temporal correlation analysis, and emission intensity calculations. Agent 3 follows closely with excellent emission intensity analysis and clear scale comparisons. Agent 2 offers good insights about process differences and regulatory implications. Agent 4 provides solid temporal pattern analysis but less statistical depth. Agent 1 gives basic comparisons but lacks analytical rigor. Agent 6 provides the least detailed analysis with minimal quantitative insights and no emission intensity calculations."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "qwen3": 3,
+            "claude4": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks first for exceptional consistency and scientific rigor - it correctly identifies that compliance rates cannot be calculated without regulatory limits, provides detailed data analysis with exact figures, and notes data discrepancies between hourly sums and daily totals. Agent 6 ranks second for consistent analysis focusing on emission stability and operational risk assessment with clear company rankings. Agent 1 provides complete data analysis with reasonable interpretations but lacks the critical insight about needing regulatory limits. Agent 3 offers structured analysis but uses arbitrary thresholds (1.5x industry average) without justification. Agent 2 claims 100% compliance using questionable intensity calculations that appear implausible. Agent 4 ranks last due to severe inconsistencies - claiming 0% compliance with extremely high emission values that contradict other agents' data, suggesting fundamental analytical errors."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most comprehensive and methodologically rigorous analysis with multiple stability metrics (CV, normalized changes, percentage within \u00b110% of mean), complete data coverage verification, and pollutant-specific insights with actionable recommendations. Agent 2 offers excellent structure and clear findings with good technical depth. Agent 3 provides solid analysis with good organization and environmental context. Agent 6 gives accurate but more limited analysis focusing mainly on CV comparisons. Agent 1 provides basic but consistent findings with less detail. Agent 4 ranks last due to focusing primarily on absolute emission comparisons rather than variability/stability analysis as requested, missing the core analytical requirement."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "deepseek": 2,
+            "gpt5": 3,
+            "kimi2": 4,
+            "qwen3": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 3 provides the most comprehensive and methodologically sound analysis with detailed CV calculations (0.1068 for Ganglu Steel), clear ranking methodology, and consistent mathematical results. Agent 4 offers a concise but complete analysis with similar conclusions and good organization. Agent 5 provides accurate results with proper statistical methodology, though less detailed. Agent 2 has comprehensive data but contains mathematical inconsistencies (claims Ganglu has 12.30% overall score but shows higher individual CVs). Agent 1 uses inappropriate standard deviation metrics instead of CV for consistency measurement and reaches a contradictory conclusion. Agent 6 has the most significant error, claiming Puyang Steel is most consistent with CV=0.11 when other agents consistently show Ganglu Steel performs best, indicating potential calculation errors."
+    },
+    {
+        "ranking": {
+            "gemini": 1,
+            "qwen3": 2,
+            "claude4": 3,
+            "kimi2": 4,
+            "deepseek": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 6 ranks highest due to its sophisticated two-stage analysis that first identifies outliers through inter-company comparison, then validates findings through historical context analysis, demonstrating superior analytical rigor and avoiding false positives. Agent 1 provides consistent statistical analysis with clear methodology and reasonable findings. Agent 3 offers solid statistical approach with Z-scores and clear presentation. Agent 2 has good structure but shows some inconsistencies in emission values between sections. Agent 4 provides focused analysis but is less comprehensive. Agent 5 ranks lowest due to significant inconsistencies - reporting different outlier companies and emission values that don't align with other agents, plus incomplete analysis with conflicting data presentation."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "gpt5": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 3 ranks highest with comprehensive analysis covering all aspects (air quality, meteorology, emissions, industrial structure) with clear quantitative comparisons and logical conclusions about industrial impact vs. topography. Agent 6 follows closely with well-structured analysis and clear causal explanations linking emissions to air quality differences. Agent 2 provides thorough coverage but with slightly less clear organization. Agent 5 offers precise data presentation but lacks interpretive depth. Agent 1 has some inconsistencies in data interpretation and less comprehensive coverage. Agent 4 ranks lowest due to incomplete analysis, missing emissions data, and overly brief treatment of the complex environmental factors."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional consistency and completeness - providing exact numerical data with clear methodology, comprehensive coverage of all pollutants, and appropriate caveats about causality. Agent 3 follows closely with detailed analysis and good organization. Agent 2 provides thorough analysis but has some inconsistencies in data presentation. Agent 6 offers good insights but lacks detailed numerical breakdowns. Agent 1 has concerning data inconsistencies (daily vs monthly averages confusion). Agent 4 ranks lowest due to abbreviated analysis and missing detailed breakdowns, though the core findings are consistent with others."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "deepseek": 3,
+            "claude4": 4,
+            "gemini": 5,
+            "qwen3": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with clear methodology, proper statistical comparisons, appropriate caveats about sample sizes, and internally consistent data. Agent 2 offers strong quantitative analysis with clear comparisons and good organization. Agent 4 provides dramatic but plausible emission ratios with clear policy implications. Agent 3 gives solid technical analysis but with some geographic inconsistencies. Agent 6 offers clear conclusions but relies on questionable zero-emission claims for steel. Agent 1 fails to address the core query by incorrectly stating the requested industries are absent, despite other agents finding them in the data."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gemini": 4,
+            "qwen3": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional consistency and completeness - providing precise calculations, clear data coverage statements, and systematic comparisons with exact mathematical relationships. Agent 3 follows closely with comprehensive analysis and clear organization. Agent 2 provides solid analysis with good structure. Agent 6 offers clear presentation but less detailed analysis. Agent 1 provides basic comparison but lacks systematic organization. Agent 4 ranks lowest due to inconsistent formatting, unclear presentation structure, and the unnecessary statement 'No further analysis is needed' which suggests incomplete engagement with the task."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and comprehensive analysis with excellent data quality assessment, statistical analysis (percentiles, medians), and actionable recommendations. Agent 2 offers strong technical depth with emission intensities and clear categorization. Agent 3 provides good regional context and systematic analysis. Agent 1 gives solid temporal analysis but less statistical rigor. Agent 6 is concise but lacks depth. Agent 4 raises important data quality concerns but draws questionable conclusions about identical emission profiles that appear to be analytical errors rather than actual data anomalies."
+    },
+    {
+        "ranking": {
+            "claude4": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "deepseek": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 3 ranks highest with the most comprehensive and well-organized analysis, providing detailed breakdowns by pollutant type, clear comparisons, and proper acknowledgment of missing data. Agent 2 follows closely with similar thoroughness but slightly less clear organization. Agent 1 provides solid analysis but with less detail. Agent 6 gives a concise but incomplete analysis (missing some pollutants). Agent 4 has a critical flaw in assuming missing data means low emissions rather than unavailable data. Agent 5 ranks lowest due to a fundamental inconsistency - claiming Jingxiu has higher emission intensity (42.18 mg/m\u00b3) despite having lower total emissions (302.09 kg vs 335.11 kg), which contradicts the emission intensity calculation methodology and creates mathematical implausibility."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "claude4": 2,
+            "kimi2": 3,
+            "gpt5": 4,
+            "gemini": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 1 provides the most comprehensive and scientifically rigorous analysis with detailed temporal patterns, specific quantitative evidence (2.46x baseline increase), and clear meteorological explanations. Agent 3 follows closely with excellent quantitative analysis and clear peak identification. Agent 2 offers good analysis but with some inconsistencies in baseline comparisons. Agent 5 provides thorough statistical analysis but lacks clear organization and readability. Agent 6 gives a well-structured report but with less detailed quantitative analysis. Agent 4 ranks lowest due to incomplete analysis, lack of specific data presentation, and failure to provide detailed temporal trends as requested."
+    },
+    {
+        "ranking": {
+            "qwen3": 1,
+            "claude4": 2,
+            "deepseek": 3,
+            "gpt5": 4,
+            "kimi2": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 1 ranks highest with consistent data (239% increase, peak 234 \u03bcg/m\u00b3), complete analysis addressing all aspects, and clear conclusions. Agent 3 follows closely with similar consistency and good organization. Agent 4 provides solid analysis but less detailed interpretation. Agent 5 has some inconsistencies (88.7% vs 373.7% increases seem contradictory) but offers good relative vs absolute impact discussion. Agent 2 contains major inconsistencies (claims 373.7% increase for mountains vs 88.7% for urban, contradicting the conclusion that urban impact is stronger). Agent 6 ranks lowest due to implausible baseline values (15.62 and 9.69 \u03bcg/m\u00b3 seem too low for winter pollution) and a 10-fold increase claim that doesn't align with the reported values."
+    },
+    {
+        "ranking": {
+            "gemini": 1,
+            "qwen3": 2,
+            "kimi2": 3,
+            "claude4": 4,
+            "deepseek": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 6 ranks highest due to excellent consistency in data interpretation, clear distinction between stable industrial emissions and festival-driven ambient spikes, and robust chemical signature analysis using SO2/NOx ratios. Agent 1 provides comprehensive temporal analysis with plausible fireworks attribution but lacks industrial emission stability verification. Agent 2 offers good organization and mixed-source analysis but has some inconsistent percentage calculations. Agent 3 provides solid inverse relationship analysis between industrial emissions and air quality but less rigorous chemical signature work. Agent 4 gives reasonable combined-effects interpretation but lacks depth in chemical analysis. Agent 5 ranks lowest due to contradictory conclusions that dismiss fireworks contributions despite typical CNY pollution patterns, and inconsistent interpretation of the data trends."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "gemini": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "deepseek": 5,
+            "gpt5": 6
+        },
+        "reason": "Agent 2 ranks highest with comprehensive analysis, clear impact ranking with percentage increases, consistent data interpretation, and excellent organization with critical findings section. Agent 6 follows closely with systematic tabular presentation and clear conclusions, though slightly less detailed in temporal analysis. Agent 3 provides solid analysis with good geographic insights but less quantitative rigor. Agent 1 offers reasonable interpretation but lacks systematic comparison structure. Agent 4 provides basic analysis but with some inconsistencies in data presentation. Agent 5 ranks lowest due to incomplete response format and less comprehensive analysis despite having some good quantitative details."
+    },
+    {
+        "ranking": {
+            "kimi2": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "gpt5": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 2 ranks highest with comprehensive analysis including correlation coefficients, detailed time lag analysis, and scientific interpretation of topographic influences. Agent 3 follows closely with excellent structure and recovery pattern analysis. Agent 1 provides solid basic analysis with correct peak identification. Agent 6 offers clear, concise findings but lacks depth. Agent 5 gives accurate but minimal analysis. Agent 4 ranks lowest due to incomplete analysis and the unprofessional statement 'No further analysis needed' which fails to fully address the scientific query."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "gemini": 2,
+            "kimi2": 3,
+            "deepseek": 4,
+            "qwen3": 5,
+            "claude4": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and consistent analysis with detailed metrics, proper half-time calculations, and systematic comparison methodology. Agent 6 offers clear, plausible results with good organization and consistent percentage reductions. Agent 2 provides comprehensive analysis with good structure but has some inconsistencies in recovery rankings. Agent 4 gives a concise, consistent analysis but lacks depth. Agent 1 has logical inconsistencies (claiming Wenmingli reached AQI<100 in 2 hours when starting at 128). Agent 3 contains major errors, incorrectly ranking urban areas as having the fastest recovery rate (70.3 AQI points/hour) which contradicts the data showing coastal areas performed best."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "qwen3": 4,
+            "deepseek": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 ranks highest due to exceptional consistency and completeness - providing precise percentage changes, complete data coverage verification, and systematic comparison across all periods. Agent 2 follows closely with excellent organization and actionable insights, including specific percentage changes and clear conclusions. Agent 3 provides comprehensive data but lacks percentage calculations for easy comparison. Agent 1 offers solid analysis but with less systematic organization. Agent 4 provides good insights but has some inconsistencies in percentage calculations. Agent 6 ranks lowest due to less precise quantitative analysis and more speculative interpretations without supporting calculations."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "deepseek": 5,
+            "claude4": 6
+        },
+        "reason": "Agent 5 provides the most rigorous statistical analysis with clear baseline comparisons, specific exceedance thresholds (mean +1\u03c3, +2\u03c3), and actionable enforcement recommendations. Agent 2 offers comprehensive analysis with clear conclusions but reaches opposite findings to Agent 5. Agent 1 provides solid technical analysis with good emission pattern description. Agent 6 gives reasonable analysis but less statistical rigor. Agent 4 concludes no violations based on reduced weekend emissions, which contradicts the continuous operation evidence. Agent 3 has internal inconsistencies (claims 100% violation threshold exceedance but shows normal operational patterns) and lacks proper baseline comparison methodology."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "claude4": 2,
+            "qwen3": 3,
+            "gemini": 4,
+            "kimi2": 5,
+            "deepseek": 6
+        },
+        "reason": "Agent 5 provides the most rigorous and scientifically sound analysis with proper statistical methodology, baseline comparisons, and honest assessment of limitations (noting lack of ambient corroboration). Agent 3 offers comprehensive analysis with clear regulatory context and actionable recommendations. Agent 1 provides solid technical analysis with good air quality correlation. Agent 6 gives concise analysis focusing on the key pollution spike event. Agent 2 has good structure but makes some unsupported claims about 'zero shutdown' and overstates conclusions. Agent 4 provides the least comprehensive analysis with limited depth and unclear baseline methodology."
+    },
+    {
+        "ranking": {
+            "gpt5": 1,
+            "kimi2": 2,
+            "claude4": 3,
+            "deepseek": 4,
+            "qwen3": 5,
+            "gemini": 6
+        },
+        "reason": "Agent 5 ranks first due to exceptional consistency with precise numerical data, complete coverage of all pollutants, and clear methodology. Agent 2 follows with consistent trends and good interpretation, though less detailed numerically. Agent 3 provides comprehensive analysis with reasonable values and good insights about industrial continuity. Agent 4 offers solid data presentation but less interpretation. Agent 1 gives basic but consistent findings with minimal detail. Agent 6 ranks last due to severe inconsistency issues - reporting implausible 131% CO increase and contradictory trends that suggest potential data processing errors, making the response unreliable despite good organization."
+    }
+]

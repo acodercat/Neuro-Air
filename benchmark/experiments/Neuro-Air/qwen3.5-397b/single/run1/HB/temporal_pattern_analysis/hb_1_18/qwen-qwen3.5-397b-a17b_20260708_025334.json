@@ -1,0 +1,52 @@
+{
+  "hb_1_18": {
+    "scenario": "hb_1_18",
+    "conversations": [
+      {
+        "id": "hb_1_18",
+        "turns": [
+          {
+            "query": "Analyze the emission surge periods of Tianjin Iron Works Co., Ltd. and analyze their frequency patterns during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u6839\u636e\u5bf9\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f82025\u5e746\u670810\u65e5\u81f32025\u5e746\u670812\u65e5\u671f\u95f4\u7684\u5c0f\u65f6\u6392\u70df\u91cf\u6570\u636e\u5206\u6790\uff0c\u7ed3\u679c\u5982\u4e0b\uff1a\n\n**\u6392\u653e\u7edf\u8ba1\u6307\u6807\uff1a**\n- \u5cf0\u503c\u6392\u70df\u91cf\uff1a25,007,000.0 \u7acb\u65b9\u7c73\n- \u5e73\u5747\u6392\u70df\u91cf\uff1a22,787,505.56 \u7acb\u65b9\u7c73\n- \u6807\u51c6\u5dee\uff1a1,154,656.56 \u7acb\u65b9\u7c73\n\n**\u6392\u653e\u5cf0\u503c\u65f6\u95f4\u5206\u6790\uff1a**\n- \u5cf0\u503c\u51fa\u73b0\u65f6\u95f4\uff1a2025\u5e746\u670811\u65e5 08:00\n- \u8ddd\u8d77\u59cb\u65f6\u95f4\uff082025-06-10 00:00\uff09\u7684\u5c0f\u65f6\u504f\u79fb\u91cf\uff1a32\u5c0f\u65f6\n\n**\u6392\u653e\u6fc0\u589e\u9891\u7387\u5206\u6790\uff1a**\n- \u6fc0\u589e\u9608\u503c\uff08\u5747\u503c+1\u6807\u51c6\u5dee\uff09\uff1a23,942,162.11 \u7acb\u65b9\u7c73\n- \u6fc0\u589e\u5c0f\u65f6\u6570\uff1a12\u5c0f\u65f6\uff08\u5360\u76d1\u6d4b\u65f6\u6bb572\u5c0f\u65f6\u768416.7%\uff09\n\n**\u5206\u6790\u7ed3\u8bba\uff1a**\n\u8be5\u4f01\u4e1a\u5728\u76d1\u6d4b\u671f\u95f4\u6392\u653e\u6ce2\u52a8\u8f83\u4e3a\u660e\u663e\uff0c\u6807\u51c6\u5dee\u7ea6115\u4e07\u7acb\u65b9\u7c73\uff0c\u53d8\u5f02\u7cfb\u6570\u7ea65.1%\u3002\u6392\u653e\u5cf0\u503c\u51fa\u73b0\u5728\u7b2c\u4e8c\u5929\u4e0a\u53488\u70b9\uff0c\u53ef\u80fd\u4e0e\u751f\u4ea7\u73ed\u6b21\u5b89\u6392\u6216\u8bbe\u5907\u8fd0\u884c\u5468\u671f\u76f8\u5173\u3002\u572872\u5c0f\u65f6\u76d1\u6d4b\u671f\u5185\uff0c\u670912\u5c0f\u65f6\u51fa\u73b0\u6392\u653e\u6fc0\u589e\u73b0\u8c61\uff0c\u8868\u660e\u4f01\u4e1a\u5b58\u5728\u95f4\u6b47\u6027\u9ad8\u6392\u653e\u65f6\u6bb5\uff0c\u5efa\u8bae\u8fdb\u4e00\u6b65\u6392\u67e5\u6fc0\u589e\u65f6\u6bb5\u7684\u5de5\u827a\u73af\u8282\u548c\u8bbe\u5907\u8fd0\u884c\u72b6\u6001\uff0c\u4f18\u5316\u6392\u653e\u63a7\u5236\u63aa\u65bd\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 7,
+              "prompt_tokens": 49993,
+              "completion_tokens": 1628,
+              "total_tokens": 51621
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627e\u5929\u6d25\u94c1\u5de5\u6709\u9650\u516c\u53f8\u7684\u516c\u53f8ID\nquery_company = text(\"\"\"SELECT id, name, industry_type FROM polluting_company WHERE name LIKE '%\u5929\u6d25\u94c1\u5de5%' OR name LIKE '%Tianjin Iron Works%'\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5c1d\u8bd5\u641c\u7d22\u5305\u542b\"\u94c1\"\u6216\"\u94a2\u94c1\"\u7684\u516c\u53f8\uff0c\u53ef\u80fd\u662f\u5929\u6d25\u5730\u533a\u7684\nquery_company = text(\"\"\"SELECT id, name, industry_type, city_id FROM polluting_company WHERE name LIKE '%\u94c1%' OR name LIKE '%\u94a2\u94c1%' ORDER BY id LIMIT 20\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5c1d\u8bd5\u641c\u7d22\u5305\u542b\"\u5929\u6d25\"\u7684\u516c\u53f8\nquery_company = text(\"\"\"SELECT id, name, industry_type, city_id FROM polluting_company WHERE name LIKE '%\u5929\u6d25%' ORDER BY id LIMIT 20\"\"\")\ndf_company = pd.read_sql(query_company, engine)\nprint(df_company)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u627e\u5230\u5929\u6d25\u94c1\u5382\u6709\u9650\u516c\u53f8 (ID: 2564)\uff0c\u83b7\u53d6\u51762025-06-10\u52302025-06-12\u7684\u5c0f\u65f6\u6392\u653e\u6570\u636e\n# \u65f6\u95f4\u8303\u56f4\uff1a2025-06-10 00:00:00 (\u5305\u542b) \u5230 2025-06-13 00:00:00 (\u4e0d\u5305\u542b)\nquery_emission = text(\"\"\"\nSELECT timestamp, exhaust_gas \nFROM hourly_polluting_company_emission \nWHERE company_id = 2564 \n  AND timestamp >= '2025-06-10 00:00:00' \n  AND timestamp < '2025-06-13 00:00:00'\nORDER BY timestamp\n\"\"\")\ndf_emission = pd.read_sql(query_emission, engine)\nprint(f\"\u6570\u636e\u884c\u6570: {len(df_emission)}\")\nprint(df_emission.head(10))\nprint(df_emission.tail(10))",
+              "import pandas as pd\nimport numpy as np\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u6240\u9700\u7684\u7edf\u8ba1\u6307\u6807\n# \u6570\u636e\u5df2\u7ecf\u5728df_emission\u4e2d\nexhaust_gas = df_emission['exhaust_gas'].values\n\n# \u8ba1\u7b97\u5cf0\u503c\npeak_flue_gas = float(np.max(exhaust_gas))\n\n# \u8ba1\u7b97\u5747\u503c\nmean_flue_gas = float(np.mean(exhaust_gas))\n\n# \u8ba1\u7b97\u603b\u4f53\u6807\u51c6\u5dee\nstd_flue_gas = float(np.std(exhaust_gas, ddof=0))\n\n# \u627e\u5230\u5cf0\u503c\u51fa\u73b0\u7684\u65f6\u95f4\u70b9\npeak_idx = np.argmax(exhaust_gas)\npeak_timestamp = df_emission.iloc[peak_idx]['timestamp']\n\n# \u8ba1\u7b97\u4ece2025-06-10 00:00\u5230\u5cf0\u503c\u65f6\u95f4\u7684\u5c0f\u65f6\u6570\nstart_time = pd.Timestamp('2025-06-10 00:00:00')\npeak_flue_gas_offset_hours = int((peak_timestamp - start_time).total_seconds() / 3600)\n\n# \u8ba1\u7b97\u6fc0\u589e\u5c0f\u65f6\u6570 (exhaust_gas > mean + 1*std)\nthreshold = mean_flue_gas + std_flue_gas\nsurge_hours = int(np.sum(exhaust_gas > threshold))\n\nprint(f\"\u5cf0\u503c\u6392\u70df\u91cf: {peak_flue_gas}\")\nprint(f\"\u5747\u503c\u6392\u70df\u91cf: {mean_flue_gas}\")\nprint(f\"\u6807\u51c6\u5dee: {std_flue_gas}\")\nprint(f\"\u5cf0\u503c\u65f6\u95f4: {peak_timestamp}\")\nprint(f\"\u5cf0\u503c\u504f\u79fb\u5c0f\u65f6\u6570: {peak_flue_gas_offset_hours}\")\nprint(f\"\u9608\u503c (mean+std): {threshold}\")\nprint(f\"\u6fc0\u589e\u5c0f\u65f6\u6570: {surge_hours}\")\n\n# \u5c06\u7ed3\u679c\u8d4b\u503c\u7ed9\u53d8\u91cf\npeak_flue_gas = peak_flue_gas\nmean_flue_gas = mean_flue_gas\nstd_flue_gas = std_flue_gas\npeak_flue_gas_offset_hours = peak_flue_gas_offset_hours\nsurge_hours = surge_hours",
+              "# \u5c06\u8ba1\u7b97\u7ed3\u679c\u8d4b\u503c\u7ed9\u8981\u6c42\u7684\u53d8\u91cf\npeak_flue_gas = 25007000.0\nmean_flue_gas = 22787505.555555556\nstd_flue_gas = 1154656.559314992\npeak_flue_gas_offset_hours = 32\nsurge_hours = 12\n\nprint(\"\u5206\u6790\u5b8c\u6210\uff0c\u53d8\u91cf\u5df2\u8d4b\u503c\")"
+            ],
+            "runtime_variables": {
+              "peak_flue_gas": 25007000.0,
+              "peak_flue_gas_offset_hours": 32,
+              "mean_flue_gas": 22787505.555555556,
+              "std_flue_gas": 1154656.559314992,
+              "surge_hours": 12
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 7,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 49993,
+      "total_completion_tokens": 1628,
+      "total_tokens": 51621
+    }
+  }
+}

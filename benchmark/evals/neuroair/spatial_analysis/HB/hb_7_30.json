@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_30",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_30",
+    "requirements": "As part of your analysis, for company 2427 -> station 48 at 2025-07-10 14:00 compute and store: distance_km, bearing_deg, company_flue_gas_1400, station_pm25_1400 (float).",
+    "conversations": [
+      {
+        "id": "hb_7_30",
+        "turns": [
+          {
+            "query": "Analyze pollution transport patterns affecting Luquan No.1 Middle School station (station_id: 48) on 2025-07-10 14:00, considering meteorological conditions and emissions from nearby Shijiazhuang Quzhai Cement Co., Ltd.(company_id: 2427).",
+            "validator": "validate_hb_7_30"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-30",
+      "verbatim": true
+    }
+  }
+]

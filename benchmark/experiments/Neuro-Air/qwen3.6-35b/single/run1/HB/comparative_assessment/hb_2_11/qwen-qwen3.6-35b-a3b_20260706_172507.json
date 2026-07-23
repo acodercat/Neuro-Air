@@ -1,0 +1,54 @@
+{
+  "hb_2_11": {
+    "scenario": "hb_2_11",
+    "conversations": [
+      {
+        "id": "hb_2_11",
+        "turns": [
+          {
+            "query": "Analyze pollution levels and emission impacts between Ligong station and North Pump House station on 2025-06-25, considering nearby enterprise activities.",
+            "actual_response": "",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: mean_pm25_ligong=43.083333333333336, expected ~32.07 (tol 1.0)"
+            ],
+            "metrics": {
+              "steps": 8,
+              "prompt_tokens": 61825,
+              "completion_tokens": 22085,
+              "total_tokens": 83910
+            },
+            "success": false,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627eLigong\u7ad9\u548cNorth Pump House\u7ad9\u7684\u4fe1\u606f\nquery_stations = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.name LIKE '%Ligong%' OR aqs.name LIKE '%Ligong%' OR aqs.name LIKE '%\u7406\u5de5%'\n   OR aqs.name LIKE '%North Pump House%' OR aqs.name LIKE '%North Pump%' OR aqs.name LIKE '%\u5317\u6cf5%'\nLIMIT 20\n\"\"\")\nstations_df = pd.read_sql(query_stations, engine)\nprint(\"\u76f8\u5173\u7ad9\u70b9\u4fe1\u606f\uff1a\")\nprint(stations_df[['id', 'name', 'district_name', 'city_name']])",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u6269\u5927\u641c\u7d22\u8303\u56f4\uff0c\u67e5\u627e\u6240\u6709\u5305\u542b\"\u7406\u5de5\"\u6216\"Ligong\"\u7684\u7ad9\u70b9\nquery_ligong = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.name LIKE '%\u7406\u5de5%' OR aqs.name LIKE '%Ligong%' OR aqs.name LIKE '%LIGONG%'\nLIMIT 20\n\"\"\")\nligong_df = pd.read_sql(query_ligong, engine)\nprint(\"Ligong\u76f8\u5173\u7ad9\u70b9\uff1a\")\nprint(ligong_df)\n\n# \u67e5\u627e\u5317\u6cf5\u623f\u7ad9\nquery_pumphouse = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.name LIKE '%\u6cf5\u623f%' OR aqs.name LIKE '%Pump%' OR aqs.name LIKE '%\u5317\u6cf5%'\nLIMIT 20\n\"\"\")\npumphouse_df = pd.read_sql(query_pumphouse, engine)\nprint(\"\\n\u5317\u6cf5\u623f\u76f8\u5173\u7ad9\u70b9\uff1a\")\nprint(pumphouse_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5217\u51fa\u6240\u6709\u7ad9\u70b9\u540d\u79f0\uff0c\u67e5\u627eLigong\u76f8\u5173\u7ad9\u70b9\nquery_all_stations = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nORDER BY aqs.name\nLIMIT 100\n\"\"\")\nall_stations = pd.read_sql(query_all_stations, engine)\nprint(\"\u6240\u6709\u7ad9\u70b9\uff08\u524d100\u4e2a\uff09\uff1a\")\nprint(all_stations[['id', 'name', 'district_name', 'city_name']])",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\"Ligong\"\u6216\"\u7406\u5de5\"\u7684\u7ad9\u70b9\nquery_ligong = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE LOWER(aqs.name) LIKE '%ligong%' OR aqs.name LIKE '%\u7406\u5de5%'\n\"\"\")\nligong_df = pd.read_sql(query_ligong, engine)\nprint(\"Ligong\u7ad9\u70b9\uff1a\")\nprint(ligong_df)\n\n# \u5982\u679c\u6ca1\u627e\u5230\uff0c\u5c1d\u8bd5\u641c\u7d22\u6240\u6709\u7ad9\u70b9\u540d\u79f0\nquery_all = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\n\"\"\")\nall_stations = pd.read_sql(query_all, engine)\nprint(f\"\\n\u603b\u7ad9\u70b9\u6570: {len(all_stations)}\")\nprint(\"\u7ad9\u70b9\u540d\u79f0\u5217\u8868\uff1a\")\nprint(all_stations['name'].tolist())",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u627eLigong\u7ad9\nquery_ligong = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE LOWER(aqs.name) LIKE '%ligong%' OR aqs.name LIKE '%\u7406\u5de5%' OR aqs.name LIKE '%\u5927\u5b66%' OR aqs.name LIKE '%\u5b66\u9662%'\nLIMIT 50\n\"\"\")\nligong_df = pd.read_sql(query_ligong, engine)\nprint(\"Ligong\u76f8\u5173\u7ad9\u70b9\uff1a\")\nprint(ligong_df[['id', 'name', 'district_name', 'city_name']])\n\n# \u786e\u8ba4\u5317\u6cf5\u623f\u7ad9\nquery_pumphouse = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.name LIKE '%\u6cf5\u623f%' OR aqs.name LIKE '%Pump%'\nLIMIT 10\n\"\"\")\npumphouse_df = pd.read_sql(query_pumphouse, engine)\nprint(\"\\n\u5317\u6cf5\u623f\u76f8\u5173\u7ad9\u70b9\uff1a\")\nprint(pumphouse_df[['id', 'name', 'district_name', 'city_name']])",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u786e\u8ba4Ligong\u7ad9\uff08\u6cb3\u5317\u5de5\u4e1a\u5927\u5b66\uff09\u548cNorth Pump House\u7ad9\uff08\u5317\u6cf5\u623f\uff09\u7684\u8be6\u7ec6\u4fe1\u606f\nquery_station_info = text(\"\"\"\nSELECT aqs.id, aqs.name, aqs.coordinate, d.name as district_name, c.name as city_name\nFROM air_quality_station aqs\nJOIN district d ON aqs.district_id = d.id\nJOIN city c ON d.city_id = c.id\nWHERE aqs.id IN (333, 238)\n\"\"\")\nstation_info = pd.read_sql(query_station_info, engine)\nprint(\"\u76ee\u6807\u7ad9\u70b9\u4fe1\u606f\uff1a\")\nprint(station_info[['id', 'name', 'district_name', 'city_name']])\n\n# \u8ba1\u7b972025-06-25 Ligong\u7ad9\uff08\u6cb3\u5317\u5de5\u4e1a\u5927\u5b66\uff0cID: 333\uff09\u7684PM2.5\u548cAQI\u5e73\u5747\u503c\nquery_ligong_stats = text(\"\"\"\nSELECT \n    ROUND(AVG(hsaq.pm2_5), 2) as mean_pm25,\n    ROUND(AVG(hsaq.aqi), 2) as mean_aqi\nFROM hourly_station_air_quality hsaq\nWHERE hsaq.station_id = 333\n  AND hsaq.timestamp >= '2025-06-25 00:00:00'\n  AND hsaq.timestamp < '2025-06-26 00:00:00'\n\"\"\")\nligong_stats = pd.read_sql(query_ligong_stats, engine)\nprint(\"\\nLigong\u7ad9\uff08\u6cb3\u5317\u5de5\u4e1a\u5927\u5b66\uff092025-06-25\u7edf\u8ba1\uff1a\")\nprint(ligong_stats)\n\n# \u8ba1\u7b972025-06-25 North Pump House\u7ad9\uff08\u5317\u6cf5\u623f\uff0cID: 238\uff09\u7684PM2.5\u548cAQI\u5e73\u5747\u503c\nquery_pumphouse_stats = text(\"\"\"\nSELECT \n    ROUND(AVG(hsaq.pm2_5), 2) as mean_pm25,\n    ROUND(AVG(hsaq.aqi), 2) as mean_aqi\nFROM hourly_station_air_quality hsaq\nWHERE hsaq.station_id = 238\n  AND hsaq.timestamp >= '2025-06-25 00:00:00'\n  AND hsaq.timestamp < '2025-06-26 00:00:00'\n\"\"\")\npumphouse_stats = pd.read_sql(query_pumphouse_stats, engine)\nprint(\"\\nNorth Pump House\u7ad9\uff08\u5317\u6cf5\u623f\uff092025-06-25\u7edf\u8ba1\uff1a\")\nprint(pumphouse_stats)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be2Ligong\u7ad9\uff08\u6cb3\u5317\u5de5\u4e1a\u5927\u5b66\uff0cID: 333\uff092025-06-25\u7684PM2.5\u548cAQI\u5e73\u5747\u503c\nquery_ligong = text(\"\"\"\nSELECT AVG(pm2_5) as mean_pm25, AVG(aqi) as mean_aqi\nFROM hourly_station_air_quality\nWHERE station_id = 333\n  AND timestamp >= '2025-06-25 00:00:00'\n  AND timestamp < '2025-06-26 00:00:00'\n\"\"\")\nligong_df = pd.read_sql(query_ligong, engine)\nmean_pm25_ligong = float(ligong_df['mean_pm25'].iloc[0]) if not ligong_df.empty and pd.notna(ligong_df['mean_pm25'].iloc[0]) else 0.0\nmean_aqi_ligong = float(ligong_df['mean_aqi'].iloc[0]) if not ligong_df.empty and pd.notna(ligong_df['mean_aqi'].iloc[0]) else 0.0\nprint(f\"Ligong\u7ad9 PM2.5\u5747\u503c: {mean_pm25_ligong}, AQI\u5747\u503c: {mean_aqi_ligong}\")\n\n# \u67e5\u8be2North Pump House\u7ad9\uff08\u5317\u6cf5\u623f\uff0cID: 238\uff092025-06-25\u7684PM2.5\u548cAQI\u5e73\u5747\u503c\nquery_pumphouse = text(\"\"\"\nSELECT AVG(pm2_5) as mean_pm25, AVG(aqi) as mean_aqi\nFROM hourly_station_air_quality\nWHERE station_id = 238\n  AND timestamp >= '2025-06-25 00:00:00'\n  AND timestamp < '2025-06-26 00:00:00'\n\"\"\")\npumphouse_df = pd.read_sql(query_pumphouse, engine)\nmean_pm25_pumphouse = float(pumphouse_df['mean_pm25'].iloc[0]) if not pumphouse_df.empty and pd.notna(pumphouse_df['mean_pm25'].iloc[0]) else 0.0\nmean_aqi_pumphouse = float(pumphouse_df['mean_aqi'].iloc[0]) if not pumphouse_df.empty and pd.notna(pumphouse_df['mean_aqi'].iloc[0]) else 0.0\nprint(f\"North Pump House\u7ad9 PM2.5\u5747\u503c: {mean_pm25_pumphouse}, AQI\u5747\u503c: {mean_aqi_pumphouse}\")"
+            ],
+            "runtime_variables": {
+              "mean_pm25_ligong": 43.083333333333336,
+              "mean_aqi_ligong": 95.875,
+              "mean_pm25_pumphouse": 17.59090909090909,
+              "mean_aqi_pumphouse": 54.40909090909091
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 8,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 61825,
+      "total_completion_tokens": 22085,
+      "total_tokens": 83910
+    }
+  }
+}

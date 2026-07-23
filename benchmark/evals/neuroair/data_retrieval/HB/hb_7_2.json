@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_2",
+    "module": "evals.neuroair.data_retrieval.HB.hb_7_2",
+    "requirements": "As part of your analysis, for station 269 over 2025-06-10 08:00-18:00 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_7_2",
+        "turns": [
+          {
+            "query": "Analyze the collective pollution transport from Handan steel enterprise cluster to air quality station: Youth Activity Center (station_id: 269) during 2025-06-10 08:00:00 to 2025-06-10 18:00:00.",
+            "validator": "validate_hb_7_2"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-2",
+      "verbatim": true
+    }
+  }
+]

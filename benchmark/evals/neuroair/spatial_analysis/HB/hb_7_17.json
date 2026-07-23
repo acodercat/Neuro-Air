@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_17",
+    "module": "evals.neuroair.spatial_analysis.HB.hb_7_17",
+    "requirements": "As part of your analysis, for company 2452 at 2025-06-10 16:00 compute and store: flue_gas_1600, nox_1600, so2_1600, pm_1600 (float) and stations_within_5km (int).",
+    "conversations": [
+      {
+        "id": "hb_7_17",
+        "turns": [
+          {
+            "query": "Analyze how Shougang Qian'an Steel Company (company_id: 2452) emissions on 2025-06-10 at 16:00 affected air quality within a 5km radius.",
+            "validator": "validate_hb_7_17"
+          }
+        ]
+      }
+    ],
+    "difficulty": "hard",
+    "category": "spatial_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-17",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "hb_1_2": {
+    "scenario": "hb_1_2",
+    "conversations": [
+      {
+        "id": "hb_1_2",
+        "turns": [
+          {
+            "query": "Analyze NOx emissions between Jingye Metallurgical Technology Co., Ltd. and Hebei Yanshan Steel Group Co., Ltd. on 2025-06-08.",
+            "actual_response": "\u6240\u6709\u53d8\u91cf\u5df2\u6210\u529f\u8ba1\u7b97\u5e76\u8d4b\u503c\u3002\u4ee5\u4e0b\u662f\u5206\u6790\u7ed3\u679c\uff1a\n\n**2025\u5e746\u67088\u65e5 NOx\u6392\u653e\u5bf9\u6bd4\u5206\u6790**\n\n| \u6307\u6807 | \u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8 (ID: 2417) | \u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8 (ID: 2418) |\n|------|------|------|\n| NOx\u6392\u653e\u603b\u91cf (kg) | **4,360.64** | 3,182.74 |\n| \u5c0f\u65f6\u5e73\u5747NOx\u6392\u653e (kg) | **181.69** | 132.61 |\n| \u6570\u636e\u70b9\u6570 | 24 (\u5b8c\u6574\u65e5) | 24 (\u5b8c\u6574\u65e5) |\n\n**\u7ed3\u8bba\uff1a**\n- **\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8** \u7684NOx\u6392\u653e\u603b\u91cf\uff084,360.64 kg\uff09\u548c\u5c0f\u65f6\u5e73\u5747\u6392\u653e\u91cf\uff08181.69 kg/h\uff09\u5747\u663e\u8457\u9ad8\u4e8e **\u6cb3\u5317\u71d5\u5c71\u94a2\u94c1\u96c6\u56e2\u6709\u9650\u516c\u53f8**\uff08\u603b\u91cf3,182.74 kg\uff0c\u5747\u503c132.61 kg/h\uff09\u3002\n- \u656c\u4e1a\u51b6\u91d1\u6280\u672f\u7684NOx\u6392\u653e\u603b\u91cf\u6bd4\u71d5\u5c71\u94a2\u94c1\u9ad8\u51fa\u7ea6 **37.0%**\uff0c\u5c0f\u65f6\u5747\u503c\u9ad8\u51fa\u7ea6 **37.0%**\u3002\n- **higher_nox_company_id = 2417**\uff08\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8\uff09\uff0c\u5373NOx\u6392\u653e\u8f83\u9ad8\u7684\u4f01\u4e1a\u3002\n\n\u4ece\u5c0f\u65f6\u6392\u653e\u8d8b\u52bf\u6765\u770b\uff0c\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u7684NOx\u6392\u653e\u5448\u73b0\u660e\u663e\u7684\u65e5\u5185\u4e0a\u5347\u8d8b\u52bf\uff0c\u4ece\u51cc\u6668\u7684\u7ea6165 kg/h\u9010\u6b65\u6500\u5347\u81f3\u508d\u665a\u7684\u7ea6210 kg/h\u5cf0\u503c\uff0c\u968f\u540e\u56de\u843d\uff1b\u800c\u71d5\u5c71\u94a2\u94c1\u7684\u6392\u653e\u76f8\u5bf9\u5e73\u7a33\uff0c\u5927\u90e8\u5206\u65f6\u6bb5\u5728110-170 kg/h\u4e4b\u95f4\u6ce2\u52a8\uff0c\u5cf0\u503c\u51fa\u73b0\u5728\u4e0a\u534810\u65f6\uff08168.4 kg/h\uff09\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 4,
+              "prompt_tokens": 26783,
+              "completion_tokens": 1123,
+              "total_tokens": 27906
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# Find Jingye Metallurgical Technology and Hebei Yanshan Steel Group\nquery = text(\"\"\"\nSELECT id, name FROM polluting_company \nWHERE name LIKE '%Jingye%' OR name LIKE '%\u656c\u4e1a%' \n   OR name LIKE '%Yanshan%' OR name LIKE '%\u71d5\u5c71%'\n\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# Query NOx emissions for both companies on 2025-06-08\nquery = text(\"\"\"\nSELECT company_id, date, nox \nFROM daily_polluting_company_emission \nWHERE company_id IN (2417, 2418) \n  AND date = '2025-06-08'\n\"\"\")\ndf = pd.read_sql(query, engine)\nprint(df)\n\n# Also check hourly data to compute mean\nquery_hourly = text(\"\"\"\nSELECT company_id, timestamp, nox \nFROM hourly_polluting_company_emission \nWHERE company_id IN (2417, 2418) \n  AND DATE(timestamp) = '2025-06-08'\nORDER BY company_id, timestamp\n\"\"\")\ndf_hourly = pd.read_sql(query_hourly, engine)\nprint(\"\\nHourly NOx data:\")\nprint(df_hourly)",
+              "import numpy as np\n\n# Jingye Metallurgical Technology (company_id=2417)\njingye_hourly = df_hourly[df_hourly['company_id'] == 2417]['nox'].values\ntotal_nox_jingye = float(np.sum(jingye_hourly))\nmean_nox_jingye = float(np.mean(jingye_hourly))\n\n# Hebei Yanshan Steel Group (company_id=2418)\nyanshan_hourly = df_hourly[df_hourly['company_id'] == 2418]['nox'].values\ntotal_nox_yanshan = float(np.sum(yanshan_hourly))\nmean_nox_yanshan = float(np.mean(yanshan_hourly))\n\n# Determine which company has higher NOx\nif total_nox_jingye > total_nox_yanshan:\n    higher_nox_company_id = 2417\nelse:\n    higher_nox_company_id = 2418\n\nprint(f\"Jingye Metallurgical Technology (ID=2417):\")\nprint(f\"  Total NOx: {total_nox_jingye:.2f} kg\")\nprint(f\"  Mean hourly NOx: {mean_nox_jingye:.2f} kg\")\nprint(f\"  Hourly data points: {len(jingye_hourly)}\")\nprint()\nprint(f\"Hebei Yanshan Steel Group (ID=2418):\")\nprint(f\"  Total NOx: {total_nox_yanshan:.2f} kg\")\nprint(f\"  Mean hourly NOx: {mean_nox_yanshan:.2f} kg\")\nprint(f\"  Hourly data points: {len(yanshan_hourly)}\")\nprint()\nprint(f\"Higher NOx company ID: {higher_nox_company_id}\")"
+            ],
+            "runtime_variables": {
+              "total_nox_jingye": 4360.642,
+              "mean_nox_jingye": 181.69341666666665,
+              "total_nox_yanshan": 3182.738,
+              "mean_nox_yanshan": 132.61408333333333,
+              "higher_nox_company_id": 2417
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 4,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 26783,
+      "total_completion_tokens": 1123,
+      "total_tokens": 27906
+    }
+  }
+}

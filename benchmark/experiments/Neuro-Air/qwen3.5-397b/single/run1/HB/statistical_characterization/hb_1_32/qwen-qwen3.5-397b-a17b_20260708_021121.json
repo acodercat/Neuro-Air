@@ -1,0 +1,47 @@
+{
+  "hb_1_32": {
+    "scenario": "hb_1_32",
+    "conversations": [
+      {
+        "id": "hb_1_32",
+        "turns": [
+          {
+            "query": "Help me compare the industrial emission patterns in Congtai District on 2025-06-10.",
+            "actual_response": "## \u4e1b\u53f0\u533a2025\u5e746\u670810\u65e5\u5de5\u4e1a\u6392\u653e\u6a21\u5f0f\u5206\u6790\n\n### \u603b\u4f53\u6392\u653e\u60c5\u51b5\n- **\u6392\u6c61\u4f01\u4e1a\u6570\u91cf**: 12\u5bb6\n- **\u603b\u5e9f\u6c14\u6392\u653e\u91cf**: 4,578,536.32 \u7acb\u65b9\u7c73\n- **\u6700\u5927\u6392\u653e\u4f01\u4e1a**: \u90af\u90f8\u5e02\u4e2d\u61cb\u80fd\u6e90\u79d1\u6280\u6709\u9650\u516c\u53f8 (\u4f01\u4e1aID: 3018)\n- **\u6700\u5927\u6392\u653e\u91cf**: 3,926,120.0 \u7acb\u65b9\u7c73\n\n### \u6392\u653e\u96c6\u4e2d\u5ea6\u5206\u6790\n\u90af\u90f8\u5e02\u4e2d\u61cb\u80fd\u6e90\u79d1\u6280\u6709\u9650\u516c\u53f8\u7684\u5e9f\u6c14\u6392\u653e\u91cf\u5360\u5168\u533a\u603b\u6392\u653e\u91cf\u7684**85.75%**\uff0c\u663e\u793a\u51fa\u6781\u9ad8\u7684\u6392\u653e\u96c6\u4e2d\u5ea6\u3002\u8be5\u4f01\u4e1a\u4e00\u5bb6\u72ec\u5927\uff0c\u5176\u6392\u653e\u91cf\u8fdc\u8d85\u5176\u4ed611\u5bb6\u4f01\u4e1a\u7684\u603b\u548c\u3002\n\n### \u884c\u4e1a\u5206\u5e03\u7279\u5f81\n\u4ece\u67e5\u8be2\u7ed3\u679c\u53ef\u89c1\uff0c\u4e1b\u53f0\u533a\u6392\u6c61\u4f01\u4e1a\u6db5\u76d6\u591a\u4e2a\u884c\u4e1a\u7c7b\u578b\uff1a\n- \u80fd\u6e90\u79d1\u6280\u516c\u53f8\n- \u5316\u5de5\u4f01\u4e1a\n- \u94f8\u9020\u4f01\u4e1a\uff08\u591a\u5bb6\uff09\n- \u673a\u68b0\u5236\u9020\u4f01\u4e1a\n- \u6c34\u6ce5\u751f\u4ea7\u4f01\u4e1a\n- \u533b\u7597\u5e9f\u7269\u5904\u7406\u4f01\u4e1a\n- \u70ed\u7535\u4f01\u4e1a\n\n### \u76d1\u7ba1\u5efa\u8bae\n1. **\u91cd\u70b9\u76d1\u7ba1\u5bf9\u8c61**: \u90af\u90f8\u5e02\u4e2d\u61cb\u80fd\u6e90\u79d1\u6280\u6709\u9650\u516c\u53f8\u5e94\u4f5c\u4e3a\u9996\u8981\u76d1\u7ba1\u76ee\u6807\uff0c\u5176\u6392\u653e\u884c\u4e3a\u5bf9\u5168\u533a\u5de5\u4e1a\u6392\u653e\u683c\u5c40\u5177\u6709\u51b3\u5b9a\u6027\u5f71\u54cd\u3002\n\n2. **\u6392\u653e\u63a7\u5236\u7b56\u7565**: \u9274\u4e8e\u6392\u653e\u9ad8\u5ea6\u96c6\u4e2d\uff0c\u5bf9\u8be5\u91cd\u70b9\u4f01\u4e1a\u5b9e\u65bd\u6709\u6548\u7684\u6392\u653e\u63a7\u5236\u63aa\u65bd\u5c06\u663e\u8457\u6539\u5584\u5168\u533a\u6574\u4f53\u6392\u653e\u72b6\u51b5\u3002\n\n3. **\u884c\u4e1a\u5206\u5e03\u4f18\u5316**: \u94f8\u9020\u884c\u4e1a\u4f01\u4e1a\u6570\u91cf\u8f83\u591a\uff08\u81f3\u5c115\u5bb6\uff09\uff0c\u5efa\u8bae\u5bf9\u8be5\u884c\u4e1a\u8fdb\u884c\u4e13\u9879\u6392\u653e\u8bc4\u4f30\u548c\u7ba1\u63a7\u3002\n\n4. **\u6301\u7eed\u76d1\u6d4b**: \u5efa\u8bae\u5bf9\u9ad8\u6392\u653e\u4f01\u4e1a\u5b9e\u65bd\u66f4\u9891\u7e41\u7684\u76d1\u6d4b\uff0c\u786e\u4fdd\u6392\u653e\u6570\u636e\u51c6\u786e\u6027\u548c\u5408\u89c4\u6027\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 19476,
+              "completion_tokens": 1071,
+              "total_tokens": 20547
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u83b7\u53d6\u4e1b\u53f0\u533a\u7684district_id\nquery_district = text(\"\"\"SELECT id FROM district WHERE name = '\u4e1b\u53f0\u533a'\"\"\")\ndistrict_df = pd.read_sql(query_district, engine)\nprint(f\"\u4e1b\u53f0\u533aID: {district_df.iloc[0]['id'] if len(district_df) > 0 else '\u672a\u627e\u5230'}\")\n\nif len(district_df) > 0:\n    district_id = district_df.iloc[0]['id']\n    \n    # \u83b7\u53d6\u8be5\u65e5\u671f\u4e1b\u53f0\u533a\u6240\u6709\u6392\u6c61\u4f01\u4e1a\u7684\u6392\u653e\u6570\u636e\u6c47\u603b\n    query_emissions = text(f\"\"\"\n    SELECT \n        pc.id as company_id,\n        pc.name as company_name,\n        pc.industry_type,\n        SUM(dpce.exhaust_gas) as total_exhaust_gas,\n        SUM(dpce.nox) as total_nox,\n        SUM(dpce.so2) as total_so2,\n        SUM(dpce.pm) as total_pm,\n        SUM(dpce.co) as total_co,\n        SUM(dpce.hc) as total_hc,\n        SUM(dpce.nmhc) as total_nmhc,\n        SUM(dpce.hcl) as total_hcl\n    FROM daily_polluting_company_emission dpce\n    JOIN polluting_company pc ON dpce.company_id = pc.id\n    WHERE pc.district_id = {district_id}\n    AND dpce.date = '2025-06-10'\n    GROUP BY pc.id, pc.name, pc.industry_type\n    ORDER BY total_exhaust_gas DESC\n    \"\"\")\n    \n    emissions_df = pd.read_sql(query_emissions, engine)\n    print(f\"\\n\u4e1b\u53f0\u533a2025-06-10\u6392\u6c61\u4f01\u4e1a\u6392\u653e\u6570\u636e:\")\n    print(emissions_df)\n    \n    # \u8ba1\u7b97\u6c47\u603b\u7edf\u8ba1\n    total_flue_gas = emissions_df['total_exhaust_gas'].sum() if len(emissions_df) > 0 else 0\n    company_count = len(emissions_df)\n    \n    print(f\"\\n\u6c47\u603b\u7edf\u8ba1:\")\n    print(f\"\u4f01\u4e1a\u6570\u91cf: {company_count}\")\n    print(f\"\u603b\u5e9f\u6c14\u6392\u653e\u91cf: {total_flue_gas}\")\n    \n    if len(emissions_df) > 0:\n        top_emitter = emissions_df.iloc[0]\n        print(f\"\\n\u6700\u5927\u6392\u653e\u4f01\u4e1a: {top_emitter['company_name']} (ID: {top_emitter['company_id']})\")\n        print(f\"\u6700\u5927\u6392\u653e\u91cf: {top_emitter['total_exhaust_gas']}\")",
+              "# \u5b58\u50a8\u7ed3\u679c\u5230\u6307\u5b9a\u53d8\u91cf\ntotal_district_flue_gas = 4578536.32\ncompany_count = 12\ntop_emitter_company_id = 3018\ntop_emitter_total = 3926120.0\n\nprint(f\"\u5df2\u5b58\u50a8\u53d8\u91cf:\")\nprint(f\"total_district_flue_gas: {total_district_flue_gas}\")\nprint(f\"company_count: {company_count}\")\nprint(f\"top_emitter_company_id: {top_emitter_company_id}\")\nprint(f\"top_emitter_total: {top_emitter_total}\")"
+            ],
+            "runtime_variables": {
+              "total_district_flue_gas": 4578536.32,
+              "company_count": 12,
+              "top_emitter_company_id": 3018,
+              "top_emitter_total": 3926120.0
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 19476,
+      "total_completion_tokens": 1071,
+      "total_tokens": 20547
+    }
+  }
+}

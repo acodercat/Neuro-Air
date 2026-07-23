@@ -1,0 +1,55 @@
+{
+  "hb_1_26": {
+    "scenario": "hb_1_26",
+    "conversations": [
+      {
+        "id": "hb_1_26",
+        "turns": [
+          {
+            "query": "Identify the most consistent emission performer among specialized steel companies: Hebei Puyang Steel, Tangshan Ruifeng Steel, Tangshan Ganglu Steel on 2025-06-10.",
+            "actual_response": "\u6839\u636e2025\u5e746\u670810\u65e5\u7684\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u6570\u636e\u5206\u6790\u7ed3\u679c\uff1a\n\n**\u4e09\u5bb6\u94a2\u94c1\u516c\u53f8\u7684\u6392\u653e\u7a33\u5b9a\u6027\u5bf9\u6bd4\uff1a**\n\n| \u516c\u53f8 | \u53d8\u5f02\u7cfb\u6570(CV) | \u6392\u653e\u7a33\u5b9a\u6027 |\n|------|-------------|-----------|\n| \u5510\u5c71\u745e\u4e30\u94a2\u94c1\uff08\u96c6\u56e2\uff09\u6709\u9650\u516c\u53f8 | 0.015253 | \u6700\u7a33\u5b9a |\n| \u6cb3\u5317\u666e\u9633\u94a2\u94c1\u6709\u9650\u516c\u53f8 | 0.023695 | \u4e2d\u7b49 |\n| \u5510\u5c71\u6e2f\u9646\u94a2\u94c1\u6709\u9650\u516c\u53f8 | 0.040955 | \u6ce2\u52a8\u6700\u5927 |\n\n**\u5206\u6790\u7ed3\u8bba\uff1a**\n\n\u5510\u5c71\u745e\u4e30\u94a2\u94c1\uff08\u96c6\u56e2\uff09\u6709\u9650\u516c\u53f8\uff08company_id: 2420\uff09\u662f\u5f53\u65e5\u6392\u653e\u6700\u7a33\u5b9a\u7684\u4f01\u4e1a\uff0c\u5176\u53d8\u5f02\u7cfb\u6570\u4ec5\u4e3a0.015253\uff0c\u8868\u660e\u5176\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u91cf\u6ce2\u52a8\u6700\u5c0f\uff0c\u751f\u4ea7\u8fd0\u884c\u6700\u4e3a\u5e73\u7a33\u3002\n\n\u6cb3\u5317\u666e\u9633\u94a2\u94c1\u6709\u9650\u516c\u53f8\u7684\u53d8\u5f02\u7cfb\u6570\u4e3a0.023695\uff0c\u6392\u653e\u7a33\u5b9a\u6027\u5c45\u4e2d\u3002\n\n\u5510\u5c71\u6e2f\u9646\u94a2\u94c1\u6709\u9650\u516c\u53f8\u7684\u53d8\u5f02\u7cfb\u6570\u6700\u9ad8\uff080.040955\uff09\uff0c\u8868\u660e\u5176\u70df\u6c14\u6392\u653e\u6ce2\u52a8\u76f8\u5bf9\u8f83\u5927\uff0c\u53ef\u80fd\u9700\u8981\u5173\u6ce8\u5176\u751f\u4ea7\u8fc7\u7a0b\u7684\u7a33\u5b9a\u6027\u3002\n\n**\u6700\u7ec8\u7ed3\u679c\uff1a**\n- cv_puyang (\u6cb3\u5317\u666e\u9633\u94a2\u94c1): 0.023695\n- cv_ruifeng (\u5510\u5c71\u745e\u4e30\u94a2\u94c1): 0.015253\n- cv_ganglu (\u5510\u5c71\u6e2f\u9646\u94a2\u94c1): 0.040955\n- most_consistent_company_id: 2420",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 11,
+              "prompt_tokens": 100593,
+              "completion_tokens": 2521,
+              "total_tokens": 103114
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u83b7\u53d6\u4e09\u5bb6\u516c\u53f8\u7684company_id\nquery_companies = text(\"\"\"\nSELECT id, name FROM polluting_company \nWHERE name IN ('\u6cb3\u5317\u6fee\u9633\u94a2\u94c1', '\u5510\u5c71\u745e\u4e30\u94a2\u94c1', '\u5510\u5c71\u94a2\u5362\u94a2\u94c1')\n\"\"\")\ncompanies_df = pd.read_sql(query_companies, engine)\nprint(companies_df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u6240\u6709\u94a2\u94c1\u884c\u4e1a\u7684\u4f01\u4e1a\nquery_steel = text(\"\"\"\nSELECT id, name, industry_type FROM polluting_company \nWHERE industry_type = 'STEEL'\nLIMIT 20\n\"\"\")\nsteel_companies = pd.read_sql(query_steel, engine)\nprint(steel_companies)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u5305\u542b\u5173\u952e\u8bcd\u7684\u94a2\u94c1\u516c\u53f8\nquery_search = text(\"\"\"\nSELECT id, name, industry_type FROM polluting_company \nWHERE industry_type = 'STEEL'\nAND (name LIKE '%\u6fee\u9633%' OR name LIKE '%\u745e\u4e30%' OR name LIKE '%\u94a2\u5362%')\n\"\"\")\nsearch_results = pd.read_sql(query_search, engine)\nprint(search_results)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\u6fee\u9633\u7684\u516c\u53f8\nquery_puyang = text(\"\"\"\nSELECT id, name, industry_type FROM polluting_company \nWHERE name LIKE '%\u6fee\u9633%'\n\"\"\")\npuyang_results = pd.read_sql(query_puyang, engine)\nprint(\"\u6fee\u9633\u76f8\u5173\u516c\u53f8:\")\nprint(puyang_results)\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\u94a2\u5362\u7684\u516c\u53f8\nquery_ganglu = text(\"\"\"\nSELECT id, name, industry_type FROM polluting_company \nWHERE name LIKE '%\u94a2\u5362%' OR name LIKE '%\u94a2\u7089%' OR name LIKE '%\u6e2f\u9646%'\n\"\"\")\nganglu_results = pd.read_sql(query_ganglu, engine)\nprint(\"\\n\u94a2\u5362\u76f8\u5173\u516c\u53f8:\")\nprint(ganglu_results)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\"\u6fee\"\u5b57\u7684\u516c\u53f8\nquery_pu = text(\"\"\"\nSELECT id, name, industry_type FROM polluting_company \nWHERE name LIKE '%\u6fee%'\n\"\"\")\npu_results = pd.read_sql(query_pu, engine)\nprint(\"\u542b\u6fee\u5b57\u7684\u516c\u53f8:\")\nprint(pu_results)\n\n# \u518d\u641c\u7d22\u5510\u5c71\u5730\u533a\u6240\u6709\u94a2\u94c1\u516c\u53f8\uff0c\u770b\u770b\u80fd\u5426\u627e\u5230\u5bf9\u5e94\u7684\nquery_tangshan_steel = text(\"\"\"\nSELECT id, name, city_id FROM polluting_company \nWHERE industry_type = 'STEEL' AND city_id = 2\nORDER BY id\nLIMIT 30\n\"\"\")\ntangshan_steel = pd.read_sql(query_tangshan_steel, engine)\nprint(\"\\n\u5510\u5c71\u94a2\u94c1\u516c\u53f8:\")\nprint(tangshan_steel)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u94a2\u94c1\u516c\u53f8\uff0c\u770b\u770b\u5b8c\u6574\u5217\u8868\nquery_all_steel = text(\"\"\"\nSELECT id, name, city_id FROM polluting_company \nWHERE industry_type = 'STEEL'\nORDER BY name\n\"\"\")\nall_steel = pd.read_sql(query_all_steel, engine)\nprint(\"\u6240\u6709\u94a2\u94c1\u516c\u53f8:\")\nprint(all_steel.to_string())",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u53ef\u80fd\u5305\u542b\"\u6fee\"\u6216\u53d1\u97f3\u76f8\u8fd1\u7684\u516c\u53f8\nquery_search_all = text(\"\"\"\nSELECT id, name, city_id, industry_type FROM polluting_company \nWHERE name LIKE '%\u6fee%' OR name LIKE '%\u666e%' OR name LIKE '%\u6d66%'\nORDER BY name\n\"\"\")\nsearch_all = pd.read_sql(query_search_all, engine)\nprint(\"\u53ef\u80fd\u76f8\u5173\u7684\u516c\u53f8:\")\nprint(search_all)\n\n# \u53e6\u5916\uff0c\u8ba9\u6211\u68c0\u67e5\u4e00\u4e0b\u662f\u5426\u6709\"\u6cb3\u5317\u6fee\u9633\"\u6216\u5176\u4ed6\u53d8\u4f53\nquery_hebei = text(\"\"\"\nSELECT id, name, city_id FROM polluting_company \nWHERE name LIKE '\u6cb3\u5317%' AND (name LIKE '%\u94a2%' OR name LIKE '%\u94c1%')\nORDER BY name\nLIMIT 30\n\"\"\")\nhebei_steel = pd.read_sql(query_hebei, engine)\nprint(\"\\n\u6cb3\u5317\u5f00\u5934\u7684\u94a2\u94c1\u516c\u53f8:\")\nprint(hebei_steel)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\"\u9633\"\u5b57\u7684\u94a2\u94c1\u516c\u53f8\nquery_yang = text(\"\"\"\nSELECT id, name, city_id FROM polluting_company \nWHERE industry_type = 'STEEL' AND name LIKE '%\u9633%'\nORDER BY name\n\"\"\")\nyang_steel = pd.read_sql(query_yang, engine)\nprint(\"\u542b'\u9633'\u5b57\u7684\u94a2\u94c1\u516c\u53f8:\")\nprint(yang_steel)\n\n# \u4e5f\u641c\u7d22\u4e00\u4e0b\u662f\u5426\u6709\"\u6fee\u9633\"\u5728\u5176\u4ed6\u8868\u4e2d\nquery_check = text(\"\"\"\nSELECT DISTINCT name FROM polluting_company \nWHERE name ILIKE '%puyang%' OR name ILIKE '%pu yang%'\n\"\"\")\ncheck_result = pd.read_sql(query_check, engine)\nprint(\"\\n\u68c0\u67e5Puyang:\")\nprint(check_result)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u8ba1\u7b97\u4e09\u5bb6\u516c\u53f8\u57282025-06-10\u7684\u6bcf\u5c0f\u65f6\u70df\u6c14\u6392\u653e\u7684\u5747\u503c\u548c\u6807\u51c6\u5dee\nquery_cv = text(\"\"\"\nSELECT \n    company_id,\n    AVG(exhaust_gas) as mean_exhaust,\n    STDDEV_POP(exhaust_gas) as std_exhaust,\n    COUNT(*) as hour_count\nFROM hourly_polluting_company_emission\nWHERE company_id IN (2495, 2420, 2443)\nAND DATE(timestamp) = '2025-06-10'\nGROUP BY company_id\n\"\"\")\ncv_data = pd.read_sql(query_cv, engine)\nprint(\"\u4e09\u5bb6\u516c\u53f82025-06-10\u7684\u70df\u6c14\u6392\u653e\u7edf\u8ba1:\")\nprint(cv_data)\n\n# \u8ba1\u7b97\u53d8\u5f02\u7cfb\u6570\ncv_data['cv'] = cv_data['std_exhaust'] / cv_data['mean_exhaust']\nprint(\"\\n\u53d8\u5f02\u7cfb\u6570:\")\nprint(cv_data[['company_id', 'mean_exhaust', 'std_exhaust', 'cv']])",
+              "# \u8d4b\u503c\u7ed3\u679c\u5230\u53d8\u91cf\ncv_puyang = 0.023695\ncv_ruifeng = 0.015253\ncv_ganglu = 0.040955\nmost_consistent_company_id = 2420\n\nprint(f\"cv_puyang (\u6cb3\u5317\u666e\u9633\u94a2\u94c1): {cv_puyang}\")\nprint(f\"cv_ruifeng (\u5510\u5c71\u745e\u4e30\u94a2\u94c1): {cv_ruifeng}\")\nprint(f\"cv_ganglu (\u5510\u5c71\u6e2f\u9646\u94a2\u94c1): {cv_ganglu}\")\nprint(f\"most_consistent_company_id: {most_consistent_company_id}\")"
+            ],
+            "runtime_variables": {
+              "cv_puyang": 0.023695,
+              "cv_ruifeng": 0.015253,
+              "cv_ganglu": 0.040955,
+              "most_consistent_company_id": 2420
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 11,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 100593,
+      "total_completion_tokens": 2521,
+      "total_tokens": 103114
+    }
+  }
+}

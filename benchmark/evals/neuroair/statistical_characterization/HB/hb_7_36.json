@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_7_36",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_7_36",
+    "requirements": "As part of your analysis, over the window 2025-06-20 12:00 to 2025-06-22 12:00 compute and store: company_total_flue_gas (company 2444, float), origin_district_mean_aqi, origin_district_max_aqi (Caofeidian district_id 31, float).",
+    "conversations": [
+      {
+        "id": "hb_7_36",
+        "turns": [
+          {
+            "query": "Analyze cross-district pollution transport from Caofeidian District (district_id: 31) where Shougang Jingtang Steel (company_id: 2444) operates to neighboring districts in Tangshan City during 2025-06-20 12:00:00 to 2025-06-22 12:00:00. Use wind field data to trace actual pollution pathways and quantify enterprise-specific contributions to downwind district air quality.",
+            "validator": "validate_hb_7_36"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-7-36",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "hb_1_13": {
+    "scenario": "hb_1_13",
+    "conversations": [
+      {
+        "id": "hb_1_13",
+        "turns": [
+          {
+            "query": "Help me analyze when Jingye Metallurgical Technology Co., Ltd. has the highest NOx emissions during 2025-06-10 to 2025-06-12.",
+            "actual_response": "\u656c\u4e1a\u51b6\u91d1\u6280\u672f\u6709\u9650\u516c\u53f8\u5728 2025-06-10 \u81f3 2025-06-12 \u671f\u95f4\uff0cNOx \u5c0f\u65f6\u6392\u653e\u5cf0\u503c\u51fa\u73b0\u5728 2025-06-12 19:00:00\uff0c\u5cf0\u503c\u4e3a 253.669 kg\uff0c\u8ddd 2025-06-10 00:00 \u4e3a 67 \u5c0f\u65f6\u3002\n\n\u8be5\u65f6\u6bb5\u5171\u8986\u76d6 72 \u6761\u6709\u6548\u5c0f\u65f6\u8bb0\u5f55\uff0cNOx \u6392\u653e\u603b\u91cf\u4e3a 13668.200 kg\uff0c\u5c0f\u65f6\u5e73\u5747\u6392\u653e\u91cf\u4e3a 189.836 kg\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 22397,
+              "completion_tokens": 2195,
+              "total_tokens": 24592
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart_ts = \"2025-06-10 00:00:00\"\nend_ts = \"2025-06-13 00:00:00\"\n\n# \u5148\u5b9a\u4f4d\u201cJingye Metallurgical Technology Co., Ltd.\u201d\u5bf9\u5e94\u4f01\u4e1a\uff0c\u5e76\u68c0\u67e5\u7a97\u53e3\u5185\u5c0f\u65f6\u8bb0\u5f55\u6570\u91cf\ncandidate_sql = text(\"\"\"\nWITH candidates AS (\n  SELECT id, name,\n         CASE\n           WHEN lower(name) = lower('Jingye Metallurgical Technology Co., Ltd.') THEN 1\n           WHEN name LIKE '%\u656c\u4e1a%' AND (name LIKE '%\u51b6\u91d1%' OR name LIKE '%\u91d1\u5c5e%') AND (name LIKE '%\u79d1\u6280%' OR name LIKE '%\u6280\u672f%') THEN 2\n           WHEN lower(name) LIKE '%jingye%' AND lower(name) LIKE '%metallurgical%' THEN 3\n           WHEN name LIKE '%\u656c\u4e1a%' AND (name LIKE '%\u51b6\u91d1%' OR name LIKE '%\u79d1\u6280%' OR name LIKE '%\u6280\u672f%') THEN 4\n           ELSE 9\n         END AS rank\n  FROM polluting_company\n  WHERE lower(name) = lower('Jingye Metallurgical Technology Co., Ltd.')\n     OR (name LIKE '%\u656c\u4e1a%' AND (name LIKE '%\u51b6\u91d1%' OR name LIKE '%\u91d1\u5c5e%' OR name LIKE '%\u79d1\u6280%' OR name LIKE '%\u6280\u672f%'))\n     OR (lower(name) LIKE '%jingye%' AND (lower(name) LIKE '%metallurgical%' OR lower(name) LIKE '%technology%'))\n),\nranked AS (\n  SELECT id, name, rank,\n         COUNT(*) OVER() AS candidate_count,\n         ROW_NUMBER() OVER(ORDER BY rank, id) AS rn\n  FROM candidates\n)\nSELECT r.id, r.name, r.candidate_count, r.rank,\n       COUNT(h.id) AS hourly_record_count\nFROM ranked r\nLEFT JOIN hourly_polluting_company_emission h\n  ON h.company_id = r.id\n AND h.timestamp >= :start_ts\n AND h.timestamp < :end_ts\nWHERE r.rn = 1\nGROUP BY r.id, r.name, r.candidate_count, r.rank\n\"\"\")\ncandidate = pd.read_sql(candidate_sql, engine, params={\"start_ts\": start_ts, \"end_ts\": end_ts})\n\nif candidate.empty or int(candidate.loc[0, \"hourly_record_count\"]) == 0:\n    peak_nox = None\n    total_nox = None\n    mean_nox = None\n    peak_nox_offset_hours = None\n    print(\"\u672a\u627e\u5230\u5339\u914d\u4f01\u4e1a\uff0c\u6216\u8be5\u4f01\u4e1a\u5728\u6307\u5b9a\u65f6\u6bb5\u5185\u65e0\u5c0f\u65f6NOx\u8bb0\u5f55\u3002\")\nelse:\n    company_id = int(candidate.loc[0, \"id\"])\n    stats_sql = text(\"\"\"\n    WITH period AS (\n      SELECT timestamp, nox\n      FROM hourly_polluting_company_emission\n      WHERE company_id = :company_id\n        AND timestamp >= :start_ts\n        AND timestamp < :end_ts\n        AND nox IS NOT NULL\n    ),\n    agg AS (\n      SELECT COUNT(*) AS n, SUM(nox)::float AS total_nox, AVG(nox)::float AS mean_nox, MAX(nox)::float AS peak_nox\n      FROM period\n    ),\n    peak AS (\n      SELECT timestamp AS peak_timestamp, nox AS peak_nox\n      FROM period\n      ORDER BY nox DESC, timestamp ASC\n      LIMIT 1\n    )\n    SELECT a.n, a.total_nox, a.mean_nox, a.peak_nox,\n           p.peak_timestamp,\n           FLOOR(EXTRACT(EPOCH FROM (p.peak_timestamp - TIMESTAMP :start_ts)) / 3600)::int AS peak_nox_offset_hours\n    FROM agg a CROSS JOIN peak p\n    \"\"\")\n    stats = pd.read_sql(stats_sql, engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts})\n    peak_nox = float(stats.loc[0, \"peak_nox\"])\n    total_nox = float(stats.loc[0, \"total_nox\"])\n    mean_nox = float(stats.loc[0, \"mean_nox\"])\n    peak_nox_offset_hours = int(stats.loc[0, \"peak_nox_offset_hours\"])\n    print({\n        \"\u5339\u914d\u4f01\u4e1a\u6570\u91cf\": int(candidate.loc[0, \"candidate_count\"]),\n        \"\u91c7\u7528\u4f01\u4e1a\": candidate.loc[0, \"name\"],\n        \"\u6709\u6548\u5c0f\u65f6\u8bb0\u5f55\u6570\": int(stats.loc[0, \"n\"]),\n        \"NOx\u5cf0\u503c_kg\": peak_nox,\n        \"NOx\u603b\u91cf_kg\": total_nox,\n        \"NOx\u5c0f\u65f6\u5747\u503c_kg\": mean_nox,\n        \"NOx\u5cf0\u503c\u65f6\u95f4\": str(stats.loc[0, \"peak_timestamp\"]),\n        \"\u5cf0\u503c\u8ddd2025-06-10_00\u65f6\u7684\u5c0f\u65f6\u6570\": peak_nox_offset_hours\n    })",
+              "# \u4fee\u6b63\u65f6\u95f4\u53c2\u6570\u8f6c\u6362\u8bed\u6cd5\uff0c\u7ee7\u7eed\u57fa\u4e8e\u5df2\u5b9a\u4f4d\u4f01\u4e1a\u8ba1\u7b97\u7edf\u8ba1\u91cf\nstats_sql = text(\"\"\"\nWITH period AS (\n  SELECT timestamp, nox\n  FROM hourly_polluting_company_emission\n  WHERE company_id = :company_id\n    AND timestamp >= CAST(:start_ts AS timestamp)\n    AND timestamp < CAST(:end_ts AS timestamp)\n    AND nox IS NOT NULL\n),\nagg AS (\n  SELECT COUNT(*) AS n, SUM(nox)::float AS total_nox, AVG(nox)::float AS mean_nox, MAX(nox)::float AS peak_nox\n  FROM period\n),\npeak AS (\n  SELECT timestamp AS peak_timestamp, nox AS peak_nox\n  FROM period\n  ORDER BY nox DESC, timestamp ASC\n  LIMIT 1\n)\nSELECT a.n, a.total_nox, a.mean_nox, a.peak_nox,\n       p.peak_timestamp,\n       FLOOR(EXTRACT(EPOCH FROM (p.peak_timestamp - CAST(:start_ts AS timestamp))) / 3600)::int AS peak_nox_offset_hours\nFROM agg a CROSS JOIN peak p\n\"\"\")\n\nstats = pd.read_sql(stats_sql, engine, params={\"company_id\": company_id, \"start_ts\": start_ts, \"end_ts\": end_ts})\n\nif stats.empty or int(stats.loc[0, \"n\"]) == 0:\n    peak_nox = None\n    total_nox = None\n    mean_nox = None\n    peak_nox_offset_hours = None\n    print(\"\u8be5\u4f01\u4e1a\u5728\u6307\u5b9a\u65f6\u6bb5\u5185\u65e0\u6709\u6548\u5c0f\u65f6NOx\u8bb0\u5f55\u3002\")\nelse:\n    peak_nox = float(stats.loc[0, \"peak_nox\"])\n    total_nox = float(stats.loc[0, \"total_nox\"])\n    mean_nox = float(stats.loc[0, \"mean_nox\"])\n    peak_nox_offset_hours = int(stats.loc[0, \"peak_nox_offset_hours\"])\n    peak_nox_timestamp = stats.loc[0, \"peak_timestamp\"]\n    print({\n        \"\u91c7\u7528\u4f01\u4e1a\": candidate.loc[0, \"name\"],\n        \"\u6709\u6548\u5c0f\u65f6\u8bb0\u5f55\u6570\": int(stats.loc[0, \"n\"]),\n        \"NOx\u5cf0\u503c_kg\": peak_nox,\n        \"NOx\u603b\u91cf_kg\": total_nox,\n        \"NOx\u5c0f\u65f6\u5747\u503c_kg\": mean_nox,\n        \"NOx\u5cf0\u503c\u65f6\u95f4\": str(peak_nox_timestamp),\n        \"\u5cf0\u503c\u8ddd2025-06-10_00\u65f6\u7684\u5c0f\u65f6\u6570\": peak_nox_offset_hours\n    })"
+            ],
+            "runtime_variables": {
+              "peak_nox": 253.66900634765625,
+              "peak_nox_offset_hours": 67,
+              "total_nox": 13668.2001953125,
+              "mean_nox": 189.83609750535754
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 3,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 22397,
+      "total_completion_tokens": 2195,
+      "total_tokens": 24592
+    }
+  }
+}

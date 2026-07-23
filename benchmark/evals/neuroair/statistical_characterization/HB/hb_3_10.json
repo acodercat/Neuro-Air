@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_10",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_3_10",
+    "requirements": "As part of your analysis, for Tangshan (city 2) on 2025-06-15 compute and store: total_steel_flue_gas (all STEEL enterprises), steel_company_count (int), city_mean_aqi, city_max_aqi (float).",
+    "conversations": [
+      {
+        "id": "hb_3_10",
+        "turns": [
+          {
+            "query": "Analyze the emission patterns of all steel enterprises in Tangshan city(city id: 2) on 2025-06-15 and compare with the city's air quality index.",
+            "validator": "validate_hb_3_10"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-10",
+      "verbatim": true
+    }
+  }
+]

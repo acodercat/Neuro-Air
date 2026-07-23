@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_19",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_1_19",
+    "requirements": "As part of your analysis, for Hebei Jinxi Steel Group Co., Ltd. West Plant over 2025-06-10 to 2025-06-12 compute and store: total_nox, total_so2, total_pm, peak_flue_gas (float).",
+    "conversations": [
+      {
+        "id": "hb_1_19",
+        "turns": [
+          {
+            "query": "Analyze when Hebei Jinxi Steel Group Co., Ltd. West Plant shows coordinated high emissions across multiple pollutants during 2025-06-10 to 2025-06-12.",
+            "validator": "validate_hb_1_19"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-19",
+      "verbatim": true
+    }
+  }
+]

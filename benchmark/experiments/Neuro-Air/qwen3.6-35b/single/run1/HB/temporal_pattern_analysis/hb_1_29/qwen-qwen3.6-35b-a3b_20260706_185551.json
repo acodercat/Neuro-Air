@@ -1,0 +1,51 @@
+{
+  "hb_1_29": {
+    "scenario": "hb_1_29",
+    "conversations": [
+      {
+        "id": "hb_1_29",
+        "turns": [
+          {
+            "query": "Compare steel industry emissions and air quality between April and May 2025 in Wu'an City.",
+            "actual_response": "\u6839\u636e\u67e5\u8be2\u7ed3\u679c\uff0c\u6b66\u5b89\u5e022025\u5e744\u6708\u548c5\u6708\u7684\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u4e0e\u7a7a\u6c14\u8d28\u91cf\u5bf9\u6bd4\u5206\u6790\u5982\u4e0b\uff1a\n\n**\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u60c5\u51b5\uff1a**\n- 2025\u5e744\u6708\u94a2\u94c1\u884c\u4e1a\u603b\u6392\u653e\u6c14\u4f53\u91cf\uff1a763.61\u4ebf\u7acb\u65b9\u7c73\n- 2025\u5e745\u6708\u94a2\u94c1\u884c\u4e1a\u603b\u6392\u653e\u6c14\u4f53\u91cf\uff1a829.43\u4ebf\u7acb\u65b9\u7c73\n- \u6392\u653e\u8f83\u9ad8\u7684\u6708\u4efd\uff1a5\u6708\n- \u6392\u653e\u53d8\u5316\u5e45\u5ea6\uff1a5\u6708\u8f834\u6708\u589e\u957f8.62%\n\n**\u7a7a\u6c14\u8d28\u91cf\u60c5\u51b5\uff08\u6b66\u5b89\u5e02\u533a\u5e73\u5747AQI\uff09\uff1a**\n- 2025\u5e744\u6708\u5e73\u5747AQI\uff1a87.23\n- 2025\u5e745\u6708\u5e73\u5747AQI\uff1a90.74\n\n**\u7efc\u5408\u5206\u6790\uff1a**\n2025\u5e745\u6708\u6b66\u5b89\u5e02\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u603b\u91cf\u8f834\u6708\u589e\u957f8.62%\uff0c\u540c\u65f6\u7a7a\u6c14\u8d28\u91cf\u6307\u6570\uff08AQI\uff09\u4e5f\u4ece87.23\u4e0a\u5347\u81f390.74\uff0c\u589e\u5e45\u7ea6\u4e3a3.99%\u3002\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u91cf\u7684\u589e\u52a0\u4e0e\u7a7a\u6c14\u8d28\u91cf\u6076\u5316\u5448\u73b0\u6b63\u76f8\u5173\u5173\u7cfb\uff0c\u8868\u660e\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u5bf9\u6b66\u5b89\u5e02\u7a7a\u6c14\u8d28\u91cf\u5b58\u5728\u663e\u8457\u5f71\u54cd\u3002\u5efa\u8bae\u76f8\u5173\u90e8\u95e8\u52a0\u5f3a\u5bf9\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u7684\u76d1\u7ba1\u529b\u5ea6\uff0c\u7279\u522b\u662f\u57285\u6708\u6392\u653e\u9ad8\u5cf0\u671f\uff0c\u53ef\u8003\u8651\u5b9e\u65bd\u66f4\u4e25\u683c\u7684\u6392\u653e\u63a7\u5236\u63aa\u65bd\uff0c\u4ee5\u6539\u5584\u533a\u57df\u7a7a\u6c14\u8d28\u91cf\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: total_steel_may=82943390000.0, expected ~69286420000.0 (tol 346432100.0)"
+            ],
+            "metrics": {
+              "steps": 3,
+              "prompt_tokens": 19205,
+              "completion_tokens": 2232,
+              "total_tokens": 21437
+            },
+            "success": false,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u786e\u8ba4\u6b66\u5b89\u5e02\u7684district_id\nquery_district = text(\"\"\"\nSELECT id, name FROM district WHERE name = '\u6b66\u5b89\u5e02'\n\"\"\")\ndistrict_df = pd.read_sql(query_district, engine)\nprint(\"\u6b66\u5b89\u5e02\u4fe1\u606f:\")\nprint(district_df)\n\n# \u83b7\u53d6\u6b66\u5b89\u5e02\u7684district_id\nwu_an_district_id = district_df.iloc[0]['id']\nprint(f\"\\n\u6b66\u5b89\u5e02district_id: {wu_an_district_id}\")\n\n# \u67e5\u8be2\u6b66\u5b89\u5e02\u6240\u6709\u94a2\u94c1\u884c\u4e1a\u516c\u53f8\u7684\u603b\u6392\u653e\u6c14\u4f53\u91cf\uff082025\u5e744\u6708\u548c5\u6708\uff09\nquery_steel_emission = text(\"\"\"\nSELECT \n    EXTRACT(MONTH FROM dpe.date) as month,\n    SUM(dpe.exhaust_gas) as total_exhaust_gas\nFROM daily_polluting_company_emission dpe\nJOIN polluting_company pc ON dpe.company_id = pc.id\nWHERE pc.district_id = :district_id \n    AND pc.industry_type = 'STEEL'\n    AND dpe.date >= '2025-04-01' \n    AND dpe.date < '2025-06-01'\nGROUP BY EXTRACT(MONTH FROM dpe.date)\nORDER BY month\n\"\"\")\nsteel_emission_df = pd.read_sql(query_steel_emission, engine, params={'district_id': wu_an_district_id})\nprint(\"\\n\u94a2\u94c1\u884c\u4e1a\u6392\u653e\u6570\u636e:\")\nprint(steel_emission_df)\n\n# \u67e5\u8be2\u6b66\u5b89\u5e02\u533a\u5e73\u5747AQI\uff082025\u5e744\u6708\u548c5\u6708\uff09\nquery_aqi = text(\"\"\"\nSELECT \n    EXTRACT(MONTH FROM dda.date) as month,\n    ROUND(AVG(dda.aqi), 2) as mean_aqi\nFROM daily_district_air_quality dda\nWHERE dda.district_id = :district_id\n    AND dda.date >= '2025-04-01' \n    AND dda.date < '2025-06-01'\nGROUP BY EXTRACT(MONTH FROM dda.date)\nORDER BY month\n\"\"\")\naqi_df = pd.read_sql(query_aqi, engine, params={'district_id': wu_an_district_id})\nprint(\"\\n\u7a7a\u6c14\u8d28\u91cf\u6570\u636e:\")\nprint(aqi_df)",
+              "# \u6839\u636e\u67e5\u8be2\u7ed3\u679c\u8ba1\u7b97\u5e76\u5b58\u50a8\u6240\u6709\u9700\u8981\u7684\u53d8\u91cf\n\n# \u94a2\u94c1\u6392\u653e\u6570\u636e\ntotal_steel_apr = 7.636102e+10  # 4\u6708\u603b\u6392\u653e\u6c14\u4f53\u91cf\ntotal_steel_may = 8.294339e+10  # 5\u6708\u603b\u6392\u653e\u6c14\u4f53\u91cf\n\n# \u786e\u5b9a\u6392\u653e\u66f4\u9ad8\u7684\u6708\u4efd\nhigher_emission_month = 'May' if total_steel_may > total_steel_apr else 'April'\n\n# \u8ba1\u7b97\u6392\u653e\u53d8\u5316\u767e\u5206\u6bd4\nemission_change_pct = (total_steel_may - total_steel_apr) / total_steel_apr * 100\n\n# \u7a7a\u6c14\u8d28\u91cf\u6570\u636e\nmean_aqi_apr = 87.23  # 4\u6708\u5e73\u5747AQI\nmean_aqi_may = 90.74  # 5\u6708\u5e73\u5747AQI\n\n# \u6253\u5370\u7ed3\u679c\u9a8c\u8bc1\nprint(f\"4\u6708\u94a2\u94c1\u6392\u653e\u603b\u91cf: {total_steel_apr:.2f} \u7acb\u65b9\u7c73\")\nprint(f\"5\u6708\u94a2\u94c1\u6392\u653e\u603b\u91cf: {total_steel_may:.2f} \u7acb\u65b9\u7c73\")\nprint(f\"\u6392\u653e\u66f4\u9ad8\u7684\u6708\u4efd: {higher_emission_month}\")\nprint(f\"\u6392\u653e\u53d8\u5316\u767e\u5206\u6bd4: {emission_change_pct:.2f}%\")\nprint(f\"4\u6708\u5e73\u5747AQI: {mean_aqi_apr}\")\nprint(f\"5\u6708\u5e73\u5747AQI: {mean_aqi_may}\")"
+            ],
+            "runtime_variables": {
+              "total_steel_apr": 76361020000.0,
+              "total_steel_may": 82943390000.0,
+              "higher_emission_month": "May",
+              "emission_change_pct": 8.62006557796111,
+              "mean_aqi_apr": 87.23,
+              "mean_aqi_may": 90.74
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 3,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 19205,
+      "total_completion_tokens": 2232,
+      "total_tokens": 21437
+    }
+  }
+}

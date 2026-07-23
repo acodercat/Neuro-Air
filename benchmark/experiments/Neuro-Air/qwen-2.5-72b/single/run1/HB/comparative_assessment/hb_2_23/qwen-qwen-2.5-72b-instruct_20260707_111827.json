@@ -1,0 +1,51 @@
+{
+  "hb_2_23": {
+    "scenario": "hb_2_23",
+    "conversations": [
+      {
+        "id": "hb_2_23",
+        "turns": [
+          {
+            "query": "Assess pollution transmission from urban districts (Chang'an, Qiaoxi) to rural Gaoyi County on 2025-06-18",
+            "actual_response": "\u7531\u4e8e2025\u5e746\u670818\u65e5\u957f\u5b89\u533a\u3001\u6865\u897f\u533a\u548c\u9ad8\u9091\u53bf\u7684 `hourly_district_air_quality` \u8868\u4e2d\u6ca1\u6709\u4efb\u4f55\u6570\u636e\u8bb0\u5f55\uff0c\u6211\u4eec\u65e0\u6cd5\u8ba1\u7b97\u8fd9\u4e9b\u5730\u533a\u7684\u5e73\u5747AQI\u503c\uff0c\u4e5f\u65e0\u6cd5\u8bc4\u4f30\u4ece\u957f\u5b89\u533a\u548c\u6865\u897f\u533a\u5230\u9ad8\u9091\u53bf\u7684\u6c61\u67d3\u4f20\u8f93\u60c5\u51b5\u3002\n\n\u6700\u7ec8\u7ed3\u679c\u5982\u4e0b\uff1a\n- `mean_aqi_changan` = None\n- `mean_aqi_qiaoxi` = None\n- `mean_aqi_gaoyi` = None\n- `urban_to_rural_diff` = None\n\n\u8fd9\u4e9b\u7ed3\u679c\u8868\u660e\uff0c\u57282025\u5e746\u670818\u65e5\uff0c\u8fd9\u4e9b\u5730\u533a\u53ef\u80fd\u6ca1\u6709\u8fdb\u884c\u7a7a\u6c14\u8d28\u91cf\u76d1\u6d4b\uff0c\u6216\u8005\u6570\u636e\u7f3a\u5931\u3002\u5efa\u8bae\u8fdb\u4e00\u6b65\u68c0\u67e5\u6570\u636e\u6e90\u6216\u76d1\u6d4b\u8bbe\u5907\uff0c\u4ee5\u786e\u4fdd\u6570\u636e\u7684\u5b8c\u6574\u6027\u548c\u51c6\u786e\u6027\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: mean_aqi_changan not set"
+            ],
+            "metrics": {
+              "steps": 5,
+              "prompt_tokens": 36946,
+              "completion_tokens": 1131,
+              "total_tokens": 38077
+            },
+            "success": false,
+            "variables_not_set": true,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be22025-06-18\u957f\u5b89\u533a\u3001\u6865\u897f\u533a\u548c\u9ad8\u9091\u53bf\u7684\u5e73\u5747AQI\u503c\nquery = text(\"\"\"\nWITH district_aqi AS (\n    SELECT \n        d.name AS district_name,\n        AVG(hdaq.aqi) AS mean_aqi\n    FROM \n        hourly_district_air_quality hdaq\n    JOIN \n        district d ON hdaq.district_id = d.id\n    WHERE \n        hdaq.timestamp >= '2025-06-18 00:00:00' AND hdaq.timestamp < '2025-06-19 00:00:00'\n        AND d.name IN ('Chang\\'an', 'Qiaoxi', 'Gaoyi')\n    GROUP BY \n        d.name\n)\nSELECT * FROM district_aqi\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u8be22025-06-18\u957f\u5b89\u533a\u3001\u6865\u897f\u533a\u548c\u9ad8\u9091\u53bf\u7684\u5e73\u5747AQI\u503c\nquery = text(\"\"\"\nWITH district_aqi AS (\n    SELECT \n        d.name AS district_name,\n        AVG(hdaq.aqi) AS mean_aqi\n    FROM \n        hourly_district_air_quality hdaq\n    JOIN \n        district d ON hdaq.district_id = d.id\n    WHERE \n        hdaq.timestamp >= '2025-06-18 00:00:00' AND hdaq.timestamp < '2025-06-19 00:00:00'\n        AND d.name IN ('Chang''an', 'Qiaoxi', 'Gaoyi')\n    GROUP BY \n        d.name\n)\nSELECT * FROM district_aqi\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u68c0\u67e52025-06-18\u957f\u5b89\u533a\u3001\u6865\u897f\u533a\u548c\u9ad8\u9091\u53bf\u7684\u6570\u636e\u662f\u5426\u5b58\u5728\nquery = text(\"\"\"\nSELECT \n    d.name AS district_name,\n    COUNT(*) AS record_count\nFROM \n    hourly_district_air_quality hdaq\nJOIN \n    district d ON hdaq.district_id = d.id\nWHERE \n    hdaq.timestamp >= '2025-06-18 00:00:00' AND hdaq.timestamp < '2025-06-19 00:00:00'\n    AND d.name IN ('Chang''an', 'Qiaoxi', 'Gaoyi')\nGROUP BY \n    d.name\n\"\"\")\n\ndf = pd.read_sql(query, engine)\nprint(df)",
+              "mean_aqi_changan = None\nmean_aqi_qiaoxi = None\nmean_aqi_gaoyi = None\nurban_to_rural_diff = None"
+            ],
+            "runtime_variables": {
+              "mean_aqi_changan": null,
+              "mean_aqi_qiaoxi": null,
+              "mean_aqi_gaoyi": null,
+              "urban_to_rural_diff": null
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 5,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 36946,
+      "total_completion_tokens": 1131,
+      "total_tokens": 38077
+    }
+  }
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_6_13",
+    "module": "evals.neuroair.data_retrieval.HB.hb_6_13",
+    "requirements": "As part of your analysis, for station 123 over the window 2025-06-12 10:00 up to (but not including) 16:00 compute and store: mean_pm25, max_pm25, min_pm25 (float), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_6_13",
+        "turns": [
+          {
+            "query": "Analyze the rapid PM2.5 spike at Yongnian District Experimental High School station (station_id: 123) during 2025-06-12 10:00:00 to 2025-06-12 16:00:00, investigating potential sources from nearby industrial activities, meteorological inversion conditions, and regional transport, and suggest immediate community response actions",
+            "validator": "validate_hb_6_13"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-6-13",
+      "verbatim": true
+    }
+  }
+]

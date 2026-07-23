@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hk_1_13",
+    "module": "evals.neuroair.comparative_assessment.HK.hk_1_13",
+    "requirements": "As part of your analysis, over 2025-01-20 to 2025-01-26 compute and store: mean_aqhi_central (station 16), mean_aqhi_tuenmun (station 5), max_aqhi_central, max_aqhi_tuenmun (float) and higher_peak_station_id (16 or 5, higher max AQHI, int).",
+    "conversations": [
+      {
+        "id": "hk_1_13",
+        "turns": [
+          {
+            "query": "Compare air quality trends between Central station (station_id: 16) and Tuen Mun station (station_id: 5) from January 20-26, 2025, analyzing AQHI variations and identifying peak pollution periods",
+            "validator": "validate_hk_1_13"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HK-1-13",
+      "verbatim": true
+    }
+  }
+]

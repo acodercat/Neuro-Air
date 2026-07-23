@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_29",
+    "module": "evals.neuroair.temporal_pattern_analysis.HB.hb_1_29",
+    "requirements": "As part of your analysis, define steel emission as total exhaust_gas over all STEEL-industry companies in Wu'an City. Compute and store: total_steel_apr (April 2025), total_steel_may (May 2025) (float), higher_emission_month ('April' or 'May', str), emission_change_pct ((May-April)/April*100, float), and the air-quality side: mean_aqi_apr, mean_aqi_may (Wu'an district mean AQI per month, float).",
+    "conversations": [
+      {
+        "id": "hb_1_29",
+        "turns": [
+          {
+            "query": "Compare steel industry emissions and air quality between April and May 2025 in Wu'an City.",
+            "validator": "validate_hb_1_29"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "temporal_pattern_analysis",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-29",
+      "verbatim": true
+    }
+  }
+]

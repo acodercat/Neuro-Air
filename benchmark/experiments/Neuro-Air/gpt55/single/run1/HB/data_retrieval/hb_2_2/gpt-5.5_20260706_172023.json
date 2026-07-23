@@ -1,0 +1,47 @@
+{
+  "hb_2_2": {
+    "scenario": "hb_2_2",
+    "conversations": [
+      {
+        "id": "hb_2_2",
+        "turns": [
+          {
+            "query": "valuate weekly air quality trends in Zanhuang County from 2025-06-01 to 2025-06-07, analyzing spatial consistency across monitoring points.",
+            "actual_response": "2025\u5e746\u67081\u65e5\u81f36\u67087\u65e5\uff0c\u8d5e\u7687\u53bf\u7a7a\u6c14\u8d28\u91cf\u5468\u5747AQI\u4e3a **78.89**\uff0c\u5468\u5185\u5c0f\u65f6AQI\u6700\u9ad8\u503c\u4e3a **147.00**\uff0cAQI\u8d85\u8fc7100\u7684\u5c0f\u65f6\u6570\u4e3a **43\u5c0f\u65f6**\u3002\u8be5\u65f6\u6bb5\u5171\u6709 **168\u4e2a\u6709\u6548\u5c0f\u65f6\u8bb0\u5f55**\uff0c\u8986\u76d6\u5b8c\u65747\u5929\u3002\n\n\u4ece\u65e5\u53d8\u5316\u770b\uff0c\u7a7a\u6c14\u8d28\u91cf\u5448\u73b0\u660e\u663e\u6ce2\u52a8\uff1a\n\n- **6\u67083\u65e5\u548c6\u67084\u65e5\u7a7a\u6c14\u8d28\u91cf\u6700\u597d**\uff0c\u65e5\u5747AQI\u5206\u522b\u4e3a **47.58** \u548c **49.88**\uff0c\u5168\u65e5\u5747\u672a\u51fa\u73b0AQI\u8d85\u8fc7100\u7684\u5c0f\u65f6\u3002\n- **6\u67086\u65e5\u6c61\u67d3\u6700\u91cd**\uff0c\u65e5\u5747AQI\u8fbe\u5230 **104.08**\uff0c\u5c0f\u65f6\u6700\u9ad8AQI\u4e3a **147.00**\uff0cAQI\u8d85\u8fc7100\u7684\u65f6\u957f\u4e3a **13\u5c0f\u65f6**\u3002\n- 6\u67081\u65e5\u30016\u67082\u65e5\u30016\u67085\u65e5\u548c6\u67087\u65e5\u5747\u5b58\u5728\u4e0d\u540c\u7a0b\u5ea6\u7684AQI\u8d85\u8fc7100\u65f6\u6bb5\uff0c\u5176\u4e2d6\u67081\u65e5\u548c6\u67082\u65e5\u5404\u4e3a **8\u5c0f\u65f6**\uff0c6\u67085\u65e5\u548c6\u67087\u65e5\u5206\u522b\u4e3a **7\u5c0f\u65f6**\u3002\n- \u5468\u5185\u7a7a\u6c14\u8d28\u91cf\u8868\u73b0\u4e3a\uff1a\u524d\u4e24\u5929\u504f\u9ad8\uff0c\u4e2d\u671f\u660e\u663e\u6539\u5584\uff0c6\u67085\u65e5\u8d77\u518d\u6b21\u8f6c\u5dee\uff0c\u5e76\u57286\u67086\u65e5\u8fbe\u5230\u672c\u5468\u6c61\u67d3\u5cf0\u503c\u3002\n\n\u7a7a\u95f4\u4e00\u81f4\u6027\u65b9\u9762\uff0c\u8d5e\u7687\u53bf\u5171\u6709 **12\u4e2a\u76d1\u6d4b\u70b9**\u63d0\u4f9b\u6709\u6548\u6570\u636e\u3002\u5404\u76d1\u6d4b\u70b9\u5468\u5747AQI\u7684\u603b\u4f53\u6807\u51c6\u5dee\u4e3a **5.77**\uff0c\u76d1\u6d4b\u70b9\u5468\u5747AQI\u8303\u56f4\u4e3a **64.42\u201486.21**\uff0c\u7ad9\u70b9\u5e73\u5747\u6c34\u5e73\u4e3a **73.99**\u3002\u8fd9\u8868\u660e\u53bf\u57df\u5185\u5404\u76d1\u6d4b\u70b9\u4e4b\u95f4\u603b\u4f53\u5dee\u5f02\u4e0d\u5927\uff0c\u7a7a\u95f4\u4e00\u81f4\u6027\u8f83\u597d\uff0c\u4f46\u4ecd\u5b58\u5728\u4e00\u5b9a\u5c40\u5730\u5dee\u5f02\uff0c\u6700\u9ad8\u7ad9\u70b9\u5468\u5747AQI\u8f83\u6700\u4f4e\u7ad9\u70b9\u9ad8\u7ea6 **21.80**\u3002\n\n\u7efc\u5408\u5224\u65ad\uff0c\u8d5e\u7687\u53bf\u8be5\u5468\u6574\u4f53\u7a7a\u6c14\u8d28\u91cf\u5904\u4e8e\u4e2d\u7b49\u6c34\u5e73\uff0c\u4e3b\u8981\u6c61\u67d3\u8fc7\u7a0b\u96c6\u4e2d\u5728 **6\u67081\u20142\u65e5** \u548c **6\u67085\u20147\u65e5**\uff0c\u5176\u4e2d **6\u67086\u65e5** \u4e3a\u91cd\u70b9\u5173\u6ce8\u65f6\u6bb5\uff1b\u7a7a\u95f4\u5206\u5e03\u603b\u4f53\u8f83\u4e00\u81f4\uff0c\u5efa\u8bae\u540e\u7eed\u91cd\u70b9\u7ed3\u54086\u67086\u65e5\u524d\u540e\u7684\u6c14\u8c61\u6269\u6563\u6761\u4ef6\u548c\u672c\u5730\u6392\u653e\u53d8\u5316\uff0c\u6392\u67e5\u77ed\u65f6\u6c61\u67d3\u7d2f\u79ef\u53ca\u5c40\u5730\u8d21\u732e\u6765\u6e90\u3002",
+            "actual_calls": [],
+            "validation_errors": [],
+            "metrics": {
+              "steps": 2,
+              "prompt_tokens": 12151,
+              "completion_tokens": 2084,
+              "total_tokens": 14235
+            },
+            "success": true,
+            "variables_not_set": false,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\nstart, end, district_id = \"2025-06-01 00:00:00\", \"2025-06-08 00:00:00\", 15\n\n# \u5148\u68c0\u67e5\u76ee\u6807\u65f6\u95f4\u7a97\u5185\u6570\u636e\u91cf\uff0c\u518d\u505a\u805a\u5408\u7edf\u8ba1\ncnt_district = pd.read_sql(text(\"\"\"\nSELECT COUNT(*) AS n\nFROM hourly_district_air_quality\nWHERE district_id=:district_id AND timestamp>=:start AND timestamp<:end AND aqi IS NOT NULL\n\"\"\"), engine, params={\"district_id\": district_id, \"start\": start, \"end\": end}).iloc[0][\"n\"]\n\ncnt_station = pd.read_sql(text(\"\"\"\nSELECT COUNT(*) AS n\nFROM hourly_station_air_quality h\nJOIN air_quality_station s ON h.station_id=s.id\nWHERE s.district_id=:district_id AND h.timestamp>=:start AND h.timestamp<:end AND h.aqi IS NOT NULL\n\"\"\"), engine, params={\"district_id\": district_id, \"start\": start, \"end\": end}).iloc[0][\"n\"]\n\ndistrict_agg = pd.read_sql(text(\"\"\"\nSELECT AVG(aqi)::float AS mean_aqi,\n       MAX(aqi)::float AS max_aqi,\n       SUM(CASE WHEN aqi > 100 THEN 1 ELSE 0 END)::int AS exceedance_hours\nFROM hourly_district_air_quality\nWHERE district_id=:district_id AND timestamp>=:start AND timestamp<:end AND aqi IS NOT NULL\n\"\"\"), engine, params={\"district_id\": district_id, \"start\": start, \"end\": end})\n\nspatial_agg = pd.read_sql(text(\"\"\"\nWITH station_means AS (\n  SELECT h.station_id, AVG(h.aqi)::float AS station_mean_aqi\n  FROM hourly_station_air_quality h\n  JOIN air_quality_station s ON h.station_id=s.id\n  WHERE s.district_id=:district_id AND h.timestamp>=:start AND h.timestamp<:end AND h.aqi IS NOT NULL\n  GROUP BY h.station_id\n)\nSELECT COUNT(*)::int AS n_stations,\n       COALESCE(STDDEV_POP(station_mean_aqi),0)::float AS spatial_std_aqi,\n       MIN(station_mean_aqi)::float AS min_station_mean_aqi,\n       MAX(station_mean_aqi)::float AS max_station_mean_aqi,\n       AVG(station_mean_aqi)::float AS avg_station_mean_aqi\nFROM station_means\n\"\"\"), engine, params={\"district_id\": district_id, \"start\": start, \"end\": end})\n\ndaily_trend = pd.read_sql(text(\"\"\"\nSELECT DATE(timestamp) AS day,\n       AVG(aqi)::float AS daily_mean_aqi,\n       MAX(aqi)::float AS daily_max_aqi,\n       SUM(CASE WHEN aqi > 100 THEN 1 ELSE 0 END)::int AS daily_exceedance_hours,\n       COUNT(*)::int AS valid_hours\nFROM hourly_district_air_quality\nWHERE district_id=:district_id AND timestamp>=:start AND timestamp<:end AND aqi IS NOT NULL\nGROUP BY DATE(timestamp)\nORDER BY day\n\"\"\"), engine, params={\"district_id\": district_id, \"start\": start, \"end\": end})\n\nr = district_agg.iloc[0]\ns = spatial_agg.iloc[0]\nmean_aqi = None if pd.isna(r[\"mean_aqi\"]) else float(r[\"mean_aqi\"])\nmax_aqi = None if pd.isna(r[\"max_aqi\"]) else float(r[\"max_aqi\"])\nexceedance_hours = 0 if pd.isna(r[\"exceedance_hours\"]) else int(r[\"exceedance_hours\"])\nn_stations = 0 if pd.isna(s[\"n_stations\"]) else int(s[\"n_stations\"])\nspatial_std_aqi = None if pd.isna(s[\"spatial_std_aqi\"]) else float(s[\"spatial_std_aqi\"])\n\nprint(f\"\u533a\u53bf\u5c0f\u65f6AQI\u6709\u6548\u8bb0\u5f55\u6570: {int(cnt_district)}\")\nprint(f\"\u7ad9\u70b9\u5c0f\u65f6AQI\u6709\u6548\u8bb0\u5f55\u6570: {int(cnt_station)}\")\nprint(f\"\u5468\u7edf\u8ba1: mean_aqi={mean_aqi:.6f}, max_aqi={max_aqi:.6f}, exceedance_hours={exceedance_hours}\" if mean_aqi is not None else \"\u5468\u7edf\u8ba1: \u65e0\u6709\u6548\u533a\u53bf\u5c0f\u65f6AQI\u6570\u636e\")\nprint(f\"\u7a7a\u95f4\u4e00\u81f4\u6027: n_stations={n_stations}, spatial_std_aqi={spatial_std_aqi:.6f}, station_mean_range=({s['min_station_mean_aqi']:.6f}, {s['max_station_mean_aqi']:.6f}), station_mean_avg={s['avg_station_mean_aqi']:.6f}\" if n_stations else \"\u7a7a\u95f4\u4e00\u81f4\u6027: \u65e0\u6709\u6548\u7ad9\u70b9AQI\u6570\u636e\")\nprint(\"\u65e5\u8d8b\u52bf\u805a\u5408:\")\nprint(daily_trend.to_string(index=False))"
+            ],
+            "runtime_variables": {
+              "mean_aqi": 78.88690476190476,
+              "max_aqi": 147.0,
+              "exceedance_hours": 43,
+              "n_stations": 12,
+              "spatial_std_aqi": 5.770881680968279
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 1,
+      "failed_turns": 0,
+      "total_steps": 2,
+      "success_rate": 1.0,
+      "total_prompt_tokens": 12151,
+      "total_completion_tokens": 2084,
+      "total_tokens": 14235
+    }
+  }
+}

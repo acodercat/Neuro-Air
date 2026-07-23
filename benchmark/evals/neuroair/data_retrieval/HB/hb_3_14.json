@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_3_14",
+    "module": "evals.neuroair.data_retrieval.HB.hb_3_14",
+    "requirements": "As part of your analysis, for station 65 on 2025-07-03 compute and store: mean_pm25, max_pm25, mean_aqi (float), exceedance_hours (PM2.5>75, int), peak_pm25_hour_of_day (0-23, int).",
+    "conversations": [
+      {
+        "id": "hb_3_14",
+        "turns": [
+          {
+            "query": "Help me analyze the multi-variate relationship between OSM geographical features, enterprise emissions, and air quality patterns at coastal Oilfield Employee Hospital station (station_id: 65) on 2025-07-03.",
+            "validator": "validate_hb_3_14"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "data_retrieval",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-3-14",
+      "verbatim": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_31",
+    "module": "evals.neuroair.comparative_assessment.HB.hb_1_31",
+    "requirements": "As part of your analysis, define district emission as the total exhaust_gas over all polluting companies in the district. For 2025-06-15 08:00-18:00 compute and store: total_exhaust_changan (Chang'an District), total_exhaust_jingxing (Jingxing Mining District) (float), higher_emission_district_id (the district_id of the higher-emission district, int), emission_ratio (higher/lower, float).",
+    "conversations": [
+      {
+        "id": "hb_1_31",
+        "turns": [
+          {
+            "query": "Compare the emission levels between Chang'an District and Jingxing Mining District in Shijiazhuang City on 2025-06-15 from 08:00-18:00.",
+            "validator": "validate_hb_1_31"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "comparative_assessment",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-31",
+      "verbatim": true
+    }
+  }
+]

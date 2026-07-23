@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hb_1_41",
+    "module": "evals.neuroair.statistical_characterization.HB.hb_1_41",
+    "requirements": "As part of your analysis, compute and store: total_flue_gas, total_nox, total_so2, total_pm, peak_exhaust (float) and active_hours (int) for company 2446 over the weekend 2025-06-07 to 2025-06-08.",
+    "conversations": [
+      {
+        "id": "hb_1_41",
+        "turns": [
+          {
+            "query": "Monitor weekend unauthorized operations at Hebei Donghai Special Steel (company_id: 2446) during the weekend from 2025-06-07 to 2025-06-08. Analyze Saturday-Sunday emission data to detect illegal production activities during reduced regulatory oversight periods.",
+            "validator": "validate_hb_1_41"
+          }
+        ]
+      }
+    ],
+    "difficulty": "medium",
+    "category": "statistical_characterization",
+    "_source": {
+      "benchmark": "Neuro-Air",
+      "original_query_id": "HB-1-41",
+      "verbatim": true
+    }
+  }
+]

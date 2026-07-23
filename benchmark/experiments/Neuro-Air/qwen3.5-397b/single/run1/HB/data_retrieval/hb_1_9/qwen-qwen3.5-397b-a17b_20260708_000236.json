@@ -1,0 +1,58 @@
+{
+  "hb_1_9": {
+    "scenario": "hb_1_9",
+    "conversations": [
+      {
+        "id": "hb_1_9",
+        "turns": [
+          {
+            "query": "Analyze the pollution situation at air quality station: Construction Building on 2025-06-02.",
+            "actual_response": "\u6570\u636e\u5e93\u4e2d\u4e0d\u5b58\u5728\u540d\u4e3a\"Construction Building\"\u7684\u7ad9\u70b9\u3002\u7ecf\u8fc7\u5168\u9762\u641c\u7d22\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u8868\uff08air_quality_station\uff09\u548c\u626c\u5c18\u7ad9\u70b9\u8868\uff08dust_station\uff09\uff0c\u5747\u672a\u627e\u5230\u8be5\u540d\u79f0\u7684\u7ad9\u70b9\uff0c\u65e0\u8bba\u662f\u7cbe\u786e\u5339\u914d\u8fd8\u662f\u6a21\u7cca\u5339\u914d\uff08\u5305\u542b\"Construction\"\u6216\"Building\"\u5173\u952e\u8bcd\uff09\u3002\n\n\u53ef\u80fd\u7684\u539f\u56e0\uff1a\n1. \u7ad9\u70b9\u540d\u79f0\u53ef\u80fd\u4f7f\u7528\u4e86\u4e2d\u6587\u540d\u79f0\u800c\u975e\u82f1\u6587\n2. \u7ad9\u70b9\u540d\u79f0\u53ef\u80fd\u6709\u62fc\u5199\u5dee\u5f02\n3. \u8be5\u7ad9\u70b9\u53ef\u80fd\u4e0d\u5728\u6570\u636e\u5e93\u4e2d\n\n\u8bf7\u63d0\u4f9b\u6b63\u786e\u7684\u7ad9\u70b9\u540d\u79f0\u6216\u7ad9\u70b9ID\uff0c\u4ee5\u4fbf\u6211\u8fdb\u884c\u540e\u7eed\u5206\u6790\u3002\u5982\u679c\u60a8\u77e5\u9053\u8be5\u7ad9\u70b9\u7684\u4e2d\u6587\u540d\u79f0\u6216\u5176\u4ed6\u6807\u8bc6\u4fe1\u606f\uff0c\u8bf7\u544a\u77e5\u3002",
+            "actual_calls": [],
+            "validation_errors": [
+              "Custom validator failed: mean_pm25 not set"
+            ],
+            "metrics": {
+              "steps": 12,
+              "prompt_tokens": 109393,
+              "completion_tokens": 1992,
+              "total_tokens": 111385
+            },
+            "success": false,
+            "variables_not_set": true,
+            "error": null,
+            "code_snippets": [
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u9996\u5148\u67e5\u627eConstruction Building\u7ad9\u70b9\u7684ID\nquery_station = text(\"\"\"SELECT id, name FROM air_quality_station WHERE name = 'Construction Building'\"\"\")\ndf_station = pd.read_sql(query_station, engine)\nprint(df_station)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u627eConstruction Building\u7ad9\u70b9\u662f\u5426\u5728\u626c\u5c18\u7ad9\u70b9\u8868\u4e2d\nquery_dust_station = text(\"\"\"SELECT id, name, station_code FROM dust_station WHERE name = 'Construction Building'\"\"\")\ndf_dust = pd.read_sql(query_dust_station, engine)\nprint(df_dust)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u6a21\u7cca\u641c\u7d22\u5305\u542bConstruction\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\nquery_station_like = text(\"\"\"SELECT id, name FROM air_quality_station WHERE name LIKE '%Construction%'\"\"\")\ndf_station_like = pd.read_sql(query_station_like, engine)\nprint(df_station_like)\n\n# \u4e5f\u641c\u7d22\u626c\u5c18\u7ad9\u70b9\nquery_dust_like = text(\"\"\"SELECT id, name FROM dust_station WHERE name LIKE '%Construction%'\"\"\")\ndf_dust_like = pd.read_sql(query_dust_like, engine)\nprint(df_dust_like)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u5305\u542bBuilding\u7684\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\nquery_station_building = text(\"\"\"SELECT id, name FROM air_quality_station WHERE name LIKE '%Building%' LIMIT 20\"\"\")\ndf_station_building = pd.read_sql(query_station_building, engine)\nprint(df_station_building)\n\n# \u641c\u7d22\u5305\u542bBuilding\u7684\u626c\u5c18\u7ad9\u70b9\nquery_dust_building = text(\"\"\"SELECT id, name FROM dust_station WHERE name LIKE '%Building%' LIMIT 20\"\"\")\ndf_dust_building = pd.read_sql(query_dust_building, engine)\nprint(df_dust_building)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u67e5\u770b\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u7684\u6240\u6709\u540d\u79f0\nquery_all_stations = text(\"\"\"SELECT id, name FROM air_quality_station LIMIT 50\"\"\")\ndf_all_stations = pd.read_sql(query_all_stations, engine)\nprint(df_all_stations)\n\n# \u67e5\u770b\u626c\u5c18\u7ad9\u70b9\u7684\u6240\u6709\u540d\u79f0\nquery_all_dust = text(\"\"\"SELECT id, name FROM dust_station LIMIT 50\"\"\")\ndf_all_dust = pd.read_sql(query_all_dust, engine)\nprint(df_all_dust)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u626c\u5c18\u7ad9\u70b9\u4e2d\u53ef\u80fd\u5305\u542b\u82f1\u6587\u6216\u7279\u5b9a\u540d\u79f0\u7684\u7ad9\u70b9\nquery_dust_all = text(\"\"\"SELECT id, name FROM dust_station WHERE name LIKE '%Construction%' OR name LIKE '%Building%' OR name LIKE '%construction%' OR name LIKE '%building%' LIMIT 100\"\"\")\ndf_dust_search = pd.read_sql(query_dust_all, engine)\nprint(df_dust_search)\n\n# \u4e5f\u5c1d\u8bd5\u641c\u7d22\u6240\u6709\u626c\u5c18\u7ad9\u70b9\u540d\u79f0\u4e2d\u5305\u542b\u82f1\u6587\u5b57\u6bcd\u7684\nquery_dust_english = text(\"\"\"SELECT id, name FROM dust_station WHERE name ~ '[A-Za-z]' LIMIT 100\"\"\")\ndf_dust_english = pd.read_sql(query_dust_english, engine)\nprint(df_dust_english.head(50))",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u6240\u6709\u626c\u5c18\u7ad9\u70b9\uff0c\u67e5\u627e\u662f\u5426\u6709Construction Building\nquery_all_dust_names = text(\"\"\"SELECT id, name FROM dust_station ORDER BY id LIMIT 200\"\"\")\ndf_all_dust = pd.read_sql(query_all_dust_names, engine)\nprint(df_all_dust[df_all_dust['name'].str.contains('Construction|Building|construction|building', case=False, na=False)])\n\n# \u4e5f\u68c0\u67e5\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u8868\nquery_all_station_names = text(\"\"\"SELECT id, name FROM air_quality_station ORDER BY id LIMIT 200\"\"\")\ndf_all_station = pd.read_sql(query_all_station_names, engine)\nprint(df_all_station[df_all_station['name'].str.contains('Construction|Building|construction|building', case=False, na=False)])",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u5c1d\u8bd5\u4e0d\u533a\u5206\u5927\u5c0f\u5199\u7684\u641c\u7d22\nquery_case_insensitive = text(\"\"\"SELECT id, name FROM dust_station WHERE LOWER(name) = LOWER('Construction Building')\"\"\")\ndf_exact = pd.read_sql(query_case_insensitive, engine)\nprint(\"\u7cbe\u786e\u5339\u914d\u7ed3\u679c:\")\nprint(df_exact)\n\n# \u641c\u7d22\u6240\u6709\u626c\u5c18\u7ad9\u70b9\u540d\u79f0\uff0c\u67e5\u770b\u524d100\u4e2a\nquery_sample = text(\"\"\"SELECT id, name FROM dust_station ORDER BY id LIMIT 100\"\"\")\ndf_sample = pd.read_sql(query_sample, engine)\nprint(\"\\n\u626c\u5c18\u7ad9\u70b9\u6837\u672c:\")\nprint(df_sample)",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u83b7\u53d6\u6240\u6709\u626c\u5c18\u7ad9\u70b9\u540d\u79f0\u5e76\u68c0\u67e5\nquery_all_dust = text(\"\"\"SELECT id, name FROM dust_station\"\"\")\ndf_all_dust = pd.read_sql(query_all_dust, engine)\n\n# \u5728Python\u4e2d\u641c\u7d22\u5305\u542bConstruction\u6216Building\u7684\u540d\u79f0\nmatching = df_all_dust[df_all_dust['name'].str.contains('Construction|Building', case=False, na=False)]\nprint(\"\u5339\u914d\u7684\u626c\u5c18\u7ad9\u70b9:\")\nprint(matching)\n\n# \u5982\u679c\u6ca1\u6709\u627e\u5230\uff0c\u663e\u793a\u6240\u6709\u552f\u4e00\u540d\u79f0\u7684\u524d50\u4e2a\nif len(matching) == 0:\n    print(\"\\n\u672a\u627e\u5230\u5305\u542bConstruction\u6216Building\u7684\u7ad9\u70b9\u3002\u663e\u793a\u524d50\u4e2a\u552f\u4e00\u540d\u79f0:\")\n    print(df_all_dust['name'].unique()[:50])",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u641c\u7d22\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u8868\u4e2d\u6240\u6709\u540d\u79f0\nquery_all_air_stations = text(\"\"\"SELECT id, name FROM air_quality_station\"\"\")\ndf_air_stations = pd.read_sql(query_all_air_stations, engine)\n\n# \u68c0\u67e5\u662f\u5426\u6709\u82f1\u6587\u540d\u79f0\u7684\u7ad9\u70b9\nenglish_names = df_air_stations[df_air_stations['name'].str.contains('[A-Za-z]', na=False)]\nprint(\"\u7a7a\u6c14\u8d28\u91cf\u7ad9\u70b9\u4e2d\u5305\u542b\u82f1\u6587\u5b57\u6bcd\u7684\u540d\u79f0:\")\nprint(english_names)\n\n# \u4e5f\u68c0\u67e5\u626c\u5c18\u7ad9\u70b9\nquery_all_dust_stations = text(\"\"\"SELECT id, name FROM dust_station\"\"\")\ndf_dust_stations = pd.read_sql(query_all_dust_stations, engine)\n\nenglish_dust_names = df_dust_stations[df_dust_stations['name'].str.contains('[A-Za-z]', na=False)]\nprint(\"\\n\u626c\u5c18\u7ad9\u70b9\u4e2d\u5305\u542b\u82f1\u6587\u5b57\u6bcd\u7684\u540d\u79f0:\")\nprint(english_dust_names.head(50))",
+              "import pandas as pd\nfrom sqlalchemy import text\n\n# \u76f4\u63a5\u641c\u7d22\u786e\u5207\u7684\"Construction Building\"\u540d\u79f0\uff0c\u4e0d\u533a\u5206\u5927\u5c0f\u5199\nquery_exact = text(\"\"\"SELECT id, name, 'air_quality_station' as table_name FROM air_quality_station WHERE name ILIKE 'Construction Building'\n                      UNION ALL\n                      SELECT id, name, 'dust_station' as table_name FROM dust_station WHERE name ILIKE 'Construction Building'\"\"\")\ndf_exact = pd.read_sql(query_exact, engine)\nprint(\"\u7cbe\u786e\u5339\u914d\u7ed3\u679c:\")\nprint(df_exact)\n\n# \u641c\u7d22\u6240\u6709\u5305\u542b\"Construction\"\u6216\"Building\"\u7684\u7ad9\u70b9\uff08\u4e0d\u533a\u5206\u5927\u5c0f\u5199\uff09\nquery_like = text(\"\"\"SELECT id, name, 'air_quality_station' as table_name FROM air_quality_station WHERE name ILIKE '%Construction%' OR name ILIKE '%Building%'\n                     UNION ALL\n                     SELECT id, name, 'dust_station' as table_name FROM dust_station WHERE name ILIKE '%Construction%' OR name ILIKE '%Building%'\"\"\")\ndf_like = pd.read_sql(query_like, engine)\nprint(\"\\n\u6a21\u7cca\u5339\u914d\u7ed3\u679c:\")\nprint(df_like)"
+            ],
+            "runtime_variables": {
+              "mean_pm25": null,
+              "max_pm25": null,
+              "mean_aqi": null,
+              "exceedance_hours": null
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "total_turns": 1,
+      "successful_turns": 0,
+      "failed_turns": 1,
+      "total_steps": 12,
+      "success_rate": 0.0,
+      "total_prompt_tokens": 109393,
+      "total_completion_tokens": 1992,
+      "total_tokens": 111385
+    }
+  }
+}
