@@ -1,5 +1,8 @@
 # Neuro-Air
 
+[![DOI](https://zenodo.org/badge/1309475439.svg)](https://zenodo.org/badge/latestdoi/1309475439)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 **Multi-agent AI for End-to-End Air Quality Analysis and Decision Support**
 
 Neuro-Air is a hierarchical multi-agent LLM framework for urban air-quality
