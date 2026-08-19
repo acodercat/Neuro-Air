@@ -1,0 +1,41 @@
+{
+  "title": "Neuro-Air: Multi-agent AI for End-to-End Air Quality Analysis and Decision Support (code and benchmark)",
+  "description": "Code and benchmark accompanying the manuscript \"Multi-agent AI for End-to-End Air Quality Analysis and Decision Support\". The archive contains the 90-task programmatically verified (PV) benchmark (task definitions and frozen validators), the deterministic scoring and objective process-metrics pipeline, the LLM-judge evaluation pipeline, and the agent and prompt configurations. Hong Kong environmental data are available from the cited public sources; the raw Hebei environmental records are proprietary and available from the Department of Ecology and Environment of Hebei Province under restricted access, as described in the manuscript's Data Availability statement. Database and API credentials are not included; see config/constants example files for the required configuration.",
+  "creators": [
+    {
+      "name": "Ma, Chendong",
+      "affiliation": "Department of Geography, Hong Kong Baptist University"
+    },
+    {
+      "name": "Ran, Maohao",
+      "affiliation": "Department of Geography, Hong Kong Baptist University"
+    },
+    {
+      "name": "Song, Jun",
+      "affiliation": "Department of Geography, Hong Kong Baptist University"
+    },
+    {
+      "name": "Gao, Meng",
+      "affiliation": "Department of Geography, Hong Kong Baptist University"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "large language models",
+    "multi-agent systems",
+    "air quality",
+    "environmental decision support",
+    "programmatic verification",
+    "benchmark",
+    "urban air pollution"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/acodercat/Neuro-Air",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
