@@ -1,6 +1,6 @@
 # Neuro-Air
 
-[![DOI](https://zenodo.org/badge/1309475439.svg)](https://doi.org/10.5281/zenodo.22007526)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22007526-blue.svg)](https://doi.org/10.5281/zenodo.22007526)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **Multi-agent AI for End-to-End Air Quality Analysis and Decision Support**
